@@ -1,41 +1,51 @@
 ﻿using DataLayer.Model;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DataLayer.Repository
 {
     public class FileRepository : IRepository
     {
-        private readonly string teamsFilePathMen = "..//JSONFiles/men/teams.json";
-        private readonly string matchesFilePathMen = "..//JSONFiles/men/matches.json";
-        private readonly string groupResultFilePathMen = "..//JSONFiles/men/group_result.json";
-        private readonly string resultsFilePathMen = "..//JSONFiles/men/results.json";
+        private const string JSON_FILES_PATH = "..//..//..//..//DataLayer//JSONFiles";
+        private static readonly string TEAMS_FILE_PATH_MEN = Path.Combine(JSON_FILES_PATH, "men", "teams.json");
+        private static readonly string MATCHES_FILE_PATH_MEN = Path.Combine(JSON_FILES_PATH, "men", "matches.json");
+        private static readonly string GROUP_RESULT_FILE_PATH_MEN = Path.Combine(JSON_FILES_PATH, "men", "group_result.json");
+        private static readonly string RESULTS_FILE_PATH_MEN = Path.Combine(JSON_FILES_PATH, "men", "results.json");
 
-        private readonly string teamsFilePathWomen = "..//JSONFiles/women/teams.json";
-        private readonly string matchesFilePathWomen = "..//JSONFiles/women/matches.json";
-        private readonly string groupResultFilePathWomen = "..//JSONFiles/women/group_result.json";
-        private readonly string resultsFilePathWomen = "..//JSONFiles/women/results.json";
+        private static readonly string TEAMS_FILE_PATH_WOMEN = Path.Combine(JSON_FILES_PATH, "women", "teams.json");
+        private static readonly string MATCHES_FILE_PATH_WOMEN = Path.Combine(JSON_FILES_PATH, "women", "matches.json");
+        private static readonly string GROUP_RESULT_FILE_PATH_WOMEN = Path.Combine(JSON_FILES_PATH, "women", "group_result.json");
+        private static readonly string RESULTS_FILE_PATH_WOMEN = Path.Combine(JSON_FILES_PATH, "women", "results.json");
+
+
 
 
         public FileRepository()
         {
-           
+          
+
+            if (File.Exists(TEAMS_FILE_PATH_MEN))
+            {
+                Console.WriteLine("radi");
+            }
+            else
+            {
+                Console.WriteLine("neradi");
+            }
         }
+
+
 
         public Team GetTeam(int id, bool isWomen)
         {
-            string filePath = isWomen ? teamsFilePathWomen : teamsFilePathMen;
+            string filePath = isWomen ? TEAMS_FILE_PATH_WOMEN : TEAMS_FILE_PATH_MEN;
             var teams = GetTeamsFromJsonFile(filePath);
             return teams.FirstOrDefault(t => t.Id == id);
         }
 
         public List<Team> GetTeams(bool isWomen)
         {
-            string filePath = isWomen ? teamsFilePathWomen : teamsFilePathMen;
+            string filePath = isWomen ? TEAMS_FILE_PATH_WOMEN : TEAMS_FILE_PATH_MEN; 
             return GetTeamsFromJsonFile(filePath);
         }
 

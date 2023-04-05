@@ -43,7 +43,7 @@ namespace DataLayer.Model
             }
         }
 
-
+        public IDictionary<long, Team> GetTeamDictionary() => teamsDictionary;
 
     }
 }

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "I8hAXjGlkiJ7q4/eZq/QR42rFdh8NpFbmR6wXrGnSWwAcbcJ7bOlNNZTXJZ6hrKPLC+yPnZCEgkgY3qlIPlh8A==",
+  "dgSpecHash": "rFPcdQqHAYgPeid2fe4TMpby9Xw0Ii1/GNWtGSg2eqEi8GubCxB9TSIn57SIkzcn4THG9+0gBdbUjlzr2mNWWQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Novi\\WorldOfFoodball\\WorldOfFoodbal\\WorldOfFoodbal.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\38598\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
