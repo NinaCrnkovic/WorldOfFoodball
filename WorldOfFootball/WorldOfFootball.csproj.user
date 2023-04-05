@@ -4,5 +4,11 @@
     <Compile Update="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="UserControls\FavoriteTeam.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\LanguageAndChampionship.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
