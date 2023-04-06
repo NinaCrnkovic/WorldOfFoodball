@@ -26,5 +26,12 @@ namespace DataLayer.Model
 
         [JsonProperty("group_letter")]
         public string GroupLetter { get; set; }
+
+       
+
+
+
     }
+
+    
 }

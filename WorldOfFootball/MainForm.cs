@@ -11,9 +11,10 @@ namespace WorldOfFootball
         {
             CallTitleForm();
             InitializeComponent();
-
+            _dataManager.LoadTeamsToDictionary(false);
 
         }
+
 
         private void CallTitleForm()
         {
@@ -45,20 +46,30 @@ namespace WorldOfFootball
         {
 
 
+            FillTeamsListBox(false);
 
 
+            //IDictionary<long, Team> teams = _dataManager.GetTeamDictionary();
+
+            //foreach (var team in teams.Values)
+            //{
+            //    lbTeams.Items.Add(team.Country); // Dodajte vrijednost u list box
+            //}
+        }
+
+        private async void FillTeamsListBox(bool isWomen)
+        {
+            var teams =  _dataManager.GetTeamDictionary().Values.ToList();
 
 
-            _dataManager.LoadTeamsToDictionary(false);
+            lbTeams.Items.Clear();
 
-
-            IDictionary<long, Team> teams = _dataManager.GetTeamDictionary();
-            foreach (var team in teams.Values)
+            foreach (var team in teams)
             {
-                lbTeams.Items.Add(team.Country); // Dodajte vrijednost u list box
+                lbTeams.Items.Add($"{ team.Country} ({team.FifaCode})");
             }
         }
 
-      
+
     }
 }

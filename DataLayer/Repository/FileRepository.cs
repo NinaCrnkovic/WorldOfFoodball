@@ -1,7 +1,6 @@
 ﻿using DataLayer.Model;
 using Newtonsoft.Json;
 
-
 namespace DataLayer.Repository
 {
     public class FileRepository : IRepository
@@ -33,19 +32,11 @@ namespace DataLayer.Repository
                 Console.WriteLine("neradi");
             }
         }
+       
 
-
-
-        public Team GetTeam(int id, bool isWomen)
+        public async Task<List<Team>> GetTeams(bool isWomen)
         {
             string filePath = isWomen ? TEAMS_FILE_PATH_WOMEN : TEAMS_FILE_PATH_MEN;
-            var teams = GetTeamsFromJsonFile(filePath);
-            return teams.FirstOrDefault(t => t.Id == id);
-        }
-
-        public List<Team> GetTeams(bool isWomen)
-        {
-            string filePath = isWomen ? TEAMS_FILE_PATH_WOMEN : TEAMS_FILE_PATH_MEN; 
             return GetTeamsFromJsonFile(filePath);
         }
 
@@ -53,6 +44,12 @@ namespace DataLayer.Repository
         {
             var json = File.ReadAllText(filePath);
             return JsonConvert.DeserializeObject<List<Team>>(json);
+        }
+
+        public async Task<Team> GetTeam(int id, bool isWomen)
+        {
+            var teams = await GetTeams(isWomen);
+            return teams.FirstOrDefault(t => t.Id == id);
         }
     }
 

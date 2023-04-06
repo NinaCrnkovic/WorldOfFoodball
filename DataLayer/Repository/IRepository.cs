@@ -5,7 +5,7 @@ namespace DataLayer.Repository
 {
     public interface IRepository
     {
-        Team GetTeam(int id, bool isWomen);
-        List<Team> GetTeams(bool isWomen);
+        Task<Team> GetTeam(int id, bool isWomen);
+        Task<List<Team>> GetTeams(bool isWomen);
     }
 }

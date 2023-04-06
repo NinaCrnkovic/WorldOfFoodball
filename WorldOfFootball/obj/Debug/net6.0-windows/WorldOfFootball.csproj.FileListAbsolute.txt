@@ -23,3 +23,7 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoo
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoriteTeam.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.LanguageAndChampionship.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.TitleForm.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\bin\Debug\net6.0-windows\RestSharp.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\bin\Debug\net6.0-windows\System.Text.Encodings.Web.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\bin\Debug\net6.0-windows\System.Text.Json.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\bin\Debug\net6.0-windows\runtimes\browser\lib\net6.0\System.Text.Encodings.Web.dll
