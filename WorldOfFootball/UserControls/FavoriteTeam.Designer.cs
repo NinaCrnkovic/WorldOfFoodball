@@ -35,7 +35,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(454, 135);
+            this.comboBox1.Location = new System.Drawing.Point(554, 135);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(475, 28);
             this.comboBox1.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(454, 96);
+            this.label1.Location = new System.Drawing.Point(554, 96);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(475, 33);
             this.label1.TabIndex = 1;
@@ -61,7 +61,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "FavoriteTeam";
-            this.Size = new System.Drawing.Size(1382, 628);
+            this.Size = new System.Drawing.Size(1582, 828);
             this.ResumeLayout(false);
 
         }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbCroatian = new System.Windows.Forms.RadioButton();
             this.rbEnglish = new System.Windows.Forms.RadioButton();
+            this.rbCroatian = new System.Windows.Forms.RadioButton();
             this.gbChampionship = new System.Windows.Forms.GroupBox();
             this.rbMens = new System.Windows.Forms.RadioButton();
             this.rbWomens = new System.Windows.Forms.RadioButton();
@@ -44,23 +44,12 @@
             this.groupBox1.Controls.Add(this.rbCroatian);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox1.Location = new System.Drawing.Point(407, 90);
+            this.groupBox1.Location = new System.Drawing.Point(507, 90);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(569, 125);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Izaberite jezik";
-            // 
-            // rbCroatian
-            // 
-            this.rbCroatian.AutoSize = true;
-            this.rbCroatian.Location = new System.Drawing.Point(96, 57);
-            this.rbCroatian.Name = "rbCroatian";
-            this.rbCroatian.Size = new System.Drawing.Size(113, 32);
-            this.rbCroatian.TabIndex = 0;
-            this.rbCroatian.TabStop = true;
-            this.rbCroatian.Text = "Hrvatski";
-            this.rbCroatian.UseVisualStyleBackColor = true;
             // 
             // rbEnglish
             // 
@@ -73,13 +62,24 @@
             this.rbEnglish.Text = "Engleski";
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
+            // rbCroatian
+            // 
+            this.rbCroatian.AutoSize = true;
+            this.rbCroatian.Location = new System.Drawing.Point(96, 57);
+            this.rbCroatian.Name = "rbCroatian";
+            this.rbCroatian.Size = new System.Drawing.Size(113, 32);
+            this.rbCroatian.TabIndex = 0;
+            this.rbCroatian.TabStop = true;
+            this.rbCroatian.Text = "Hrvatski";
+            this.rbCroatian.UseVisualStyleBackColor = true;
+            // 
             // gbChampionship
             // 
             this.gbChampionship.Controls.Add(this.rbMens);
             this.gbChampionship.Controls.Add(this.rbWomens);
             this.gbChampionship.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.gbChampionship.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.gbChampionship.Location = new System.Drawing.Point(407, 268);
+            this.gbChampionship.Location = new System.Drawing.Point(507, 268);
             this.gbChampionship.Name = "gbChampionship";
             this.gbChampionship.Size = new System.Drawing.Size(569, 125);
             this.gbChampionship.TabIndex = 2;
@@ -119,7 +119,7 @@
             this.Controls.Add(this.groupBox1);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Name = "LanguageAndChampionship";
-            this.Size = new System.Drawing.Size(1382, 628);
+            this.Size = new System.Drawing.Size(1582, 828);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbChampionship.ResumeLayout(false);
