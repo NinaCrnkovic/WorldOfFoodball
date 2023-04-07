@@ -1,4 +1,5 @@
 ﻿using DataLayer.Repository;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,49 +10,33 @@ namespace DataLayer.Model
 {
     public class DataManager
     {
-        private IRepository repo = RepoFactory.GetRepo();
+        private string configJson;
+        private RepositoryConfig config;
+        private IRepository repo;
         private List<Team> teams;
+        private const string CONFIG_FILE = "..//..//..//..//DataLayer//ConfigurationFiles//repository_config.json";
+
         public DataManager()
         {
+            try
+            {
+                GetConfigurationFile();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error reading configuration file");
+            }
+           
             teams = new List<Team>();
-
         }
-       
 
-        //public void LoadTeamsToDictionary(bool isWoomenSend)
-        //{
-        //    bool isWomen = isWoomenSend;
-        //    try
-        //    {
-        //        IList<Team> teams = repo.GetTeams(isWomen);
-        //        FillTeamsDictionary(teams);
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        throw new Exception(e.Message);
-        //    }
-        //}
-
-
-
-        ////metoda za punjenje dicitonaria iz liste
-        //private void FillTeamsDictionary(IList<Team> teams)
-        //{
-        //    foreach (var item in teams)
-        //    {
-        //        try
-        //        {
-        //            teamsDictionary.Add(item.Id, item);
-
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            throw new Exception(e.Message);
-        //        }
-        //    }
-        //}
-
-
+        private void GetConfigurationFile()
+        {
+            configJson = File.ReadAllText(CONFIG_FILE);
+            config = JsonConvert.DeserializeObject<RepositoryConfig>(configJson);
+            repo = RepoFactory.GetRepo(config);
+        }
 
         public List<Team> GetTeamsList() => teams;
 
@@ -70,26 +55,6 @@ namespace DataLayer.Model
             }
         }
 
-        ////metoda za punjenje dicitonaria iz liste
-        //private async void FillTeamsDictionary(List<Team> teams)
-        //{
-        //    foreach (var item in teams)
-        //    {
-        //        try
-        //        {
-        //            teamsDictionary.Add(item.Id, item);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            throw new Exception(e.Message);
-        //        }
-        //    }
-        //}
-
-        //public async Task<Team> GetTeam(int id, bool isWomen)
-        //{
-        //    return await repo.GetTeams(id, isWomen);
-        //}
 
         
 

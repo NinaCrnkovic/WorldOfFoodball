@@ -1,9 +1,27 @@
 ﻿
 
+using DataLayer.Model;
+
 namespace DataLayer.Repository
 {
     public static class RepoFactory
     {
-        public static IRepository GetRepo() => new ApiRepository();
+        public static IRepository GetRepo(RepositoryConfig config)
+        {
+            if (config.UseApiRepository)
+            {
+                return new ApiRepository();
+            }
+            else if (config.UseFileRepository)
+            {
+                return new FileRepository();
+            }
+            else
+            {
+                // Obrada grešaka ako ništa nije konfigurirano.
+                throw new Exception("No repository specified in configuration.");
+            }
+        }
+
     }
 }
