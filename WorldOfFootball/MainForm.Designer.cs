@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnSettings = new System.Windows.Forms.Button();
-            this.lbTeams = new System.Windows.Forms.ListBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
@@ -42,7 +41,6 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
             this.pnlHeader.Controls.Add(this.btnSettings);
-            this.pnlHeader.Controls.Add(this.lbTeams);
             this.pnlHeader.Controls.Add(this.pictureBox1);
             resources.ApplyResources(this.pnlHeader, "pnlHeader");
             this.pnlHeader.Name = "pnlHeader";
@@ -53,12 +51,6 @@
             this.btnSettings.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.UseVisualStyleBackColor = true;
-            // 
-            // lbTeams
-            // 
-            this.lbTeams.FormattingEnabled = true;
-            resources.ApplyResources(this.lbTeams, "lbTeams");
-            this.lbTeams.Name = "lbTeams";
             // 
             // pictureBox1
             // 
@@ -91,7 +83,6 @@
 
         private Panel pnlHeader;
         private PictureBox pictureBox1;
-        private ListBox lbTeams;
         private Panel pnlContainer;
         private Button btnSettings;
     }

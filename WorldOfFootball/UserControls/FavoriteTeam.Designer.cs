@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbTeams = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnNextLangAndChamp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cbTeams
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(554, 135);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(475, 28);
-            this.comboBox1.TabIndex = 0;
+            this.cbTeams.FormattingEnabled = true;
+            this.cbTeams.Location = new System.Drawing.Point(554, 135);
+            this.cbTeams.Name = "cbTeams";
+            this.cbTeams.Size = new System.Drawing.Size(475, 28);
+            this.cbTeams.TabIndex = 0;
             // 
             // label1
             // 
@@ -74,7 +74,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.btnNextLangAndChamp);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbTeams);
             this.Name = "FavoriteTeam";
             this.Size = new System.Drawing.Size(1582, 828);
             this.ResumeLayout(false);
@@ -83,7 +83,7 @@
 
         #endregion
 
-        private ComboBox comboBox1;
+        private ComboBox cbTeams;
         private Label label1;
         private Button btnNextLangAndChamp;
     }
