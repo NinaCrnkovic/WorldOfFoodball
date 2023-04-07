@@ -13,6 +13,14 @@
         },
         "runtime": {
           "WorldOfFootball.dll": {}
+        },
+        "resources": {
+          "en/WorldOfFootball.resources.dll": {
+            "locale": "en"
+          },
+          "hr/WorldOfFootball.resources.dll": {
+            "locale": "hr"
+          }
         }
       },
       "Newtonsoft.Json/13.0.3": {

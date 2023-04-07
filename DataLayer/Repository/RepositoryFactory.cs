@@ -6,7 +6,7 @@ namespace DataLayer.Repository
 {
     public static class RepoFactory
     {
-        public static IRepository GetRepo(RepositoryConfig config)
+        public static IRepository GetRepo(Configuration config)
         {
             if (config.UseApiRepository)
             {
@@ -22,6 +22,7 @@ namespace DataLayer.Repository
                 throw new Exception("No repository specified in configuration.");
             }
         }
+        public static IConfigRepository GetConfigRepo() => new ConfigurationRepository();
 
     }
 }

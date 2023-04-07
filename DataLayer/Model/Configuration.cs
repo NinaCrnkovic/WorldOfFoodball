@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Model
 {
-    public class RepositoryConfig
+    public class Configuration
     {
         public bool UseApiRepository { get; set; }
         public bool UseFileRepository { get; set; }

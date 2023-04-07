@@ -29,31 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LanguageAndChampionship));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbLanguage = new System.Windows.Forms.GroupBox();
             this.rbEnglish = new System.Windows.Forms.RadioButton();
             this.rbCroatian = new System.Windows.Forms.RadioButton();
             this.gbChampionship = new System.Windows.Forms.GroupBox();
             this.rbMens = new System.Windows.Forms.RadioButton();
             this.rbWomens = new System.Windows.Forms.RadioButton();
             this.btnNextLangAndChamp = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            this.gbLanguage.SuspendLayout();
             this.gbChampionship.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // gbLanguage
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.rbEnglish);
-            this.groupBox1.Controls.Add(this.rbCroatian);
-            this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
+            resources.ApplyResources(this.gbLanguage, "gbLanguage");
+            this.gbLanguage.Controls.Add(this.rbEnglish);
+            this.gbLanguage.Controls.Add(this.rbCroatian);
+            this.gbLanguage.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.gbLanguage.Name = "gbLanguage";
+            this.gbLanguage.TabStop = false;
             // 
             // rbEnglish
             // 
             resources.ApplyResources(this.rbEnglish, "rbEnglish");
             this.rbEnglish.Name = "rbEnglish";
             this.rbEnglish.TabStop = true;
+            this.rbEnglish.Tag = "English";
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
             // rbCroatian
@@ -61,6 +62,7 @@
             resources.ApplyResources(this.rbCroatian, "rbCroatian");
             this.rbCroatian.Name = "rbCroatian";
             this.rbCroatian.TabStop = true;
+            this.rbCroatian.Tag = "Croatian";
             this.rbCroatian.UseVisualStyleBackColor = true;
             // 
             // gbChampionship
@@ -77,6 +79,7 @@
             resources.ApplyResources(this.rbMens, "rbMens");
             this.rbMens.Name = "rbMens";
             this.rbMens.TabStop = true;
+            this.rbMens.Tag = "Mens";
             this.rbMens.UseVisualStyleBackColor = true;
             // 
             // rbWomens
@@ -84,6 +87,7 @@
             resources.ApplyResources(this.rbWomens, "rbWomens");
             this.rbWomens.Name = "rbWomens";
             this.rbWomens.TabStop = true;
+            this.rbWomens.Tag = "Womens";
             this.rbWomens.UseVisualStyleBackColor = true;
             // 
             // btnNextLangAndChamp
@@ -102,11 +106,11 @@
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.Controls.Add(this.btnNextLangAndChamp);
             this.Controls.Add(this.gbChampionship);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbLanguage);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Name = "LanguageAndChampionship";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbLanguage.ResumeLayout(false);
+            this.gbLanguage.PerformLayout();
             this.gbChampionship.ResumeLayout(false);
             this.gbChampionship.PerformLayout();
             this.ResumeLayout(false);
@@ -115,7 +119,7 @@
 
         #endregion
 
-        private GroupBox groupBox1;
+        private GroupBox gbLanguage;
         private RadioButton rbEnglish;
         private RadioButton rbCroatian;
         private GroupBox gbChampionship;

@@ -67,14 +67,27 @@
   <data name="rbCroatian.Text" xml:space="preserve">
     <value>Croatian</value>
   </data>
-  <data name="groupBox1.Text" xml:space="preserve">
+  <data name="gbLanguage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt, style=Bold</value>
+  </data>
+  <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>507, 90</value>
+  </data>
+  <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>569, 125</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="gbLanguage.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="gbLanguage.Text" xml:space="preserve">
     <value>Choose a language</value>
   </data>
   <data name="rbMens.Size" type="System.Drawing.Size, System.Drawing">
     <value>84, 32</value>
   </data>
   <data name="rbMens.Text" xml:space="preserve">
-    <value>Mans</value>
+    <value>Mens</value>
   </data>
   <data name="rbWomens.Size" type="System.Drawing.Size, System.Drawing">
     <value>114, 32</value>

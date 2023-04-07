@@ -10,17 +10,18 @@ namespace DataLayer.Model
 {
     public class DataManager
     {
-        private string configJson;
-        private RepositoryConfig config;
+     
+        private Configuration config;
         private IRepository repo;
+        private IConfigRepository configRepo = RepoFactory.GetConfigRepo();
         private List<Team> teams;
-        private const string CONFIG_FILE = "..//..//..//..//DataLayer//ConfigurationFiles//repository_config.json";
+ 
 
         public DataManager()
         {
             try
             {
-                GetConfigurationFile();
+                SetConfigForRepo();
             }
             catch (Exception)
             {
@@ -31,11 +32,15 @@ namespace DataLayer.Model
             teams = new List<Team>();
         }
 
-        private void GetConfigurationFile()
+        private void SetConfigForRepo()
         {
-            configJson = File.ReadAllText(CONFIG_FILE);
-            config = JsonConvert.DeserializeObject<RepositoryConfig>(configJson);
-            repo = RepoFactory.GetRepo(config);
+           config = configRepo.GetConfigurationFile();
+           repo = RepoFactory.GetRepo(config);
+        }
+
+        public void SaveInitialSettingsToRepo(InitialWoFSettings settings)
+        {
+            configRepo.SaveInitialSettings(settings);
         }
 
         public List<Team> GetTeamsList() => teams;

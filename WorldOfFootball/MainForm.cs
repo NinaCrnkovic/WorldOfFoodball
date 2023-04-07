@@ -1,4 +1,6 @@
 using DataLayer.Model;
+using Newtonsoft.Json;
+using WorldOfFootball.EventsAndArgs;
 using WorldOfFootball.UserControls;
 
 namespace WorldOfFootball
@@ -8,6 +10,7 @@ namespace WorldOfFootball
         private DataManager _dataManager = new DataManager();
         private TitleForm titleForm;
         private LanguageAndChampionship languageAndChampionshipForm;
+        private FavoriteTeam favoriteTeamForm;
         private List<Team> teamList;
         public MainForm()
         {
@@ -50,10 +53,37 @@ namespace WorldOfFootball
 
             await _dataManager.LoadTeams(false);
             FillTeamsListBox(false);
+            CallLanguageAndChampionshipForm();
+
+        }
+
+        private void CallLanguageAndChampionshipForm()
+        {
             languageAndChampionshipForm = new LanguageAndChampionship();
+            languageAndChampionshipForm.LangAndChamp += BtnNextLangAndChamp_Click;
             pnlContainer.Controls.Add(languageAndChampionshipForm);
+        }
+
+        private void BtnNextLangAndChamp_Click(object sender, LanguageAndChampionshipEventArgs e)
+        {
+            // Spremi odabrani jezik i prvenstvo u RepositoryConfig objekt
+            var settings = new InitialWoFSettings
+            {
+                Language = e.Language,
+                Championship = e.Championship
+            };
+            _dataManager.SaveInitialSettingsToRepo(settings);
+        
+            CallFavoriteTeamForm();
+            languageAndChampionshipForm.Dispose();
 
 
+        }
+
+        private void CallFavoriteTeamForm()
+        {
+            favoriteTeamForm = new FavoriteTeam();
+            pnlContainer.Controls.Add(favoriteTeamForm);
         }
 
         private  void FillTeamsListBox(bool isWomen)
