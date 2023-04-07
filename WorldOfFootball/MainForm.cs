@@ -11,7 +11,7 @@ namespace WorldOfFootball
         {
             CallTitleForm();
             InitializeComponent();
-            _dataManager.LoadTeamsToDictionary(false);
+           
 
         }
 
@@ -42,10 +42,10 @@ namespace WorldOfFootball
         }
 
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
 
-
+            await _dataManager.LoadTeams(false);
             FillTeamsListBox(false);
 
 
@@ -57,9 +57,9 @@ namespace WorldOfFootball
             //}
         }
 
-        private async void FillTeamsListBox(bool isWomen)
+        private  void FillTeamsListBox(bool isWomen)
         {
-            var teams =  _dataManager.GetTeamDictionary().Values.ToList();
+            var teams =  _dataManager.GetTeamsList();
 
 
             lbTeams.Items.Clear();

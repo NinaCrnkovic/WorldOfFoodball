@@ -10,7 +10,13 @@ namespace DataLayer.Model
     public class DataManager
     {
         private IRepository repo = RepoFactory.GetRepo();
-        IDictionary<long, Team> teamsDictionary = new Dictionary<long, Team>();
+        private List<Team> teams;
+        public DataManager()
+        {
+            teams = new List<Team>();
+
+        }
+       
 
         //public void LoadTeamsToDictionary(bool isWoomenSend)
         //{
@@ -47,16 +53,16 @@ namespace DataLayer.Model
 
 
 
-        public IDictionary<long, Team> GetTeamDictionary() => teamsDictionary;
+        public List<Team> GetTeamsList() => teams;
 
 
-        public async Task LoadTeamsToDictionary(bool isWoomenSend)
+        public async Task LoadTeams(bool isWomen)
         {
-            bool isWomen = isWoomenSend;
+           
             try
             {
-                List<Team> teams = await repo.GetTeams(isWomen);
-                FillTeamsDictionary(teams);
+                teams = await repo.GetTeams(isWomen);
+            
             }
             catch (Exception e)
             {
@@ -64,21 +70,21 @@ namespace DataLayer.Model
             }
         }
 
-        //metoda za punjenje dicitonaria iz liste
-        private async void FillTeamsDictionary(List<Team> teams)
-        {
-            foreach (var item in teams)
-            {
-                try
-                {
-                    teamsDictionary.Add(item.Id, item);
-                }
-                catch (Exception e)
-                {
-                    throw new Exception(e.Message);
-                }
-            }
-        }
+        ////metoda za punjenje dicitonaria iz liste
+        //private async void FillTeamsDictionary(List<Team> teams)
+        //{
+        //    foreach (var item in teams)
+        //    {
+        //        try
+        //        {
+        //            teamsDictionary.Add(item.Id, item);
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            throw new Exception(e.Message);
+        //        }
+        //    }
+        //}
 
         //public async Task<Team> GetTeam(int id, bool isWomen)
         //{
@@ -88,19 +94,6 @@ namespace DataLayer.Model
         
 
        
-
-        public class TeamsApiResponse
-        {
-            public List<Team> Teams { get; set; }
-        }
-
-
-
-
-
-
-
-
 
 
     }

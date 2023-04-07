@@ -21,36 +21,89 @@ namespace DataLayer.Repository
 
         public FileRepository()
         {
-          
 
-            if (File.Exists(TEAMS_FILE_PATH_MEN))
-            {
-                Console.WriteLine("radi");
-            }
-            else
-            {
-                Console.WriteLine("neradi");
-            }
+            DownloadFilesIfNotExist().Wait();
         }
-       
 
-        public async Task<List<Team>> GetTeams(bool isWomen)
+        public async Task DownloadFilesIfNotExist()
+        {
+            await Task.Run(() =>
+            {
+                if (!File.Exists(TEAMS_FILE_PATH_MEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/matches/country?fifa_code=ALL&year=2018", "JSONFiles/men/teams.json").Wait();
+                }
+
+                if (!File.Exists(MATCHES_FILE_PATH_MEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/matches?year=2018", "JSONFiles/men/matches.json").Wait();
+                }
+
+                if (!File.Exists(GROUP_RESULT_FILE_PATH_MEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/teams/group_results", "JSONFiles/men/group_result.json").Wait();
+                }
+
+                if (!File.Exists(RESULTS_FILE_PATH_MEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/matches/results", "JSONFiles/men/results.json").Wait();
+                }
+
+                if (!File.Exists(TEAMS_FILE_PATH_WOMEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/matches/country?fifa_code=ALL&year=2019&fifa_code=ALL", "JSONFiles/women/teams.json").Wait();
+                }
+
+                if (!File.Exists(MATCHES_FILE_PATH_WOMEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/matches?year=2019&fifa_code=ALL", "JSONFiles/women/matches.json").Wait();
+                }
+
+                if (!File.Exists(GROUP_RESULT_FILE_PATH_WOMEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/teams/group_results?year=2019&fifa_code=ALL", "JSONFiles/women/group_result.json").Wait();
+                }
+
+                if (!File.Exists(RESULTS_FILE_PATH_WOMEN))
+                {
+                    DownloadFile("https://worldcup.sfg.io/matches/results?year=2019&fifa_code=ALL", "JSONFiles/women/results.json").Wait();
+                }
+            });
+        }
+
+        private async Task DownloadFile(string url, string filePath)
+        {
+            using (var client = new HttpClient())
+            {
+                using (var response = await client.GetAsync(url))
+                {
+                    if (response.IsSuccessStatusCode)
+                    {
+                        using (var fileStream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await response.Content.CopyToAsync(fileStream);
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception($"Failed to download file from {url}. Response status code: {response.StatusCode}.");
+                    }
+                }
+
+            }   
+        }
+
+        public Task<List<Team>> GetTeams(bool isWomen)
         {
             string filePath = isWomen ? TEAMS_FILE_PATH_WOMEN : TEAMS_FILE_PATH_MEN;
-            return GetTeamsFromJsonFile(filePath);
-        }
-
-        private List<Team> GetTeamsFromJsonFile(string filePath)
-        {
             var json = File.ReadAllText(filePath);
-            return JsonConvert.DeserializeObject<List<Team>>(json);
+            var teams = JsonConvert.DeserializeObject<List<Team>>(json);
+            return Task.FromResult(teams);
         }
 
-        public async Task<Team> GetTeam(int id, bool isWomen)
-        {
-            var teams = await GetTeams(isWomen);
-            return teams.FirstOrDefault(t => t.Id == id);
-        }
+     
+
+      
     }
 
 }

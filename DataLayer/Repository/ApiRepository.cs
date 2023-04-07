@@ -22,33 +22,24 @@ namespace DataLayer.Repository
         //private string womenMatchesEndpoint = "/women/matches";
         //private string menMatchesCountryEndpoint = "/men/matches/country";
         //private string womenMatchesCountryEndpoint = "/women/matches/country";
-       
 
-        public async Task<Team> GetTeam(int id, bool isWomen)
+
+        public Task<List<Team>> GetTeams(bool isWomen)
         {
-            var teams = await GetTeams(isWomen);
-            return teams.FirstOrDefault(t => t.Id == id);
+            return Task.Run(async () =>
+            {
+                var endpoint = isWomen ? womenTeamsEndpoint : menTeamsEndpoint;
+                var fullEndpoint = $"{baseUrl}{endpoint}";
+                var apiClient = new RestClient(fullEndpoint);
+                var apiResult = await apiClient.ExecuteAsync<List<Team>>(new RestRequest());
+                return JsonConvert.DeserializeObject<List<Team>>(apiResult.Content);
+            });
         }
 
-        public async Task<List<Team>> GetTeams(bool isWomen)
-        {
-            var endpoint = isWomen ? womenTeamsEndpoint : menTeamsEndpoint;
-            var fullEndpoint = $"{baseUrl}{endpoint}";
-            var apiResponse = await GetTeamsFromApi(fullEndpoint);
-            return apiResponse.Teams;
-        }
 
-        public async Task<TeamsApiResponse> GetTeamsFromApi(string endpoint)
-        {
-            var apiClient = new RestClient(endpoint);
-            var apiResult = await apiClient.ExecuteAsync<TeamsApiResponse>(new RestRequest());
-            return JsonConvert.DeserializeObject<TeamsApiResponse>(apiResult.Content);
-        }
-
-        public class TeamsApiResponse
-        {
-            public List<Team> Teams { get; set; }
-        }
     }
+
+
+    
 }
 
