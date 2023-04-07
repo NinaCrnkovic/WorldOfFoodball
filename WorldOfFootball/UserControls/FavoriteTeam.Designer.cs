@@ -30,6 +30,7 @@
         {
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnNextLangAndChamp = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -51,6 +52,19 @@
             this.label1.Text = "Izaberite omiljenu reprezentaciju";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnNextLangAndChamp
+            // 
+            this.btnNextLangAndChamp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
+            this.btnNextLangAndChamp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnNextLangAndChamp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNextLangAndChamp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnNextLangAndChamp.Location = new System.Drawing.Point(554, 169);
+            this.btnNextLangAndChamp.Name = "btnNextLangAndChamp";
+            this.btnNextLangAndChamp.Size = new System.Drawing.Size(475, 48);
+            this.btnNextLangAndChamp.TabIndex = 4;
+            this.btnNextLangAndChamp.Text = "Next";
+            this.btnNextLangAndChamp.UseVisualStyleBackColor = false;
+            // 
             // FavoriteTeam
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -58,6 +72,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnNextLangAndChamp);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Name = "FavoriteTeam";
@@ -70,5 +85,6 @@
 
         private ComboBox comboBox1;
         private Label label1;
+        private Button btnNextLangAndChamp;
     }
 }

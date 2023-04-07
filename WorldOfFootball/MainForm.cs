@@ -7,12 +7,15 @@ namespace WorldOfFootball
     {
         private DataManager _dataManager = new DataManager();
         private TitleForm titleForm;
+        private LanguageAndChampionship languageAndChampionshipForm;
+        private List<Team> teamList;
         public MainForm()
         {
+            teamList = _dataManager.GetTeamsList();
+
             CallTitleForm();
             InitializeComponent();
-           
-
+            
         }
 
 
@@ -47,14 +50,10 @@ namespace WorldOfFootball
 
             await _dataManager.LoadTeams(false);
             FillTeamsListBox(false);
+            languageAndChampionshipForm = new LanguageAndChampionship();
+            pnlContainer.Controls.Add(languageAndChampionshipForm);
 
 
-            //IDictionary<long, Team> teams = _dataManager.GetTeamDictionary();
-
-            //foreach (var team in teams.Values)
-            //{
-            //    lbTeams.Items.Add(team.Country); // Dodajte vrijednost u list box
-            //}
         }
 
         private  void FillTeamsListBox(bool isWomen)
