@@ -54,14 +54,14 @@ namespace DataLayer.Model
         [JsonProperty("tackles")]
         public long Tackles { get; set; }
 
-        [JsonProperty("clearances")]
-        public long Clearances { get; set; }
+        //[JsonProperty("clearances")]
+        //public long Clearances { get; set; }
 
-        [JsonProperty("yellow_cards")]
-        public long YellowCards { get; set; }
+        //[JsonProperty("yellow_cards")]
+        //public long YellowCards { get; set; }
 
-        [JsonProperty("red_cards")]
-        public long RedCards { get; set; }
+        //[JsonProperty("red_cards")]
+        //public long RedCards { get; set; }
 
         [JsonProperty("fouls_committed")]
         public long? FoulsCommitted { get; set; }

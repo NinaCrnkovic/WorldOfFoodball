@@ -28,26 +28,65 @@ namespace WorldOfFootball.UserControls
 
         private void FillAllPlayersPanel()
         {
-            List<Player> playerList = new List<Player>();
+            
+            FootballMatch matchWithCode = null;
             foreach (var item in _matches)
             {
-                if(item.AwayTeam.Code == _fifaCode)
+                if (item.AwayTeam.Code == _fifaCode)
                 {
-                    foreach(var startingPlayer in item.AwayTeamStatistics.StartingEleven)
-                    {
-                        playerList.Add(startingPlayer);
-                    }
-                    foreach (var substiturePlayer in item.AwayTeamStatistics.Substitutes)
-                    {
-                        playerList.Add(substiturePlayer);
-                    }
+                    matchWithCode = item;
+                    break;
                 }
             }
-            foreach(var player in playerList)
+            List<Player> playerList = new List<Player>();
+            if (matchWithCode != null)
             {
-                listBox1.Items.Add(player.Name);
+                              
+                foreach (var startingPlayer in matchWithCode.AwayTeamStatistics.StartingEleven)
+                {
+                    playerList.Add(startingPlayer);
+                }
+                foreach (var substiturePlayer in matchWithCode.AwayTeamStatistics.Substitutes)
+                {
+                    playerList.Add(substiturePlayer);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"No matches found with FIFA code {_fifaCode}");
             }
 
+            
+
+            foreach (var player in playerList)
+            {
+
+                Label lbl = GetPlayerLabel(player, new Size(pnlAllPlayers.Width-30, 40));
+                //lbl.MouseDown += NewLabel_MouseDown;
+                //lbl.MouseMove += Lbl_MouseMove;
+                pnlAllPlayers.Controls.Add(lbl);
+
+            }
+
+        }
+
+        public Label GetPlayerLabel(Player pl, Size size)
+        {
+            var label = new Label
+            {
+                Text = $"{pl.Name}",
+                AutoSize = false,
+                Size = size,
+                BackColor = Color.FromArgb(15, 76, 117),
+                ForeColor = Color.WhiteSmoke,
+                TextAlign = ContentAlignment.MiddleCenter,
+                Margin = new Padding(3),
+                Anchor = AnchorStyles.None,
+                Tag = pl.Name
+            };
+
+
+            return label;
         }
     }
 }

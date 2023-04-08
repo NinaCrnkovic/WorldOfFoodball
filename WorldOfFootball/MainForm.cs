@@ -52,6 +52,7 @@ namespace WorldOfFootball
         {
             _languageAndChampionshipForm = new LanguageAndChampionship();
             _languageAndChampionshipForm.LangAndChamp += BtnNextLangAndChamp_Click;
+            _languageAndChampionshipForm.Dock = System.Windows.Forms.DockStyle.Fill;
             pnlContainer.Controls.Add(_languageAndChampionshipForm);
         }
         private async void CallFavoriteTeamForm(bool isWomens)
@@ -59,8 +60,9 @@ namespace WorldOfFootball
             await _dataManager.LoadTeams(isWomens);
             var teams = _dataManager.GetTeamsList();
             _favoriteTeamForm = new FavoriteTeam(teams);
-            pnlContainer.Controls.Add(_favoriteTeamForm);
+            _favoriteTeamForm.Dock = System.Windows.Forms.DockStyle.Fill;
             _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
+            pnlContainer.Controls.Add(_favoriteTeamForm);
 
         }
 
@@ -69,6 +71,7 @@ namespace WorldOfFootball
             await _dataManager.LoadMaches(isWomens);
             var matches = _dataManager.GetMatchesList();
             _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode);
+            _favoritePlayersForm.Dock = System.Windows.Forms.DockStyle.Fill;
             pnlContainer.Controls.Add(_favoritePlayersForm);
         }
 

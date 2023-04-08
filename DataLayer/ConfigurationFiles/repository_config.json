@@ -1,4 +1,1 @@
-{
-    "UseApiRepository": true,
-    "UseFileRepository": false
-}
+{"UseApiRepository": false,"UseFileRepository": true}

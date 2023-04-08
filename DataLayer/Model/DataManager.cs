@@ -36,6 +36,8 @@ namespace DataLayer.Model
         private void SetConfigForRepo()
         {
            _config = _configRepo.GetConfigurationFile();
+           
+
            _repo = RepoFactory.GetRepo(_config);
         }
 

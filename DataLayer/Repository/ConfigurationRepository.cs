@@ -38,7 +38,7 @@ namespace DataLayer.Repository
 
         public void GetInitialSettings()
         {
-            //
+            
         }
 
         public void SaveInitialSettings(InitialWoFSettings settings)
