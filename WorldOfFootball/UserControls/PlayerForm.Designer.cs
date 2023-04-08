@@ -43,6 +43,7 @@
             // 
             // pbPicture
             // 
+            this.pbPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPicture.Location = new System.Drawing.Point(13, 7);
             this.pbPicture.Name = "pbPicture";
             this.pbPicture.Size = new System.Drawing.Size(131, 104);
@@ -92,7 +93,7 @@
             // pbStar
             // 
             this.pbStar.Image = global::WorldOfFootball.Properties.Resources.star;
-            this.pbStar.Location = new System.Drawing.Point(334, 0);
+            this.pbStar.Location = new System.Drawing.Point(431, 0);
             this.pbStar.Name = "pbStar";
             this.pbStar.Size = new System.Drawing.Size(45, 45);
             this.pbStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +103,7 @@
             // pbCapitan
             // 
             this.pbCapitan.Image = global::WorldOfFootball.Properties.Resources.captain_band;
-            this.pbCapitan.Location = new System.Drawing.Point(313, 66);
+            this.pbCapitan.Location = new System.Drawing.Point(410, 66);
             this.pbCapitan.Name = "pbCapitan";
             this.pbCapitan.Size = new System.Drawing.Size(66, 45);
             this.pbCapitan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -123,7 +124,7 @@
             this.Controls.Add(this.pbPicture);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Name = "PlayerForm";
-            this.Size = new System.Drawing.Size(382, 121);
+            this.Size = new System.Drawing.Size(479, 121);
             ((System.ComponentModel.ISupportInitialize)(this.pbPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar)).EndInit();

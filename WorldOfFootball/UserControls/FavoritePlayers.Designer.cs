@@ -36,9 +36,9 @@
             // pnlFavoritePlayers
             // 
             this.pnlFavoritePlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
-            this.pnlFavoritePlayers.Location = new System.Drawing.Point(1055, 63);
+            this.pnlFavoritePlayers.Location = new System.Drawing.Point(976, 63);
             this.pnlFavoritePlayers.Name = "pnlFavoritePlayers";
-            this.pnlFavoritePlayers.Size = new System.Drawing.Size(359, 301);
+            this.pnlFavoritePlayers.Size = new System.Drawing.Size(515, 537);
             this.pnlFavoritePlayers.TabIndex = 1;
             // 
             // pnlAllPlayers
@@ -48,7 +48,7 @@
             this.pnlAllPlayers.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.pnlAllPlayers.Location = new System.Drawing.Point(92, 63);
             this.pnlAllPlayers.Name = "pnlAllPlayers";
-            this.pnlAllPlayers.Size = new System.Drawing.Size(382, 720);
+            this.pnlAllPlayers.Size = new System.Drawing.Size(515, 720);
             this.pnlAllPlayers.TabIndex = 3;
             // 
             // btnNextFavTeam
@@ -59,9 +59,9 @@
             this.btnNextFavTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNextFavTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNextFavTeam.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNextFavTeam.Location = new System.Drawing.Point(1055, 396);
+            this.btnNextFavTeam.Location = new System.Drawing.Point(976, 621);
             this.btnNextFavTeam.Name = "btnNextFavTeam";
-            this.btnNextFavTeam.Size = new System.Drawing.Size(359, 48);
+            this.btnNextFavTeam.Size = new System.Drawing.Size(515, 48);
             this.btnNextFavTeam.TabIndex = 6;
             this.btnNextFavTeam.Text = "Next";
             this.btnNextFavTeam.UseVisualStyleBackColor = false;

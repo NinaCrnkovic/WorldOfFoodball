@@ -58,35 +58,55 @@ namespace WorldOfFootball.UserControls
 
             
 
-            foreach (var player in playerList)
-            {
+          
 
-                Label lbl = GetPlayerLabel(player, new Size(pnlAllPlayers.Width-30, 40));
+                LoadPlayerFormLabel(playerList);
                 //lbl.MouseDown += NewLabel_MouseDown;
                 //lbl.MouseMove += Lbl_MouseMove;
-                pnlAllPlayers.Controls.Add(lbl);
+                //pnlAllPlayers.Controls.Add(lbl);
 
-            }
+            
 
         }
 
-        public Label GetPlayerLabel(Player pl, Size size)
+        private void LoadPlayerFormLabel(List<Player> players)
         {
-            var label = new Label
+            foreach (var player in players)
             {
-                Text = $"{pl.Name}",
-                AutoSize = false,
-                Size = size,
-                BackColor = Color.FromArgb(15, 76, 117),
-                ForeColor = Color.WhiteSmoke,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Margin = new Padding(3),
-                Anchor = AnchorStyles.None,
-                Tag = pl.Name
-            };
+                PlayerForm playerForm = new PlayerForm();
+                Label lblName = playerForm.Controls.Find("lblName", true).FirstOrDefault() as Label;
+                lblName.Text = player.Name;
+                Label lblNumber = playerForm.Controls.Find("lblNumber", true).FirstOrDefault() as Label;
+                lblNumber.Text = player.ShirtNumber.ToString();
+                Label lblPosition = playerForm.Controls.Find("lblPosition", true).FirstOrDefault() as Label;
+                lblPosition.Text = player.Position;
+                PictureBox pbCapitan = playerForm.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
+                if (player.Captain)
+                {
+                    pbCapitan.Visible = true;
+                }
+                else
+                {
+                    pbCapitan.Visible = false;
+                }
+                
+                pnlAllPlayers.Controls.Add(playerForm);
+            }
+            //var label = new Label
+            //{
+            //    Text = $"{pl.Name}",
+            //    AutoSize = false,
+            //    Size = size,
+            //    BackColor = Color.FromArgb(15, 76, 117),
+            //    ForeColor = Color.WhiteSmoke,
+            //    TextAlign = ContentAlignment.MiddleCenter,
+            //    Margin = new Padding(3),
+            //    Anchor = AnchorStyles.None,
+            //    Tag = pl.Name
+            //};
 
 
-            return label;
+            
         }
     }
 }
