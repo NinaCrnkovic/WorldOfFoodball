@@ -45,6 +45,8 @@
             this.pnlAllPlayers.Name = "pnlAllPlayers";
             this.pnlAllPlayers.Size = new System.Drawing.Size(515, 720);
             this.pnlAllPlayers.TabIndex = 3;
+            this.pnlAllPlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.PnlAllPlayers_DragDrop);
+            this.pnlAllPlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.PnlAllPlayers_DragEnter);
             // 
             // btnNextFavTeam
             // 

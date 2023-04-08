@@ -24,7 +24,6 @@ namespace WorldOfFootball.UserControls
             _fifaCode = fifaCode;   
             FillAllPlayersPanel();
           
-
         }
 
         private void FillAllPlayersPanel()
@@ -57,13 +56,8 @@ namespace WorldOfFootball.UserControls
                 Console.WriteLine($"No matches found with FIFA code {_fifaCode}");
             }            
 
-          
-
                 LoadPlayerFormLabel(playerList);
          
-
-            
-
         }
 
         private void LoadPlayerFormLabel(List<Player> players)
@@ -88,7 +82,7 @@ namespace WorldOfFootball.UserControls
                 }
                 PictureBox pbStar = playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
                 pbStar.Visible = false;
-                playerForm.MouseMove += PlayerForm_MouseMove;
+                playerForm.MouseDown += PlayerForm_MouseMove;
 
                 pnlAllPlayers.Controls.Add(playerForm);
             }
@@ -96,6 +90,16 @@ namespace WorldOfFootball.UserControls
         }
 
         private void PlayerForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            PlayerForm player = sender as PlayerForm;
+            player?.DoDragDrop(player, DragDropEffects.Move);
+        }
+        private void PlayerForm_MouseMove2(object sender, MouseEventArgs e)
+        {
+            PlayerForm player = sender as PlayerForm;
+            player?.DoDragDrop(player, DragDropEffects.Move);
+        }
+        private void PlayerForm_MouseMove3(object sender, MouseEventArgs e)
         {
             PlayerForm player = sender as PlayerForm;
             player?.DoDragDrop(player, DragDropEffects.Move);
@@ -112,6 +116,7 @@ namespace WorldOfFootball.UserControls
                     Point mouseLocation = MousePosition;
                     mouseLocation = pnlFavoritePlayers.PointToClient(mouseLocation);
                     newPlayer.Location = mouseLocation;
+                    newPlayer.MouseDown += PlayerForm_MouseMove;
                     pnlFavoritePlayers.Controls.Add(newPlayer);
                     pnlAllPlayers.Controls?.Remove(draggedPlayer);
                 }
@@ -139,17 +144,72 @@ namespace WorldOfFootball.UserControls
             pbCapitan.Visible = draggedPlayer.Controls.Find("pbCapitan", true).FirstOrDefault().Visible;
             PictureBox pbStar = newPlayer.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
             pbStar.Visible = true;
+            
 
             return newPlayer;
 
         }
+
+
+
+
 
         private void PnlFavoritePlayers_DragEnter(object sender, DragEventArgs e)
         {
             e.Effect = DragDropEffects.Move;
         }
 
-
+        //--------------
       
+
+        private void PnlAllPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void PnlAllPlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
+            if (draggedPlayer != null)
+            {
+                PlayerForm newPlayer = AddOldPlayerForm(draggedPlayer);
+                Point mouseLocation = MousePosition;
+                mouseLocation = pnlAllPlayers.PointToClient(mouseLocation);
+                newPlayer.Location = mouseLocation;
+                newPlayer.MouseDown += PlayerForm_MouseMove; 
+                pnlAllPlayers.Controls.Add(newPlayer);
+                pnlFavoritePlayers.Controls?.Remove(draggedPlayer);
+            }
+        }
+
+
+        private void PnlFavoritePlayers_MouseMove(object sender, MouseEventArgs e)
+        {
+            PlayerForm player = sender as PlayerForm;
+            player?.DoDragDrop(player, DragDropEffects.Move);
+        }
+
+
+
+        private PlayerForm AddOldPlayerForm(PlayerForm draggedPlayer)
+        {
+            PlayerForm newPlayer = new PlayerForm();
+
+            Label lblName = newPlayer.Controls.Find("lblName", true).FirstOrDefault() as Label;
+            lblName.Text = draggedPlayer.Controls.Find("lblName", true).FirstOrDefault().Text;
+            Label lblNumber = newPlayer.Controls.Find("lblNumber", true).FirstOrDefault() as Label;
+            lblNumber.Text = draggedPlayer.Controls.Find("lblNumber", true).FirstOrDefault().Text;
+            Label lblPosition = newPlayer.Controls.Find("lblPosition", true).FirstOrDefault() as Label;
+            lblPosition.Text = draggedPlayer.Controls.Find("lblPosition", true).FirstOrDefault().Text;
+            PictureBox pbCapitan = newPlayer.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
+            pbCapitan.Visible = draggedPlayer.Controls.Find("pbCapitan", true).FirstOrDefault().Visible;
+            PictureBox pbStar = newPlayer.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
+            pbStar.Visible = false;
+    
+
+            return newPlayer;
+
+        }
+
     }
 }
