@@ -27,8 +27,28 @@ namespace DataLayer.Model
         [JsonProperty("group_letter")]
         public string GroupLetter { get; set; }
 
-      
+        public override bool Equals(object obj)
+        {
+            return obj is Team team &&
+                   Id == team.Id &&
+                   Country == team.Country &&
+                   EqualityComparer<object>.Default.Equals(AlternateName, team.AlternateName) &&
+                   FifaCode == team.FifaCode &&
+                   GroupId == team.GroupId &&
+                   GroupLetter == team.GroupLetter;
+        }
 
+        public Team()
+        {
+
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Country, AlternateName, FifaCode, GroupId, GroupLetter);
+        }
+
+        public override string ToString() => $"{Country} ({FifaCode})";
+      
 
 
     }

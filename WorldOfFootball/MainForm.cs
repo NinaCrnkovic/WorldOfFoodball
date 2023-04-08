@@ -51,7 +51,7 @@ namespace WorldOfFootball
         {
 
             await _dataManager.LoadTeams(false);
-           // FillTeamsListBox(false);
+     
             CallLanguageAndChampionshipForm();
      
 
@@ -73,23 +73,34 @@ namespace WorldOfFootball
                 Championship = e.Championship
             };
             _dataManager.SaveInitialSettingsToRepo(settings);
+            bool isWomens;
+            if (settings.Championship == "Mens")
+            {
+                isWomens = false;
+            }
+            else
+            {
+                isWomens = true;
+            }
         
-            CallFavoriteTeamForm();
+            CallFavoriteTeamForm(isWomens);
             _languageAndChampionshipForm.Dispose();
 
         }
 
-        private async void CallFavoriteTeamForm()
+        private async void CallFavoriteTeamForm(bool isWomens)
         {
-            await _dataManager.LoadTeams(false);
+            await _dataManager.LoadTeams(isWomens);
             var teams = _dataManager.GetTeamsList();
             _favoriteTeamForm = new FavoriteTeam(teams);
             pnlContainer.Controls.Add(_favoriteTeamForm);
+            _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
          
         }
 
-
-
-
+        private void BtnNextFavoiriteTeam_Click(object sender, FavoriteTeamEventArgs e)
+        {
+            MessageBox.Show("uspjeh");
+        }
     }
 }

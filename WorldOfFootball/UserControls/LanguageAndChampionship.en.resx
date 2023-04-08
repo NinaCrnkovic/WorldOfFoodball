@@ -70,15 +70,8 @@
   <data name="gbLanguage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
-  <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>507, 90</value>
-  </data>
   <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>569, 125</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="gbLanguage.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
   </data>
   <data name="gbLanguage.Text" xml:space="preserve">
     <value>Choose a language</value>
@@ -97,6 +90,10 @@
   </data>
   <data name="gbChampionship.Text" xml:space="preserve">
     <value>Choose a championship</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnNextLangAndChamp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
   <data name="btnNextLangAndChamp.Text" xml:space="preserve">
     <value>Next</value>

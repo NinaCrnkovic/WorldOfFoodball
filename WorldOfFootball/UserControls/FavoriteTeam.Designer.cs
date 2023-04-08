@@ -30,7 +30,7 @@
         {
             this.cbTeams = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnNextLangAndChamp = new System.Windows.Forms.Button();
+            this.btnNextFavTeam = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cbTeams
@@ -52,18 +52,20 @@
             this.label1.Text = "Izaberite omiljenu reprezentaciju";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnNextLangAndChamp
+            // btnNextFavTeam
             // 
-            this.btnNextLangAndChamp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
-            this.btnNextLangAndChamp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
-            this.btnNextLangAndChamp.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnNextLangAndChamp.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNextLangAndChamp.Location = new System.Drawing.Point(554, 169);
-            this.btnNextLangAndChamp.Name = "btnNextLangAndChamp";
-            this.btnNextLangAndChamp.Size = new System.Drawing.Size(475, 48);
-            this.btnNextLangAndChamp.TabIndex = 4;
-            this.btnNextLangAndChamp.Text = "Next";
-            this.btnNextLangAndChamp.UseVisualStyleBackColor = false;
+            this.btnNextFavTeam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
+            this.btnNextFavTeam.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.btnNextFavTeam.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnNextFavTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNextFavTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnNextFavTeam.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnNextFavTeam.Location = new System.Drawing.Point(554, 169);
+            this.btnNextFavTeam.Name = "btnNextFavTeam";
+            this.btnNextFavTeam.Size = new System.Drawing.Size(475, 48);
+            this.btnNextFavTeam.TabIndex = 5;
+            this.btnNextFavTeam.Text = "Next";
+            this.btnNextFavTeam.UseVisualStyleBackColor = false;
             // 
             // FavoriteTeam
             // 
@@ -72,7 +74,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.btnNextLangAndChamp);
+            this.Controls.Add(this.btnNextFavTeam);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbTeams);
             this.Name = "FavoriteTeam";
@@ -85,6 +87,6 @@
 
         private ComboBox cbTeams;
         private Label label1;
-        private Button btnNextLangAndChamp;
+        private Button btnNextFavTeam;
     }
 }
