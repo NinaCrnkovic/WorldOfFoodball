@@ -101,7 +101,7 @@ namespace DataLayer.Repository
             return Task.FromResult(teams);
         }
 
-        public Task<List<Match>> GetMaches(bool isWomen)
+        public Task<List<Match>> GetMatches(bool isWomen)
         {
             string filePath = isWomen ? MATCHES_FILE_PATH_WOMEN : MATCHES_FILE_PATH_MEN;
             var json = File.ReadAllText(filePath);

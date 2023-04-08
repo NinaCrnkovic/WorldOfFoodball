@@ -7,6 +7,6 @@ namespace DataLayer.Repository
     {
        
         Task<List<Team>> GetTeams(bool isWomen);
-        Task<List<Match>> GetMaches(bool isWomen);
+        Task<List<Match>> GetMatches(bool isWomen);
     }
 }
