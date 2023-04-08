@@ -31,7 +31,7 @@ namespace WorldOfFootball.UserControls
             var selectedTeam = _teams.Find(t => t.FifaCode == fifaCode);
       
             if (selectedTeam != null){
-                MessageBox.Show(selectedTeam.Country);
+            
                 FavoriteTeamSelected?.Invoke(this, new FavoriteTeamEventArgs { favoriteTeam = new Team
                 {
                     Id = selectedTeam.Id,
@@ -47,7 +47,7 @@ namespace WorldOfFootball.UserControls
             else
             {
                 // Bacanje greške ako nijedan radio button nije odabran
-                MessageBox.Show("Niste izabrali omiljeni tim");
+                MessageBox.Show("Niste izabrali omiljenu reprezentaciju");
             }
         }
 
@@ -55,7 +55,7 @@ namespace WorldOfFootball.UserControls
         {
             cbTeams.Items.Clear();
             var sortedTeams = _teams.OrderBy(t => t.Country).ToList();
-            cbTeams.Items.Add("Izaberite tim");
+            cbTeams.Items.Add("Izaberite reprezentaciju");
             if (cbTeams != null)
             {
                 foreach (var team in sortedTeams)

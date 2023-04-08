@@ -34,3 +34,4 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoo
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\bin\Debug\net6.0-windows\hr\WorldOfFootball.resources.dll
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.MainForm.hr.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\hr\WorldOfFootball.resources.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoritePlayers.resources

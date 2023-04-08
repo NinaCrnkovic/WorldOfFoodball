@@ -7,10 +7,12 @@ namespace WorldOfFootball
 {
     public partial class MainForm : Form
     {
+        
         private DataManager _dataManager = new DataManager();
         private TitleForm _titleForm;
         private LanguageAndChampionship _languageAndChampionshipForm;
         private FavoriteTeam _favoriteTeamForm;
+        private FavoritePlayers _favoritePlayersForm;
    
         public MainForm()
         {
@@ -20,7 +22,17 @@ namespace WorldOfFootball
             
         }
 
+        private async void MainForm_Load(object sender, EventArgs e)
+        {
 
+            await _dataManager.LoadTeams(false);
+
+            CallLanguageAndChampionshipForm();
+
+
+        }
+
+        #region Call Forms
         private void CallTitleForm()
         {
             _titleForm = new TitleForm();
@@ -34,36 +46,33 @@ namespace WorldOfFootball
             timer.Start();
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
-        {
-            // Zaustavi timer
-            ((System.Windows.Forms.Timer)sender).Stop();
-
-            // Ukloni TitleForm iz glavne forme
-            this.Controls.Remove(_titleForm);
-
-            // Oslobodi resurse
-            _titleForm.Dispose();
-        }
-
-
-        private async void MainForm_Load(object sender, EventArgs e)
-        {
-
-            await _dataManager.LoadTeams(false);
-     
-            CallLanguageAndChampionshipForm();
-     
-
-        }
-
         private void CallLanguageAndChampionshipForm()
         {
             _languageAndChampionshipForm = new LanguageAndChampionship();
             _languageAndChampionshipForm.LangAndChamp += BtnNextLangAndChamp_Click;
             pnlContainer.Controls.Add(_languageAndChampionshipForm);
         }
+        private async void CallFavoriteTeamForm(bool isWomens)
+        {
+            await _dataManager.LoadTeams(isWomens);
+            var teams = _dataManager.GetTeamsList();
+            _favoriteTeamForm = new FavoriteTeam(teams);
+            pnlContainer.Controls.Add(_favoriteTeamForm);
+            _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
 
+        }
+
+        private void CallFavoritePlayersForm()
+        {
+            _favoritePlayersForm = new FavoritePlayers();
+            pnlContainer.Controls.Add(_favoritePlayersForm);
+        }
+
+        #endregion
+
+
+
+        #region Events on Buttons in Forms
         private void BtnNextLangAndChamp_Click(object sender, LanguageAndChampionshipEventArgs e)
         {
             // Spremi odabrani jezik i prvenstvo u RepositoryConfig objekt
@@ -87,20 +96,32 @@ namespace WorldOfFootball
             _languageAndChampionshipForm.Dispose();
 
         }
-
-        private async void CallFavoriteTeamForm(bool isWomens)
-        {
-            await _dataManager.LoadTeams(isWomens);
-            var teams = _dataManager.GetTeamsList();
-            _favoriteTeamForm = new FavoriteTeam(teams);
-            pnlContainer.Controls.Add(_favoriteTeamForm);
-            _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
-         
-        }
-
         private void BtnNextFavoiriteTeam_Click(object sender, FavoriteTeamEventArgs e)
         {
-            MessageBox.Show("uspjeh");
+            var favoriteTeam = e.favoriteTeam;
+            CallFavoritePlayersForm();
+            _favoriteTeamForm.Dispose();
+
         }
+
+        
+
+        #endregion
+
+        #region Methods
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Zaustavi timer
+            ((System.Windows.Forms.Timer)sender).Stop();
+
+            // Ukloni TitleForm iz glavne forme
+            this.Controls.Remove(_titleForm);
+
+            // Oslobodi resurse
+            _titleForm.Dispose();
+        }
+        #endregion
+
+
     }
 }
