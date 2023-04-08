@@ -15,7 +15,7 @@ namespace DataLayer.Model
         private IRepository _repo;
         private IConfigRepository _configRepo = RepoFactory.GetConfigRepo();
         private List<Team> _teams;
-        private List<Match> _matches;
+        private List<FootballMatch> _matches;
  
 
         public DataManager()
@@ -45,7 +45,7 @@ namespace DataLayer.Model
         }
 
         public List<Team> GetTeamsList() => _teams;
-        public List<Match> GetMatchesList() => _matches;
+        public List<FootballMatch> GetMatchesList() => _matches;
 
 
         public async Task LoadTeams(bool isWomen)

@@ -70,9 +70,9 @@ namespace DataLayer.Model
         public string Tactics { get; set; }
 
         [JsonProperty("starting_eleven")]
-        public List<PlayingTeam> StartingEleven { get; set; }
+        public List<Player> StartingEleven { get; set; }
 
         [JsonProperty("substitutes")]
-        public List<PlayingTeam> Substitutes { get; set; }
+        public List<Player> Substitutes { get; set; }
     }
 }

@@ -101,11 +101,11 @@ namespace DataLayer.Repository
             return Task.FromResult(teams);
         }
 
-        public Task<List<Match>> GetMatches(bool isWomen)
+        public Task<List<FootballMatch>> GetMatches(bool isWomen)
         {
             string filePath = isWomen ? MATCHES_FILE_PATH_WOMEN : MATCHES_FILE_PATH_MEN;
             var json = File.ReadAllText(filePath);
-            var matches = JsonConvert.DeserializeObject<List<Match>>(json);
+            var matches = JsonConvert.DeserializeObject<List<FootballMatch>>(json);
             return Task.FromResult(matches);
         }
     }

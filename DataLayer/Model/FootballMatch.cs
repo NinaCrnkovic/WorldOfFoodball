@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Model
 {
-    public class Match
+    public class FootballMatch
     {
         [JsonProperty("venue")]
         public string Venue { get; set; }
@@ -23,7 +23,7 @@ namespace DataLayer.Model
 
         [JsonProperty("fifa_id")]
         [JsonConverter(typeof(ParseStringConverter))]
-        public string FifaId { get; set; }
+        public long FifaId { get; set; }
 
         //[JsonProperty("weather")]
         //public Weather Weather { get; set; }

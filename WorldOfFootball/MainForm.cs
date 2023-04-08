@@ -13,6 +13,8 @@ namespace WorldOfFootball
         private LanguageAndChampionship _languageAndChampionshipForm;
         private FavoriteTeam _favoriteTeamForm;
         private FavoritePlayers _favoritePlayersForm;
+        private bool _isWomens;
+        private string _fifaCode;
    
         public MainForm()
         {
@@ -62,9 +64,11 @@ namespace WorldOfFootball
 
         }
 
-        private void CallFavoritePlayersForm()
+        private async void CallFavoritePlayersForm(bool isWomens)
         {
-            _favoritePlayersForm = new FavoritePlayers();
+            await _dataManager.LoadMaches(isWomens);
+            var matches = _dataManager.GetMatchesList();
+            _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode);
             pnlContainer.Controls.Add(_favoritePlayersForm);
         }
 
@@ -91,15 +95,17 @@ namespace WorldOfFootball
             {
                 isWomens = true;
             }
-        
-            CallFavoriteTeamForm(isWomens);
+            _isWomens = isWomens;
+            CallFavoriteTeamForm(_isWomens);
             _languageAndChampionshipForm.Dispose();
 
         }
         private void BtnNextFavoiriteTeam_Click(object sender, FavoriteTeamEventArgs e)
         {
             var favoriteTeam = e.favoriteTeam;
-            CallFavoritePlayersForm();
+            _fifaCode = favoriteTeam.FifaCode;
+      
+            CallFavoritePlayersForm(_isWomens);
             _favoriteTeamForm.Dispose();
 
         }

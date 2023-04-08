@@ -30,6 +30,7 @@
         {
             this.pnlAllPlayers = new System.Windows.Forms.Panel();
             this.pnlFavoritePlayers = new System.Windows.Forms.Panel();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // pnlAllPlayers
@@ -48,12 +49,22 @@
             this.pnlFavoritePlayers.Size = new System.Drawing.Size(359, 651);
             this.pnlFavoritePlayers.TabIndex = 1;
             // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 20;
+            this.listBox1.Location = new System.Drawing.Point(705, 152);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(209, 484);
+            this.listBox1.TabIndex = 2;
+            // 
             // FavoritePlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.pnlFavoritePlayers);
             this.Controls.Add(this.pnlAllPlayers);
             this.Name = "FavoritePlayers";
@@ -66,5 +77,6 @@
 
         private Panel pnlAllPlayers;
         private Panel pnlFavoritePlayers;
+        private ListBox listBox1;
     }
 }

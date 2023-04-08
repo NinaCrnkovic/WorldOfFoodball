@@ -23,15 +23,15 @@ namespace DataLayer.Repository
         private string menMatchesCountryEndpoint = "/men/matches/country";
         private string womenMatchesCountryEndpoint = "/women/matches/country";
 
-        public Task<List<Match>> GetMatches(bool isWomen)
+        public Task<List<FootballMatch>> GetMatches(bool isWomen)
         {
             return Task.Run(async () =>
             {
                 var endpoint = isWomen ? womenMatchesEndpoint : menMatchesEndpoint;
                 var fullEndpoint = $"{baseUrl}{endpoint}";
                 var apiClient = new RestClient(fullEndpoint);
-                var apiResult = await apiClient.ExecuteAsync<List<Match>>(new RestRequest());
-                return JsonConvert.DeserializeObject<List<Match>>(apiResult.Content);
+                var apiResult = await apiClient.ExecuteAsync<List<FootballMatch>>(new RestRequest());
+                return JsonConvert.DeserializeObject<List<FootballMatch>>(apiResult.Content);
             });
         }
 
