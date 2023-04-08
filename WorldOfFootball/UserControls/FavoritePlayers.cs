@@ -106,12 +106,20 @@ namespace WorldOfFootball.UserControls
             PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
             if (draggedPlayer != null)
             {
-                PlayerForm newPlayer = AddNewPlayerForm(draggedPlayer);
-                Point mouseLocation = MousePosition;
-                mouseLocation = pnlFavoritePlayers.PointToClient(mouseLocation);
-                newPlayer.Location = mouseLocation;
-                pnlFavoritePlayers.Controls.Add(newPlayer);
-                pnlAllPlayers.Controls?.Remove(draggedPlayer);
+                if (pnlFavoritePlayers.Controls.Count < 3)
+                {
+                    PlayerForm newPlayer = AddNewPlayerForm(draggedPlayer);
+                    Point mouseLocation = MousePosition;
+                    mouseLocation = pnlFavoritePlayers.PointToClient(mouseLocation);
+                    newPlayer.Location = mouseLocation;
+                    pnlFavoritePlayers.Controls.Add(newPlayer);
+                    pnlAllPlayers.Controls?.Remove(draggedPlayer);
+                }
+                else
+                {
+                    MessageBox.Show("Možete prenijeti najviše tri igrača u omiljene igrače.");
+                }
+
             }
            
 
