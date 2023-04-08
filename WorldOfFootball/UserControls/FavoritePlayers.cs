@@ -23,7 +23,8 @@ namespace WorldOfFootball.UserControls
             _matches = matches;
             _fifaCode = fifaCode;   
             FillAllPlayersPanel();
-            
+          
+
         }
 
         private void FillAllPlayersPanel()
@@ -54,16 +55,12 @@ namespace WorldOfFootball.UserControls
             else
             {
                 Console.WriteLine($"No matches found with FIFA code {_fifaCode}");
-            }
-
-            
+            }            
 
           
 
                 LoadPlayerFormLabel(playerList);
-                //lbl.MouseDown += NewLabel_MouseDown;
-                //lbl.MouseMove += Lbl_MouseMove;
-                //pnlAllPlayers.Controls.Add(lbl);
+         
 
             
 
@@ -89,24 +86,62 @@ namespace WorldOfFootball.UserControls
                 {
                     pbCapitan.Visible = false;
                 }
-                
+                PictureBox pbStar = playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
+                pbStar.Visible = false;
+                playerForm.MouseMove += PlayerForm_MouseMove;
+
                 pnlAllPlayers.Controls.Add(playerForm);
             }
-            //var label = new Label
-            //{
-            //    Text = $"{pl.Name}",
-            //    AutoSize = false,
-            //    Size = size,
-            //    BackColor = Color.FromArgb(15, 76, 117),
-            //    ForeColor = Color.WhiteSmoke,
-            //    TextAlign = ContentAlignment.MiddleCenter,
-            //    Margin = new Padding(3),
-            //    Anchor = AnchorStyles.None,
-            //    Tag = pl.Name
-            //};
-
-
-            
+                        
         }
+
+        private void PlayerForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            PlayerForm player = sender as PlayerForm;
+            player?.DoDragDrop(player, DragDropEffects.Move);
+        }
+
+        private void PnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
+            if (draggedPlayer != null)
+            {
+                PlayerForm newPlayer = AddNewPlayerForm(draggedPlayer);
+                Point mouseLocation = MousePosition;
+                mouseLocation = pnlFavoritePlayers.PointToClient(mouseLocation);
+                newPlayer.Location = mouseLocation;
+                pnlFavoritePlayers.Controls.Add(newPlayer);
+                pnlAllPlayers.Controls?.Remove(draggedPlayer);
+            }
+           
+
+        }
+
+        private PlayerForm AddNewPlayerForm(PlayerForm draggedPlayer)
+        {
+            PlayerForm newPlayer = new PlayerForm();
+
+            Label lblName = newPlayer.Controls.Find("lblName", true).FirstOrDefault() as Label;
+            lblName.Text = draggedPlayer.Controls.Find("lblName", true).FirstOrDefault().Text;
+            Label lblNumber = newPlayer.Controls.Find("lblNumber", true).FirstOrDefault() as Label;
+            lblNumber.Text = draggedPlayer.Controls.Find("lblNumber", true).FirstOrDefault().Text;
+            Label lblPosition = newPlayer.Controls.Find("lblPosition", true).FirstOrDefault() as Label;
+            lblPosition.Text = draggedPlayer.Controls.Find("lblPosition", true).FirstOrDefault().Text;
+            PictureBox pbCapitan = newPlayer.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
+            pbCapitan.Visible = draggedPlayer.Controls.Find("pbCapitan", true).FirstOrDefault().Visible;
+            PictureBox pbStar = newPlayer.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
+            pbStar.Visible = true;
+
+            return newPlayer;
+
+        }
+
+        private void PnlFavoritePlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+
+      
     }
 }

@@ -28,21 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlFavoritePlayers = new System.Windows.Forms.Panel();
             this.pnlAllPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNextFavTeam = new System.Windows.Forms.Button();
+            this.pnlFavoritePlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // pnlFavoritePlayers
-            // 
-            this.pnlFavoritePlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
-            this.pnlFavoritePlayers.Location = new System.Drawing.Point(976, 63);
-            this.pnlFavoritePlayers.Name = "pnlFavoritePlayers";
-            this.pnlFavoritePlayers.Size = new System.Drawing.Size(515, 537);
-            this.pnlFavoritePlayers.TabIndex = 1;
             // 
             // pnlAllPlayers
             // 
+            this.pnlAllPlayers.AllowDrop = true;
             this.pnlAllPlayers.AutoScroll = true;
             this.pnlAllPlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.pnlAllPlayers.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -66,15 +59,28 @@
             this.btnNextFavTeam.Text = "Next";
             this.btnNextFavTeam.UseVisualStyleBackColor = false;
             // 
+            // pnlFavoritePlayers
+            // 
+            this.pnlFavoritePlayers.AllowDrop = true;
+            this.pnlFavoritePlayers.AutoScroll = true;
+            this.pnlFavoritePlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.pnlFavoritePlayers.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlFavoritePlayers.Location = new System.Drawing.Point(908, 63);
+            this.pnlFavoritePlayers.Name = "pnlFavoritePlayers";
+            this.pnlFavoritePlayers.Size = new System.Drawing.Size(515, 720);
+            this.pnlFavoritePlayers.TabIndex = 4;
+            this.pnlFavoritePlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.PnlFavoritePlayers_DragDrop);
+            this.pnlFavoritePlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.PnlFavoritePlayers_DragEnter);
+            // 
             // FavoritePlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.pnlFavoritePlayers);
             this.Controls.Add(this.btnNextFavTeam);
             this.Controls.Add(this.pnlAllPlayers);
-            this.Controls.Add(this.pnlFavoritePlayers);
             this.Name = "FavoritePlayers";
             this.Size = new System.Drawing.Size(1582, 828);
             this.ResumeLayout(false);
@@ -82,8 +88,8 @@
         }
 
         #endregion
-        private Panel pnlFavoritePlayers;
         private FlowLayoutPanel pnlAllPlayers;
         private Button btnNextFavTeam;
+        private FlowLayoutPanel pnlFavoritePlayers;
     }
 }
