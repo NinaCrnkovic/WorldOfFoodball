@@ -83,9 +83,9 @@ namespace WorldOfFootball.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap capitan {
+        internal static System.Drawing.Bitmap captain_band {
             get {
-                object obj = ResourceManager.GetObject("capitan", resourceCulture);
+                object obj = ResourceManager.GetObject("captain_band", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace WorldOfFootball.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap captain_band {
+        internal static System.Drawing.Bitmap LeftArrow {
             get {
-                object obj = ResourceManager.GetObject("captain_band", resourceCulture);
+                object obj = ResourceManager.GetObject("LeftArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +116,16 @@ namespace WorldOfFootball.Properties {
         internal static System.Drawing.Bitmap Logo2 {
             get {
                 object obj = ResourceManager.GetObject("Logo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RightArrow {
+            get {
+                object obj = ResourceManager.GetObject("RightArrow", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -12,9 +12,12 @@ namespace WorldOfFootball.UserControls
 {
     public partial class PlayerForm : UserControl
     {
+        public bool IsSelected { get; set; }
         public PlayerForm()
         {
-            InitializeComponent();
+            
+        InitializeComponent();
+               
         }
     }
 }

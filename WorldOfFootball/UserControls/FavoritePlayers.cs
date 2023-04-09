@@ -94,16 +94,7 @@ namespace WorldOfFootball.UserControls
             PlayerForm player = sender as PlayerForm;
             player?.DoDragDrop(player, DragDropEffects.Move);
         }
-        private void PlayerForm_MouseMove2(object sender, MouseEventArgs e)
-        {
-            PlayerForm player = sender as PlayerForm;
-            player?.DoDragDrop(player, DragDropEffects.Move);
-        }
-        private void PlayerForm_MouseMove3(object sender, MouseEventArgs e)
-        {
-            PlayerForm player = sender as PlayerForm;
-            player?.DoDragDrop(player, DragDropEffects.Move);
-        }
+  
 
         private void PnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
         {
@@ -133,6 +124,7 @@ namespace WorldOfFootball.UserControls
         private PlayerForm AddNewPlayerForm(PlayerForm draggedPlayer)
         {
             PlayerForm newPlayer = new PlayerForm();
+            newPlayer.IsSelected = true;
 
             Label lblName = newPlayer.Controls.Find("lblName", true).FirstOrDefault() as Label;
             lblName.Text = draggedPlayer.Controls.Find("lblName", true).FirstOrDefault().Text;
@@ -143,7 +135,15 @@ namespace WorldOfFootball.UserControls
             PictureBox pbCapitan = newPlayer.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
             pbCapitan.Visible = draggedPlayer.Controls.Find("pbCapitan", true).FirstOrDefault().Visible;
             PictureBox pbStar = newPlayer.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
-            pbStar.Visible = true;
+            if (pbStar.Visible == draggedPlayer.Controls.Find("pbStar", true).FirstOrDefault().Visible)
+            {
+                pbStar.Visible = false;
+            }
+            else
+            {
+                pbStar.Visible = true;
+            }
+            
             
 
             return newPlayer;
@@ -172,7 +172,9 @@ namespace WorldOfFootball.UserControls
             PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
             if (draggedPlayer != null)
             {
-                PlayerForm newPlayer = AddOldPlayerForm(draggedPlayer);
+                PlayerForm newPlayer = AddNewPlayerForm(draggedPlayer);
+                newPlayer.IsSelected = true;
+               
                 Point mouseLocation = MousePosition;
                 mouseLocation = pnlAllPlayers.PointToClient(mouseLocation);
                 newPlayer.Location = mouseLocation;
@@ -190,26 +192,44 @@ namespace WorldOfFootball.UserControls
         }
 
 
+        //----------------------------
 
-        private PlayerForm AddOldPlayerForm(PlayerForm draggedPlayer)
+      
+
+        private void btnReturn_Click(object sender, EventArgs e)
         {
-            PlayerForm newPlayer = new PlayerForm();
-
-            Label lblName = newPlayer.Controls.Find("lblName", true).FirstOrDefault() as Label;
-            lblName.Text = draggedPlayer.Controls.Find("lblName", true).FirstOrDefault().Text;
-            Label lblNumber = newPlayer.Controls.Find("lblNumber", true).FirstOrDefault() as Label;
-            lblNumber.Text = draggedPlayer.Controls.Find("lblNumber", true).FirstOrDefault().Text;
-            Label lblPosition = newPlayer.Controls.Find("lblPosition", true).FirstOrDefault() as Label;
-            lblPosition.Text = draggedPlayer.Controls.Find("lblPosition", true).FirstOrDefault().Text;
-            PictureBox pbCapitan = newPlayer.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
-            pbCapitan.Visible = draggedPlayer.Controls.Find("pbCapitan", true).FirstOrDefault().Visible;
-            PictureBox pbStar = newPlayer.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
-            pbStar.Visible = false;
-    
-
-            return newPlayer;
-
+            foreach (Control control in pnlFavoritePlayers.Controls)
+            {
+                PlayerForm playerForm = control as PlayerForm;
+                if (playerForm != null && playerForm.IsSelected)
+                {
+                    pnlFavoritePlayers.Controls.Remove(playerForm);
+                    pnlAllPlayers.Controls.Add(playerForm);
+                    playerForm.IsSelected = false;
+                    break;
+                }
+            }
         }
 
+     
+
+        private void btnMove_Click(object sender, EventArgs e)
+        {
+            foreach (Control control in pnlAllPlayers.Controls)
+            {
+                PlayerForm playerForm = control as PlayerForm;
+                if (playerForm != null && playerForm.IsSelected)
+                {
+                    pnlAllPlayers.Controls.Remove(playerForm);
+                    pnlFavoritePlayers.Controls.Add(playerForm);
+                    playerForm.IsSelected = false;
+                    break;
+                }
+            }
+        }
     }
+
+    
+
+
 }

@@ -33,6 +33,10 @@
             this.pnlFavoritePlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ovalPictureBox1 = new WorldOfFootball.CustomDesign.OvalPictureBox();
+            this.ovalPictureBox2 = new WorldOfFootball.CustomDesign.OvalPictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.ovalPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ovalPictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlAllPlayers
@@ -102,12 +106,38 @@
             this.label2.Text = "Omiljeni igrači";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // ovalPictureBox1
+            // 
+            this.ovalPictureBox1.BackColor = System.Drawing.Color.DarkGray;
+            this.ovalPictureBox1.Image = global::WorldOfFootball.Properties.Resources.RightArrow;
+            this.ovalPictureBox1.Location = new System.Drawing.Point(702, 284);
+            this.ovalPictureBox1.Name = "ovalPictureBox1";
+            this.ovalPictureBox1.Size = new System.Drawing.Size(125, 108);
+            this.ovalPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ovalPictureBox1.TabIndex = 12;
+            this.ovalPictureBox1.TabStop = false;
+            this.ovalPictureBox1.Click += new System.EventHandler(this.btnMove_Click);
+            // 
+            // ovalPictureBox2
+            // 
+            this.ovalPictureBox2.BackColor = System.Drawing.Color.DarkGray;
+            this.ovalPictureBox2.Image = global::WorldOfFootball.Properties.Resources.LeftArrow;
+            this.ovalPictureBox2.Location = new System.Drawing.Point(702, 116);
+            this.ovalPictureBox2.Name = "ovalPictureBox2";
+            this.ovalPictureBox2.Size = new System.Drawing.Size(125, 108);
+            this.ovalPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ovalPictureBox2.TabIndex = 13;
+            this.ovalPictureBox2.TabStop = false;
+            this.ovalPictureBox2.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // FavoritePlayers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.ovalPictureBox2);
+            this.Controls.Add(this.ovalPictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pnlFavoritePlayers);
@@ -115,6 +145,8 @@
             this.Controls.Add(this.pnlAllPlayers);
             this.Name = "FavoritePlayers";
             this.Size = new System.Drawing.Size(1582, 828);
+            ((System.ComponentModel.ISupportInitialize)(this.ovalPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ovalPictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,5 +157,7 @@
         private FlowLayoutPanel pnlFavoritePlayers;
         private Label label1;
         private Label label2;
+        private CustomDesign.OvalPictureBox ovalPictureBox1;
+        private CustomDesign.OvalPictureBox ovalPictureBox2;
     }
 }
