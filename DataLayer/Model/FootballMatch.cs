@@ -59,11 +59,11 @@ namespace DataLayer.Model
         [JsonProperty("away_team")]
         public PlayingTeam AwayTeam { get; set; }
 
-        //[JsonProperty("home_team_events")]
-        //public List<TeamEvent> HomeTeamEvents { get; set; }
+        [JsonProperty("home_team_events")]
+        public List<TeamEvent> HomeTeamEvents { get; set; }
 
-        //[JsonProperty("away_team_events")]
-        //public List<TeamEvent> AwayTeamEvents { get; set; }
+        [JsonProperty("away_team_events")]
+        public List<TeamEvent> AwayTeamEvents { get; set; }
 
         [JsonProperty("home_team_statistics")]
         public TeamStatistics HomeTeamStatistics { get; set; }

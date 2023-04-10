@@ -74,7 +74,8 @@ namespace WorldOfFootball.UserControls
             FavoritePlayersTeamEventArgs args = new FavoritePlayersTeamEventArgs()
             {
                 FavoritePlayersList = new List<Player>(favoritePlayers),
-                AllPlayersList = new List<Player>(allPlayers),
+                NotFavoritePlayersList = new List<Player>(allPlayers),
+                AllPlayers = new List<Player>(_players),
                 FifaCodeFavCountry = _fifaCode
             };
 

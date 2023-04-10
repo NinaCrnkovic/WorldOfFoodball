@@ -13,6 +13,7 @@ namespace WorldOfFootball
         private LanguageAndChampionship _languageAndChampionshipForm;
         private FavoriteTeam _favoriteTeamForm;
         private FavoritePlayers _favoritePlayersForm;
+        private RankingLists _rankingListsForm;
         private bool _isWomens;
         private string _fifaCode;
    
@@ -75,9 +76,13 @@ namespace WorldOfFootball
             _favoritePlayersForm.FavoritePlayersList += BtnNextFavoritePlayers_Click;
             pnlContainer.Controls.Add(_favoritePlayersForm);
         }
-        private void CallRankingListForm(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
+        private void CallRankingListForm(List<Player> allPlayersForCountry, string fifaCode)
         {
-           
+            var matches = _dataManager.GetMatchesList();
+            _rankingListsForm = new RankingLists(matches, allPlayersForCountry, fifaCode);
+            _rankingListsForm.Dock = DockStyle.Fill;
+            pnlContainer.Controls.Add(_rankingListsForm);
+
         }
 
 
@@ -122,10 +127,12 @@ namespace WorldOfFootball
         private void BtnNextFavoritePlayers_Click(object sender, FavoritePlayersTeamEventArgs e)
         {
             var favoritePlayers = e.FavoritePlayersList;
-            var allPlayers = e.AllPlayersList;
+            var allNotFavoritePlayers = e.NotFavoritePlayersList;
+            var allPlayersForCountry = e.AllPlayers;
             string fifaCode = e.FifaCodeFavCountry;
-            _dataManager.SaveFavoritePlayersToRepo(favoritePlayers, allPlayers, fifaCode);
-            CallRankingListForm(favoritePlayers, allPlayers, fifaCode);
+
+            _dataManager.SaveFavoritePlayersToRepo(favoritePlayers, allNotFavoritePlayers, fifaCode);
+            CallRankingListForm(allPlayersForCountry, fifaCode);
             _favoritePlayersForm.Dispose();
         }
 

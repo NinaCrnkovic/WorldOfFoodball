@@ -19,6 +19,9 @@
     <Compile Update="UserControls\PlayerForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\RankingLists.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\TitleForm.cs">
       <SubType>UserControl</SubType>
     </Compile>

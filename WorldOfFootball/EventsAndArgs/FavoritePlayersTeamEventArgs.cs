@@ -10,8 +10,9 @@ namespace WorldOfFootball.EventsAndArgs
     public class FavoritePlayersTeamEventArgs: EventArgs
     {
         public List<Player> FavoritePlayersList { get; set; }
-        public List<Player> AllPlayersList { get; set; }
-    
+        public List<Player> NotFavoritePlayersList { get; set; }
+
+        public List<Player> AllPlayers { get; set; }
         public string FifaCodeFavCountry { get; set; }
     }
 }

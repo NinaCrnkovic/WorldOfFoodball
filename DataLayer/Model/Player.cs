@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DataLayer.Model
 {
@@ -26,6 +27,9 @@ namespace DataLayer.Model
 
         public string ImagePath { get; set; }
 
+        public int GoalsCount { get; set; } = 0;
+
+        public int YellowCartonCount { get; set; } = 0;
 
         public Player()
         {
