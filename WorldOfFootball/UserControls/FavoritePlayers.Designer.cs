@@ -61,7 +61,7 @@
             this.btnNextFavTeam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNextFavTeam.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnNextFavTeam.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNextFavTeam.Location = new System.Drawing.Point(840, 339);
+            this.btnNextFavTeam.Location = new System.Drawing.Point(840, 439);
             this.btnNextFavTeam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNextFavTeam.Name = "btnNextFavTeam";
             this.btnNextFavTeam.Size = new System.Drawing.Size(427, 36);
@@ -78,7 +78,7 @@
             this.pnlFavoritePlayers.Location = new System.Drawing.Point(840, 47);
             this.pnlFavoritePlayers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlFavoritePlayers.Name = "pnlFavoritePlayers";
-            this.pnlFavoritePlayers.Size = new System.Drawing.Size(427, 287);
+            this.pnlFavoritePlayers.Size = new System.Drawing.Size(425, 383);
             this.pnlFavoritePlayers.TabIndex = 4;
             this.pnlFavoritePlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.PnlFavoritePlayers_DragDrop);
             this.pnlFavoritePlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.PnlFavoritePlayers_DragEnter);

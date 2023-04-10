@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WorldOfFootball.CustomDesign;
+using WorldOfFootball.EventsAndArgs;
 
 namespace WorldOfFootball.UserControls
 {
@@ -18,12 +19,15 @@ namespace WorldOfFootball.UserControls
        
         private List<FootballMatch> _matches;
         private string _fifaCode;
+        private PlayerForm _playerForm;
+        private List<Player> _players;
         public FavoritePlayers(List<FootballMatch> matches, string fifaCode)
         {
             InitializeComponent();
             _matches = matches;
             _fifaCode = fifaCode;   
             FillAllPlayersPanel();
+          
           
         }
 
@@ -39,17 +43,17 @@ namespace WorldOfFootball.UserControls
                     break;
                 }
             }
-            List<Player> playerList = new List<Player>();
+            _players = new List<Player>();
             if (matchWithCode != null)
             {
 
                 foreach (var startingPlayer in matchWithCode.AwayTeamStatistics.StartingEleven)
                 {
-                    playerList.Add(startingPlayer);
+                    _players.Add(startingPlayer);
                 }
                 foreach (var substiturePlayer in matchWithCode.AwayTeamStatistics.Substitutes)
                 {
-                    playerList.Add(substiturePlayer);
+                    _players.Add(substiturePlayer);
                 }
             }
             else
@@ -57,23 +61,24 @@ namespace WorldOfFootball.UserControls
                 Console.WriteLine($"No matches found with FIFA code {_fifaCode}");
             }
 
-            LoadPlayerFormLabel(playerList);
+            LoadPlayerFormLabel();
 
         }
 
-        private void LoadPlayerFormLabel(List<Player> players)
+        private void LoadPlayerFormLabel()
         {
-            foreach (var player in players)
+            foreach (var player in _players)
             {
-                PlayerForm playerForm = new PlayerForm();
-                playerForm.Name = player.ShirtNumber.ToString();
-                Label lblName = playerForm.Controls.Find("lblName", true).FirstOrDefault() as Label;
+                _playerForm = new PlayerForm();
+           
+                _playerForm.Name = player.ShirtNumber.ToString();
+                Label lblName = _playerForm.Controls.Find("lblName", true).FirstOrDefault() as Label;
                 lblName.Text = player.Name;
-                Label lblNumber = playerForm.Controls.Find("lblNumber", true).FirstOrDefault() as Label;
+                Label lblNumber = _playerForm.Controls.Find("lblNumber", true).FirstOrDefault() as Label;
                 lblNumber.Text = player.ShirtNumber.ToString();
-                Label lblPosition = playerForm.Controls.Find("lblPosition", true).FirstOrDefault() as Label;
+                Label lblPosition = _playerForm.Controls.Find("lblPosition", true).FirstOrDefault() as Label;
                 lblPosition.Text = player.Position;
-                PictureBox pbCapitan = playerForm.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
+                PictureBox pbCapitan = _playerForm.Controls.Find("pbCapitan", true).FirstOrDefault() as PictureBox;
                 if (player.Captain)
                 {
                     pbCapitan.Visible = true;
@@ -82,20 +87,53 @@ namespace WorldOfFootball.UserControls
                 {
                     pbCapitan.Visible = false;
                 }
-                PictureBox pbStar = playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
-                OvalPictureBox pbImage = playerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
-                pbImage.BackgroundImage = Image.FromFile(player.ImagePath);
-                pbImage.BackgroundImageLayout = ImageLayout.Stretch;
+                PictureBox pbStar = _playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
+                OvalPictureBox pbImage = _playerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
+                pbImage.Image = Image.FromFile(player.ImagePath);
+               // pbImage = ImageLayout.Stretch;
                 pbStar.Visible = false;
-                playerForm.MouseDown += PlayerForm_MouseMove;
-       
-       
-                pnlAllPlayers.Controls.Add(playerForm);
+                _playerForm.MouseDown += PlayerForm_MouseMove;
+                Button btnPicture = _playerForm.Controls.Find("btnPicture", true).FirstOrDefault() as Button;
+                btnPicture.Click += BtnChangeImage_Click;
+
+
+
+                pnlAllPlayers.Controls.Add(_playerForm);
             }
 
         }
 
+        private void BtnChangeImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = Path.GetFileName(openFileDialog.FileName);
+                string newPath = Path.Combine("..//..//..//..//DataLayer//Resources//", fileName);
+                File.Copy(openFileDialog.FileName, newPath, true);
 
+                // Pronalazimo kontrolu koja je pokrenula događaj
+                Button clickedBtn = (Button)sender;
+                PlayerForm clickedPlayerForm = (PlayerForm)clickedBtn.Parent;
+                if (clickedPlayerForm == null)
+                {
+                    return;
+                }
+                OvalPictureBox pbImage = clickedPlayerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
+                pbImage.Image = new Bitmap(openFileDialog.FileName);
+                // Get the shirt number of the player from the player form's Name property
+                var shirtNumber = int.Parse(clickedPlayerForm.Name);
+                var player = _players.FirstOrDefault(p => p.ShirtNumber == shirtNumber);
+                if (player == null)
+                {
+                    return;
+                }
+                player.ImagePath = newPath;
+            }
+         
+
+        }
 
         private void PlayerForm_MouseMove(object sender, MouseEventArgs e)
         {
@@ -218,10 +256,11 @@ namespace WorldOfFootball.UserControls
                 pbStar.Visible = true;
             }
             OvalPictureBox pbImage = newPlayer.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
-            pbImage.BackgroundImage = draggedPlayer.Controls.Find("pbImage", true).FirstOrDefault().BackgroundImage;
-            pbImage.BackgroundImageLayout = ImageLayout.Stretch;
+            pbImage.Image = draggedPlayer.Controls.OfType<PictureBox>().FirstOrDefault()?.Image;
 
-
+          
+            Button btnPicture = _playerForm.Controls.Find("btnPicture", true).FirstOrDefault() as Button;
+            btnPicture.Click += BtnChangeImage_Click;
 
             return newPlayer;
 
