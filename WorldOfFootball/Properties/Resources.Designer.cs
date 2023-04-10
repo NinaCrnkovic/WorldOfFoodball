@@ -93,6 +93,16 @@ namespace WorldOfFootball.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap goal {
+            get {
+                object obj = ResourceManager.GetObject("goal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LeftArrow {
             get {
                 object obj = ResourceManager.GetObject("LeftArrow", resourceCulture);
@@ -166,6 +176,16 @@ namespace WorldOfFootball.Properties {
         internal static System.Drawing.Bitmap tshirt {
             get {
                 object obj = ResourceManager.GetObject("tshirt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yellow_card {
+            get {
+                object obj = ResourceManager.GetObject("yellow_card", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldOfFootball.CustomDesign;
 
 namespace WorldOfFootball.UserControls
 {
@@ -16,69 +17,75 @@ namespace WorldOfFootball.UserControls
         private List<FootballMatch> _matches;
         private List<Player> _players;
         private string _fifaCode;
+        private GoalorCarton _goalOrCarton;
         public RankingLists(List<FootballMatch> matches, List<Player> players, string fifaCode)
         {
             _matches = matches;
             _fifaCode = fifaCode;
             _players = players;
-            
 
-            InitializeComponent();
+
             UpdatePlayerStatisticsForCountry();
+            InitializeComponent();
+            
         }
 
         private void RankingLists_Load(object sender, EventArgs e)
         {
+            LoadPanelGoalOrCard(true, pnlGoals);
+            LoadPanelGoalOrCard(false, pnlCards);
 
-           
-            // Set up the columns in the DataGridView
-            dgRankings.AutoGenerateColumns = false;
-            //dgRankings.Columns.Add(new DataGridViewImageColumn { Name = "Image", HeaderText = "Image", DataPropertyName = "ImagePath" });
-            
+        }
 
-            dgRankings.Columns.Add(new DataGridViewTextBoxColumn { Name = "Name", HeaderText = "Name", DataPropertyName = "Name" });
-            dgRankings.Columns.Add(new DataGridViewTextBoxColumn { Name = "Goals", HeaderText = "Goals", DataPropertyName = "GoalsCount" });
-
-            // Set the DataSource of the DataGridView to the list of players
-
-            dgRankings.CellFormatting += dgRankings_CellFormatting;
-            dgRankings.DataSource = _players;
         
 
-        }
-
-
-        private void dgRankings_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void LoadPanelGoalOrCard(bool isGoal, FlowLayoutPanel panel)
         {
-            if (e.ColumnIndex == dgRankings.Columns["Image"].Index && e.Value != null)
+            var sortedPlayers = _players.OrderByDescending(p => isGoal ? p.GoalsCount : p.YellowCartonCount);
+            foreach (var player in sortedPlayers)
             {
-                string imagePath = e.Value.ToString();
-                if (!string.IsNullOrEmpty(imagePath))
-                {
-                    Image image = Image.FromFile(imagePath);
-                    e.Value = new Bitmap(image, new Size(100, 100)); // postavljamo veličinu slike na 50x50
-                    e.FormattingApplied = true;
+                _goalOrCarton = new GoalorCarton();
 
-                    // postaviti svojstva slike
-                    dgRankings.Columns["Image"].DefaultCellStyle.NullValue = null;
-                    dgRankings.Columns["Image"].Width = 50;
-                  
-                    dgRankings.Columns["Image"].DefaultCellStyle.Padding = new Padding(3);
-                    dgRankings.Columns["Image"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                    dgRankings.Columns["Image"].DefaultCellStyle.NullValue = null;
-                    dgRankings.Columns["Image"].DefaultCellStyle.BackColor = Color.White;
-                    dgRankings.Columns["Image"].DefaultCellStyle.SelectionBackColor = Color.White;
-                    dgRankings.Columns["Image"].DefaultCellStyle.SelectionForeColor = Color.Black;
-                    ((DataGridViewImageColumn)dgRankings.Columns["Image"]).ImageLayout = DataGridViewImageCellLayout.Stretch;
+                _goalOrCarton.Name = player.ShirtNumber.ToString();
+                Label lblName = _goalOrCarton.Controls.Find("lblName", true).FirstOrDefault() as Label;
+                lblName.Text = player.Name;
+                Label lblGoals = _goalOrCarton.Controls.Find("lblGoals", true).FirstOrDefault() as Label;
+                if (isGoal)
+                {
+                    lblGoals.Text = player.GoalsCount.ToString();
                 }
+                else
+                {
+                    lblGoals.Text = player.YellowCartonCount.ToString();
+                }
+
+
+                PictureBox pbGoalOrCard = _goalOrCarton.Controls.Find("pbGoalOrCard", true).FirstOrDefault() as PictureBox;
+                if (isGoal)
+                {
+                    pbGoalOrCard.Image = Properties.Resources.goal;
+                }
+                else
+                {
+                    pbGoalOrCard.Image = Properties.Resources.yellow_card;
+                }
+
+                OvalPictureBox pbImage = _goalOrCarton.Controls.Find("opImg", true).FirstOrDefault() as OvalPictureBox;
+                pbImage.Image = Image.FromFile(player.ImagePath);
+
+
+                panel.Controls.Add(_goalOrCarton);
             }
         }
+
+
+
+
 
 
         private void UpdatePlayerStatisticsForCountry()
         {
             
-
             foreach (FootballMatch match in _matches)
             {
                 UpdatePlayerStatisticsForEvents(match.HomeTeamEvents, match.HomeTeam);

@@ -31,8 +31,8 @@
             this.lblAllPlayers = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgRankings = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgRankings)).BeginInit();
+            this.pnlGoals = new System.Windows.Forms.FlowLayoutPanel();
+            this.pnlCards = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // lblAllPlayers
@@ -43,7 +43,7 @@
             this.lblAllPlayers.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblAllPlayers.Location = new System.Drawing.Point(49, 20);
             this.lblAllPlayers.Name = "lblAllPlayers";
-            this.lblAllPlayers.Size = new System.Drawing.Size(394, 26);
+            this.lblAllPlayers.Size = new System.Drawing.Size(311, 26);
             this.lblAllPlayers.TabIndex = 8;
             this.lblAllPlayers.Text = "Broj golova";
             this.lblAllPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -56,7 +56,7 @@
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label1.Location = new System.Drawing.Point(498, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(394, 26);
+            this.label1.Size = new System.Drawing.Size(311, 26);
             this.label1.TabIndex = 9;
             this.label1.Text = "Broj žutih kartona";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,17 +74,29 @@
             this.label2.Text = "Broj posjetitelja";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgRankings
+            // pnlGoals
             // 
-            this.dgRankings.AllowUserToAddRows = false;
-            this.dgRankings.AllowUserToDeleteRows = false;
-            this.dgRankings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgRankings.Location = new System.Drawing.Point(58, 79);
-            this.dgRankings.Name = "dgRankings";
-            this.dgRankings.ReadOnly = true;
-            this.dgRankings.RowTemplate.Height = 25;
-            this.dgRankings.Size = new System.Drawing.Size(1283, 505);
-            this.dgRankings.TabIndex = 11;
+            this.pnlGoals.AllowDrop = true;
+            this.pnlGoals.AutoScroll = true;
+            this.pnlGoals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.pnlGoals.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlGoals.Location = new System.Drawing.Point(49, 48);
+            this.pnlGoals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlGoals.Name = "pnlGoals";
+            this.pnlGoals.Size = new System.Drawing.Size(311, 540);
+            this.pnlGoals.TabIndex = 11;
+            // 
+            // pnlCards
+            // 
+            this.pnlCards.AllowDrop = true;
+            this.pnlCards.AutoScroll = true;
+            this.pnlCards.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.pnlCards.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.pnlCards.Location = new System.Drawing.Point(498, 48);
+            this.pnlCards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlCards.Name = "pnlCards";
+            this.pnlCards.Size = new System.Drawing.Size(311, 540);
+            this.pnlCards.TabIndex = 12;
             // 
             // RankingLists
             // 
@@ -92,14 +104,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Controls.Add(this.dgRankings);
+            this.Controls.Add(this.pnlCards);
+            this.Controls.Add(this.pnlGoals);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAllPlayers);
             this.Name = "RankingLists";
             this.Size = new System.Drawing.Size(1384, 621);
             this.Load += new System.EventHandler(this.RankingLists_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgRankings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -109,6 +121,7 @@
         private Label lblAllPlayers;
         private Label label1;
         private Label label2;
-        private DataGridView dgRankings;
+        private FlowLayoutPanel pnlGoals;
+        private FlowLayoutPanel pnlCards;
     }
 }
