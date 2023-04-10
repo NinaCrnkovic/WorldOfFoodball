@@ -21,14 +21,64 @@ namespace WorldOfFootball.UserControls
         private string _fifaCode;
         private PlayerForm _playerForm;
         private List<Player> _players;
+        private string _teamName;
         public FavoritePlayers(List<FootballMatch> matches, string fifaCode)
         {
             InitializeComponent();
             _matches = matches;
             _fifaCode = fifaCode;   
             FillAllPlayersPanel();
-          
-          
+            SetCountryNameOnLabel();
+            btnNextFavTeam.Click += btnNextFavTeam_Click;
+
+
+        }
+
+        private void SetCountryNameOnLabel()
+        {
+            lblAllPlayers.Text = $"{lblAllPlayers.Text} - {_teamName}";
+            lblFavoritePlayers.Text = $"{lblFavoritePlayers.Text} - {_teamName}";
+        }
+
+        public event EventHandler<FavoritePlayersTeamEventArgs> FavoritePlayersList;
+        private void btnNextFavTeam_Click(object sender, EventArgs e)
+        {
+            List<Player> favoritePlayers = new List<Player>();
+            foreach (Control control in pnlFavoritePlayers.Controls)
+            {
+                if (control is PlayerForm playerForm)
+                {
+                    Player player = new Player();
+                    player = _players.First(p => control.Name == p.ShirtNumber.ToString());
+                    favoritePlayers.Add(player);
+                }
+            }
+
+            if (favoritePlayers.Count == 0)
+            {
+                MessageBox.Show("Morate izabrati bar jednog najdražeg igrača.");
+                return;
+            }
+
+            List<Player> allPlayers = new List<Player>();
+            foreach (Control control in pnlAllPlayers.Controls)
+            {
+                if (control is PlayerForm playerForm)
+                {
+                    Player player = new Player();
+                    player = _players.First(p => control.Name == p.ShirtNumber.ToString());
+                    allPlayers.Add(player);
+                }
+            }
+
+            FavoritePlayersTeamEventArgs args = new FavoritePlayersTeamEventArgs()
+            {
+                FavoritePlayersList = new List<Player>(favoritePlayers),
+                AllPlayersList = new List<Player>(allPlayers),
+                FifaCodeFavCountry = _fifaCode
+            };
+
+            FavoritePlayersList?.Invoke(this, args);
         }
 
         private void FillAllPlayersPanel()
@@ -39,6 +89,7 @@ namespace WorldOfFootball.UserControls
             {
                 if (item.AwayTeam.Code == _fifaCode)
                 {
+                    _teamName = item.AwayTeam.Country;
                     matchWithCode = item;
                     break;
                 }
@@ -102,6 +153,8 @@ namespace WorldOfFootball.UserControls
             }
 
         }
+
+        
 
         private void BtnChangeImage_Click(object sender, EventArgs e)
         {
@@ -275,8 +328,6 @@ namespace WorldOfFootball.UserControls
                 {
                     selectedPlayers.Add(playerForm);
                 }
-
-
             }
             foreach(PlayerForm playerForm in selectedPlayers)
             {
@@ -285,14 +336,9 @@ namespace WorldOfFootball.UserControls
                 {
                     AddPlayer(playerForm, pnlAllPlayers, pnlFavoritePlayers);
                 }
-            }
-                    
+            }  
         }
 
-
-
-
-        
 
         private void PbRight_Click(object sender, EventArgs e)
         {
@@ -303,10 +349,7 @@ namespace WorldOfFootball.UserControls
                 {
                     selectedPlayers.Add(playerForm);
                 }
-
-
             }
-
 
             foreach (PlayerForm playerForm in selectedPlayers)
             {
@@ -323,24 +366,9 @@ namespace WorldOfFootball.UserControls
                         MessageBox.Show("Možete prenijeti najviše tri igrača u omiljene igrače.");
                     }
                 }
-                
-
-
-
             }
             
         }
-
-
-
-
-
-
-
-
     }
-
-
-
 
 }

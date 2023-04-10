@@ -79,9 +79,10 @@ namespace DataLayer.Model
             }
         }
 
-
-
-
+        public void SaveFavoritePlayersToRepo(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
+        {
+            _configRepo.SaveFavoritePlayersSettings(favoritePlayers, allPlayers, fifaCode);
+        }
     }
 
 

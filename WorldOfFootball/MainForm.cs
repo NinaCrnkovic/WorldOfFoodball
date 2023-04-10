@@ -52,7 +52,7 @@ namespace WorldOfFootball
         {
             _languageAndChampionshipForm = new LanguageAndChampionship();
             _languageAndChampionshipForm.LangAndChamp += BtnNextLangAndChamp_Click;
-            _languageAndChampionshipForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            _languageAndChampionshipForm.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(_languageAndChampionshipForm);
         }
         private async void CallFavoriteTeamForm(bool isWomens)
@@ -60,7 +60,7 @@ namespace WorldOfFootball
             await _dataManager.LoadTeams(isWomens);
             var teams = _dataManager.GetTeamsList();
             _favoriteTeamForm = new FavoriteTeam(teams);
-            _favoriteTeamForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            _favoriteTeamForm.Dock = DockStyle.Fill;
             _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
             pnlContainer.Controls.Add(_favoriteTeamForm);
 
@@ -71,9 +71,15 @@ namespace WorldOfFootball
             await _dataManager.LoadMaches(isWomens);
             var matches = _dataManager.GetMatchesList();
             _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode);
-            _favoritePlayersForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            _favoritePlayersForm.Dock = DockStyle.Fill;
+            _favoritePlayersForm.FavoritePlayersList += BtnNextFavoritePlayers_Click;
             pnlContainer.Controls.Add(_favoritePlayersForm);
         }
+        private void CallRankingListForm(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
+        {
+           
+        }
+
 
         #endregion
 
@@ -113,7 +119,18 @@ namespace WorldOfFootball
 
         }
 
-        
+        private void BtnNextFavoritePlayers_Click(object sender, FavoritePlayersTeamEventArgs e)
+        {
+            var favoritePlayers = e.FavoritePlayersList;
+            var allPlayers = e.AllPlayersList;
+            string fifaCode = e.FifaCodeFavCountry;
+            _dataManager.SaveFavoritePlayersToRepo(favoritePlayers, allPlayers, fifaCode);
+            CallRankingListForm(favoritePlayers, allPlayers, fifaCode);
+            _favoritePlayersForm.Dispose();
+        }
+
+       
+
 
         #endregion
 

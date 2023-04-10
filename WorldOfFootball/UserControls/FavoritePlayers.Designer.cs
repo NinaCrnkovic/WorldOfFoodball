@@ -31,8 +31,8 @@
             this.pnlAllPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.btnNextFavTeam = new System.Windows.Forms.Button();
             this.pnlFavoritePlayers = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAllPlayers = new System.Windows.Forms.Label();
+            this.lblFavoritePlayers = new System.Windows.Forms.Label();
             this.pbRight = new WorldOfFootball.CustomDesign.OvalPictureBox();
             this.pbLeft = new WorldOfFootball.CustomDesign.OvalPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbRight)).BeginInit();
@@ -83,31 +83,31 @@
             this.pnlFavoritePlayers.DragDrop += new System.Windows.Forms.DragEventHandler(this.PnlFavoritePlayers_DragDrop);
             this.pnlFavoritePlayers.DragEnter += new System.Windows.Forms.DragEventHandler(this.PnlFavoritePlayers_DragEnter);
             // 
-            // label1
+            // lblAllPlayers
             // 
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(80, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(451, 26);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Svi igrači";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAllPlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.lblAllPlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblAllPlayers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblAllPlayers.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblAllPlayers.Location = new System.Drawing.Point(80, 13);
+            this.lblAllPlayers.Name = "lblAllPlayers";
+            this.lblAllPlayers.Size = new System.Drawing.Size(451, 26);
+            this.lblAllPlayers.TabIndex = 7;
+            this.lblAllPlayers.Text = "Svi igrači";
+            this.lblAllPlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblFavoritePlayers
             // 
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(840, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(427, 26);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Omiljeni igrači";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFavoritePlayers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.lblFavoritePlayers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lblFavoritePlayers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFavoritePlayers.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblFavoritePlayers.Location = new System.Drawing.Point(840, 13);
+            this.lblFavoritePlayers.Name = "lblFavoritePlayers";
+            this.lblFavoritePlayers.Size = new System.Drawing.Size(427, 26);
+            this.lblFavoritePlayers.TabIndex = 8;
+            this.lblFavoritePlayers.Text = "Omiljeni igrači";
+            this.lblFavoritePlayers.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pbRight
             // 
@@ -143,8 +143,8 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.pbLeft);
             this.Controls.Add(this.pbRight);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblFavoritePlayers);
+            this.Controls.Add(this.lblAllPlayers);
             this.Controls.Add(this.pnlFavoritePlayers);
             this.Controls.Add(this.btnNextFavTeam);
             this.Controls.Add(this.pnlAllPlayers);
@@ -161,8 +161,8 @@
         private FlowLayoutPanel pnlAllPlayers;
         private Button btnNextFavTeam;
         private FlowLayoutPanel pnlFavoritePlayers;
-        private Label label1;
-        private Label label2;
+        private Label lblAllPlayers;
+        private Label lblFavoritePlayers;
         private CustomDesign.OvalPictureBox pbRight;
         private CustomDesign.OvalPictureBox pbLeft;
     }
