@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Model
 {
+    
     public class Player
     {
-       
+        private const string IMG_PATH = "..//..//..//..//DataLayer//Resources//Maradona.jpeg";
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -21,7 +23,14 @@ namespace DataLayer.Model
 
         [JsonProperty("position")]
         public string Position { get; set; }
-       
 
+        public string ImagePath { get; set; }
+
+
+        public Player()
+        {
+            ImagePath = IMG_PATH;
+            
+        }
     }
 }

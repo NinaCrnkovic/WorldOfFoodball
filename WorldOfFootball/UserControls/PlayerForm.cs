@@ -3,37 +3,46 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldOfFootball.CustomDesign;
 
 namespace WorldOfFootball.UserControls
 {
     public partial class PlayerForm : UserControl
     {
+       
         public bool IsSelected { get; set; }
         public PlayerForm()
         {
         
         InitializeComponent();
-           
-               
+        btnPicture.MouseClick += ChangeImage_Click;
+
         }
 
-        private void PlayerForm_Click(object sender, EventArgs e)
+    
+
+        private void ChangeImage_Click(object sender, EventArgs e)
         {
-            PlayerForm playerForm = (PlayerForm)sender;
-            playerForm.IsSelected = !playerForm.IsSelected;
-            if (playerForm.IsSelected)
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                playerForm.BackColor = Color.Green;
-            }
-            else
-            {
-                playerForm.BackColor = Color.White;
+                pbImage.Image = new Bitmap(openFileDialog.FileName);
+
+                
             }
         }
+
+
+
+
+
+
 
     }
 }

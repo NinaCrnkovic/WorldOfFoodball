@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldOfFootball.CustomDesign;
 
 namespace WorldOfFootball.UserControls
 {
@@ -82,6 +83,9 @@ namespace WorldOfFootball.UserControls
                     pbCapitan.Visible = false;
                 }
                 PictureBox pbStar = playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
+                OvalPictureBox pbImage = playerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
+                pbImage.BackgroundImage = Image.FromFile(player.ImagePath);
+                pbImage.BackgroundImageLayout = ImageLayout.Stretch;
                 pbStar.Visible = false;
                 playerForm.MouseDown += PlayerForm_MouseMove;
        
@@ -213,6 +217,9 @@ namespace WorldOfFootball.UserControls
             {
                 pbStar.Visible = true;
             }
+            OvalPictureBox pbImage = newPlayer.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
+            pbImage.BackgroundImage = draggedPlayer.Controls.Find("pbImage", true).FirstOrDefault().BackgroundImage;
+            pbImage.BackgroundImageLayout = ImageLayout.Stretch;
 
 
 
