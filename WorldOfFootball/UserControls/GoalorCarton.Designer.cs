@@ -32,6 +32,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.pbGoalOrCard = new System.Windows.Forms.PictureBox();
             this.lblGoals = new System.Windows.Forms.Label();
+            this.lblIndex = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.opImg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGoalOrCard)).BeginInit();
             this.SuspendLayout();
@@ -78,18 +79,29 @@
             this.lblGoals.Text = "12";
             this.lblGoals.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblIndex
+            // 
+            this.lblIndex.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblIndex.Location = new System.Drawing.Point(298, 0);
+            this.lblIndex.Name = "lblIndex";
+            this.lblIndex.Size = new System.Drawing.Size(35, 33);
+            this.lblIndex.TabIndex = 9;
+            this.lblIndex.Text = "23";
+            this.lblIndex.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // GoalorCarton
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
+            this.Controls.Add(this.lblIndex);
             this.Controls.Add(this.lblGoals);
             this.Controls.Add(this.pbGoalOrCard);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.opImg);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.Name = "GoalorCarton";
-            this.Size = new System.Drawing.Size(286, 75);
+            this.Size = new System.Drawing.Size(336, 75);
             ((System.ComponentModel.ISupportInitialize)(this.opImg)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGoalOrCard)).EndInit();
             this.ResumeLayout(false);
@@ -103,5 +115,6 @@
         private Label lblName;
         private PictureBox pbGoalOrCard;
         private Label lblGoals;
+        private Label lblIndex;
     }
 }
