@@ -20,6 +20,12 @@ namespace WorldOfFootball.UserControls
         private List<Player> _players;
         private string _fifaCode;
         private GoalorCarton _goalOrCarton;
+        private int printPages = 0;
+
+        private List<GoalorCarton> listGoals;
+        private List<GoalorCarton> listCartons;
+        private string buttonName;
+
 
 
         public RankingLists(List<FootballMatch> matches, List<Player> players, string fifaCode)
@@ -38,15 +44,14 @@ namespace WorldOfFootball.UserControls
         {
             LoadPanelGoalOrCard(true, pnlGoals);
             LoadPanelGoalOrCard(false, pnlCards);
-
-            btnPrint.Click += btnPrint_Click;
+            GetListForPrint();
+            btnPrintGoals.Click += BtnPrintGoals_Click;
+            btnPrintCartons.Click += BtnPrintCartons_Click;
+           
 
         }
 
-        private void BtnPrint_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+   
 
         private void LoadPanelGoalOrCard(bool isGoal, FlowLayoutPanel panel)
         {
@@ -132,24 +137,59 @@ namespace WorldOfFootball.UserControls
 
 
 
-        private int printPages = 0;
-        private int totalPages;
-        private List<GoalorCarton> list;
+      
 
-        private void btnPrint_Click(object sender, EventArgs e)
+        private void BtnPrintGoals_Click(object sender, EventArgs e)
         {
-            list = new List<GoalorCarton>();
+            Button clickedButton = sender as Button;
+            buttonName = clickedButton.Name;
+             
+            printPreviewDialog.ShowDialog();
+        }
 
-            foreach (GoalorCarton goalorCarton in pnlGoals.Controls.OfType<GoalorCarton>())
-            {
-                list.Add(goalorCarton);
-            }
+        private void BtnPrintCartons_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+            buttonName = clickedButton.Name;
 
             printPreviewDialog.ShowDialog();
         }
 
+        private void GetListForPrint()
+        {
+            
+            listGoals = new List<GoalorCarton>();
+
+             foreach (GoalorCarton goalorCarton in pnlGoals.Controls.OfType<GoalorCarton>())
+             {
+                    listGoals.Add(goalorCarton);
+             }
+           
+
+             listCartons = new List<GoalorCarton>();
+
+             foreach (GoalorCarton goalorCarton in pnlCards.Controls.OfType<GoalorCarton>())
+             {
+                    listCartons.Add(goalorCarton);
+             }
+            
+            
+        }
+
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
+            var list = new List <GoalorCarton>();
+            if (buttonName == "btnPrintGoals")
+            {
+                list = listGoals;
+
+              
+            }
+            else if (buttonName == "btnPrintCartons")
+            {
+                list = listCartons;
+
+            }
             float dpiX = e.Graphics.DpiX;
             float dpiY = e.Graphics.DpiY;
             RectangleF bounds = e.PageSettings.PrintableArea;
@@ -167,7 +207,7 @@ namespace WorldOfFootball.UserControls
             float y = top;
 
             while (currentControlIndex < list.Count &&
-                    y + list[currentControlIndex].Height + list[currentControlIndex].Margin.Vertical <= top + bounds.Height &&
+                    y + listGoals[currentControlIndex].Height + list[currentControlIndex].Margin.Vertical <= top + bounds.Height &&
                     controlsOnThisPage < controlsPerPage)
             {
                 // Get the current control
@@ -201,39 +241,6 @@ namespace WorldOfFootball.UserControls
         }
 
 
-        //    private void btnPrint_Click(object sender, EventArgs e)
-        //{
-
-        //    printPreviewDialog.Show();
-
-
-        //    //if (printDialog.ShowDialog() == DialogResult.OK)
-        //    //{
-        //    //    printDocument.Print();
-        //    //}
-
-
-        //}
-
-        //private void PrintPageHandler(object sender, PrintPageEventArgs e)
-        //{
-
-        //}
-
-        //private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
-        //{
-        //    Font font = new Font("Arial", 22, FontStyle.Regular, GraphicsUnit.Pixel);
-        //    e.Graphics.DrawString("Rang liste", font, Brushes.Blue, new PointF(e.MarginBounds.X, e.MarginBounds.Y));
-        //    if(++printPages < numCopy)
-        //    {
-        //        e.HasMorePages = true;
-        //    }
-        //    else
-        //    {
-        //        printPages = 0;
-        //    }
-
-        //}
 
         private void PrintDocument_EndPrint(object sender, PrintEventArgs e)
             {

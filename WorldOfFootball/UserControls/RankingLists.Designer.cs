@@ -33,12 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlCards = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnPrintGoals = new System.Windows.Forms.Button();
             this.pnlGoals = new System.Windows.Forms.FlowLayoutPanel();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
             this.pageSetupDialog = new System.Windows.Forms.PageSetupDialog();
+            this.btnPrintCartons = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblAllPlayers
@@ -89,17 +90,23 @@
             this.pnlCards.Location = new System.Drawing.Point(498, 48);
             this.pnlCards.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlCards.Name = "pnlCards";
-            this.pnlCards.Size = new System.Drawing.Size(362, 540);
+            this.pnlCards.Size = new System.Drawing.Size(362, 496);
             this.pnlCards.TabIndex = 12;
             // 
-            // btnPrint
+            // btnPrintGoals
             // 
-            this.btnPrint.Location = new System.Drawing.Point(912, 165);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(75, 23);
-            this.btnPrint.TabIndex = 0;
-            this.btnPrint.Text = "button1";
-            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrintGoals.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
+            this.btnPrintGoals.FlatAppearance.BorderSize = 0;
+            this.btnPrintGoals.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintGoals.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPrintGoals.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPrintGoals.Location = new System.Drawing.Point(49, 549);
+            this.btnPrintGoals.Name = "btnPrintGoals";
+            this.btnPrintGoals.Size = new System.Drawing.Size(362, 23);
+            this.btnPrintGoals.TabIndex = 0;
+            this.btnPrintGoals.Text = "Print";
+            this.btnPrintGoals.UseCompatibleTextRendering = true;
+            this.btnPrintGoals.UseVisualStyleBackColor = false;
             // 
             // pnlGoals
             // 
@@ -110,7 +117,7 @@
             this.pnlGoals.Location = new System.Drawing.Point(49, 48);
             this.pnlGoals.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlGoals.Name = "pnlGoals";
-            this.pnlGoals.Size = new System.Drawing.Size(362, 540);
+            this.pnlGoals.Size = new System.Drawing.Size(362, 496);
             this.pnlGoals.TabIndex = 13;
             // 
             // printDocument
@@ -138,14 +145,30 @@
             // 
             this.pageSetupDialog.Document = this.printDocument;
             // 
+            // btnPrintCartons
+            // 
+            this.btnPrintCartons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
+            this.btnPrintCartons.FlatAppearance.BorderSize = 0;
+            this.btnPrintCartons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintCartons.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPrintCartons.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnPrintCartons.Location = new System.Drawing.Point(498, 549);
+            this.btnPrintCartons.Name = "btnPrintCartons";
+            this.btnPrintCartons.Size = new System.Drawing.Size(362, 23);
+            this.btnPrintCartons.TabIndex = 14;
+            this.btnPrintCartons.Text = "Print";
+            this.btnPrintCartons.UseCompatibleTextRendering = true;
+            this.btnPrintCartons.UseVisualStyleBackColor = false;
+            // 
             // RankingLists
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WorldOfFootball.Properties.Resources.background1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.btnPrintCartons);
             this.Controls.Add(this.pnlGoals);
-            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnPrintGoals);
             this.Controls.Add(this.pnlCards);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -163,11 +186,12 @@
         private Label label1;
         private Label label2;
         private FlowLayoutPanel pnlCards;
-        private Button btnPrint;
+        private Button btnPrintGoals;
         private FlowLayoutPanel pnlGoals;
         private System.Drawing.Printing.PrintDocument printDocument;
         private PrintDialog printDialog;
         private PrintPreviewDialog printPreviewDialog;
         private PageSetupDialog pageSetupDialog;
+        private Button btnPrintCartons;
     }
 }
