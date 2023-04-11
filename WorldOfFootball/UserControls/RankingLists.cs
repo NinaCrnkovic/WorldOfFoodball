@@ -20,6 +20,7 @@ namespace WorldOfFootball.UserControls
         private List<Player> _players;
         private string _fifaCode;
         private GoalorCarton _goalOrCarton;
+        private Visitors _visitors;
         private int printPages = 0;
 
         private List<GoalorCarton> listGoals;
@@ -44,6 +45,7 @@ namespace WorldOfFootball.UserControls
         {
             LoadPanelGoalOrCard(true, pnlGoals);
             LoadPanelGoalOrCard(false, pnlCards);
+            LoadPanelVisitors();
             GetListForPrint();
             btnPrintGoals.Click += BtnPrintGoals_Click;
             btnPrintCartons.Click += BtnPrintCartons_Click;
@@ -51,7 +53,32 @@ namespace WorldOfFootball.UserControls
 
         }
 
-   
+        private void LoadPanelVisitors()
+        {
+            List<FootballMatch> sortedMatches = _matches.Where(m => m.HomeTeam.Code == _fifaCode || m.AwayTeam.Code == _fifaCode).OrderByDescending(m => m.Attendance).ToList();
+
+            int index = 1;
+            foreach (var match in sortedMatches)
+            {
+                _visitors = new Visitors();
+
+                _visitors.Name = match.Attendance.ToString();
+                Label lblTeams = _visitors.Controls.Find("lblTeams", true).FirstOrDefault() as Label;
+                lblTeams.Text = $"{match.HomeTeamCountry} : {match.AwayTeamCountry}";
+                Label lblIndex = _visitors.Controls.Find("lblIndex", true).FirstOrDefault() as Label;
+                lblIndex.Text = index.ToString();
+                Label lblVenue = _visitors.Controls.Find("lblVenue", true).FirstOrDefault() as Label;
+                lblVenue.Text = match.Venue;
+                Label lblLocation = _visitors.Controls.Find("lblLocation", true).FirstOrDefault() as Label;
+                lblLocation.Text = match.Location;
+
+                Label lblVisitors = _visitors.Controls.Find("lblVisitors", true).FirstOrDefault() as Label;
+                lblVisitors.Text = match.Attendance.ToString();
+                pnlVisitors.Controls.Add(_visitors);
+                index++;
+            }
+
+        }
 
         private void LoadPanelGoalOrCard(bool isGoal, FlowLayoutPanel panel)
         {

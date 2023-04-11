@@ -28,5 +28,8 @@
     <Compile Update="UserControls\TitleForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\Visitors.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>
