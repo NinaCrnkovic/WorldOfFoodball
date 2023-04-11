@@ -113,6 +113,16 @@ namespace WorldOfFootball.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap location_mark {
+            get {
+                object obj = ResourceManager.GetObject("location_mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_color {
             get {
                 object obj = ResourceManager.GetObject("logo-color", resourceCulture);
@@ -136,6 +146,16 @@ namespace WorldOfFootball.Properties {
         internal static System.Drawing.Bitmap Maradona {
             get {
                 object obj = ResourceManager.GetObject("Maradona", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap people {
+            get {
+                object obj = ResourceManager.GetObject("people", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
