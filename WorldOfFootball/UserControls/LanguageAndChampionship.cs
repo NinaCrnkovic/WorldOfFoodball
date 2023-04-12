@@ -14,12 +14,23 @@ namespace WorldOfFootball.UserControls
 {
     public partial class LanguageAndChampionship : UserControl
     {
-        public LanguageAndChampionship()
+        private string _language;
+        public LanguageAndChampionship(string language)
         {
+            if (language == null)
+            {
+                _language = "en";
+            }
+            else
+            {
+                _language = language;
+            }
             InitializeComponent();
             btnNextLangAndChamp.Click += btnNextLangAndChamp_Click;
 
         }
+        #region Events
+
         public event EventHandler<LanguageAndChampionshipEventArgs> LangAndChamp;
         private void btnNextLangAndChamp_Click(object sender, EventArgs e)
         {
@@ -27,7 +38,7 @@ namespace WorldOfFootball.UserControls
             if (gbLanguage.Controls.OfType<RadioButton>().Any(rb => rb.Checked) &&
                 gbChampionship.Controls.OfType<RadioButton>().Any(rb => rb.Checked))
             {
-                
+
                 // Pronalazak odabranog jezika
                 RadioButton selectedLanguage = gbLanguage.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked);
                 string language = selectedLanguage.Tag.ToString();
@@ -36,20 +47,72 @@ namespace WorldOfFootball.UserControls
                 RadioButton selectedChampionship = gbChampionship.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked);
                 string championship = selectedChampionship.Tag.ToString();
 
-                var result = CustomMessageBox.Show( $"Da li ste sigurni da želite postaviti  {(language == "hr" ? "Hrvatski" : "Engleski")} jezik i {(championship == "Mens" ? "muško" : "žensko")} prvenstvo?", "Upozorenje", MessageBoxButtons.OKCancel);
-           
+                DialogResult result = CallAreYouShureMessage(language, championship);
+
                 // Slanje podataka u event args
                 if (result == DialogResult.Yes)
                 {
                     LangAndChamp?.Invoke(this, new LanguageAndChampionshipEventArgs { Language = language, Championship = championship });
                 }
-                
+
             }
             else
             {
-                // Bacanje greške ako nijedan radio button nije odabran
-                CustomMessageBox.Show("Niste izabrali jezik i prvenstvo", "Upozorenje", MessageBoxButtons.OK);
+                CallDidNotChooseMessage();
             }
         }
+        #endregion
+        #region MessageBox callings
+        private void CallDidNotChooseMessage()
+        {
+            string message = "";
+            string warning = "";
+
+            if (_language == "en")
+            {
+                message = Properties.Resources.messageChooseLangAndChampEn;
+                warning = Properties.Resources.messageWarningEn;
+
+            }
+            else if (_language == "hr")
+            {
+                message = Properties.Resources.messageChooseLangAndChampHr;
+                warning = Properties.Resources.messageWarningHr;
+            }
+            // Bacanje greške ako nijedan radio button nije odabran
+            CustomMessageBox.Show(message, warning, MessageBoxButtons.OK, _language);
+        }
+
+        
+        private DialogResult CallAreYouShureMessage(string language, string championship)
+        {
+            string message = "";
+            string warning = "";
+            string lan;
+            string champ;
+
+
+            if (_language == "en")
+            {
+                lan = language == "hr" ? "croatian" : "english";
+                champ = championship == "Mens" ? "mens" : "womens";
+                message = String.Format(Properties.Resources.messageLangAndChampEn, lan, champ);
+                warning = Properties.Resources.messageWarningEn;
+           
+            }
+            else if (_language == "hr")
+            {
+                lan = language == "hr" ? "hrvatski" : "engleski";
+                champ = championship == "Mens" ? "muško" : "žensko";
+                message = String.Format(Properties.Resources.messageLangAndChampHr, lan, champ);
+                warning = Properties.Resources.messageWarningHr;
+           
+            }
+     
+
+            var result = CustomMessageBox.Show(message, warning, MessageBoxButtons.OKCancel, _language);
+            return result;
+        }
+        #endregion
     }
 }

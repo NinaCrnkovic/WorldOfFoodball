@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldOfFootball.CustomDesign;
 using WorldOfFootball.EventsAndArgs;
 
 namespace WorldOfFootball.UserControls
@@ -15,14 +16,17 @@ namespace WorldOfFootball.UserControls
     public partial class FavoriteTeam : UserControl
     {
         private List<Team> _teams;
-        public FavoriteTeam(List<Team>teams)
+        private string _language;
+        public FavoriteTeam(List<Team>teams, string language)
         {
             InitializeComponent();
             _teams = teams;
+            _language = language;   
             FillComboBox();
             btnNextFavTeam.Click += btnNextFavTeam_Click;
         }
 
+        #region Events
         public event EventHandler<FavoriteTeamEventArgs> FavoriteTeamSelected;
         private void btnNextFavTeam_Click(object sender, EventArgs e)
         {
@@ -46,16 +50,28 @@ namespace WorldOfFootball.UserControls
             }
             else
             {
-                // Bacanje greške ako nijedan radio button nije odabran
-                MessageBox.Show("Niste izabrali omiljenu reprezentaciju");
+                CallFaworiteTeamMessage();
             }
         }
 
+       
+
+        #endregion
+
+        #region Methods
         private void FillComboBox()
         {
             cbTeams.Items.Clear();
             var sortedTeams = _teams.OrderBy(t => t.Country).ToList();
-            cbTeams.Items.Add("Izaberite reprezentaciju");
+            if (_language == "hr")
+            {
+                cbTeams.Items.Add(Properties.Resources.chooseTeamHr);
+            }
+            else
+            {
+                cbTeams.Items.Add(Properties.Resources.chooseTeamEn);
+            }
+          
             if (cbTeams != null)
             {
                 foreach (var team in sortedTeams)
@@ -66,5 +82,27 @@ namespace WorldOfFootball.UserControls
             }
          
         }
+
+        private void CallFaworiteTeamMessage()
+        {
+            string message = "";
+            string warning = "";
+
+            if (_language == "en")
+            {
+                message = Properties.Resources.messageFavoriteTeamEn;
+                warning = Properties.Resources.messageWarningEn;
+
+            }
+            else if (_language == "hr")
+            {
+                message = Properties.Resources.messageFavoriteTeamHr;
+                warning = Properties.Resources.messageWarningHr;
+            }
+            // Bacanje greške ako nijedan radio button nije odabran
+            CustomMessageBox.Show(message, warning, MessageBoxButtons.OK, _language);
+        }
+
+        #endregion
     }
 }

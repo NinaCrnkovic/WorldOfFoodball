@@ -94,7 +94,7 @@
             this.pbRight.Image = global::WorldOfFootball.Properties.Resources.RightArrow;
             this.pbRight.Name = "pbRight";
             this.pbRight.TabStop = false;
-            this.pbRight.Click += new System.EventHandler(this.PbRight_Click);
+            this.pbRight.Click += new System.EventHandler(this.PbMoveToFavoritePlayers_Click);
             // 
             // pbLeft
             // 
@@ -103,7 +103,7 @@
             this.pbLeft.Image = global::WorldOfFootball.Properties.Resources.LeftArrow;
             this.pbLeft.Name = "pbLeft";
             this.pbLeft.TabStop = false;
-            this.pbLeft.Click += new System.EventHandler(this.PbLeft_Click);
+            this.pbLeft.Click += new System.EventHandler(this.PbMoveToAllPlayers_Click);
             // 
             // FavoritePlayers
             // 

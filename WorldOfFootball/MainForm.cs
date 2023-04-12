@@ -30,7 +30,10 @@ namespace WorldOfFootball
 
         private async void MainForm_Load(object sender, EventArgs e)
         {
-
+            if (_language == null)
+            {
+                _language = "en";
+            }
             await _dataManager.LoadTeams(false);
 
             CallLanguageAndChampionshipForm();
@@ -55,7 +58,7 @@ namespace WorldOfFootball
 
         private void CallLanguageAndChampionshipForm()
         {
-            _languageAndChampionshipForm = new LanguageAndChampionship();
+            _languageAndChampionshipForm = new LanguageAndChampionship(_language);
             _languageAndChampionshipForm.LangAndChamp += BtnNextLangAndChamp_Click;
             _languageAndChampionshipForm.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(_languageAndChampionshipForm);
@@ -64,7 +67,7 @@ namespace WorldOfFootball
         {
             await _dataManager.LoadTeams(isWomens);
             var teams = _dataManager.GetTeamsList();
-            _favoriteTeamForm = new FavoriteTeam(teams);
+            _favoriteTeamForm = new FavoriteTeam(teams, _language);
             _favoriteTeamForm.Dock = DockStyle.Fill;
             _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
             pnlContainer.Controls.Add(_favoriteTeamForm);
@@ -75,7 +78,7 @@ namespace WorldOfFootball
         {
             await _dataManager.LoadMaches(isWomens);
             var matches = _dataManager.GetMatchesList();
-            _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode);
+            _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode, _language);
             _favoritePlayersForm.Dock = DockStyle.Fill;
             _favoritePlayersForm.FavoritePlayersList += BtnNextFavoritePlayers_Click;
             pnlContainer.Controls.Add(_favoritePlayersForm);
@@ -91,8 +94,6 @@ namespace WorldOfFootball
 
 
         #endregion
-
-
 
         #region Events on Buttons in Forms
         private void BtnNextLangAndChamp_Click(object sender, LanguageAndChampionshipEventArgs e)
@@ -153,7 +154,23 @@ namespace WorldOfFootball
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var result = CustomMessageBox.Show("Jeste li sigurni da želite zatvoriti aplikaciju", "Upozorenje", MessageBoxButtons.OKCancel);
+            string message ="";
+            string warning = "";
+          
+                     
+            if (_language == "hr")
+            {
+                message = Properties.Resources.messageLeavingHr;
+                warning = Properties.Resources.messageWarningHr;
+            }
+            else
+            {
+                message = Properties.Resources.messageLeavingEn;
+                warning = Properties.Resources.messageWarningEn;
+
+            }
+               
+            var result = CustomMessageBox.Show(message, warning, MessageBoxButtons.OKCancel, _language);
             if (result == DialogResult.No)
             {
                 e.Cancel = true; // ovdje sprijeèavamo zatvaranje aplikacije
@@ -161,7 +178,6 @@ namespace WorldOfFootball
 
         }
         #endregion
-
 
         #region Methods
         private void Timer_Tick(object sender, EventArgs e)
@@ -178,10 +194,10 @@ namespace WorldOfFootball
 
         private void SetLanguage()
         {
-            if (_language == null)
-            {
-                MessageBox.Show("Nije izabran jezik");
-            }
+            //if (_language == null)
+            //{
+            //    MessageBox.Show("Nije izabran jezik");
+            //}
             
             Thread.CurrentThread.CurrentCulture = new CultureInfo(_language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(_language);

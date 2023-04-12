@@ -8,8 +8,8 @@ namespace WorldOfFootball.CustomDesign
 {
     public class CustomMessageBox 
     {
-      
-        public static DialogResult Show(string message, string title, MessageBoxButtons buttons)
+
+        public static DialogResult Show(string message, string title, MessageBoxButtons buttons, string culture)
         {
             Form form = new Form();
             Label label = new Label();
@@ -20,28 +20,51 @@ namespace WorldOfFootball.CustomDesign
             form.Text = title;
             label.Text = message;
 
-            switch (buttons)
+            switch (culture)
             {
-                case MessageBoxButtons.OKCancel:
-                    button1.Text = "U redu";
-                    button2.Text = "Odustani";
-
-                    form.AcceptButton = button1;
-                    form.CancelButton = button2;
+                case "en":
+                    switch (buttons)
+                    {
+                        case MessageBoxButtons.OKCancel:
+                            button1.Text = "OK";
+                            button2.Text = "Cancel";
+                            form.AcceptButton = button1;
+                            form.CancelButton = button2;
+                            break;
+                        case MessageBoxButtons.YesNo:
+                            button1.Text = "Yes";
+                            button2.Text = "No";
+                            form.AcceptButton = button1;
+                            form.CancelButton = button2;
+                            break;
+                        default:
+                            button1.Visible = false;
+                            button2.Text = "OK";
+                            form.AcceptButton = button2;
+                            break;
+                    }
                     break;
-
-                case MessageBoxButtons.YesNo:
-                    button1.Text = "Da";
-                    button2.Text = "Ne";
-                    form.AcceptButton = button1;
-                    form.CancelButton = button2;
-                    break;
-
-                default:
-                    button1.Visible = false;
-                    button2.Text = "OK";
-
-                    form.AcceptButton = button2;
+                case "hr":
+                    switch (buttons)
+                    {
+                        case MessageBoxButtons.OKCancel:
+                            button1.Text = "U redu";
+                            button2.Text = "Odustani";
+                            form.AcceptButton = button1;
+                            form.CancelButton = button2;
+                            break;
+                        case MessageBoxButtons.YesNo:
+                            button1.Text = "Da";
+                            button2.Text = "Ne";
+                            form.AcceptButton = button1;
+                            form.CancelButton = button2;
+                            break;
+                        default:
+                            button1.Visible = false;
+                            button2.Text = "U redu";
+                            form.AcceptButton = button2;
+                            break;
+                    }
                     break;
             }
 

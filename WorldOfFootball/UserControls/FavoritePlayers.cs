@@ -16,32 +16,162 @@ namespace WorldOfFootball.UserControls
 {
     public partial class FavoritePlayers : UserControl
     {
-       
+
         private List<FootballMatch> _matches;
         private string _fifaCode;
         private PlayerForm _playerForm;
         private List<Player> _players;
         private string _teamName;
-        public FavoritePlayers(List<FootballMatch> matches, string fifaCode)
+        private string _language;
+        private const string PATH = "..//..//..//..//DataLayer//Resources//";
+        private const string FILTER = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
+        public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language)
         {
             InitializeComponent();
             _matches = matches;
-            _fifaCode = fifaCode;   
+            _fifaCode = fifaCode;
+            _language = language;   
             FillAllPlayersPanel();
             SetCountryNameOnLabel();
-            btnNextFavTeam.Click += btnNextFavTeam_Click;
+            btnNextFavTeam.Click += BtnNextFavTeam_Click;
 
 
         }
+        #region Events on buttons
 
-        private void SetCountryNameOnLabel()
-        {
-            lblAllPlayers.Text = $"{lblAllPlayers.Text} - {_teamName}";
-            lblFavoritePlayers.Text = $"{lblFavoritePlayers.Text} - {_teamName}";
-        }
 
         public event EventHandler<FavoritePlayersTeamEventArgs> FavoritePlayersList;
-        private void btnNextFavTeam_Click(object sender, EventArgs e)
+
+        private void BtnNextFavTeam_Click(object sender, EventArgs e)
+        {
+            List<Player> favoritePlayers = GetListOfFavoritePlayers();
+
+            if (favoritePlayers.Count == 0)
+            {
+                CallMessageMustHaveFavorite();
+
+            }
+
+            List<Player> notFavoritePlayers = GetListOfNotFavoritePlayers();
+
+            FavoritePlayersTeamEventArgs args = new FavoritePlayersTeamEventArgs()
+            {
+                FavoritePlayersList = new List<Player>(favoritePlayers),
+                NotFavoritePlayersList = new List<Player>(notFavoritePlayers),
+                AllPlayers = new List<Player>(_players),
+                FifaCodeFavCountry = _fifaCode
+            };
+
+            FavoritePlayersList?.Invoke(this, args);
+        }
+
+        
+
+        private void BtnChangeImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = FILTER;
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = Path.GetFileName(openFileDialog.FileName);
+                string newPath = Path.Combine(PATH, fileName);
+                File.Copy(openFileDialog.FileName, newPath, true);
+
+                // Pronalazimo kontrolu koja je pokrenula događaj
+                Button clickedBtn = (Button)sender;
+                PlayerForm clickedPlayerForm = (PlayerForm)clickedBtn.Parent;
+                if (clickedPlayerForm == null)
+                {
+                    return;
+                }
+                OvalPictureBox pbImage = clickedPlayerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
+                pbImage.Image = new Bitmap(openFileDialog.FileName);
+                // Get the shirt number of the player from the player form's Name property
+                var shirtNumber = int.Parse(clickedPlayerForm.Name);
+                var player = _players.FirstOrDefault(p => p.ShirtNumber == shirtNumber);
+                if (player == null)
+                {
+                    return;
+                }
+                player.ImagePath = newPath;
+            }
+
+
+        }
+
+        private void PbMoveToAllPlayers_Click(object sender, EventArgs e)
+        {
+            List<PlayerForm> selectedPlayers = new List<PlayerForm>();
+            foreach (PlayerForm playerForm in pnlFavoritePlayers.Controls)
+            {
+                if (playerForm.IsSelected)
+                {
+                    selectedPlayers.Add(playerForm);
+                }
+            }
+            foreach (PlayerForm playerForm in selectedPlayers)
+            {
+                bool isPlayerAlreadyAdded = IsPlayerAdded(playerForm, pnlAllPlayers);
+                if (!isPlayerAlreadyAdded)
+                {
+                    AddPlayer(playerForm, pnlAllPlayers, pnlFavoritePlayers);
+                }
+            }
+        }
+
+
+        private void PbMoveToFavoritePlayers_Click(object sender, EventArgs e)
+        {
+            List<PlayerForm> selectedPlayers = new List<PlayerForm>();
+            foreach (PlayerForm playerForm in pnlAllPlayers.Controls)
+            {
+                if (playerForm.IsSelected)
+                {
+                    selectedPlayers.Add(playerForm);
+                }
+            }
+
+            foreach (PlayerForm playerForm in selectedPlayers)
+            {
+                bool isPlayerAlreadyAdded = IsPlayerAdded(playerForm, pnlFavoritePlayers);
+                if (!isPlayerAlreadyAdded)
+                {
+                    if (pnlFavoritePlayers.Controls.Count < 3)
+                    {
+                        AddPlayer(playerForm, pnlFavoritePlayers, pnlAllPlayers);
+
+                    }
+                    else
+                    {
+                        CallMessageOnly3Players();
+
+                    }
+                }
+            }
+
+        }
+
+        
+        #endregion
+
+        #region Methods for lists
+        private List<Player> GetListOfNotFavoritePlayers()
+        {
+            List<Player> allPlayers = new List<Player>();
+            foreach (Control control in pnlAllPlayers.Controls)
+            {
+                if (control is PlayerForm playerForm)
+                {
+                    Player player = new Player();
+                    player = _players.First(p => control.Name == p.ShirtNumber.ToString());
+                    allPlayers.Add(player);
+                }
+            }
+
+            return allPlayers;
+        }
+
+        private List<Player> GetListOfFavoritePlayers()
         {
             List<Player> favoritePlayers = new List<Player>();
             foreach (Control control in pnlFavoritePlayers.Controls)
@@ -54,33 +184,11 @@ namespace WorldOfFootball.UserControls
                 }
             }
 
-            if (favoritePlayers.Count == 0)
-            {
-                MessageBox.Show("Morate izabrati bar jednog najdražeg igrača.");
-                return;
-            }
-
-            List<Player> allPlayers = new List<Player>();
-            foreach (Control control in pnlAllPlayers.Controls)
-            {
-                if (control is PlayerForm playerForm)
-                {
-                    Player player = new Player();
-                    player = _players.First(p => control.Name == p.ShirtNumber.ToString());
-                    allPlayers.Add(player);
-                }
-            }
-
-            FavoritePlayersTeamEventArgs args = new FavoritePlayersTeamEventArgs()
-            {
-                FavoritePlayersList = new List<Player>(favoritePlayers),
-                NotFavoritePlayersList = new List<Player>(allPlayers),
-                AllPlayers = new List<Player>(_players),
-                FifaCodeFavCountry = _fifaCode
-            };
-
-            FavoritePlayersList?.Invoke(this, args);
+            return favoritePlayers;
         }
+        #endregion
+
+        #region Methods for labels and panels
 
         private void FillAllPlayersPanel()
         {
@@ -122,7 +230,7 @@ namespace WorldOfFootball.UserControls
             foreach (var player in _players)
             {
                 _playerForm = new PlayerForm();
-           
+
                 _playerForm.Name = player.ShirtNumber.ToString();
                 Label lblName = _playerForm.Controls.Find("lblName", true).FirstOrDefault() as Label;
                 lblName.Text = player.Name;
@@ -142,7 +250,7 @@ namespace WorldOfFootball.UserControls
                 PictureBox pbStar = _playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
                 OvalPictureBox pbImage = _playerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
                 pbImage.Image = Image.FromFile(player.ImagePath);
-               // pbImage = ImageLayout.Stretch;
+                // pbImage = ImageLayout.Stretch;
                 pbStar.Visible = false;
                 _playerForm.MouseDown += PlayerForm_MouseMove;
                 Button btnPicture = _playerForm.Controls.Find("btnPicture", true).FirstOrDefault() as Button;
@@ -155,114 +263,15 @@ namespace WorldOfFootball.UserControls
 
         }
 
-        
 
-        private void BtnChangeImage_Click(object sender, EventArgs e)
+        private void SetCountryNameOnLabel()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = Path.GetFileName(openFileDialog.FileName);
-                string newPath = Path.Combine("..//..//..//..//DataLayer//Resources//", fileName);
-                File.Copy(openFileDialog.FileName, newPath, true);
-
-                // Pronalazimo kontrolu koja je pokrenula događaj
-                Button clickedBtn = (Button)sender;
-                PlayerForm clickedPlayerForm = (PlayerForm)clickedBtn.Parent;
-                if (clickedPlayerForm == null)
-                {
-                    return;
-                }
-                OvalPictureBox pbImage = clickedPlayerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
-                pbImage.Image = new Bitmap(openFileDialog.FileName);
-                // Get the shirt number of the player from the player form's Name property
-                var shirtNumber = int.Parse(clickedPlayerForm.Name);
-                var player = _players.FirstOrDefault(p => p.ShirtNumber == shirtNumber);
-                if (player == null)
-                {
-                    return;
-                }
-                player.ImagePath = newPath;
-            }
-         
-
-        }
-
-        private void PlayerForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            PlayerForm player = sender as PlayerForm;
-            player?.DoDragDrop(player, DragDropEffects.Move);
-        
-            player.IsSelected = !player.IsSelected;
-            if (player.IsSelected)
-            {
-                player.BackColor = Color.FromArgb(50, 130, 184);
-            }
-            else
-            {
-                player.BackColor = Color.FromArgb(15,76,117);
-            }
-        }
-        
-
-        private void PnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
-        {
-            PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
-            if (draggedPlayer != null)
-            {
-                bool isPlayerAlreadyAdded = IsPlayerAdded(draggedPlayer, pnlFavoritePlayers);
-                if (!isPlayerAlreadyAdded)
-                {
-                    if (pnlFavoritePlayers.Controls.Count < 3)
-                    {
-
-                        AddPlayer(draggedPlayer, pnlFavoritePlayers, pnlAllPlayers);
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("Možete prenijeti najviše tri igrača u omiljene igrače.");
-                    }
-                }
-                
-
-            }
-           
-
-        }
-
-        
-        private void PnlFavoritePlayers_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
-
-        
-
-        private void PnlAllPlayers_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
-
-        private void PnlAllPlayers_DragDrop(object sender, DragEventArgs e)
-        {
-            PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
-            if (draggedPlayer != null)
-            {
-                bool isPlayerAlreadyAdded = IsPlayerAdded(draggedPlayer, pnlAllPlayers);
-
-                // Dodaje novog igrača samo ako već nije dodan na pnlFavoritePlayers kontrolu
-                if (!isPlayerAlreadyAdded)
-                {
-
-                    AddPlayer(draggedPlayer, pnlAllPlayers, pnlFavoritePlayers);
-                }
-            }
+            lblAllPlayers.Text = $"{lblAllPlayers.Text} - {_teamName}";
+            lblFavoritePlayers.Text = $"{lblFavoritePlayers.Text} - {_teamName}";
         }
 
         private void AddPlayer(PlayerForm draggedPlayer, FlowLayoutPanel addToPnl,
-           FlowLayoutPanel removeFromPnl)
+          FlowLayoutPanel removeFromPnl)
         {
             PlayerForm newPlayer = AddNewPlayerForm(draggedPlayer);
             Point mouseLocation = MousePosition;
@@ -312,7 +321,7 @@ namespace WorldOfFootball.UserControls
             OvalPictureBox pbImage = newPlayer.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
             pbImage.Image = draggedPlayer.Controls.OfType<PictureBox>().FirstOrDefault()?.Image;
 
-          
+
             Button btnPicture = _playerForm.Controls.Find("btnPicture", true).FirstOrDefault() as Button;
             btnPicture.Click += BtnChangeImage_Click;
 
@@ -320,46 +329,43 @@ namespace WorldOfFootball.UserControls
 
         }
 
-        private void PbLeft_Click(object sender, EventArgs e)
+
+    
+
+    #endregion
+
+        #region Drag and drop
+
+
+    private void PlayerForm_MouseMove(object sender, MouseEventArgs e)
         {
-            List<PlayerForm> selectedPlayers = new List<PlayerForm>();
-            foreach (PlayerForm playerForm in pnlFavoritePlayers.Controls)
+            PlayerForm player = sender as PlayerForm;
+            player?.DoDragDrop(player, DragDropEffects.Move);
+
+            player.IsSelected = !player.IsSelected;
+            if (player.IsSelected)
             {
-                if (playerForm.IsSelected)
-                {
-                    selectedPlayers.Add(playerForm);
-                }
+                player.BackColor = Color.FromArgb(50, 130, 184);
             }
-            foreach(PlayerForm playerForm in selectedPlayers)
+            else
             {
-                bool isPlayerAlreadyAdded = IsPlayerAdded(playerForm, pnlAllPlayers);
-                if (!isPlayerAlreadyAdded)
-                {
-                    AddPlayer(playerForm, pnlAllPlayers, pnlFavoritePlayers);
-                }
-            }  
+                player.BackColor = Color.FromArgb(15, 76, 117);
+            }
         }
 
 
-        private void PbRight_Click(object sender, EventArgs e)
+        private void PnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
         {
-            List<PlayerForm> selectedPlayers = new List<PlayerForm>();
-            foreach (PlayerForm playerForm in pnlAllPlayers.Controls)
+            PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
+            if (draggedPlayer != null)
             {
-                if (playerForm.IsSelected)
-                {
-                    selectedPlayers.Add(playerForm);
-                }
-            }
-
-            foreach (PlayerForm playerForm in selectedPlayers)
-            {
-                bool isPlayerAlreadyAdded = IsPlayerAdded(playerForm, pnlFavoritePlayers);
+                bool isPlayerAlreadyAdded = IsPlayerAdded(draggedPlayer, pnlFavoritePlayers);
                 if (!isPlayerAlreadyAdded)
                 {
                     if (pnlFavoritePlayers.Controls.Count < 3)
                     {
-                        AddPlayer(playerForm, pnlFavoritePlayers, pnlAllPlayers);
+
+                        AddPlayer(draggedPlayer, pnlFavoritePlayers, pnlAllPlayers);
 
                     }
                     else
@@ -367,9 +373,86 @@ namespace WorldOfFootball.UserControls
                         MessageBox.Show("Možete prenijeti najviše tri igrača u omiljene igrače.");
                     }
                 }
+
+
             }
-            
+
+
         }
+
+
+        private void PnlFavoritePlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+
+
+        private void PnlAllPlayers_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void PnlAllPlayers_DragDrop(object sender, DragEventArgs e)
+        {
+            PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
+            if (draggedPlayer != null)
+            {
+                bool isPlayerAlreadyAdded = IsPlayerAdded(draggedPlayer, pnlAllPlayers);
+
+                // Dodaje novog igrača samo ako već nije dodan na pnlFavoritePlayers kontrolu
+                if (!isPlayerAlreadyAdded)
+                {
+
+                    AddPlayer(draggedPlayer, pnlAllPlayers, pnlFavoritePlayers);
+                }
+            }
+        }
+        #endregion
+
+        #region Messagebox callings
+        private void CallMessageOnly3Players()
+        {
+            string message = "";
+            string warning = "";
+
+            if (_language == "hr")
+            {
+                message = Properties.Resources.messageWarningOnly3Hr;
+                warning = Properties.Resources.messageWarningHr;
+            }
+            else
+            {
+                message = Properties.Resources.messageWarningOnly3Hr;
+                warning = Properties.Resources.messageWarningEn;
+
+            }
+
+            var result = CustomMessageBox.Show(message, warning, MessageBoxButtons.OK, _language);
+        }
+
+        private void CallMessageMustHaveFavorite()
+        {
+            string message = "";
+            string warning = "";
+
+            if (_language == "hr")
+            {
+                message = Properties.Resources.messageWarningFavPlNotChosenHr;
+                warning = Properties.Resources.messageWarningHr;
+            }
+            else
+            {
+                message = Properties.Resources.messageWarningFavPlNotChosenEn;
+                warning = Properties.Resources.messageWarningEn;
+
+            }
+
+            CustomMessageBox.Show(message, warning, MessageBoxButtons.OK, _language);
+        }
+
+        #endregion
+
     }
 
 }

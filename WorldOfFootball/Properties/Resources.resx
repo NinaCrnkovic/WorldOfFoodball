@@ -127,6 +127,12 @@
   <data name="captain_band" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\captain-band.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="chooseTeamEn" xml:space="preserve">
+    <value>Choose team</value>
+  </data>
+  <data name="chooseTeamHr" xml:space="preserve">
+    <value>Izaberite reprezentaciju</value>
+  </data>
   <data name="goal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\goal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,6 +150,48 @@
   </data>
   <data name="Maradona" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Maradona.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="messageChooseLangAndChampEn" xml:space="preserve">
+    <value>You have not selected a language and a championship</value>
+  </data>
+  <data name="messageChooseLangAndChampHr" xml:space="preserve">
+    <value>Niste izabrali jezik i prvenstvo</value>
+  </data>
+  <data name="messageFavoriteTeamEn" xml:space="preserve">
+    <value>You have not chosen a favorite team</value>
+  </data>
+  <data name="messageFavoriteTeamHr" xml:space="preserve">
+    <value>Niste izabrali omiljenu reprezentaciju</value>
+  </data>
+  <data name="messageLangAndChampEn" xml:space="preserve">
+    <value>Are you sure you want to set {0} language and  {1} championship?</value>
+  </data>
+  <data name="messageLangAndChampHr" xml:space="preserve">
+    <value>Da li ste sigurni da želite postaviti  {0} jezik i {1} prvenstvo?</value>
+  </data>
+  <data name="messageLeavingEn" xml:space="preserve">
+    <value>Are you sure you want to close the app?</value>
+  </data>
+  <data name="messageLeavingHr" xml:space="preserve">
+    <value>Jeste li sigurni da želite zatvoriti aplikaciju?</value>
+  </data>
+  <data name="messageWarningEn" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="messageWarningFavPlNotChosenEn" xml:space="preserve">
+    <value>You must choose at least one favorite player</value>
+  </data>
+  <data name="messageWarningFavPlNotChosenHr" xml:space="preserve">
+    <value>Morate izabrati barem jednog nadražeg igrača</value>
+  </data>
+  <data name="messageWarningHr" xml:space="preserve">
+    <value>Upozorenje</value>
+  </data>
+  <data name="messageWarningOnly3En" xml:space="preserve">
+    <value>You can choose a maximum of 3 favorite players</value>
+  </data>
+  <data name="messageWarningOnly3Hr" xml:space="preserve">
+    <value>Možete izabrati najviše 3 najdraža igrača</value>
   </data>
   <data name="people" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\people.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
