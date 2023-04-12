@@ -1,6 +1,6 @@
 ﻿namespace WorldOfFootball.UserControls
 {
-    partial class GoalorCarton
+    partial class GoalOrCardUserControl
     {
         /// <summary> 
         /// Required designer variable.

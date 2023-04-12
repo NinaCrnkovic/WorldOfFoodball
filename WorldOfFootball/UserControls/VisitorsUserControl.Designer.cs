@@ -1,6 +1,6 @@
 ﻿namespace WorldOfFootball.UserControls
 {
-    partial class Visitors
+    partial class VisitorsUserControl
     {
         /// <summary> 
         /// Required designer variable.

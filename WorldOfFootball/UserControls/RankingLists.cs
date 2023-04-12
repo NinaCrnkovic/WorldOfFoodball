@@ -19,13 +19,14 @@ namespace WorldOfFootball.UserControls
         private List<FootballMatch> _matches;
         private List<Player> _players;
         private string _fifaCode;
-        private GoalorCarton _goalOrCarton;
-        private Visitors _visitors;
-        private int printPages = 0;
+        private GoalOrCardUserControl _goalOrCarton;
+        private VisitorsUserControl _visitors;
+        private int _printPages = 0;
 
-        private List<GoalorCarton> listGoals;
-        private List<GoalorCarton> listCartons;
-        private string buttonName;
+        private List<GoalOrCardUserControl> _listGoals;
+        private List<GoalOrCardUserControl> _listCartons;
+        private List<VisitorsUserControl> _listVisitors;
+        private string _buttonName;
 
 
 
@@ -47,11 +48,15 @@ namespace WorldOfFootball.UserControls
             LoadPanelGoalOrCard(false, pnlCards);
             LoadPanelVisitors();
             GetListForPrint();
-            btnPrintGoals.Click += BtnPrintGoals_Click;
-            btnPrintCartons.Click += BtnPrintCartons_Click;
-           
+            btnPrintGoals.Click += BtnPrint_Click;
+            btnPrintCartons.Click += BtnPrint_Click;
+            btnPrintVisitors.Click += BtnPrint_Click;
+         
+
 
         }
+
+     
 
         private void LoadPanelVisitors()
         {
@@ -60,7 +65,7 @@ namespace WorldOfFootball.UserControls
             int index = 1;
             foreach (var match in sortedMatches)
             {
-                _visitors = new Visitors();
+                _visitors = new VisitorsUserControl();
 
                 _visitors.Name = match.Attendance.ToString();
                 Label lblTeams = _visitors.Controls.Find("lblTeams", true).FirstOrDefault() as Label;
@@ -86,7 +91,7 @@ namespace WorldOfFootball.UserControls
             int index = 1;
             foreach (var player in sortedPlayers)
             {
-                _goalOrCarton = new GoalorCarton();
+                _goalOrCarton = new GoalOrCardUserControl();
 
                 _goalOrCarton.Name = player.ShirtNumber.ToString();
                 Label lblName = _goalOrCarton.Controls.Find("lblName", true).FirstOrDefault() as Label;
@@ -160,62 +165,68 @@ namespace WorldOfFootball.UserControls
             }
         }
 
+              
 
-
-
-
-      
-
-        private void BtnPrintGoals_Click(object sender, EventArgs e)
+        private void BtnPrint_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
-            buttonName = clickedButton.Name;
+            _buttonName = clickedButton.Name;
              
             printPreviewDialog.ShowDialog();
         }
 
-        private void BtnPrintCartons_Click(object sender, EventArgs e)
-        {
-            Button clickedButton = sender as Button;
-            buttonName = clickedButton.Name;
-
-            printPreviewDialog.ShowDialog();
-        }
+ 
 
         private void GetListForPrint()
         {
-            
-            listGoals = new List<GoalorCarton>();
 
-             foreach (GoalorCarton goalorCarton in pnlGoals.Controls.OfType<GoalorCarton>())
-             {
-                    listGoals.Add(goalorCarton);
-             }
-           
+            _listGoals = new List<GoalOrCardUserControl>();
 
-             listCartons = new List<GoalorCarton>();
+            foreach (var goalorCarton in pnlGoals.Controls.OfType<GoalOrCardUserControl>())
+            {
+                _listGoals.Add(goalorCarton);
+            }
 
-             foreach (GoalorCarton goalorCarton in pnlCards.Controls.OfType<GoalorCarton>())
-             {
-                    listCartons.Add(goalorCarton);
-             }
-            
-            
+
+            _listCartons = new List<GoalOrCardUserControl>();
+
+            foreach (var goalorCarton in pnlCards.Controls.OfType<GoalOrCardUserControl>())
+            {
+                _listCartons.Add(goalorCarton);
+            }
+            _listVisitors = new List<VisitorsUserControl>();
+
+            foreach (var visitor in pnlVisitors.Controls.OfType<VisitorsUserControl>())
+            {
+                _listVisitors.Add(visitor);
+            }
+
         }
+
+
+
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            var list = new List <GoalorCarton>();
-            if (buttonName == "btnPrintGoals")
-            {
-                list = listGoals;
 
-              
-            }
-            else if (buttonName == "btnPrintCartons")
-            {
-                list = listCartons;
+            var list = new List<GoalOrCardUserControl>();
+            var list2 = new List<VisitorsUserControl>();
 
+            switch (_buttonName)
+            {
+                case "btnPrintGoals":
+                    list = _listGoals;
+               
+                    break;
+                case "btnPrintCartons":
+                    list = _listCartons;
+                    break;
+                case "btnPrintVisitors":
+                    list2 = _listVisitors;
+                    break;
+
+                default:
+                    throw new ArgumentException("Invalid button name");
             }
             float dpiX = e.Graphics.DpiX;
             float dpiY = e.Graphics.DpiY;
@@ -226,48 +237,93 @@ namespace WorldOfFootball.UserControls
             bounds.Height = bounds.Height * dpiY / 100;
 
             int controlsPerPage = 13;
-            int currentControlIndex = printPages * controlsPerPage;
+            int currentControlIndex = _printPages * controlsPerPage;
             int controlsOnThisPage = 0;
             float top = bounds.Top;
 
-            // Loop through each control that will fit on the current page
-            float y = top;
+            if (_buttonName == "btnPrintGoals" || _buttonName == "btnPrintCartons")
+            {              
 
-            while (currentControlIndex < list.Count &&
-                    y + listGoals[currentControlIndex].Height + list[currentControlIndex].Margin.Vertical <= top + bounds.Height &&
-                    controlsOnThisPage < controlsPerPage)
+                // Loop through each control that will fit on the current page
+                float y = top;
+
+                while (currentControlIndex < list.Count &&
+                        y + list[currentControlIndex].Height + list[currentControlIndex].Margin.Vertical <= top + bounds.Height &&
+                        controlsOnThisPage < controlsPerPage)
+                {
+                    // Get the current control
+                    Control control = list[currentControlIndex];
+
+                    // Draw the control to the page
+                    Bitmap bitmap = new Bitmap(control.Width, control.Height);
+                    control.DrawToBitmap(bitmap, control.ClientRectangle);
+                    e.Graphics.DrawImage(bitmap, bounds.Left + control.Margin.Left, y + control.Margin.Top);
+
+                    // Update the vertical position for the next control
+                    y += control.Height + control.Margin.Vertical;
+
+                    // Move to the next control
+                    currentControlIndex++;
+                    controlsOnThisPage++;
+                }
+
+                // If there are more controls to print, set the HasMorePages property to true
+                // and move to the next page
+                if (currentControlIndex < list.Count)
+                {
+                    e.HasMorePages = true;
+                    _printPages++;
+                }
+                else
+                {
+                    e.HasMorePages = false;
+                    _printPages = 0;
+                }
+            }
+            else if(_buttonName == "btnPrintVisitors")
             {
-                // Get the current control
-                Control control = list[currentControlIndex];
+                // Loop through each control that will fit on the current page
+                float y = top;
 
-                // Draw the control to the page
-                Bitmap bitmap = new Bitmap(control.Width, control.Height);
-                control.DrawToBitmap(bitmap, control.ClientRectangle);
-                e.Graphics.DrawImage(bitmap, bounds.Left + control.Margin.Left, y + control.Margin.Top);
+                while (currentControlIndex < list2.Count &&
+                        y + list2[currentControlIndex].Height + list2[currentControlIndex].Margin.Vertical <= top + bounds.Height &&
+                        controlsOnThisPage < controlsPerPage)
+                {
+                    // Get the current control
+                    Control control = list2[currentControlIndex];
 
-                // Update the vertical position for the next control
-                y += control.Height + control.Margin.Vertical;
+                    // Draw the control to the page
+                    Bitmap bitmap = new Bitmap(control.Width, control.Height);
+                    control.DrawToBitmap(bitmap, control.ClientRectangle);
+                    e.Graphics.DrawImage(bitmap, bounds.Left + control.Margin.Left, y + control.Margin.Top);
 
-                // Move to the next control
-                currentControlIndex++;
-                controlsOnThisPage++;
+                    // Update the vertical position for the next control
+                    y += control.Height + control.Margin.Vertical;
+
+                    // Move to the next control
+                    currentControlIndex++;
+                    controlsOnThisPage++;
+                }
+
+                // If there are more controls to print, set the HasMorePages property to true
+                // and move to the next page
+                if (currentControlIndex < list2.Count)
+                {
+                    e.HasMorePages = true;
+                    _printPages++;
+                }
+                else
+                {
+                    e.HasMorePages = false;
+                    _printPages = 0;
+                }
             }
 
-            // If there are more controls to print, set the HasMorePages property to true
-            // and move to the next page
-            if (currentControlIndex < list.Count)
-            {
-                e.HasMorePages = true;
-                printPages++;
-            }
-            else
-            {
-                e.HasMorePages = false;
-                printPages = 0;
-            }
         }
 
+        
 
+     
 
         private void PrintDocument_EndPrint(object sender, PrintEventArgs e)
             {

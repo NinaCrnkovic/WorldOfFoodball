@@ -13,7 +13,7 @@
     <Compile Update="UserControls\FavoriteTeam.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\GoalorCarton.cs">
+    <Compile Update="UserControls\GoalorCardUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\LanguageAndChampionship.cs">
@@ -28,7 +28,7 @@
     <Compile Update="UserControls\TitleForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\Visitors.cs">
+    <Compile Update="UserControls\VisitorsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

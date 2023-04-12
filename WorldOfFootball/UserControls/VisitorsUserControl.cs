@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace WorldOfFootball.UserControls
 {
-    public partial class GoalorCarton : UserControl
+    public partial class VisitorsUserControl : UserControl
     {
-        public GoalorCarton()
+        public VisitorsUserControl()
         {
             InitializeComponent();
         }
+
     }
 }
