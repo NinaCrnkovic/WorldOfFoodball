@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pbSettings = new WorldOfFootball.CustomDesign.OvalPictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
@@ -43,6 +44,7 @@
             resources.ApplyResources(this.pnlHeader, "pnlHeader");
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
             this.pnlHeader.Controls.Add(this.pbSettings);
+            this.pnlHeader.Controls.Add(this.panel1);
             this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Name = "pnlHeader";
             // 
@@ -54,6 +56,11 @@
             this.pbSettings.Name = "pbSettings";
             this.pbSettings.TabStop = false;
             this.pbSettings.Click += new System.EventHandler(this.PbSettings_Click);
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
             // 
             // pictureBox1
             // 
@@ -90,5 +97,6 @@
         private PictureBox pictureBox1;
         private Panel pnlContainer;
         private CustomDesign.OvalPictureBox pbSettings;
+        private Panel panel1;
     }
 }

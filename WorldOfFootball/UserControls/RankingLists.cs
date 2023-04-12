@@ -1,15 +1,6 @@
 ﻿using DataLayer.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using WorldOfFootball.CustomDesign;
 
 namespace WorldOfFootball.UserControls
@@ -56,8 +47,8 @@ namespace WorldOfFootball.UserControls
 
         }
 
-     
 
+        #region Methods for loading panels
         private void LoadPanelVisitors()
         {
             List<FootballMatch> sortedMatches = _matches.Where(m => m.HomeTeam.Code == _fifaCode || m.AwayTeam.Code == _fifaCode).OrderByDescending(m => m.Attendance).ToList();
@@ -128,18 +119,20 @@ namespace WorldOfFootball.UserControls
             }
         }
 
+        #endregion
 
+        #region Methods for getting goals and cards
         private void UpdatePlayerStatisticsForCountry()
         {
 
             foreach (FootballMatch match in _matches)
             {
-                UpdatePlayerStatisticsForEvents(match.HomeTeamEvents, match.HomeTeam);
-                UpdatePlayerStatisticsForEvents(match.AwayTeamEvents, match.AwayTeam);
+                UpdatePlayerStatisticsForEvents(match.HomeTeamEvents);
+                UpdatePlayerStatisticsForEvents(match.AwayTeamEvents);
             }
         }
 
-        private void UpdatePlayerStatisticsForEvents(List<TeamEvent> events, PlayingTeam team)
+        private void UpdatePlayerStatisticsForEvents(List<TeamEvent> events)
         {
             foreach (TeamEvent ev in events)
             {
@@ -164,9 +157,9 @@ namespace WorldOfFootball.UserControls
                 }
             }
         }
+        #endregion
 
-              
-
+        #region Events and print
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
@@ -202,8 +195,6 @@ namespace WorldOfFootball.UserControls
             }
 
         }
-
-
 
 
         private void PrintDocument_PrintPage(object sender, PrintPageEventArgs e)
@@ -321,17 +312,15 @@ namespace WorldOfFootball.UserControls
 
         }
 
-        
-
-     
 
         private void PrintDocument_EndPrint(object sender, PrintEventArgs e)
             {
 
             }
         }
-    } 
-    
+
+    #endregion
+}
 
 
-        
+

@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WorldOfFootball.CustomDesign;
+﻿using WorldOfFootball.CustomDesign;
 using WorldOfFootball.EventsAndArgs;
 
 namespace WorldOfFootball.UserControls
@@ -62,6 +53,7 @@ namespace WorldOfFootball.UserControls
             }
         }
         #endregion
+
         #region MessageBox callings
         private void CallDidNotChooseMessage()
         {
