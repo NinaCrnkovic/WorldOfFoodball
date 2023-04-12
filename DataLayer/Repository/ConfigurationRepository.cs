@@ -43,17 +43,20 @@ namespace DataLayer.Repository
             return config;
         }
 
-        public void GetInitialSettings()
-        {
-            
-        }
-
+     
         public void SaveInitialSettings(InitialWoFSettings settings)
         {
             // Serijaliziraj RepositoryConfig objekt u JSON format
             var configJson = JsonConvert.SerializeObject(settings);
             // Spremi JSON u datoteku na disku
             File.WriteAllText(INITIAL_SETTINGS_FILE, configJson);
+        }
+
+        public InitialWoFSettings GetInitialSettings()
+        {
+            string configJson = File.ReadAllText(INITIAL_SETTINGS_FILE);
+            InitialWoFSettings config = JsonConvert.DeserializeObject<InitialWoFSettings>(configJson);
+            return config;
         }
 
         public void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
@@ -73,7 +76,7 @@ namespace DataLayer.Repository
             File.WriteAllText(FAVORITES_SETTINGS_FILE, json);
         }
 
-        public FavoriteCountryandPlayersSetup LoadFavoritePlayersSettings()
+        public FavoriteCountryandPlayersSetup GetFavoritePlayersSettings()
         {
             if (!File.Exists(FAVORITES_SETTINGS_FILE))
             {
@@ -88,5 +91,9 @@ namespace DataLayer.Repository
 
             return args;
         }
+
+       
+
+        
     }
 }

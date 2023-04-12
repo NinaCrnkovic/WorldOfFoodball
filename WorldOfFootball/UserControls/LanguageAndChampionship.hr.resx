@@ -58,14 +58,41 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="rbEnglish.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 57</value>
+  </data>
+  <data name="rbEnglish.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 32</value>
+  </data>
+  <data name="rbCroatian.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 57</value>
+  </data>
+  <data name="rbCroatian.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 32</value>
+  </data>
   <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>503, 68</value>
+    <value>667, 69</value>
   </data>
   <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>498, 94</value>
+    <value>569, 125</value>
+  </data>
+  <data name="rbMens.Location" type="System.Drawing.Point, System.Drawing">
+    <value>353, 57</value>
+  </data>
+  <data name="rbMens.Size" type="System.Drawing.Size, System.Drawing">
+    <value>96, 32</value>
+  </data>
+  <data name="rbWomens.Location" type="System.Drawing.Point, System.Drawing">
+    <value>96, 57</value>
+  </data>
+  <data name="rbWomens.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 32</value>
   </data>
   <data name="gbChampionship.Location" type="System.Drawing.Point, System.Drawing">
-    <value>503, 166</value>
+    <value>667, 208</value>
+  </data>
+  <data name="gbChampionship.Size" type="System.Drawing.Size, System.Drawing">
+    <value>569, 125</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnNextLangAndChamp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -75,9 +102,15 @@
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnNextLangAndChamp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>503, 264</value>
+    <value>667, 346</value>
+  </data>
+  <data name="btnNextLangAndChamp.Size" type="System.Drawing.Size, System.Drawing">
+    <value>569, 48</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1504, 687</value>
+    <value>1902, 848</value>
   </data>
 </root>

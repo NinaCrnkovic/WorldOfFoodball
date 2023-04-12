@@ -11,7 +11,12 @@ namespace DataLayer.Repository
     {
         Configuration GetConfigurationFile();
         void SaveInitialSettings(InitialWoFSettings settings);
-        void GetInitialSettings();
+        InitialWoFSettings GetInitialSettings();
         void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode);
+
+        FavoriteCountryandPlayersSetup GetFavoritePlayersSettings()
+
+
+
     }
 }

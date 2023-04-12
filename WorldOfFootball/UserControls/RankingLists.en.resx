@@ -61,8 +61,11 @@
   <data name="lblGoals.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt</value>
   </data>
+  <data name="lblGoals.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 27</value>
+  </data>
   <data name="lblGoals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 23</value>
+    <value>414, 31</value>
   </data>
   <data name="lblGoals.Text" xml:space="preserve">
     <value>Number of yellow cards</value>
@@ -74,10 +77,10 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="lblCartons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 20</value>
+    <value>744, 27</value>
   </data>
   <data name="lblCartons.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 23</value>
+    <value>414, 31</value>
   </data>
   <data name="lblCartons.Text" xml:space="preserve">
     <value>Number of Goals</value>
@@ -89,10 +92,10 @@
     <value>Segoe UI, 12pt</value>
   </data>
   <data name="lblVisitors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1089, 20</value>
+    <value>1432, 27</value>
   </data>
   <data name="lblVisitors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 23</value>
+    <value>414, 31</value>
   </data>
   <data name="lblVisitors.Text" xml:space="preserve">
     <value>Number of visitors</value>
@@ -101,19 +104,29 @@
     <value>MiddleCenter</value>
   </data>
   <data name="pnlCards.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 48</value>
+    <value>744, 64</value>
   </data>
   <data name="pnlCards.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 555</value>
+    <value>414, 691</value>
   </data>
   <data name="btnPrintGoals.Location" type="System.Drawing.Point, System.Drawing">
-    <value>49, 625</value>
+    <value>56, 778</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnPrintGoals.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="btnPrintGoals.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 31</value>
   </data>
   <data name="btnPrintGoals.Text" xml:space="preserve">
     <value>Print</value>
   </data>
+  <data name="pnlGoals.Location" type="System.Drawing.Point, System.Drawing">
+    <value>56, 64</value>
+  </data>
   <data name="pnlGoals.Size" type="System.Drawing.Size, System.Drawing">
-    <value>362, 555</value>
+    <value>414, 691</value>
   </data>
   <data name="printPreviewDialog.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -139,24 +152,42 @@
 </value>
   </data>
   <data name="btnPrintCartons.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 625</value>
+    <value>744, 778</value>
+  </data>
+  <data name="btnPrintCartons.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="btnPrintCartons.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 31</value>
   </data>
   <data name="btnPrintCartons.Text" xml:space="preserve">
     <value>Print</value>
   </data>
   <data name="pnlVisitors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1089, 48</value>
+    <value>1432, 64</value>
   </data>
   <data name="pnlVisitors.Size" type="System.Drawing.Size, System.Drawing">
-    <value>363, 555</value>
+    <value>415, 691</value>
   </data>
   <data name="btnPrintVisitors.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1090, 625</value>
+    <value>1433, 778</value>
+  </data>
+  <data name="btnPrintVisitors.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="btnPrintVisitors.Size" type="System.Drawing.Size, System.Drawing">
+    <value>414, 31</value>
   </data>
   <data name="btnPrintVisitors.Text" xml:space="preserve">
     <value>Print</value>
   </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1504, 687</value>
+    <value>1902, 848</value>
   </data>
 </root>

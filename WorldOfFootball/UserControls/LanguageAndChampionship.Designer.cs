@@ -53,7 +53,6 @@
             // 
             resources.ApplyResources(this.rbEnglish, "rbEnglish");
             this.rbEnglish.Name = "rbEnglish";
-            this.rbEnglish.TabStop = true;
             this.rbEnglish.Tag = "en";
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
@@ -61,7 +60,6 @@
             // 
             resources.ApplyResources(this.rbCroatian, "rbCroatian");
             this.rbCroatian.Name = "rbCroatian";
-            this.rbCroatian.TabStop = true;
             this.rbCroatian.Tag = "hr";
             this.rbCroatian.UseVisualStyleBackColor = false;
             // 
@@ -85,6 +83,7 @@
             // rbWomens
             // 
             resources.ApplyResources(this.rbWomens, "rbWomens");
+            this.rbWomens.AutoCheck = false;
             this.rbWomens.Name = "rbWomens";
             this.rbWomens.TabStop = true;
             this.rbWomens.Tag = "Womens";

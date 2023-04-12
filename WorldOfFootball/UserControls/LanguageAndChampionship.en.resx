@@ -59,14 +59,10 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="rbEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>309, 43</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="rbEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>353, 57</value>
   </data>
   <data name="rbEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 25</value>
+    <value>101, 32</value>
   </data>
   <data name="rbEnglish.Text" xml:space="preserve">
     <value>English</value>
@@ -76,70 +72,46 @@
     <value>NoControl</value>
   </data>
   <data name="rbCroatian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 43</value>
-  </data>
-  <data name="rbCroatian.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>96, 57</value>
   </data>
   <data name="rbCroatian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 25</value>
+    <value>113, 32</value>
   </data>
   <data name="rbCroatian.Text" xml:space="preserve">
     <value>Croatian</value>
   </data>
-  <data name="gbLanguage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
   <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 68</value>
-  </data>
-  <data name="gbLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="gbLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>667, 91</value>
   </data>
   <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>498, 94</value>
+    <value>569, 125</value>
   </data>
   <data name="gbLanguage.Text" xml:space="preserve">
     <value>Choose a language</value>
   </data>
   <data name="rbMens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>309, 43</value>
-  </data>
-  <data name="rbMens.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>353, 57</value>
   </data>
   <data name="rbMens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>69, 25</value>
+    <value>84, 32</value>
   </data>
   <data name="rbMens.Text" xml:space="preserve">
     <value>Mens</value>
   </data>
   <data name="rbWomens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 43</value>
-  </data>
-  <data name="rbWomens.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>96, 57</value>
   </data>
   <data name="rbWomens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>95, 25</value>
+    <value>114, 32</value>
   </data>
   <data name="rbWomens.Text" xml:space="preserve">
     <value>Womens</value>
   </data>
   <data name="gbChampionship.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 166</value>
-  </data>
-  <data name="gbChampionship.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="gbChampionship.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>667, 221</value>
   </data>
   <data name="gbChampionship.Size" type="System.Drawing.Size, System.Drawing">
-    <value>498, 94</value>
+    <value>569, 125</value>
   </data>
   <data name="gbChampionship.Text" xml:space="preserve">
     <value>Choose a championship</value>
@@ -151,24 +123,18 @@
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnNextLangAndChamp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 264</value>
-  </data>
-  <data name="btnNextLangAndChamp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>667, 352</value>
   </data>
   <data name="btnNextLangAndChamp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>498, 36</value>
+    <value>569, 48</value>
   </data>
   <data name="btnNextLangAndChamp.Text" xml:space="preserve">
     <value>Next</value>
   </data>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
+    <value>8, 20</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1384, 621</value>
+    <value>1902, 848</value>
   </data>
 </root>
