@@ -71,6 +71,10 @@
   <data name="rbEnglish.Text" xml:space="preserve">
     <value>English</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="rbCroatian.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="rbCroatian.Location" type="System.Drawing.Point, System.Drawing">
     <value>84, 43</value>
   </data>
@@ -140,7 +144,6 @@
   <data name="gbChampionship.Text" xml:space="preserve">
     <value>Choose a championship</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnNextLangAndChamp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>

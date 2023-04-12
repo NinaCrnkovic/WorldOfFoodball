@@ -48,7 +48,7 @@ namespace WorldOfFootball.UserControls
             else
             {
                 // Bacanje greške ako nijedan radio button nije odabran
-                MessageBox.Show("Niste izabrali jezik i prvenstvo");
+                CustomMessageBox.Show("Niste izabrali jezik i prvenstvo", "Upozorenje", MessageBoxButtons.OK);
             }
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace WorldOfFootball
 {
-    partial class MainForm
+    partial class formMainForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pbSettings = new WorldOfFootball.CustomDesign.OvalPictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -53,6 +53,7 @@
             this.pbSettings.Image = global::WorldOfFootball.Properties.Resources.settings;
             this.pbSettings.Name = "pbSettings";
             this.pbSettings.TabStop = false;
+            this.pbSettings.Click += new System.EventHandler(this.PbSettings_Click);
             // 
             // pictureBox1
             // 
@@ -66,15 +67,15 @@
             resources.ApplyResources(this.pnlContainer, "pnlContainer");
             this.pnlContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.pnlContainer.Name = "pnlContainer";
-            this.pnlContainer.Click += new System.EventHandler(this.PnlContainer_Click);
             // 
-            // MainForm
+            // formMainForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.pnlContainer);
             this.Controls.Add(this.pnlHeader);
-            this.Name = "MainForm";
+            this.Name = "formMainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlHeader.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).EndInit();

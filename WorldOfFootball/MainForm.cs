@@ -1,12 +1,13 @@
 using DataLayer.Model;
 using Newtonsoft.Json;
 using System.Globalization;
+using WorldOfFootball.CustomDesign;
 using WorldOfFootball.EventsAndArgs;
 using WorldOfFootball.UserControls;
 
 namespace WorldOfFootball
 {
-    public partial class MainForm : Form
+    public partial class formMainForm : Form
     {
         
         private DataManager _dataManager = new DataManager();
@@ -19,7 +20,7 @@ namespace WorldOfFootball
         private string _language;
         private string _fifaCode;
    
-        public MainForm()
+        public formMainForm()
         {
 
             CallTitleForm();
@@ -135,14 +136,32 @@ namespace WorldOfFootball
             string fifaCode = e.FifaCodeFavCountry;
 
             _dataManager.SaveFavoritePlayersToRepo(favoritePlayers, allNotFavoritePlayers, fifaCode);
+            pnlContainer.Controls.Clear();
             CallRankingListForm(allPlayersForCountry, fifaCode);
             _favoritePlayersForm.Dispose();
         }
 
-       
-
 
         #endregion
+
+        #region Events on Buttons in Main Form
+        private void PbSettings_Click(object sender, EventArgs e)
+        {
+            pnlContainer.Controls.Clear();
+            CallLanguageAndChampionshipForm();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var result = CustomMessageBox.Show("Jeste li sigurni da želite zatvoriti aplikaciju", "Upozorenje", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true; // ovdje sprijeèavamo zatvaranje aplikacije
+            }
+
+        }
+        #endregion
+
 
         #region Methods
         private void Timer_Tick(object sender, EventArgs e)
@@ -167,16 +186,13 @@ namespace WorldOfFootball
             Thread.CurrentThread.CurrentCulture = new CultureInfo(_language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(_language);
             
-          
-          
         }
 
 
         #endregion
 
-        private void PnlContainer_Click(object sender, EventArgs e)
-        {
-            CallLanguageAndChampionshipForm();
-        }
+       
+
+       
     }
 }

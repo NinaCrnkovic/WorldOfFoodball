@@ -58,66 +58,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="rbEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>309, 43</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="rbEnglish.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="rbEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 19</value>
-  </data>
-  <data name="rbCroatian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 43</value>
-  </data>
-  <data name="rbCroatian.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="rbCroatian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 19</value>
-  </data>
   <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>444, 68</value>
   </data>
-  <data name="gbLanguage.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="gbLanguage.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
   <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>175, 75</value>
-  </data>
-  <data name="gbChampionship.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 166</value>
-  </data>
-  <data name="gbChampionship.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="gbChampionship.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="gbChampionship.Size" type="System.Drawing.Size, System.Drawing">
     <value>498, 94</value>
-  </data>
-  <data name="rbMens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>309, 43</value>
-  </data>
-  <data name="rbMens.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="rbMens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>79, 25</value>
-  </data>
-  <data name="rbWomens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>84, 43</value>
-  </data>
-  <data name="rbWomens.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="rbWomens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>83, 25</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="btnNextLangAndChamp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
@@ -125,23 +70,5 @@
   </data>
   <data name="btnNextLangAndChamp.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 12pt, style=Bold</value>
-  </data>
-  <data name="btnNextLangAndChamp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>444, 264</value>
-  </data>
-  <data name="btnNextLangAndChamp.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="btnNextLangAndChamp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>498, 36</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>7, 15</value>
-  </data>
-  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 2, 3, 2</value>
-  </data>
-  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1384, 621</value>
   </data>
 </root>

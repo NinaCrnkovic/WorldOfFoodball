@@ -63,7 +63,7 @@
             this.rbCroatian.Name = "rbCroatian";
             this.rbCroatian.TabStop = true;
             this.rbCroatian.Tag = "hr";
-            this.rbCroatian.UseVisualStyleBackColor = true;
+            this.rbCroatian.UseVisualStyleBackColor = false;
             // 
             // gbChampionship
             // 
@@ -123,10 +123,10 @@
 
         private GroupBox gbLanguage;
         private RadioButton rbEnglish;
-        private RadioButton rbCroatian;
         private GroupBox gbChampionship;
         private RadioButton rbMens;
         private RadioButton rbWomens;
         private Button btnNextLangAndChamp;
+        private RadioButton rbCroatian;
     }
 }
