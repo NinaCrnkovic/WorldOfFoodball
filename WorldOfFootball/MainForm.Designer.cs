@@ -30,10 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.btnSettings = new System.Windows.Forms.Button();
+            this.pbSettings = new WorldOfFootball.CustomDesign.OvalPictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,16 +42,17 @@
             // 
             resources.ApplyResources(this.pnlHeader, "pnlHeader");
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
-            this.pnlHeader.Controls.Add(this.btnSettings);
+            this.pnlHeader.Controls.Add(this.pbSettings);
             this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Name = "pnlHeader";
             // 
-            // btnSettings
+            // pbSettings
             // 
-            resources.ApplyResources(this.btnSettings, "btnSettings");
-            this.btnSettings.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.pbSettings, "pbSettings");
+            this.pbSettings.BackColor = System.Drawing.Color.DarkGray;
+            this.pbSettings.Image = global::WorldOfFootball.Properties.Resources.settings;
+            this.pbSettings.Name = "pbSettings";
+            this.pbSettings.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -64,6 +66,7 @@
             resources.ApplyResources(this.pnlContainer, "pnlContainer");
             this.pnlContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.pnlContainer.Name = "pnlContainer";
+            this.pnlContainer.Click += new System.EventHandler(this.PnlContainer_Click);
             // 
             // MainForm
             // 
@@ -74,6 +77,7 @@
             this.Name = "MainForm";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -84,6 +88,6 @@
         private Panel pnlHeader;
         private PictureBox pictureBox1;
         private Panel pnlContainer;
-        private Button btnSettings;
+        private CustomDesign.OvalPictureBox pbSettings;
     }
 }

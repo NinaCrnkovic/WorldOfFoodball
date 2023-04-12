@@ -38,7 +38,6 @@
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog = new System.Windows.Forms.PrintPreviewDialog();
-            this.pageSetupDialog = new System.Windows.Forms.PageSetupDialog();
             this.btnPrintCartons = new System.Windows.Forms.Button();
             this.pnlVisitors = new System.Windows.Forms.FlowLayoutPanel();
             this.btnPrintVisitors = new System.Windows.Forms.Button();
@@ -110,10 +109,6 @@
             this.printPreviewDialog.Document = this.printDocument;
             this.printPreviewDialog.Name = "printPreviewDialog";
             // 
-            // pageSetupDialog
-            // 
-            this.pageSetupDialog.Document = this.printDocument;
-            // 
             // btnPrintCartons
             // 
             resources.ApplyResources(this.btnPrintCartons, "btnPrintCartons");
@@ -173,7 +168,6 @@
         private System.Drawing.Printing.PrintDocument printDocument;
         private PrintDialog printDialog;
         private PrintPreviewDialog printPreviewDialog;
-        private PageSetupDialog pageSetupDialog;
         private Button btnPrintCartons;
         private FlowLayoutPanel pnlVisitors;
         private Button btnPrintVisitors;

@@ -1,5 +1,6 @@
 using DataLayer.Model;
 using Newtonsoft.Json;
+using System.Globalization;
 using WorldOfFootball.EventsAndArgs;
 using WorldOfFootball.UserControls;
 
@@ -15,6 +16,7 @@ namespace WorldOfFootball
         private FavoritePlayers _favoritePlayersForm;
         private RankingLists _rankingListsForm;
         private bool _isWomens;
+        private string _language;
         private string _fifaCode;
    
         public MainForm()
@@ -31,6 +33,7 @@ namespace WorldOfFootball
             await _dataManager.LoadTeams(false);
 
             CallLanguageAndChampionshipForm();
+      
 
 
         }
@@ -100,16 +103,16 @@ namespace WorldOfFootball
                 Championship = e.Championship
             };
             _dataManager.SaveInitialSettingsToRepo(settings);
-            bool isWomens;
+            _language = settings.Language;
             if (settings.Championship == "Mens")
             {
-                isWomens = false;
+                _isWomens = false;
             }
             else
             {
-                isWomens = true;
+                _isWomens = true;
             }
-            _isWomens = isWomens;
+            SetLanguage();
             CallFavoriteTeamForm(_isWomens);
             _languageAndChampionshipForm.Dispose();
 
@@ -153,8 +156,27 @@ namespace WorldOfFootball
             // Oslobodi resurse
             _titleForm.Dispose();
         }
+
+        private void SetLanguage()
+        {
+            if (_language == null)
+            {
+                MessageBox.Show("Nije izabran jezik");
+            }
+            
+            Thread.CurrentThread.CurrentCulture = new CultureInfo(_language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(_language);
+            
+          
+          
+        }
+
+
         #endregion
 
-
+        private void PnlContainer_Click(object sender, EventArgs e)
+        {
+            CallLanguageAndChampionshipForm();
+        }
     }
 }

@@ -54,7 +54,7 @@
             resources.ApplyResources(this.rbEnglish, "rbEnglish");
             this.rbEnglish.Name = "rbEnglish";
             this.rbEnglish.TabStop = true;
-            this.rbEnglish.Tag = "English";
+            this.rbEnglish.Tag = "en";
             this.rbEnglish.UseVisualStyleBackColor = true;
             // 
             // rbCroatian
@@ -62,7 +62,7 @@
             resources.ApplyResources(this.rbCroatian, "rbCroatian");
             this.rbCroatian.Name = "rbCroatian";
             this.rbCroatian.TabStop = true;
-            this.rbCroatian.Tag = "Croatian";
+            this.rbCroatian.Tag = "hr";
             this.rbCroatian.UseVisualStyleBackColor = true;
             // 
             // gbChampionship

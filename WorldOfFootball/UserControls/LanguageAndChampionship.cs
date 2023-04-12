@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WorldOfFootball.CustomDesign;
 using WorldOfFootball.EventsAndArgs;
 
 namespace WorldOfFootball.UserControls
@@ -26,6 +27,7 @@ namespace WorldOfFootball.UserControls
             if (gbLanguage.Controls.OfType<RadioButton>().Any(rb => rb.Checked) &&
                 gbChampionship.Controls.OfType<RadioButton>().Any(rb => rb.Checked))
             {
+                
                 // Pronalazak odabranog jezika
                 RadioButton selectedLanguage = gbLanguage.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked);
                 string language = selectedLanguage.Tag.ToString();
@@ -34,8 +36,14 @@ namespace WorldOfFootball.UserControls
                 RadioButton selectedChampionship = gbChampionship.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked);
                 string championship = selectedChampionship.Tag.ToString();
 
+                var result = CustomMessageBox.Show( $"Da li ste sigurni da želite postaviti  {(language == "hr" ? "Hrvatski" : "Engleski")} jezik i {(championship == "Mens" ? "muško" : "žensko")} prvenstvo?", "Upozorenje", MessageBoxButtons.OKCancel);
+           
                 // Slanje podataka u event args
-                LangAndChamp?.Invoke(this, new LanguageAndChampionshipEventArgs { Language = language, Championship = championship });
+                if (result == DialogResult.Yes)
+                {
+                    LangAndChamp?.Invoke(this, new LanguageAndChampionshipEventArgs { Language = language, Championship = championship });
+                }
+                
             }
             else
             {
