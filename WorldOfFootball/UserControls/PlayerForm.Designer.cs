@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayerForm));
             this.lblName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblNumber = new System.Windows.Forms.Label();
@@ -44,94 +45,58 @@
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblName.Location = new System.Drawing.Point(141, 5);
+            resources.ApplyResources(this.lblName, "lblName");
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(104, 21);
-            this.lblName.TabIndex = 2;
-            this.lblName.Text = "Ime i prezime";
             // 
             // pictureBox2
             // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Image = global::WorldOfFootball.Properties.Resources.tshirt;
-            this.pictureBox2.Location = new System.Drawing.Point(141, 28);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
             // lblNumber
             // 
-            this.lblNumber.AutoSize = true;
-            this.lblNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumber.Location = new System.Drawing.Point(178, 32);
+            resources.ApplyResources(this.lblNumber, "lblNumber");
             this.lblNumber.Name = "lblNumber";
-            this.lblNumber.Size = new System.Drawing.Size(28, 21);
-            this.lblNumber.TabIndex = 4;
-            this.lblNumber.Text = "12";
             // 
             // lblPosition
             // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblPosition.Location = new System.Drawing.Point(141, 55);
+            resources.ApplyResources(this.lblPosition, "lblPosition");
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(61, 21);
-            this.lblPosition.TabIndex = 5;
-            this.lblPosition.Text = "Pozicija";
             // 
             // pbStar
             // 
+            resources.ApplyResources(this.pbStar, "pbStar");
             this.pbStar.Image = global::WorldOfFootball.Properties.Resources.star;
-            this.pbStar.Location = new System.Drawing.Point(380, 0);
-            this.pbStar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbStar.Name = "pbStar";
-            this.pbStar.Size = new System.Drawing.Size(39, 34);
-            this.pbStar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbStar.TabIndex = 6;
             this.pbStar.TabStop = false;
             // 
             // pbCapitan
             // 
+            resources.ApplyResources(this.pbCapitan, "pbCapitan");
             this.pbCapitan.Image = global::WorldOfFootball.Properties.Resources.captain_band;
-            this.pbCapitan.Location = new System.Drawing.Point(359, 76);
-            this.pbCapitan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbCapitan.Name = "pbCapitan";
-            this.pbCapitan.Size = new System.Drawing.Size(58, 34);
-            this.pbCapitan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbCapitan.TabIndex = 7;
             this.pbCapitan.TabStop = false;
             // 
             // pbImage
             // 
+            resources.ApplyResources(this.pbImage, "pbImage");
             this.pbImage.BackColor = System.Drawing.Color.DarkGray;
-            this.pbImage.Location = new System.Drawing.Point(14, 12);
-            this.pbImage.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbImage.Name = "pbImage";
-            this.pbImage.Size = new System.Drawing.Size(115, 98);
-            this.pbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbImage.TabIndex = 8;
             this.pbImage.TabStop = false;
             // 
             // btnPicture
             // 
+            resources.ApplyResources(this.btnPicture, "btnPicture");
             this.btnPicture.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.btnPicture.FlatAppearance.BorderSize = 0;
-            this.btnPicture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPicture.Location = new System.Drawing.Point(141, 88);
-            this.btnPicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPicture.Name = "btnPicture";
-            this.btnPicture.Size = new System.Drawing.Size(113, 22);
-            this.btnPicture.TabIndex = 9;
-            this.btnPicture.Text = "Dodaj sliku";
             this.btnPicture.UseVisualStyleBackColor = false;
             // 
             // PlayerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
             this.Controls.Add(this.btnPicture);
@@ -143,9 +108,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.lblName);
             this.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PlayerForm";
-            this.Size = new System.Drawing.Size(419, 123);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbCapitan)).EndInit();

@@ -39,3 +39,12 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoo
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.RankingLists.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.GoalOrCardUserControl.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.VisitorsUserControl.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.LanguageAndChampionship.hr.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoriteTeam.hr.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoritePlayers.en.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoritePlayers.hr.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoriteTeam.en.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.RankingLists.en.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.RankingLists.hr.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.PlayerForm.en.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Novi\WorldOfFoodball\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.PlayerForm.hr.resources

@@ -39,10 +39,10 @@
             // 
             // pnlHeader
             // 
+            resources.ApplyResources(this.pnlHeader, "pnlHeader");
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
             this.pnlHeader.Controls.Add(this.btnSettings);
             this.pnlHeader.Controls.Add(this.pictureBox1);
-            resources.ApplyResources(this.pnlHeader, "pnlHeader");
             this.pnlHeader.Name = "pnlHeader";
             // 
             // btnSettings
@@ -61,8 +61,8 @@
             // 
             // pnlContainer
             // 
-            this.pnlContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             resources.ApplyResources(this.pnlContainer, "pnlContainer");
+            this.pnlContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
             this.pnlContainer.Name = "pnlContainer";
             // 
             // MainForm

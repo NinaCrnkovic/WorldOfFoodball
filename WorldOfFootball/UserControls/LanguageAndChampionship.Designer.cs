@@ -95,6 +95,7 @@
             resources.ApplyResources(this.btnNextLangAndChamp, "btnNextLangAndChamp");
             this.btnNextLangAndChamp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(76)))), ((int)(((byte)(117)))));
             this.btnNextLangAndChamp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(38)))), ((int)(((byte)(44)))));
+            this.btnNextLangAndChamp.FlatAppearance.BorderSize = 0;
             this.btnNextLangAndChamp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
             this.btnNextLangAndChamp.Name = "btnNextLangAndChamp";
             this.btnNextLangAndChamp.UseVisualStyleBackColor = false;
