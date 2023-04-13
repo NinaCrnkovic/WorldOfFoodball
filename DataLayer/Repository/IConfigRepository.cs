@@ -14,7 +14,7 @@ namespace DataLayer.Repository
         InitialWoFSettings GetInitialSettings();
         void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode);
 
-        FavoriteCountryandPlayersSetup GetFavoritePlayersSettings()
+        FavoriteCountryandPlayersSetup GetFavoritePlayersSettings();
 
 
 

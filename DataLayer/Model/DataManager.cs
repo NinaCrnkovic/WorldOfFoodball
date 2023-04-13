@@ -52,7 +52,7 @@ namespace DataLayer.Model
 
         public async Task LoadTeams(bool isWomen)
         {
-           
+          
             try
             {
                 _teams = await _repo.GetTeams(isWomen);
