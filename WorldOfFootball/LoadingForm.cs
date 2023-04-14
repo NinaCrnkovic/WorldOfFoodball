@@ -29,10 +29,9 @@ namespace WorldOfFootball
             this.BringToFront();
             
         }
-
-        public async void StopLoader()
+        public  void StopLoader()
         {
-            await Task.Delay(100);
+            //await Task.Delay(100);
             this.Visible = false;
         }
         private void OnFrameChanged(object sender, EventArgs e)

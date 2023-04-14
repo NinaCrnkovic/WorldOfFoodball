@@ -197,8 +197,9 @@ namespace WorldOfFootball
             pnlContainer.Controls.Clear();
             _favoriteplayers = null;
             _notFavoriteplayers = null;
-         
+            _loadingForm.StartLoader();
             CallLanguageAndChampionshipForm();
+            _loadingForm.StopLoader();
          
         }
 
@@ -235,12 +236,14 @@ namespace WorldOfFootball
 
         private void LoadSettings()
         {
+            _loadingForm.StartLoader();
            
             _language = _dataManager.GetLanguage();
             _isWomens = _dataManager.GetChampionship();
             _fifaCode = _dataManager.GetFavFifaCode();
             _favoriteplayers = _dataManager.GetFavoritePlayers();
             _notFavoriteplayers = _dataManager.GetNotFavoritePlayers();
+            _loadingForm.StopLoader();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
