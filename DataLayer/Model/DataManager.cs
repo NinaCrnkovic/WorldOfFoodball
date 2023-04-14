@@ -98,6 +98,10 @@ namespace DataLayer.Model
         private async void LoadFavoritePlayersSettingsFromRepo()
         {
             _favoriteCountryandPlayersSettings = await _configRepo.GetFavoritePlayersSettings();
+            if(_favoriteCountryandPlayersSettings == null)
+            {
+                return;
+            }
             _favoriteplayers = _favoriteCountryandPlayersSettings.FavoritePlayersList;
             _notFavoriteplayers = _favoriteCountryandPlayersSettings.AllPlayersList;
             _fifaCodeFavCountry = _favoriteCountryandPlayersSettings.FifaCodeFavCountry;
@@ -120,6 +124,10 @@ namespace DataLayer.Model
         private async void LoadInitialSettingsFromRepo()
         {
             _initialWoFSettings = await _configRepo.GetInitialSettings();
+            if(_initialWoFSettings == null)
+            {
+                return;
+            }
             _language = _initialWoFSettings.Language;
             _champinonship = _initialWoFSettings.Championship;
 

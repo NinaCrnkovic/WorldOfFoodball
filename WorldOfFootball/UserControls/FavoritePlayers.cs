@@ -35,7 +35,7 @@ namespace WorldOfFootball.UserControls
         {
            
         
-            if (_favoritePlayers.Count > 0 && _notFavoritePlayers.Count >0)
+            if (_favoritePlayers != null && _notFavoritePlayers !=null)
             {
                 LoadPlayerFormLabel(_notFavoritePlayers, pnlAllPlayers);
                 LoadPlayerFormLabel(_favoritePlayers, pnlFavoritePlayers);

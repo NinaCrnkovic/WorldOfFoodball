@@ -195,8 +195,8 @@ namespace WorldOfFootball
         private void PbSettings_Click(object sender, EventArgs e)
         {
             pnlContainer.Controls.Clear();
-            _favoriteplayers = new();
-            _notFavoriteplayers = new();
+            _favoriteplayers = null;
+            _notFavoriteplayers = null;
          
             CallLanguageAndChampionshipForm();
          
