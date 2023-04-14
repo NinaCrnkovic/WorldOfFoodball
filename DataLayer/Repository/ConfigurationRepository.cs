@@ -36,11 +36,11 @@ namespace DataLayer.Repository
             }
 
         }
-        public Configuration GetConfigurationFile()
+        public Task<Configuration> GetConfigurationFile()
         {
             string configJson = File.ReadAllText(CONFIG_FILE);
             Configuration config = JsonConvert.DeserializeObject<Configuration>(configJson);
-            return config;
+            return Task.FromResult(config);
         }
 
      
@@ -52,11 +52,11 @@ namespace DataLayer.Repository
             File.WriteAllText(INITIAL_SETTINGS_FILE, configJson);
         }
 
-        public InitialWoFSettings GetInitialSettings()
+        public Task<InitialWoFSettings> GetInitialSettings()
         {
             string configJson = File.ReadAllText(INITIAL_SETTINGS_FILE);
             InitialWoFSettings config = JsonConvert.DeserializeObject<InitialWoFSettings>(configJson);
-            return config;
+            return Task.FromResult(config);
         }
 
         public void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
@@ -76,20 +76,14 @@ namespace DataLayer.Repository
             File.WriteAllText(FAVORITES_SETTINGS_FILE, json);
         }
 
-        public FavoriteCountryandPlayersSetup GetFavoritePlayersSettings()
+        public Task<FavoriteCountryandPlayersSetup> GetFavoritePlayersSettings()
         {
-            if (!File.Exists(FAVORITES_SETTINGS_FILE))
-            {
-                // Ako datoteka ne postoji, vratite null vrijednost
-                return null;
-            }
-            // Učitaj sadržaj datoteke
             var json = File.ReadAllText(FAVORITES_SETTINGS_FILE);
 
             // Deserijaliziraj JSON sadržaj u FavoritePlayersTeamEventArgs objekt
             var args = JsonConvert.DeserializeObject<FavoriteCountryandPlayersSetup>(json);
 
-            return args;
+            return Task.FromResult(args); ;
         }
 
        

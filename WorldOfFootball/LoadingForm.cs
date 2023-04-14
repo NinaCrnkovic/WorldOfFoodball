@@ -32,7 +32,7 @@ namespace WorldOfFootball
 
         public async void StopLoader()
         {
-            await Task.Delay(0);
+            await Task.Delay(100);
             this.Visible = false;
         }
         private void OnFrameChanged(object sender, EventArgs e)

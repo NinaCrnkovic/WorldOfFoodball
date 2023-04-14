@@ -118,6 +118,7 @@
             this.Controls.Add(this.btnNextFavTeam);
             this.Controls.Add(this.pnlAllPlayers);
             this.Name = "FavoritePlayers";
+            this.Load += new System.EventHandler(this.FavoritePlayers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLeft)).EndInit();
             this.ResumeLayout(false);

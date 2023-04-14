@@ -73,16 +73,6 @@ namespace WorldOfFootball.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap background2 {
-            get {
-                object obj = ResourceManager.GetObject("background2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap captain_band {
             get {
                 object obj = ResourceManager.GetObject("captain_band", resourceCulture);
@@ -124,16 +114,6 @@ namespace WorldOfFootball.Properties {
         internal static System.Drawing.Bitmap LeftArrow {
             get {
                 object obj = ResourceManager.GetObject("LeftArrow", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Loading_2 {
-            get {
-                object obj = ResourceManager.GetObject("Loading_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -350,16 +330,6 @@ namespace WorldOfFootball.Properties {
         internal static System.Drawing.Bitmap star {
             get {
                 object obj = ResourceManager.GetObject("star", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap star2 {
-            get {
-                object obj = ResourceManager.GetObject("star2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

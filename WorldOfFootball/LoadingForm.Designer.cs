@@ -36,9 +36,9 @@
             // pbLoading
             // 
             this.pbLoading.Image = global::WorldOfFootball.Properties.Resources.loading1;
-            this.pbLoading.Location = new System.Drawing.Point(43, 90);
+            this.pbLoading.Location = new System.Drawing.Point(12, 63);
             this.pbLoading.Name = "pbLoading";
-            this.pbLoading.Size = new System.Drawing.Size(352, 227);
+            this.pbLoading.Size = new System.Drawing.Size(414, 254);
             this.pbLoading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLoading.TabIndex = 1;
             this.pbLoading.TabStop = false;

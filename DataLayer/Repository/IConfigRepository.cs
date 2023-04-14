@@ -9,12 +9,12 @@ namespace DataLayer.Repository
 {
     public interface IConfigRepository
     {
-        Configuration GetConfigurationFile();
+        Task<Configuration> GetConfigurationFile();
         void SaveInitialSettings(InitialWoFSettings settings);
-        InitialWoFSettings GetInitialSettings();
+        Task<InitialWoFSettings> GetInitialSettings();
         void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode);
 
-        FavoriteCountryandPlayersSetup GetFavoritePlayersSettings();
+        Task<FavoriteCountryandPlayersSetup> GetFavoritePlayersSettings();
 
 
 

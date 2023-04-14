@@ -11,20 +11,43 @@ namespace WorldOfFootball.UserControls
         private string _fifaCode;
         private PlayerForm _playerForm;
         private List<Player> _players;
+        private List<Player> _favoritePlayers;
+        private List<Player> _notFavoritePlayers;
+
         private string _teamName;
         private string _language;
         private const string PATH = "..//..//..//..//DataLayer//Resources//";
         private const string FILTER = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
-        public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language)
+        public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language, List<Player> favoritePlayers, List<Player> notFavoriePlayer)
         {
             InitializeComponent();
             _matches = matches;
             _fifaCode = fifaCode;
             _language = language;   
-            FillAllPlayersPanel();
+            _favoritePlayers = favoritePlayers;
+            _notFavoritePlayers = notFavoriePlayer;
+      
+
+
+        }
+
+        private void FavoritePlayers_Load(object sender, EventArgs e)
+        {
+           
+        
+            if (_favoritePlayers.Count > 0 && _notFavoritePlayers.Count >0)
+            {
+                LoadPlayerFormLabel(_notFavoritePlayers, pnlAllPlayers);
+                LoadPlayerFormLabel(_favoritePlayers, pnlFavoritePlayers);
+            }
+            else
+            {
+                LoadPlayerListFromMatches();
+                LoadPlayerFormLabel(_players, pnlAllPlayers);
+            }
+        
             SetCountryNameOnLabel();
             btnNextFavTeam.Click += BtnNextFavTeam_Click;
-
 
         }
         #region Events on buttons
@@ -180,7 +203,7 @@ namespace WorldOfFootball.UserControls
 
         #region Methods for labels and panels
 
-        private void FillAllPlayersPanel()
+        private void LoadPlayerListFromMatches()
         {
 
             FootballMatch matchWithCode = null;
@@ -211,13 +234,13 @@ namespace WorldOfFootball.UserControls
                 Console.WriteLine($"No matches found with FIFA code {_fifaCode}");
             }
 
-            LoadPlayerFormLabel();
+          
 
         }
 
-        private void LoadPlayerFormLabel()
+        private void LoadPlayerFormLabel(List<Player> players, FlowLayoutPanel panel)
         {
-            foreach (var player in _players)
+            foreach (var player in players)
             {
                 _playerForm = new PlayerForm();
 
@@ -248,7 +271,7 @@ namespace WorldOfFootball.UserControls
 
 
 
-                pnlAllPlayers.Controls.Add(_playerForm);
+                panel.Controls.Add(_playerForm);
             }
 
         }
@@ -443,6 +466,7 @@ namespace WorldOfFootball.UserControls
 
         #endregion
 
+        
     }
 
 }

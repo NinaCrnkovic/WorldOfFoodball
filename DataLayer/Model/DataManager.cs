@@ -12,9 +12,16 @@ namespace DataLayer.Model
     {
      
         private Configuration _config;
+        private InitialWoFSettings _initialWoFSettings;
+        private FavoriteCountryandPlayersSetup _favoriteCountryandPlayersSettings;
         private IRepository _repo;
         private IConfigRepository _configRepo = RepoFactory.GetConfigRepo();
         private List<Team> _teams;
+        private List<Player> _favoriteplayers;
+        private List<Player> _notFavoriteplayers;
+        private string _fifaCodeFavCountry;
+        private string _language;
+        private string _champinonship;
         private List<FootballMatch> _matches;
  
 
@@ -29,28 +36,32 @@ namespace DataLayer.Model
 
                 throw new Exception("Error reading configuration file");
             }
-           
-            _teams = new List<Team>();
+
+            //_teams = new List<Team>();
         }
 
-        private void SetConfigForRepo()
+        private async void SetConfigForRepo()
         {
-           _config = _configRepo.GetConfigurationFile();
-           
 
+           _config = await _configRepo.GetConfigurationFile();
+           
            _repo = RepoFactory.GetRepo(_config);
         }
 
-        public void SaveInitialSettingsToRepo(InitialWoFSettings settings)
-        {
-            _configRepo.SaveInitialSettings(settings);
-        }
+        
 
         public List<Team> GetTeamsList() => _teams;
         public List<FootballMatch> GetMatchesList() => _matches;
 
 
-        public async Task LoadTeams(bool isWomen)
+        public async void LoadSavedSettings()
+        {
+            
+            LoadInitialSettingsFromRepo();
+            LoadFavoritePlayersSettingsFromRepo();
+    
+        }
+        public async void LoadTeams(bool isWomen)
         {
           
             try
@@ -65,7 +76,7 @@ namespace DataLayer.Model
         }
 
 
-        public async Task LoadMaches(bool isWomen)
+        public async void LoadMaches(bool isWomen)
         {
 
             try
@@ -78,11 +89,54 @@ namespace DataLayer.Model
                 throw new Exception(e.Message);
             }
         }
-
+        #region Favorite player settings
         public void SaveFavoritePlayersToRepo(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
         {
             _configRepo.SaveFavoritePlayersSettings(favoritePlayers, allPlayers, fifaCode);
         }
+
+        private async void LoadFavoritePlayersSettingsFromRepo()
+        {
+            _favoriteCountryandPlayersSettings = await _configRepo.GetFavoritePlayersSettings();
+            _favoriteplayers = _favoriteCountryandPlayersSettings.FavoritePlayersList;
+            _notFavoriteplayers = _favoriteCountryandPlayersSettings.AllPlayersList;
+            _fifaCodeFavCountry = _favoriteCountryandPlayersSettings.FifaCodeFavCountry;
+        }
+
+        public List<Player> GetFavoritePlayers() => _favoriteplayers;
+        public List<Player> GetNotFavoritePlayers() => _notFavoriteplayers;
+        public string GetFavFifaCode()=> _fifaCodeFavCountry;
+        
+
+        #endregion
+
+        #region Initial settings language and championship
+
+        public void SaveInitialSettingsToRepo(InitialWoFSettings settings)
+        {
+            _configRepo.SaveInitialSettings(settings);
+        }
+
+        private async void LoadInitialSettingsFromRepo()
+        {
+            _initialWoFSettings = await _configRepo.GetInitialSettings();
+            _language = _initialWoFSettings.Language;
+            _champinonship = _initialWoFSettings.Championship;
+
+        }
+
+        public string GetLanguage() => _language;
+        public bool GetChampionship()
+        {
+            if (_champinonship != "Mens")
+            {
+                return true;
+            }
+           
+            return false;
+        } 
+
+        #endregion
     }
 
 

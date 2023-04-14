@@ -18,7 +18,8 @@ namespace WorldOfFootball
         private RankingLists _rankingListsForm;
         private LoadingForm _loadingForm = new();
         private System.Windows.Forms.Timer _timer;
-
+        private List<Player> _favoriteplayers;
+        private List<Player> _notFavoriteplayers;
         private bool _isWomens;
         private string _language;
         private string _fifaCode;
@@ -26,31 +27,49 @@ namespace WorldOfFootball
         public formMainForm()
         {
 
-            CallTitleForm();
             InitializeComponent();
             
         }
 
-        private async void MainForm_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
-            if (_language == null)
-            {
-                _language = "en";
-            }
-      
-      
-            await _dataManager.LoadTeams(false);
-         
-        
-            CallLanguageAndChampionshipForm();
-           
-      
-
+            CallTitleForm();
+            _dataManager.LoadSavedSettings();
+            LoadSettings();
+            LoadNextForm();
 
         }
 
+
+
         #region Call Forms
+        private void LoadNextForm()
+        {
+            if (_language == null)
+            {
+                _language = "en";
+             
+                CallLanguageAndChampionshipForm();
+               
+            }
+            else if (_fifaCode == null)
+            {
+                SetLanguage();
+            
+                CallFavoriteTeamForm();
+             
+            }
+            else
+            {
+                SetLanguage();
+            
+                CallFavoritePlayersForm();
+            
+            }
+        }
+
+        
         private void CallTitleForm()
         {
             _titleForm = new TitleForm();
@@ -76,10 +95,10 @@ namespace WorldOfFootball
             pnlContainer.Controls.Add(_languageAndChampionshipForm);
         
         }
-        private async void CallFavoriteTeamForm(bool isWomens)
+        private  void CallFavoriteTeamForm()
         {
            
-            await _dataManager.LoadTeams(isWomens);
+             _dataManager.LoadTeams(_isWomens);
             var teams = _dataManager.GetTeamsList();
             _favoriteTeamForm = new FavoriteTeam(teams, _language);
             _favoriteTeamForm.Dock = DockStyle.Fill;
@@ -88,11 +107,11 @@ namespace WorldOfFootball
 
         }
 
-        private async void CallFavoritePlayersForm(bool isWomens)
+        private void CallFavoritePlayersForm()
         {
-            await _dataManager.LoadMaches(isWomens);
+            _dataManager.LoadMaches(_isWomens);
             var matches = _dataManager.GetMatchesList();
-            _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode, _language);
+            _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode, _language, _favoriteplayers, _notFavoriteplayers);
             _favoritePlayersForm.Dock = DockStyle.Fill;
             _favoritePlayersForm.FavoritePlayersList += BtnNextFavoritePlayers_Click;
             pnlContainer.Controls.Add(_favoritePlayersForm);
@@ -129,10 +148,11 @@ namespace WorldOfFootball
                 _isWomens = true;
             }
             SetLanguage();
-            _loadingForm.Visible = true;
-            _loadingForm.StartLoader();
             _languageAndChampionshipForm.Dispose();
-            CallFavoriteTeamForm(_isWomens);
+            
+            _loadingForm.StartLoader();
+         
+            CallFavoriteTeamForm();
             _loadingForm.StopLoader();
        
            
@@ -145,7 +165,7 @@ namespace WorldOfFootball
        
             _loadingForm.StartLoader();
             _favoriteTeamForm.Dispose();
-            CallFavoritePlayersForm(_isWomens);
+            CallFavoritePlayersForm();
             _loadingForm.StopLoader();
            
 
@@ -175,13 +195,19 @@ namespace WorldOfFootball
         private void PbSettings_Click(object sender, EventArgs e)
         {
             pnlContainer.Controls.Clear();
+            _favoriteplayers = new();
+            _notFavoriteplayers = new();
+         
             CallLanguageAndChampionshipForm();
+         
         }
+
+  
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string message ="";
-            string warning = "";
+            string message;
+            string warning;
           
                      
             if (_language == "hr")
@@ -207,8 +233,16 @@ namespace WorldOfFootball
 
         #region Methods
 
+        private void LoadSettings()
+        {
+           
+            _language = _dataManager.GetLanguage();
+            _isWomens = _dataManager.GetChampionship();
+            _fifaCode = _dataManager.GetFavFifaCode();
+            _favoriteplayers = _dataManager.GetFavoritePlayers();
+            _notFavoriteplayers = _dataManager.GetNotFavoritePlayers();
+        }
 
-        
         private void Timer_Tick(object sender, EventArgs e)
         {
             // Zaustavi timer
@@ -223,21 +257,20 @@ namespace WorldOfFootball
 
         private void SetLanguage()
         {
-            //if (_language == null)
-            //{
-            //    MessageBox.Show("Nije izabran jezik");
-            //}
-            
+           
             Thread.CurrentThread.CurrentCulture = new CultureInfo(_language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(_language);
             
         }
 
 
+
+
+
         #endregion
 
-       
+ 
 
-       
+      
     }
 }

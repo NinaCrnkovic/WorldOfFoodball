@@ -76,16 +76,13 @@
             // 
             resources.ApplyResources(this.rbMens, "rbMens");
             this.rbMens.Name = "rbMens";
-            this.rbMens.TabStop = true;
             this.rbMens.Tag = "Mens";
             this.rbMens.UseVisualStyleBackColor = true;
             // 
             // rbWomens
             // 
             resources.ApplyResources(this.rbWomens, "rbWomens");
-            this.rbWomens.AutoCheck = false;
             this.rbWomens.Name = "rbWomens";
-            this.rbWomens.TabStop = true;
             this.rbWomens.Tag = "Womens";
             this.rbWomens.UseVisualStyleBackColor = true;
             // 

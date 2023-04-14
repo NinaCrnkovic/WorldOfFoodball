@@ -1,5 +1,4 @@
 ﻿
-
 using DataLayer.Model;
 
 namespace DataLayer.Repository
@@ -19,7 +18,9 @@ namespace DataLayer.Repository
             else
             {
                 // Obrada grešaka ako ništa nije konfigurirano.
-                throw new Exception("No repository specified in configuration.");
+                //throw new Exception("No repository specified in configuration.");
+                //Možda ipak radije da je api defaultni ako nema fajle jer inaće app ne radi
+                return new ApiRepository();
             }
         }
         public static IConfigRepository GetConfigRepo() => new ConfigurationRepository();
