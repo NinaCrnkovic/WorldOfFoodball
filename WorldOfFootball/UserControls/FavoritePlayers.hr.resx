@@ -58,52 +58,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pnlAllPlayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 63</value>
-  </data>
-  <data name="pnlAllPlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>515, 720</value>
-  </data>
   <data name="btnNextFavTeam.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1336, 585</value>
-  </data>
-  <data name="btnNextFavTeam.Size" type="System.Drawing.Size, System.Drawing">
-    <value>488, 48</value>
+    <value>1045, 434</value>
   </data>
   <data name="pnlFavoritePlayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1336, 63</value>
-  </data>
-  <data name="pnlFavoritePlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>486, 511</value>
-  </data>
-  <data name="lblAllPlayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>91, 17</value>
-  </data>
-  <data name="lblAllPlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>515, 35</value>
+    <value>1045, 47</value>
   </data>
   <data name="lblFavoritePlayers.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1336, 17</value>
-  </data>
-  <data name="lblFavoritePlayers.Size" type="System.Drawing.Size, System.Drawing">
-    <value>488, 35</value>
+    <value>1045, 13</value>
   </data>
   <data name="pbRight.Location" type="System.Drawing.Point, System.Drawing">
-    <value>889, 310</value>
-  </data>
-  <data name="pbRight.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 124</value>
+    <value>713, 232</value>
   </data>
   <data name="pbLeft.Location" type="System.Drawing.Point, System.Drawing">
-    <value>889, 161</value>
-  </data>
-  <data name="pbLeft.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 123</value>
-  </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 20</value>
+    <value>713, 121</value>
   </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1902, 848</value>
+    <value>1534, 647</value>
   </data>
 </root>

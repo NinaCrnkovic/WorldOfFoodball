@@ -58,11 +58,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="rbEnglish.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 57</value>
-  </data>
   <data name="rbEnglish.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 32</value>
+    <value>84, 25</value>
   </data>
   <data name="rbEnglish.Text" xml:space="preserve">
     <value>English</value>
@@ -71,50 +68,38 @@
   <data name="rbCroatian.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="rbCroatian.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 57</value>
-  </data>
   <data name="rbCroatian.Size" type="System.Drawing.Size, System.Drawing">
-    <value>113, 32</value>
+    <value>93, 25</value>
   </data>
   <data name="rbCroatian.Text" xml:space="preserve">
     <value>Croatian</value>
   </data>
   <data name="gbLanguage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 91</value>
+    <value>518, 68</value>
   </data>
   <data name="gbLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 125</value>
+    <value>498, 94</value>
   </data>
   <data name="gbLanguage.Text" xml:space="preserve">
     <value>Choose a language</value>
   </data>
-  <data name="rbMens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>353, 57</value>
+  <data name="gbChampionship.Location" type="System.Drawing.Point, System.Drawing">
+    <value>518, 166</value>
+  </data>
+  <data name="gbChampionship.Text" xml:space="preserve">
+    <value>Choose a championship</value>
   </data>
   <data name="rbMens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 32</value>
+    <value>69, 25</value>
   </data>
   <data name="rbMens.Text" xml:space="preserve">
     <value>Mens</value>
   </data>
-  <data name="rbWomens.Location" type="System.Drawing.Point, System.Drawing">
-    <value>96, 57</value>
-  </data>
   <data name="rbWomens.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 32</value>
+    <value>95, 25</value>
   </data>
   <data name="rbWomens.Text" xml:space="preserve">
     <value>Womens</value>
-  </data>
-  <data name="gbChampionship.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 221</value>
-  </data>
-  <data name="gbChampionship.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 125</value>
-  </data>
-  <data name="gbChampionship.Text" xml:space="preserve">
-    <value>Choose a championship</value>
   </data>
   <data name="btnNextLangAndChamp.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
@@ -123,18 +108,12 @@
     <value>Segoe UI, 12pt, style=Bold</value>
   </data>
   <data name="btnNextLangAndChamp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>667, 352</value>
-  </data>
-  <data name="btnNextLangAndChamp.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 48</value>
+    <value>518, 264</value>
   </data>
   <data name="btnNextLangAndChamp.Text" xml:space="preserve">
     <value>Next</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 20</value>
-  </data>
   <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1902, 848</value>
+    <value>1534, 647</value>
   </data>
 </root>
