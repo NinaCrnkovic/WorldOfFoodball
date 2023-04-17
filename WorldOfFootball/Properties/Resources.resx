@@ -179,10 +179,10 @@
     <value>Warning</value>
   </data>
   <data name="messageWarningFavPlNotChosenEn" xml:space="preserve">
-    <value>You must choose at least one favorite player</value>
+    <value>You must choose 3 favorite players</value>
   </data>
   <data name="messageWarningFavPlNotChosenHr" xml:space="preserve">
-    <value>Morate izabrati barem jednog nadražeg igrača</value>
+    <value>Morate izabrati 3 najdraža igrača</value>
   </data>
   <data name="messageWarningHr" xml:space="preserve">
     <value>Upozorenje</value>

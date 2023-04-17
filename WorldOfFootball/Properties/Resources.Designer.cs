@@ -250,7 +250,7 @@ namespace WorldOfFootball.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must choose at least one favorite player.
+        ///   Looks up a localized string similar to You must choose 3 favorite players.
         /// </summary>
         internal static string messageWarningFavPlNotChosenEn {
             get {
@@ -259,7 +259,7 @@ namespace WorldOfFootball.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Morate izabrati barem jednog nadražeg igrača.
+        ///   Looks up a localized string similar to Morate izabrati 3 najdraža igrača.
         /// </summary>
         internal static string messageWarningFavPlNotChosenHr {
             get {

@@ -37,6 +37,12 @@ namespace WorldOfFootball.UserControls
         
             if (_favoritePlayers != null && _notFavoritePlayers !=null)
             {
+                var match = _matches.FirstOrDefault(m => m.AwayTeam.Code == _fifaCode);
+                if (match != null)
+                {
+                    _teamName = match.AwayTeam.Country;
+                }
+                _players = _favoritePlayers.Concat(_notFavoritePlayers).ToList();
                 LoadPlayerFormLabel(_notFavoritePlayers, pnlAllPlayers);
                 LoadPlayerFormLabel(_favoritePlayers, pnlFavoritePlayers);
             }
@@ -59,10 +65,10 @@ namespace WorldOfFootball.UserControls
         {
             List<Player> favoritePlayers = GetListOfFavoritePlayers();
 
-            if (favoritePlayers.Count == 0)
+            if (favoritePlayers.Count < 3)
             {
                 CallMessageMustHaveFavorite();
-
+                return;
             }
 
             List<Player> notFavoritePlayers = GetListOfNotFavoritePlayers();
@@ -132,6 +138,7 @@ namespace WorldOfFootball.UserControls
             }
         }
 
+        
 
         private void PbMoveToFavoritePlayers_Click(object sender, EventArgs e)
         {
@@ -261,16 +268,22 @@ namespace WorldOfFootball.UserControls
                     pbCapitan.Visible = false;
                 }
                 PictureBox pbStar = _playerForm.Controls.Find("pbStar", true).FirstOrDefault() as PictureBox;
+                if (panel == pnlFavoritePlayers)
+                {
+                    pbStar.Visible = true;
+                }
+                else
+                {
+                    pbStar.Visible = false;
+                }
+               
                 OvalPictureBox pbImage = _playerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
                 pbImage.Image = Image.FromFile(player.ImagePath);
-                // pbImage = ImageLayout.Stretch;
-                pbStar.Visible = false;
-                _playerForm.MouseDown += PlayerForm_MouseMove;
+              
                 Button btnPicture = _playerForm.Controls.Find("btnPicture", true).FirstOrDefault() as Button;
                 btnPicture.Click += BtnChangeImage_Click;
 
-
-
+                _playerForm.MouseDown += PlayerForm_MouseMove;
                 panel.Controls.Add(_playerForm);
             }
 
@@ -294,6 +307,8 @@ namespace WorldOfFootball.UserControls
             addToPnl.Controls.Add(newPlayer);
             removeFromPnl.Controls?.Remove(draggedPlayer);
         }
+
+        
 
         private bool IsPlayerAdded(PlayerForm draggedPlayer, FlowLayoutPanel panel)
         {
@@ -367,29 +382,41 @@ namespace WorldOfFootball.UserControls
         }
 
 
+
         private void PnlFavoritePlayers_DragDrop(object sender, DragEventArgs e)
         {
+            List<PlayerForm> selectedPlayers = new List<PlayerForm>();
+            foreach (PlayerForm playerForm in pnlAllPlayers.Controls)
+            {
+                if (playerForm.IsSelected)
+                {
+                    selectedPlayers.Add(playerForm);
+                }
+            }
+
             PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
             if (draggedPlayer != null)
             {
-                bool isPlayerAlreadyAdded = IsPlayerAdded(draggedPlayer, pnlFavoritePlayers);
-                if (!isPlayerAlreadyAdded)
+                foreach (PlayerForm playerForm in selectedPlayers)
                 {
-                    if (pnlFavoritePlayers.Controls.Count < 3)
+                    bool isPlayerAlreadyAdded = IsPlayerAdded(playerForm, pnlFavoritePlayers);
+                    if (!isPlayerAlreadyAdded)
                     {
+                        if (pnlFavoritePlayers.Controls.Count < 3)
+                        {
+                            AddPlayer(playerForm, pnlFavoritePlayers, pnlAllPlayers);
 
-                        AddPlayer(draggedPlayer, pnlFavoritePlayers, pnlAllPlayers);
+                        }
+                        else
+                        {
+                            CallMessageOnly3Players();
 
-                    }
-                    else
-                    {
-                        MessageBox.Show("Možete prenijeti najviše tri igrača u omiljene igrače.");
+                        }
                     }
                 }
 
 
             }
-
 
         }
 
@@ -408,16 +435,26 @@ namespace WorldOfFootball.UserControls
 
         private void PnlAllPlayers_DragDrop(object sender, DragEventArgs e)
         {
+            List<PlayerForm> selectedPlayers = new List<PlayerForm>();
+            foreach (PlayerForm playerForm in pnlFavoritePlayers.Controls)
+            {
+                if (playerForm.IsSelected)
+                {
+                    selectedPlayers.Add(playerForm);
+                }
+            }
+
             PlayerForm draggedPlayer = e.Data?.GetData(typeof(PlayerForm)) as PlayerForm;
             if (draggedPlayer != null)
             {
-                bool isPlayerAlreadyAdded = IsPlayerAdded(draggedPlayer, pnlAllPlayers);
-
-                // Dodaje novog igrača samo ako već nije dodan na pnlFavoritePlayers kontrolu
-                if (!isPlayerAlreadyAdded)
+              
+                foreach (PlayerForm playerForm in selectedPlayers)
                 {
-
-                    AddPlayer(draggedPlayer, pnlAllPlayers, pnlFavoritePlayers);
+                    bool isPlayerAlreadyAdded = IsPlayerAdded(playerForm, pnlAllPlayers);
+                    if (!isPlayerAlreadyAdded)
+                    {
+                        AddPlayer(playerForm, pnlAllPlayers, pnlFavoritePlayers);
+                    }
                 }
             }
         }
