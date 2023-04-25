@@ -5,7 +5,9 @@ VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataLayer", "DataLayer\DataLayer.csproj", "{E50C84F9-47F6-497C-8119-246E1069F053}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfFootball", "WorldOfFootball\WorldOfFootball.csproj", "{CF336DCE-A388-4F48-827B-B64E15B35399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorldOfFootball", "WorldOfFootball\WorldOfFootball.csproj", "{CF336DCE-A388-4F48-827B-B64E15B35399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamTracker", "TeamTracker\TeamTracker.csproj", "{85A07DCD-EC9E-4691-ADFB-48C357413CC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CF336DCE-A388-4F48-827B-B64E15B35399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CF336DCE-A388-4F48-827B-B64E15B35399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CF336DCE-A388-4F48-827B-B64E15B35399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85A07DCD-EC9E-4691-ADFB-48C357413CC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85A07DCD-EC9E-4691-ADFB-48C357413CC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85A07DCD-EC9E-4691-ADFB-48C357413CC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85A07DCD-EC9E-4691-ADFB-48C357413CC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
