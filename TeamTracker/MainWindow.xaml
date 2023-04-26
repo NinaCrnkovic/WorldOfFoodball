@@ -19,7 +19,7 @@
 
         <!-- Main content panel -->
         <ContentControl>
-            <UserControls:InitialSettings />
+            <UserControls:OverviewOfTheTeam/>
             
         </ContentControl>
 

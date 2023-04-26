@@ -7,7 +7,7 @@
         <LinearGradientBrush x:Key="ButtonBackgroundBrush" StartPoint="0,0" EndPoint="1,1">
             <GradientStop Color="#1B262C" Offset="0"/>
             <GradientStop Color="#0F4C75" Offset="0.5"/>
-            <GradientStop Color="#0F4C75" Offset="1"/>
+            <GradientStop Color="#1B262C" Offset="1"/>
         </LinearGradientBrush>
 
         <Style x:Key="CustomButtonStyle" TargetType="Button">
@@ -71,7 +71,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+  
+
+
 
     </Application.Resources>
 </Application>
