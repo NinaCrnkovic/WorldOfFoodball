@@ -12,7 +12,9 @@
     <None Remove="Resources\background2.jpg" />
     <None Remove="Resources\favicon.ico" />
     <None Remove="Resources\logo.png" />
+    <None Remove="Resources\Maradona.jpeg" />
     <None Remove="Resources\Teren.png" />
+    <None Remove="Resources\tshirt3.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -20,7 +22,9 @@
     <Resource Include="Resources\background2.jpg" />
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\favicon.ico" />
+    <Resource Include="Resources\Maradona.jpeg" />
     <Resource Include="Resources\Teren.png" />
+    <Resource Include="Resources\tshirt3.png" />
   </ItemGroup>
 
   <ItemGroup>

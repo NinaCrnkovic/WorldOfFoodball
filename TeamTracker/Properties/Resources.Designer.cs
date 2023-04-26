@@ -93,6 +93,16 @@ namespace TeamTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Maradona {
+            get {
+                object obj = ResourceManager.GetObject("Maradona", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] TeamTrackerIcon {
             get {
                 object obj = ResourceManager.GetObject("TeamTrackerIcon", resourceCulture);
@@ -106,6 +116,16 @@ namespace TeamTracker.Properties {
         public static byte[] Teren {
             get {
                 object obj = ResourceManager.GetObject("Teren", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] tshirt3 {
+            get {
+                object obj = ResourceManager.GetObject("tshirt3", resourceCulture);
                 return ((byte[])(obj));
             }
         }

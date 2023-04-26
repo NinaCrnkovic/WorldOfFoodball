@@ -52,3 +52,5 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTra
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\UserControls\Player.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\UserControls\Player.baml

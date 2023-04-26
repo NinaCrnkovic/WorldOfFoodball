@@ -34,7 +34,7 @@
         </Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition />
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -47,28 +47,42 @@
                 <ImageBrush ImageSource="/Resources/Teren.png"/>
             </Grid.Background>
 
-            <StackPanel Grid.Column="0" VerticalAlignment="Stretch" Margin="5">
-                <!-- Elementi prvog stupca -->
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="5">
+                <local:Player />
             </StackPanel>
-            <StackPanel Grid.Column="1" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi drugog stupca -->
+                <local:Player />
+                <local:Player />
+                <local:Player />
+                <local:Player />
+                <local:Player />
+             
             </StackPanel>
-            <StackPanel Grid.Column="2" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi trećeg stupca -->
+                <local:Player />
+                <local:Player />
+                <local:Player />
+                
             </StackPanel>
-            <StackPanel Grid.Column="3" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi četvrtog stupca -->
+                <local:Player Width="130"/>
+                <local:Player Width="130"/>
+                <local:Player Width="130"/>
+                <local:Player Width="130"/>
             </StackPanel>
-            <StackPanel Grid.Column="4" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi petog stupca -->
             </StackPanel>
-            <StackPanel Grid.Column="5" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="5" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi šestog stupca -->
             </StackPanel>
-            <StackPanel Grid.Column="6" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi sedmog stupca -->
             </StackPanel>
-            <StackPanel Grid.Column="7" VerticalAlignment="Stretch" Margin="5">
+            <StackPanel Grid.Column="7" VerticalAlignment="Center" Margin="5">
                 <!-- Elementi osmog stupca -->
             </StackPanel>
         </Grid>
