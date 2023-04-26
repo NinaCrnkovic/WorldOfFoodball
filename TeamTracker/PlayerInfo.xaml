@@ -1,0 +1,50 @@
+﻿<Window x:Class="TeamTracker.PlayerInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamTracker"
+        mc:Ignorable="d"
+        Title="PlayerInfo" Height="500" Width="300">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#1B262C">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+      
+        </Grid.RowDefinitions>
+
+        <Image Grid.Column="0" Grid.Row="0" Source="/Resources/Maradona.jpeg" />
+        <Label Grid.Column="1" Grid.Row="0" Content="Ime prezime" />
+      
+        <Image Grid.Column="0" Grid.Row="1" Source="/Resources/tshirt3.png"/>
+        <Label Grid.Column="1" Grid.Row="1" Content="17" />
+        <Image Grid.Column="0" Grid.Row="2" Source="/Resources/goal.png"/>
+        <Label Grid.Column="1" Grid.Row="2" Content="2" />
+        <Image Grid.Column="0" Grid.Row="3" Source="/Resources/yellow-card.png" />
+        <Label Grid.Column="1" Grid.Row="3" Content="0" />
+        <Image Grid.Column="0" Grid.Row="4" Source="/Resources/Position-removebg-preview.png" />
+        <Label Grid.Column="1" Grid.Row="4" Content="Defender" />
+        <Image Grid.Column="0" Grid.Row="5" Source="/Resources/captain-band.png"/>
+        <Label Grid.Column="1" Grid.Row="5" Content="no" />
+  
+    </Grid>
+</Window>

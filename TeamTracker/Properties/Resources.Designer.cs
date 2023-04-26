@@ -83,6 +83,26 @@ namespace TeamTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] captain_band {
+            get {
+                object obj = ResourceManager.GetObject("captain_band", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] goal {
+            get {
+                object obj = ResourceManager.GetObject("goal", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
@@ -96,6 +116,36 @@ namespace TeamTracker.Properties {
         public static byte[] Maradona {
             get {
                 object obj = ResourceManager.GetObject("Maradona", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Position_removebg_preview {
+            get {
+                object obj = ResourceManager.GetObject("Position_removebg_preview", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Positions {
+            get {
+                object obj = ResourceManager.GetObject("Positions", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -126,6 +176,16 @@ namespace TeamTracker.Properties {
         public static byte[] tshirt3 {
             get {
                 object obj = ResourceManager.GetObject("tshirt3", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] yellow_card {
+            get {
+                object obj = ResourceManager.GetObject("yellow_card", resourceCulture);
                 return ((byte[])(obj));
             }
         }
