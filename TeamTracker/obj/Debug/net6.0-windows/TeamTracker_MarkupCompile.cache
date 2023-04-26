@@ -5,16 +5,16 @@ winexe
 C#
 .cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\
-TeamTracker
+TeamTracker_ydadu3ix_wpftmp
 none
 false
-TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+TRACE;RELEASE;NET;NET6_0;NETCOREAPP
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\App.xaml
 31213404828
 
-6-1386928306
-194-1951243044
+11-1463631927
+388392481208
 MainWindow.xaml;UserControls\InitialSettings.xaml;UserControls\OverviewOfTheTeam.xaml;
 
-False
+True
 
