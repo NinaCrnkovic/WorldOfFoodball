@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Novi\\WorldOfFoodball\\TeamTracker\\TeamTracker.csproj",
+      "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Sa gita\\TeamTracker\\TeamTracker.csproj",
       "projectName": "TeamTracker",
-      "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Novi\\WorldOfFoodball\\TeamTracker\\TeamTracker.csproj",
+      "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Sa gita\\TeamTracker\\TeamTracker.csproj",
       "packagesPath": "C:\\Users\\38598\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Novi\\WorldOfFoodball\\TeamTracker\\obj\\",
+      "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Sa gita\\TeamTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
