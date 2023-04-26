@@ -12,6 +12,7 @@
     <None Remove="Resources\background2.jpg" />
     <None Remove="Resources\favicon.ico" />
     <None Remove="Resources\logo.png" />
+    <None Remove="Resources\Teren.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +20,7 @@
     <Resource Include="Resources\background2.jpg" />
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\favicon.ico" />
+    <Resource Include="Resources\Teren.png" />
   </ItemGroup>
 
   <ItemGroup>

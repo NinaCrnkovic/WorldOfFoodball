@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Team Tracker" Height="800" Width="1500"
         Icon="Resources/favicon.ico"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Foreground="WhiteSmoke">
     <DockPanel>       
         <!-- Header panel -->
         <DockPanel DockPanel.Dock="Top"  Background="#0F4C75" Height="100">
@@ -19,7 +19,7 @@
 
         <!-- Main content panel -->
         <ContentControl>
-            <UserControls:OverviewOfTheTeam/>
+            <UserControls:FirstEleven/>
             
         </ContentControl>
 

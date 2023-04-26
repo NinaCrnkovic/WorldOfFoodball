@@ -99,5 +99,15 @@ namespace TeamTracker.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Teren {
+            get {
+                object obj = ResourceManager.GetObject("Teren", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
