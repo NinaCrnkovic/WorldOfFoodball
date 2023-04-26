@@ -5,8 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeamTracker.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="450" d:DesignWidth="800"
+             Foreground="WhiteSmoke">
+    <Grid Style="{StaticResource BackgroundGridStyle}">
 
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -14,30 +15,50 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-        <GroupBox Grid.Row="0" Header="Jezik">
-            <StackPanel Orientation="Horizontal">
-                <RadioButton Content="Hrvatski" Margin="5" IsChecked="True"/>
-                <RadioButton Content="Engleski" Margin="5"/>
+
+        <Label Grid.Row="0" Grid.Column="1" 
+               Content="Početne postavke" 
+               HorizontalAlignment="Center" 
+               Foreground="WhiteSmoke" 
+               Margin="10,50,10,10"
+               FontSize="20"></Label>
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Jezik" Style="{StaticResource MyGorupBoxStyle}" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton Content="Hrvatski"  IsChecked="True"
+                             Style="{StaticResource MyRadioButtonStyle}"/>
+                <RadioButton Content="Engleski" 
+                             Style="{StaticResource MyRadioButtonStyle}"/>
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Grid.Row="1" Header="Prvenstvo">
-            <StackPanel Orientation="Horizontal">
-                <RadioButton Content="Žensko" Margin="5" IsChecked="True"/>
-                <RadioButton Content="Muško" Margin="5"/>
+        <GroupBox Grid.Row="2" Grid.Column="1" Header="Prvenstvo" Style="{StaticResource MyGorupBoxStyle}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton Content="Žensko"  IsChecked="True"
+                             Style="{StaticResource MyRadioButtonStyle}"/>
+                <RadioButton Content="Muško" 
+                             Style="{StaticResource MyRadioButtonStyle}"/>
             </StackPanel>
         </GroupBox>
 
-        <GroupBox Grid.Row="2" Header="Veličina ekrana">
-            <StackPanel Orientation="Horizontal">
-                <RadioButton Content="Fullscreen" Margin="5" IsChecked="True"/>
-                <RadioButton Content="Original (1200x800)" Margin="5"/>
-                <RadioButton Content="Small (800x600)" Margin="5"/>
+        <GroupBox Grid.Row="3" Grid.Column="1" Header="Veličina ekrana" Style="{StaticResource MyGorupBoxStyle}">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton Content="Fullscreen"  IsChecked="True"
+                             Style="{StaticResource MyRadioButtonStyle}"/>
+                <RadioButton Content="Original (1200x800)"
+                             Style="{StaticResource MyRadioButtonStyle}"/>
+                <RadioButton Content="Small (800x600)" 
+                             Style="{StaticResource MyRadioButtonStyle}"/>
             </StackPanel>
         </GroupBox>
 
-        <Button Grid.Row="4" Content="OK" Margin="10" HorizontalAlignment="Center"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="OK" Margin="10"  Style="{StaticResource CustomButtonStyle}"/>
     </Grid>
 </UserControl>

@@ -8,11 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\background1.jpg" />
+    <None Remove="Resources\background2.jpg" />
+    <None Remove="Resources\favicon.ico" />
     <None Remove="Resources\logo.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\background1.jpg" />
+    <Resource Include="Resources\background2.jpg" />
     <Resource Include="Resources\logo.png" />
+    <Resource Include="Resources\favicon.ico" />
   </ItemGroup>
 
   <ItemGroup>

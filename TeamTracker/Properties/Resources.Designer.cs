@@ -63,9 +63,39 @@ namespace TeamTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] background1 {
+            get {
+                object obj = ResourceManager.GetObject("background1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] background2 {
+            get {
+                object obj = ResourceManager.GetObject("background2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] logo {
             get {
                 object obj = ResourceManager.GetObject("logo", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] TeamTrackerIcon {
+            get {
+                object obj = ResourceManager.GetObject("TeamTrackerIcon", resourceCulture);
                 return ((byte[])(obj));
             }
         }

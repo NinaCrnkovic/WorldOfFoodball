@@ -3,21 +3,25 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TeamTracker"
+        xmlns:local="clr-namespace:TeamTracker" xmlns:UserControls="clr-namespace:TeamTracker.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1500"
+        Title="Team Tracker" Height="800" Width="1500"
+        Icon="Resources/favicon.ico"
         WindowStartupLocation="CenterScreen">
     <DockPanel>       
         <!-- Header panel -->
         <DockPanel DockPanel.Dock="Top"  Background="#0F4C75" Height="100">
             <Image Source="Resources\logo.png"  Height="50" HorizontalAlignment="Left" Margin="5"/>
 
+          
+
         </DockPanel>
 
         <!-- Main content panel -->
-        <DockPanel>
-           
-        </DockPanel>
+        <ContentControl>
+            <UserControls:InitialSettings />
+            
+        </ContentControl>
 
     </DockPanel>
 </Window>
