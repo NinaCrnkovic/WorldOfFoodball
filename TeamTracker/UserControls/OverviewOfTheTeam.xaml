@@ -70,13 +70,27 @@
 
 
 
-        <ComboBox Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Stretch" x:Name="cbFavoriteTeam" SelectionChanged="cbFavoriteTeam_SelectionChanged"/>
+        <ComboBox Grid.Row="1" Grid.Column="1"  
+                  HorizontalAlignment="Stretch" 
+                  x:Name="cbFavoriteTeam"       
+                  SelectionChanged="cbFavoriteTeam_SelectionChanged"
+                 
+                  />
 
-        <ComboBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" x:Name="cbOppositeTeam"/>
+        <ComboBox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Stretch" x:Name="cbOppositeTeam"
+               />
         <Button Grid.Row="2" Grid.Column="1" Content="Pregled" Margin="0,10"  Style="{StaticResource CustomButtonStyle}"/>
         <Button Grid.Row="2" Grid.Column="3" Content="Pregled" Margin="0,10"  Style="{StaticResource CustomButtonStyle}"/>
-
-        <ListBox Grid.Row="3" Grid.Column="1" Margin="0,10" HorizontalAlignment="Stretch" x:Name="lbFavoriteTeam" DisplayMemberPath="Name"/>
+        <ScrollViewer Grid.Row="3" Grid.Column="1" VerticalScrollBarVisibility="Auto" >
+        <ListBox                
+                 x:Name="lbFavoriteTeam" 
+                 HorizontalAlignment="Stretch" 
+                 VerticalAlignment="Stretch"
+                 Height="Auto"
+                 DisplayMemberPath="Name"
+                 Foreground="WhiteSmoke"
+                 Background="#0F4C75"/>
+        </ScrollViewer>
         <ListBox Grid.Row="3" Grid.Column="3" Margin="0,10" HorizontalAlignment="Stretch" x:Name="lbOppositeTeam"/>
 
         <Button Grid.Row="4" Grid.Column="1" 

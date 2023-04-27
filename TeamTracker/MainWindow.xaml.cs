@@ -98,7 +98,7 @@ namespace TeamTracker
             else if (_screenSize == "Small")
             {
                 this.Width = 800;
-                this.Height = 600;
+                this.Height = 800;
             }
         }
     }

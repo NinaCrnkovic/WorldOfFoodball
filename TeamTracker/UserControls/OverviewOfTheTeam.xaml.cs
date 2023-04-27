@@ -37,20 +37,24 @@ namespace TeamTracker.UserControls
             InitializeComponent();
             _championshpip = championship;
             _isWomens = _championshpip == "Mens" ? false : true;
+            GetMatches();
             GetTeams();
             FillFavoriteComboBox();
-            //FillFavoriteTeamList();
 
+        }
 
+        private void GetMatches()
+        {
+            _dataManager.LoadMaches(_isWomens);
+            _matches = _dataManager.GetMatchesList();
         }
 
         private void FillFavoriteTeamList()
         {
-            lbFavoriteTeam.Items.Clear();
+         
             string selectedCountry = cbFavoriteTeam.SelectedItem.ToString();
             _favoriteFifaCode = selectedCountry.Substring(selectedCountry.IndexOf("(") + 1, 3);
-            _dataManager.LoadMaches(_isWomens);
-            _matches = _dataManager.GetMatchesList();
+         
 
             FootballMatch matchWithCode = null;
             foreach (var item in _matches)
