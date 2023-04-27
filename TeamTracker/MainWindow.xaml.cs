@@ -42,6 +42,26 @@ namespace TeamTracker
             Container.Content = initialSettings;
         }
 
+        private void CallOverviewOfTheTeam()
+        {
+            UserControls.OverviewOfTheTeam overview = new();
+            overview.TeamOverview += OverviewBtn_Click;
+            Container.Content = overview;
+        }
+
+        private void CallFirstEleven()
+        {
+            UserControls.FirstEleven firstEleven = new();
+            Container.Content = firstEleven;
+        }
+
+        private void OverviewBtn_Click(object sender, OverviewEventArgs e)
+        {
+            CallFirstEleven();
+        }
+
+    
+
         private void InitialSettingsFormBtn_Click(object sender, InitialSettingsEventArgs e) 
         {
             var settings = new InitialWoFSettings
@@ -58,12 +78,7 @@ namespace TeamTracker
             CallOverviewOfTheTeam();
         }
 
-        private void CallOverviewOfTheTeam()
-        {
-            UserControls.OverviewOfTheTeam overview = new();
-            //initialSettings.InitSett += InitialSettingsFormBtn_Click;
-            Container.Content = overview;
-        }
+    
 
         private void SetScreenSize()
         {

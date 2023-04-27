@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TeamTracker.EventsArgsTT;
 
 namespace TeamTracker.UserControls
 {
@@ -23,6 +24,12 @@ namespace TeamTracker.UserControls
         public OverviewOfTheTeam()
         {
             InitializeComponent();
+        }
+
+        public event EventHandler<OverviewEventArgs> TeamOverview;
+        private void Btn_Next_Click(object sender, RoutedEventArgs e)
+        {
+            TeamOverview?.Invoke(this, new OverviewEventArgs { FavoriteTeam= "test", OppositeTeam= "Test", Result ="Test"});
         }
     }
 }
