@@ -58,3 +58,40 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTra
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\PlayerInfo.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\CountryInfo.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Sa gita\TeamTracker\obj\Debug\net6.0-windows\PlayerInfo.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\TeamTracker.exe
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\TeamTracker.deps.json
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\TeamTracker.runtimeconfig.json
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\TeamTracker.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\TeamTracker.pdb
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.csproj.AssemblyReference.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\CountryInfo.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\PlayerInfo.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\InitialSettings.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\Player.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker_MarkupCompile.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker_MarkupCompile.lref
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\App.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\CountryInfo.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\PlayerInfo.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\InitialSettings.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\Player.baml
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.g.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.Properties.Resources.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.csproj.GenerateResource.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.AssemblyInfoInputs.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.AssemblyInfo.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.csproj.CoreCompileInputs.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\refint\TeamTracker.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.pdb
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.genruntimeconfig.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\ref\TeamTracker.dll

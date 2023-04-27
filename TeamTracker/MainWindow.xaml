@@ -18,8 +18,8 @@
         </DockPanel>
 
         <!-- Main content panel -->
-        <ContentControl>
-            <UserControls:FirstEleven/>
+        <ContentControl x:Name="Container">
+           
             
         </ContentControl>
 

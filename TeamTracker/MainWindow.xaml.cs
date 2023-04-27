@@ -23,6 +23,16 @@ namespace TeamTracker
         public MainWindow()
         {
             InitializeComponent();
+            if (true)
+            {
+                CallInitialSettings();
+            }
+        }
+
+        private void CallInitialSettings()
+        {
+            UserControls.InitialSettings initialSettings = new();
+            Container.Content = initialSettings;
         }
     }
 }
