@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace TeamTracker.EventsArgsTT
 {
-    internal class InitialSettingsEventArgs : EventArgs
+    public class InitialSettingsEventArgs : EventArgs
     {
         public string Language { get; set; }
         public string Championship { get; set; }
+
+        public string ScreenSize { get; set; }
     }
 }
