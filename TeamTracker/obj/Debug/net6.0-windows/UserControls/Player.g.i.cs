@@ -53,7 +53,7 @@ namespace TeamTracker.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TeamTracker;component/usercontrols/player.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TeamTracker;V1.0.0.0;component/usercontrols/player.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\Player.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

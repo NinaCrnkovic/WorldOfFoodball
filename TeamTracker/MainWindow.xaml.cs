@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace TeamTracker
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DataManager _dataManager = new();
         public MainWindow()
         {
             InitializeComponent();

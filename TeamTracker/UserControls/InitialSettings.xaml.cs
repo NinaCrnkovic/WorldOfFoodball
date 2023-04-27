@@ -24,5 +24,11 @@ namespace TeamTracker.UserControls
         {
             InitializeComponent();
         }
+
+        public event EventHandler<InitialSettingsEventArgs> InitSett;
+        private void InitialSettingsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

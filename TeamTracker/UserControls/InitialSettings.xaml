@@ -78,6 +78,7 @@
 
         <Button Grid.Row="4" Grid.Column="1" 
                 Content="OK" Margin="10"  
-                Style="{StaticResource CustomButtonStyle}"/>
+                Style="{StaticResource CustomButtonStyle}"
+                Click="InitialSettingsButton_Click"/>
     </Grid>
 </UserControl>
