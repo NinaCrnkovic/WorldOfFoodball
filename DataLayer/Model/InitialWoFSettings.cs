@@ -14,5 +14,9 @@ namespace DataLayer.Model
 
         [JsonProperty("Championship")]
         public string Championship { get; set; }
+
+        [JsonProperty("ScreenSize")]
+
+        public string ScreenSize { get; set; }
     }
 }

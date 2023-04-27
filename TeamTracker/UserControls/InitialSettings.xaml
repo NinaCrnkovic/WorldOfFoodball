@@ -39,7 +39,7 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center" >
            
-                    <RadioButton Content="Hrvatski"  IsChecked="True"
+                    <RadioButton Content="Hrvatski" 
                                  x:Name="rbCro"
                                  Style="{StaticResource MyRadioButtonStyle}"/>
                     <RadioButton Content="Engleski" 
@@ -54,7 +54,7 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
               
-                    <RadioButton Content="Žensko"  IsChecked="True"
+                    <RadioButton Content="Žensko"  
                                      x:Name="rbF"
                              Style="{StaticResource MyRadioButtonStyle}"/>
                      <RadioButton Content="Muško" 
@@ -70,7 +70,7 @@
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
                
-                <RadioButton Content="FullScreen"  IsChecked="True"
+                <RadioButton Content="FullScreen" 
                              x:Name="rbFull"
                              Style="{StaticResource MyRadioButtonStyle}"/>
                 <RadioButton Content="Original (1200x800)"

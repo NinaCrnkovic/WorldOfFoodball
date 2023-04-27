@@ -61,7 +61,7 @@ namespace DataLayer.Repository
 
         public void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
         {
-            // Stvorite novi objekt FavoritePlayersTeamEventArgs
+           
             var args = new FavoriteCountryandPlayersSetup
             {
                 FavoritePlayersList = favoritePlayers,
@@ -69,7 +69,7 @@ namespace DataLayer.Repository
                 FifaCodeFavCountry = fifaCode
             };
 
-            // Serijaliziraj FavoritePlayersTeamEventArgs objekt u JSON format
+         
             var json = JsonConvert.SerializeObject(args);
 
             // Spremi JSON u datoteku na disku

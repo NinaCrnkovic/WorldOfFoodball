@@ -85,6 +85,23 @@
         "runtime": {
           "bin/placeholder/DataLayer.dll": {}
         }
+      },
+      "WorldOfFootball/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DataLayer": "1.0.0",
+          "RestSharp": "110.1.0"
+        },
+        "compile": {
+          "bin/placeholder/WorldOfFootball.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WorldOfFootball.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -270,11 +287,17 @@
       "type": "project",
       "path": "../DataLayer/DataLayer.csproj",
       "msbuildProject": "../DataLayer/DataLayer.csproj"
+    },
+    "WorldOfFootball/1.0.0": {
+      "type": "project",
+      "path": "../WorldOfFootball/WorldOfFootball.csproj",
+      "msbuildProject": "../WorldOfFootball/WorldOfFootball.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "DataLayer >= 1.0.0"
+      "DataLayer >= 1.0.0",
+      "WorldOfFootball >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -314,6 +337,9 @@
           "projectReferences": {
             "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WorldOfFootbal\\DataLayer\\DataLayer.csproj": {
               "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WorldOfFootbal\\DataLayer\\DataLayer.csproj"
+            },
+            "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WorldOfFootbal\\WorldOfFootball\\WorldOfFootball.csproj": {
+              "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WorldOfFootbal\\WorldOfFootball\\WorldOfFootball.csproj"
             }
           }
         }

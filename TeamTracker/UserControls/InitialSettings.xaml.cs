@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TeamTracker.EventsArgsTT;
+using WorldOfFootball.CustomDesign;
 
 namespace TeamTracker.UserControls
 {
@@ -62,9 +63,11 @@ namespace TeamTracker.UserControls
             {
                 screenSize = "Small";
             }
+
+
             if(language == string.Empty || championship == string.Empty || screenSize == string.Empty)
             {
-                MessageBox.Show("Morate izabrati");
+                CustomMessageBox.Show("You have to choose a language, championship and screen size", "Warning", System.Windows.Forms.MessageBoxButtons.OK, "en");
             }
             else
             {
