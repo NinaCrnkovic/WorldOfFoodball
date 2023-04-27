@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\App.xaml
-7-1106914112
+7-1070290370
 
-14770965733
+14495824732
 2061714756859
-CountryInfo.xaml;MainWindow.xaml;PlayerInfo.xaml;UserControls\FirstEleven.xaml;UserControls\InitialSettings.xaml;UserControls\OverviewOfTheTeam.xaml;UserControls\Player.xaml;
+CountryInfo.xaml;MainWindow.xaml;PlayerInfo.xaml;UserControls\FirstEleven.xaml;UserControls\InitialSettings.xaml;UserControls\OverviewOfTheTeam.xaml;UserControls\PlayerControl.xaml;
 
 False
 

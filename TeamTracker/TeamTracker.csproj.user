@@ -22,7 +22,7 @@
     <Compile Update="UserControls\OverviewOfTheTeam.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControls\Player.xaml.cs">
+    <Compile Update="UserControls\PlayerControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -45,7 +45,7 @@
     <Page Update="UserControls\OverviewOfTheTeam.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControls\Player.xaml">
+    <Page Update="UserControls\PlayerControl.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

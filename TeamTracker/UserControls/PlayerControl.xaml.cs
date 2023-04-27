@@ -18,9 +18,9 @@ namespace TeamTracker.UserControls
     /// <summary>
     /// Interaction logic for Player.xaml
     /// </summary>
-    public partial class Player : UserControl
+    public partial class PlayerControl : UserControl
     {
-        public Player()
+        public PlayerControl()
         {
             InitializeComponent();
         }

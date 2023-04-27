@@ -70,7 +70,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\InitialSettings.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.g.cs
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\Player.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker_MarkupCompile.cache
@@ -82,7 +81,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\InitialSettings.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.baml
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\Player.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.g.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.Properties.Resources.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.csproj.GenerateResource.cache
@@ -110,3 +108,5 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\WorldOfFootball.pdb
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\en\WorldOfFootball.resources.dll
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\bin\Debug\net6.0-windows\hr\WorldOfFootball.resources.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\PlayerControl.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Debug\net6.0-windows\UserControls\PlayerControl.baml

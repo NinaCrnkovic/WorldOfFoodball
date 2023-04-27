@@ -44,7 +44,7 @@ namespace TeamTracker
 
         private void CallOverviewOfTheTeam()
         {
-            UserControls.OverviewOfTheTeam overview = new();
+            UserControls.OverviewOfTheTeam overview = new(_championship);
             overview.TeamOverview += OverviewBtn_Click;
             Container.Content = overview;
         }
