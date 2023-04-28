@@ -22,14 +22,12 @@ namespace TeamTracker.UserControls
     {
         private string _championshpip;
         private DataManager _dataManager = new();
-        private List<Team> _teams;
-
-        private List<Team> _oppositeTeams = new();
-  
+    
         private List<FootballMatch> _matches;
         private List<FootballMatch> _matchesOppositeTeam;
         private bool _isWomens;
         private string _favoriteFifaCode;
+        private string _oppositeFifaCode;
 
         public OverviewOfTheTeam(string championship)
         {
@@ -39,11 +37,12 @@ namespace TeamTracker.UserControls
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
+      
         
           
 
         }
-
+        #region Get methods
         private void GetMatches()
         {
             _dataManager.LoadMaches(_isWomens);
@@ -57,12 +56,43 @@ namespace TeamTracker.UserControls
 
         }
 
-        private void GetTeams()
+        private List<Team> GetTeams()
         {
 
             _dataManager.LoadTeams(_isWomens);
-            _teams = _dataManager.GetTeamsList();
+            var teams = _dataManager.GetTeamsList();
+            return teams;
         }
+
+        private List<Team> GetOppositeTeams()
+        {
+            List<Team> oppositeTeams = new();
+            List<Team> teams = GetTeams();
+            foreach (var item in _matchesOppositeTeam)
+            {
+                if (item.HomeTeam.Code != _favoriteFifaCode)
+                {
+                    var team = teams.Where(t => t.FifaCode == item.HomeTeam.Code).FirstOrDefault();
+                    if (team != null)
+                    {
+                        oppositeTeams.Add(new Team { Id = team.Id, FifaCode = team.FifaCode, AlternateName = team.AlternateName, Country = team.Country, GroupId = team.GroupId, GroupLetter = team.GroupLetter });
+                    }
+                }
+                if (item.AwayTeam.Code != _favoriteFifaCode && item.AwayTeam.Code != null)
+                {
+                    var team = teams.Where(t => t.FifaCode == item.AwayTeam.Code).FirstOrDefault();
+                    if (team != null)
+                    {
+                        oppositeTeams.Add(new Team { Id = team.Id, FifaCode = team.FifaCode, AlternateName = team.AlternateName, Country = team.Country, GroupId = team.GroupId, GroupLetter = team.GroupLetter });
+                    }
+                }
+            }
+            return oppositeTeams;
+        }
+
+        #endregion
+
+        #region Fill methods
         private void FillFavoriteTeamList()
         {
          
@@ -79,7 +109,8 @@ namespace TeamTracker.UserControls
                     break;
                 }
             }
-            List <Player> players = new();
+           
+            List<Player> players = new List<Player>();
             if (matchWithCode != null)
             {
 
@@ -101,17 +132,60 @@ namespace TeamTracker.UserControls
 
         }
 
-        
+        private void FillOppositeTeamList()
+        {
+
+            string selectedCountry = cbOppositeTeam.SelectedItem.ToString();
+            _oppositeFifaCode = selectedCountry.Substring(selectedCountry.IndexOf("(") + 1, 3);
+
+
+            FootballMatch matchWithCode = null;
+            foreach (var item in _matches)
+            {
+                if (item.AwayTeam.Code == _oppositeFifaCode)
+                {
+                    matchWithCode = item;
+                    break;
+                }
+                else if (item.HomeTeam.Code == _oppositeFifaCode)
+                {
+                    matchWithCode = item;
+                    break;
+                }
+            }
+            List<Player> players = new List<Player>();
+            if (matchWithCode != null)
+            {
+
+                foreach (var startingPlayer in matchWithCode.AwayTeamStatistics.StartingEleven)
+                {
+                    players.Add(startingPlayer);
+                }
+                foreach (var substiturePlayer in matchWithCode.AwayTeamStatistics.Substitutes)
+                {
+                    players.Add(substiturePlayer);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"No matches found with FIFA code {_oppositeFifaCode}");
+            }
+            lbOppositeTeam.ItemsSource = players;
+
+
+        }
+
         private void FillFavoriteComboBox()
         {
             cbFavoriteTeam.Items.Clear();
-            var sortedTeams = _teams.OrderBy(t => t.Country).ToList();
+            var teams = GetTeams();
+            var sortedTeams = teams.OrderBy(t => t.Country).ToList();
             if (cbFavoriteTeam != null)
             {
-                foreach (var team in sortedTeams)
+                foreach (var item in sortedTeams)
                 {
                     
-                    cbFavoriteTeam.Items.Add(team);
+                    cbFavoriteTeam.Items.Add(item);
                 }
                 cbFavoriteTeam.SelectedIndex = 0;
             }
@@ -122,44 +196,24 @@ namespace TeamTracker.UserControls
         {
 
             cbOppositeTeam.Items.Clear();
-       
-            var sortedTeams = _oppositeTeams.OrderBy(t => t.Country).ToList();
+         
+            var team = GetOppositeTeams();
+            var sortedTeams = team.OrderBy(t => t.Country).ToList();
             if (cbOppositeTeam != null)
             {
-                foreach (var team in sortedTeams)
+                foreach (var item in sortedTeams)
                 {
 
-                    cbOppositeTeam.Items.Add(team);
+                    cbOppositeTeam.Items.Add(item);
                 }
                 cbOppositeTeam.SelectedIndex = 0;
             }
 
-
+            FillOppositeTeamList();
         }
 
-        private void GetOppositeTeams()
-        {
-            foreach (var item in _matchesOppositeTeam)
-            {
-                if (item.HomeTeam.Code != _favoriteFifaCode)
-                {
-                    var team = _teams.Where(t => t.FifaCode == item.HomeTeam.Code).FirstOrDefault();
-                    if (team != null)
-                    {
-                        _oppositeTeams.Add(new Team { Id = team.Id, FifaCode = team.FifaCode, AlternateName = team.AlternateName, Country = team.Country, GroupId = team.GroupId, GroupLetter = team.GroupLetter });
-                    }
-                }
-                if (item.AwayTeam.Code != _favoriteFifaCode && item.AwayTeam.Code != null)
-                {
-                    var team = _teams.Where(t => t.FifaCode == item.AwayTeam.Code).FirstOrDefault();
-                    if (team != null)
-                    {
-                        _oppositeTeams.Add(new Team { Id = team.Id, FifaCode = team.FifaCode, AlternateName = team.AlternateName, Country = team.Country, GroupId = team.GroupId, GroupLetter = team.GroupLetter });
-                    }
-                }
-            }
-        }
 
+        #endregion
 
 
         public event EventHandler<OverviewEventArgs> TeamOverview;
@@ -174,8 +228,22 @@ namespace TeamTracker.UserControls
             FillFavoriteTeamList();
             GetMatchesOppositeTeam();
             GetOppositeTeams();
+         
             FillOppositeComboBox();
+
+            //FillOppositeTeamList();
           
+        }
+
+        private void cbOppositeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+    
+           //FillOppositeTeamList();
+        }
+
+        private void cbOppositeTeam_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            FillOppositeTeamList();
         }
     }
 }
