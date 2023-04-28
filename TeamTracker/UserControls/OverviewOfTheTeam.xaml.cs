@@ -46,17 +46,20 @@ namespace TeamTracker.UserControls
 
         private void FillResult()
         {
+         
+            var favoriteFifaCode = cbFavoriteTeam.SelectedItem.ToString().Substring(cbFavoriteTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
+            var oppositeFifaCode = cbOppositeTeam.SelectedItem.ToString().Substring(cbOppositeTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
             long goalsFavoriteTeam = 0;
             long goalsOppostieTeam = 0;
             List<FootballMatch> matchesOppositeTeam = GetMatchesOppositeTeam();
             foreach (FootballMatch match in matchesOppositeTeam)
             {
-                if (match.HomeTeam.Code == _favoriteFifaCode)
+                if (match.HomeTeam.Code == favoriteFifaCode && match.AwayTeam.Code == oppositeFifaCode)
                 {
                     goalsFavoriteTeam = match.HomeTeam.Goals;
                     goalsOppostieTeam = match.AwayTeam.Goals;
                 }
-                else if (match.AwayTeam.Code == _favoriteFifaCode)
+                else if (match.AwayTeam.Code == favoriteFifaCode && match.HomeTeam.Code == oppositeFifaCode)
                 {
                     goalsFavoriteTeam = match.AwayTeam.Goals;
                     goalsOppostieTeam = match.HomeTeam.Goals;
@@ -196,6 +199,7 @@ namespace TeamTracker.UserControls
                 Console.WriteLine($"No matches found with FIFA code {_oppositeFifaCode}");
             }
             lbOppositeTeam.ItemsSource = players;
+   
 
 
         }
@@ -234,7 +238,7 @@ namespace TeamTracker.UserControls
                 cbOppositeTeam.SelectedIndex = 0;
             }
 
-           // FillOppositeTeamList();
+           
         }
 
 
@@ -249,20 +253,14 @@ namespace TeamTracker.UserControls
 
         private void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            try
-            {
-                FillFavoriteTeamList();
+           
+            FillFavoriteTeamList();
 
-                GetOppositeTeams();
+            GetOppositeTeams();
 
-                FillOppositeComboBox();
-                FillResult();
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show($"u prvoj" +ex);
-            }
+            FillOppositeComboBox();
+            FillResult();
+          
        
 
 
@@ -272,13 +270,16 @@ namespace TeamTracker.UserControls
         private void cbOppositeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-             if (cbOppositeTeam.SelectedItem != null)
-                {
-                    FillOppositeTeamList();
-                
-                }
+    
 
-            FillResult();
+            if (cbOppositeTeam.SelectedItem != null)
+            {
+               
+                FillOppositeTeamList();
+                FillResult();
+            }
+
+           
 
         }
 
