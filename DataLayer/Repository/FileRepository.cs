@@ -87,6 +87,15 @@ namespace DataLayer.Repository
             var matches = JsonConvert.DeserializeObject<List<FootballMatch>>(json);
             return Task.FromResult(matches);
         }
+
+        public Task<List<FootballMatch>> GetMatchesByFifaCode(bool isWomen, string fifaCode)
+        {
+            string filePath = isWomen ? MATCHES_FILE_PATH_WOMEN : MATCHES_FILE_PATH_MEN;
+            var json = File.ReadAllText(filePath);
+            var matches = JsonConvert.DeserializeObject<List<FootballMatch>>(json);
+            var filteredMatches = matches.Where(m => m.HomeTeam.Code == fifaCode || m.AwayTeam.Code == fifaCode).ToList();
+            return Task.FromResult(filteredMatches);
+        }
     }
 
 }

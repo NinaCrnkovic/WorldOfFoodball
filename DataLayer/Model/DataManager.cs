@@ -23,6 +23,7 @@ namespace DataLayer.Model
         private string _language;
         private string _champinonship;
         private List<FootballMatch> _matches;
+        private List<FootballMatch> _matchesOppositeTeam;
  
 
         public DataManager()
@@ -52,6 +53,7 @@ namespace DataLayer.Model
 
         public List<Team> GetTeamsList() => _teams;
         public List<FootballMatch> GetMatchesList() => _matches;
+        public List<FootballMatch> GetMatchesOppositeTeamList() => _matchesOppositeTeam;
 
 
         public void LoadSavedSettings()
@@ -95,7 +97,7 @@ namespace DataLayer.Model
 
             try
             {
-                _matches = await _repo.GetMatchesByFifaCode(isWomen, fifaCode);
+                _matchesOppositeTeam = await _repo.GetMatchesByFifaCode(isWomen, fifaCode);
 
             }
             catch (Exception e)

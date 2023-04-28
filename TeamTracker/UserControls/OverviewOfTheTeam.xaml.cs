@@ -17,18 +17,17 @@ using TeamTracker.EventsArgsTT;
 
 namespace TeamTracker.UserControls
 {
-    /// <summary>
-    /// Interaction logic for OverviewOfTheTeam.xaml
-    /// </summary>
+    
     public partial class OverviewOfTheTeam : UserControl
     {
         private string _championshpip;
         private DataManager _dataManager = new();
         private List<Team> _teams;
 
-        private List<Team> _opositeTeams;
+        private List<Team> _oppositeTeams = new();
   
         private List<FootballMatch> _matches;
+        private List<FootballMatch> _matchesOppositeTeam;
         private bool _isWomens;
         private string _favoriteFifaCode;
 
@@ -40,6 +39,8 @@ namespace TeamTracker.UserControls
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
+        
+          
 
         }
 
@@ -48,7 +49,20 @@ namespace TeamTracker.UserControls
             _dataManager.LoadMaches(_isWomens);
             _matches = _dataManager.GetMatchesList();
         }
+        private void GetMatchesOppositeTeam()
+        {
 
+            _dataManager.LoadMachesByFifaCode(_isWomens, _favoriteFifaCode);
+            _matchesOppositeTeam = _dataManager.GetMatchesOppositeTeamList();
+
+        }
+
+        private void GetTeams()
+        {
+
+            _dataManager.LoadTeams(_isWomens);
+            _teams = _dataManager.GetTeamsList();
+        }
         private void FillFavoriteTeamList()
         {
          
@@ -104,12 +118,49 @@ namespace TeamTracker.UserControls
            
         }
 
-        private void GetTeams()
+        private void FillOppositeComboBox()
         {
-          
-            _dataManager.LoadTeams(_isWomens);
-            _teams = _dataManager.GetTeamsList();
+
+            cbOppositeTeam.Items.Clear();
+       
+            var sortedTeams = _oppositeTeams.OrderBy(t => t.Country).ToList();
+            if (cbOppositeTeam != null)
+            {
+                foreach (var team in sortedTeams)
+                {
+
+                    cbOppositeTeam.Items.Add(team);
+                }
+                cbOppositeTeam.SelectedIndex = 0;
+            }
+
+
         }
+
+        private void GetOppositeTeams()
+        {
+            foreach (var item in _matchesOppositeTeam)
+            {
+                if (item.HomeTeam.Code != _favoriteFifaCode)
+                {
+                    var team = _teams.Where(t => t.FifaCode == item.HomeTeam.Code).FirstOrDefault();
+                    if (team != null)
+                    {
+                        _oppositeTeams.Add(new Team { Id = team.Id, FifaCode = team.FifaCode, AlternateName = team.AlternateName, Country = team.Country, GroupId = team.GroupId, GroupLetter = team.GroupLetter });
+                    }
+                }
+                if (item.AwayTeam.Code != _favoriteFifaCode && item.AwayTeam.Code != null)
+                {
+                    var team = _teams.Where(t => t.FifaCode == item.AwayTeam.Code).FirstOrDefault();
+                    if (team != null)
+                    {
+                        _oppositeTeams.Add(new Team { Id = team.Id, FifaCode = team.FifaCode, AlternateName = team.AlternateName, Country = team.Country, GroupId = team.GroupId, GroupLetter = team.GroupLetter });
+                    }
+                }
+            }
+        }
+
+
 
         public event EventHandler<OverviewEventArgs> TeamOverview;
         private void Btn_Next_Click(object sender, RoutedEventArgs e)
@@ -119,7 +170,12 @@ namespace TeamTracker.UserControls
 
         private void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+           
             FillFavoriteTeamList();
+            GetMatchesOppositeTeam();
+            GetOppositeTeams();
+            FillOppositeComboBox();
+          
         }
     }
 }

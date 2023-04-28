@@ -35,6 +35,18 @@ namespace DataLayer.Repository
             });
         }
 
+        public Task<List<FootballMatch>> GetMatchesByFifaCode(bool isWomen, string fifaCode)
+        {
+            return Task.Run(async () =>
+            {
+                var endpoint = isWomen ? womenMatchesEndpoint : menMatchesEndpoint;
+                var fullEndpoint = $"{baseUrl}{endpoint}/{fifaCode}";
+                var apiClient = new RestClient(fullEndpoint);
+                var apiResult = await apiClient.ExecuteAsync<List<FootballMatch>>(new RestRequest());
+                return JsonConvert.DeserializeObject<List<FootballMatch>>(apiResult.Content);
+            });
+        }
+
         public Task<List<Team>> GetTeams(bool isWomen)
         {
             return Task.Run(async () =>

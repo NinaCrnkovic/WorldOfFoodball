@@ -44,7 +44,8 @@
                                  Style="{StaticResource MyRadioButtonStyle}"/>
                     <RadioButton Content="Engleski" 
                                      x:Name="rbEn"
-                                Style="{StaticResource MyRadioButtonStyle}"/>
+                                Style="{StaticResource MyRadioButtonStyle}"
+                                 IsChecked="True"/>
              
             </StackPanel>
         </GroupBox>
@@ -55,11 +56,12 @@
                         HorizontalAlignment="Center">
               
                     <RadioButton Content="Žensko"  
-                                     x:Name="rbF"
-                             Style="{StaticResource MyRadioButtonStyle}"/>
+                                 x:Name="rbF"
+                                 Style="{StaticResource MyRadioButtonStyle}"/>
                      <RadioButton Content="Muško" 
-                                      x:Name="rbM"
-                             Style="{StaticResource MyRadioButtonStyle}"/>
+                                  x:Name="rbM"
+                                  Style="{StaticResource MyRadioButtonStyle}"
+                                  IsChecked="True"/>
                    
             </StackPanel>
         </GroupBox>
@@ -74,10 +76,11 @@
                              x:Name="rbFull"
                              Style="{StaticResource MyRadioButtonStyle}"/>
                 <RadioButton Content="Original (1500x800)"
-                                 x:Name="rbOriginal"
-                             Style="{StaticResource MyRadioButtonStyle}"/>
+                             x:Name="rbOriginal"
+                             Style="{StaticResource MyRadioButtonStyle}"
+                             IsChecked="True"/>
                 <RadioButton Content="Small (800x600)" 
-                                 x:Name="rbSmall"
+                             x:Name="rbSmall"
                              Style="{StaticResource MyRadioButtonStyle}"/>
                  
             </StackPanel>
