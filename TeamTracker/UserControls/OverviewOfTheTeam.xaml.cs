@@ -24,7 +24,7 @@ namespace TeamTracker.UserControls
         private DataManager _dataManager = new();
     
         private List<FootballMatch> _matches;
-        private List<FootballMatch> _matchesOppositeTeam;
+    
         private bool _isWomens;
         private string _favoriteFifaCode;
         private string _oppositeFifaCode;
@@ -37,9 +37,33 @@ namespace TeamTracker.UserControls
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
+            FillResult();
       
         
           
+
+        }
+
+        private void FillResult()
+        {
+            long goalsFavoriteTeam = 0;
+            long goalsOppostieTeam = 0;
+            List<FootballMatch> matchesOppositeTeam = GetMatchesOppositeTeam();
+            foreach (FootballMatch match in matchesOppositeTeam)
+            {
+                if (match.HomeTeam.Code == _favoriteFifaCode)
+                {
+                    goalsFavoriteTeam = match.HomeTeam.Goals;
+                    goalsOppostieTeam = match.AwayTeam.Goals;
+                }
+                else if (match.AwayTeam.Code == _favoriteFifaCode)
+                {
+                    goalsFavoriteTeam = match.AwayTeam.Goals;
+                    goalsOppostieTeam = match.HomeTeam.Goals;
+                }
+     
+            }
+            lblResult.Content = $"{goalsFavoriteTeam} : {goalsOppostieTeam}";
 
         }
         #region Get methods
@@ -48,12 +72,12 @@ namespace TeamTracker.UserControls
             _dataManager.LoadMaches(_isWomens);
             _matches = _dataManager.GetMatchesList();
         }
-        private void GetMatchesOppositeTeam()
+        private List<FootballMatch> GetMatchesOppositeTeam()
         {
 
             _dataManager.LoadMachesByFifaCode(_isWomens, _favoriteFifaCode);
-            _matchesOppositeTeam = _dataManager.GetMatchesOppositeTeamList();
-
+            var matchesOppositeTeam = _dataManager.GetMatchesOppositeTeamList();
+            return matchesOppositeTeam;
         }
 
         private List<Team> GetTeams()
@@ -68,7 +92,8 @@ namespace TeamTracker.UserControls
         {
             List<Team> oppositeTeams = new();
             List<Team> teams = GetTeams();
-            foreach (var item in _matchesOppositeTeam)
+            List<FootballMatch> matchesOppositeTeam = GetMatchesOppositeTeam();
+            foreach (var item in matchesOppositeTeam)
             {
                 if (item.HomeTeam.Code != _favoriteFifaCode)
                 {
@@ -209,7 +234,7 @@ namespace TeamTracker.UserControls
                 cbOppositeTeam.SelectedIndex = 0;
             }
 
-            FillOppositeTeamList();
+           // FillOppositeTeamList();
         }
 
 
@@ -224,26 +249,39 @@ namespace TeamTracker.UserControls
 
         private void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
-            FillFavoriteTeamList();
-            GetMatchesOppositeTeam();
-            GetOppositeTeams();
-         
-            FillOppositeComboBox();
+            try
+            {
+                FillFavoriteTeamList();
 
-            //FillOppositeTeamList();
+                GetOppositeTeams();
+
+                FillOppositeComboBox();
+                FillResult();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"u prvoj" +ex);
+            }
+       
+
+
           
         }
 
         private void cbOppositeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-    
-           //FillOppositeTeamList();
+
+             if (cbOppositeTeam.SelectedItem != null)
+                {
+                    FillOppositeTeamList();
+                
+                }
+
+            FillResult();
+
         }
 
-        private void cbOppositeTeam_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            FillOppositeTeamList();
-        }
+      
     }
 }

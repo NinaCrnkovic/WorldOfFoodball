@@ -75,6 +75,7 @@
         <Label Content=" 1:1"
                Grid.Row="1" 
                Grid.Column="2" 
+               x:Name="lblResult"
                HorizontalContentAlignment="Center" 
                Style="{StaticResource GlowingLabel}"/>
 
@@ -95,7 +96,7 @@
                   HorizontalAlignment="Stretch"
                   x:Name="cbOppositeTeam"
                   SelectionChanged="cbOppositeTeam_SelectionChanged"
-                  MouseDown="cbOppositeTeam_MouseDown"
+               
                />
         <Button 
             Grid.Row="2" 
