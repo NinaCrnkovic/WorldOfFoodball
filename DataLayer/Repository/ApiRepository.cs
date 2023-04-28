@@ -47,6 +47,18 @@ namespace DataLayer.Repository
             });
         }
 
+        public Task<List<Result>> GetResults(bool isWomen)
+        {
+            return Task.Run(async () =>
+            {
+                var endpoint = isWomen ? womenTeamsResultEndpoint : menTeamsResultEndpoint;
+                var fullEndpoint = $"{baseUrl}{endpoint}";
+                var apiClient = new RestClient(fullEndpoint);
+                var apiResult = await apiClient.ExecuteAsync<List<Result>>(new RestRequest());
+                return JsonConvert.DeserializeObject<List<Result>>(apiResult.Content);
+            });
+        }
+
         public Task<List<Team>> GetTeams(bool isWomen)
         {
             return Task.Run(async () =>
