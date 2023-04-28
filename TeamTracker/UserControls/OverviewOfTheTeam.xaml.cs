@@ -259,7 +259,7 @@ namespace TeamTracker.UserControls
             string favoriteTeam = cbFavoriteTeam.SelectedItem.ToString().Substring(cbFavoriteTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
             string oppositeTeam = cbOppositeTeam.SelectedItem.ToString().Substring(cbOppositeTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
             string result = lblResult.ToString();
-            TeamOverview?.Invoke(this, new OverviewEventArgs { FavoriteTeam= "test", OppositeTeam= "Test", Result ="Test"});
+            TeamOverview?.Invoke(this, new OverviewEventArgs { FavoriteTeam= favoriteTeam, OppositeTeam= oppositeTeam, Result =result, FootballMatches = _matches});
         }
 
         private void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)

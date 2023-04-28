@@ -17,15 +17,18 @@ using TeamTracker.EventsArgsTT;
 
 namespace TeamTracker
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+  
     public partial class MainWindow : Window
     {
         private DataManager _dataManager = new();
         private string _language;
         private string _championship;
         private string _screenSize;
+        private string _favoriteTeam;
+        private string _oppositeTeam;
+        private string _result;
+        private List<FootballMatch> _footballMatchList;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -51,12 +54,17 @@ namespace TeamTracker
 
         private void CallFirstEleven()
         {
-            UserControls.FirstEleven firstEleven = new();
+            UserControls.FirstEleven firstEleven = new(_favoriteTeam, _oppositeTeam, _result, _footballMatchList);
             Container.Content = firstEleven;
         }
 
         private void OverviewBtn_Click(object sender, OverviewEventArgs e)
         {
+            _favoriteTeam = e.FavoriteTeam;
+            _oppositeTeam = e.OppositeTeam;
+            _result = e.Result;
+            _footballMatchList = e.FootballMatches;
+
             CallFirstEleven();
         }
 
@@ -64,7 +72,7 @@ namespace TeamTracker
 
         private void InitialSettingsFormBtn_Click(object sender, InitialSettingsEventArgs e) 
         {
-            var settings = new InitialWoFSettings
+            InitialWoFSettings settings = new InitialWoFSettings
             {
                 Language = e.Language,
                 Championship = e.Championship,
