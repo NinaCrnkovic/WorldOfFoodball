@@ -17,6 +17,7 @@ namespace DataLayer.Model
         private IRepository _repo;
         private IConfigRepository _configRepo = RepoFactory.GetConfigRepo();
         private List<Team> _teams;
+        private List<Result> _results;
         private List<Player> _favoriteplayers;
         private List<Player> _notFavoriteplayers;
         private string _fifaCodeFavCountry;
@@ -52,6 +53,8 @@ namespace DataLayer.Model
         
 
         public List<Team> GetTeamsList() => _teams;
+        public List<Result> GetResutlsList() => _results;
+     
         public List<FootballMatch> GetMatchesList() => _matches;
         public List<FootballMatch> GetMatchesOppositeTeamList() => _matchesOppositeTeam;
 
@@ -70,6 +73,20 @@ namespace DataLayer.Model
             {
                 _teams = await _repo.GetTeams(isWomen);
             
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public async void LoadResults(bool isWomen)
+        {
+
+            try
+            {
+                _results = await _repo.GetResults(isWomen);
+
             }
             catch (Exception e)
             {

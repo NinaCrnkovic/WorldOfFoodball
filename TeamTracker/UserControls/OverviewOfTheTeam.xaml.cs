@@ -24,6 +24,7 @@ namespace TeamTracker.UserControls
         private DataManager _dataManager = new();
     
         private List<FootballMatch> _matches;
+        private List<Result> _results;
     
         private bool _isWomens;
         private string _favoriteFifaCode;
@@ -37,14 +38,21 @@ namespace TeamTracker.UserControls
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
-            FillResult();
+            FillResultLabel();
+            GetResults();
       
         
           
 
         }
 
-        private void FillResult()
+        private void GetResults()
+        {
+            _dataManager.LoadResults(_isWomens);
+            _results = _dataManager.GetResutlsList();
+        }
+
+        private void FillResultLabel()
         {
          
             var favoriteFifaCode = cbFavoriteTeam.SelectedItem.ToString().Substring(cbFavoriteTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
@@ -248,40 +256,85 @@ namespace TeamTracker.UserControls
         public event EventHandler<OverviewEventArgs> TeamOverview;
         private void Btn_Next_Click(object sender, RoutedEventArgs e)
         {
+            string favoriteTeam = cbFavoriteTeam.SelectedItem.ToString().Substring(cbFavoriteTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
+            string oppositeTeam = cbOppositeTeam.SelectedItem.ToString().Substring(cbOppositeTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
+            string result = lblResult.ToString();
             TeamOverview?.Invoke(this, new OverviewEventArgs { FavoriteTeam= "test", OppositeTeam= "Test", Result ="Test"});
         }
 
         private void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           
+
             FillFavoriteTeamList();
-
             GetOppositeTeams();
-
             FillOppositeComboBox();
-            FillResult();
-          
-       
+            FillResultLabel();
 
-
-          
         }
 
         private void cbOppositeTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
-    
-
             if (cbOppositeTeam.SelectedItem != null)
             {
-               
                 FillOppositeTeamList();
-                FillResult();
+                FillResultLabel();
             }
 
-           
 
         }
+        private void Btn_FavoriteTeamInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var fifaCode = cbFavoriteTeam.SelectedItem.ToString().Substring(cbFavoriteTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
+       
+            Result teamResult = _results.FirstOrDefault(r => r.FifaCode == fifaCode);
+            if (teamResult != null)
+            {
+                OpenCountryInfoWindow(teamResult);
+            }
+            else
+            {
+                // Result objekt s FIFA kodom nije pronađen
+            }
+
+
+
+        }
+
+        private void Btn_OppositeTeamInfo_Click(object sender, RoutedEventArgs e)
+        {
+            var fifaCode = cbOppositeTeam.SelectedItem.ToString().Substring(cbOppositeTeam.SelectedItem.ToString().IndexOf("(") + 1, 3);
+     
+
+            Result teamResult = _results.FirstOrDefault(r => r.FifaCode == fifaCode);
+            if (teamResult != null)
+            {
+                OpenCountryInfoWindow(teamResult);
+            }
+            else
+            {
+                // Result objekt s FIFA kodom nije pronađen
+            }
+        }
+
+
+        private static void OpenCountryInfoWindow(Result result)
+        {
+            CountryInfo country = new();
+            country.lblName.Content = result.Country;
+            country.lblFifaCode.Content = result.FifaCode;
+            country.lblGamesPlayed.Content = result.GamesPlayed;
+            country.lblWins.Content = result.Wins;
+            country.lblLoses.Content = result.Losses;
+            country.lblDraws.Content = result.Draws;
+            country.lblGoalsFor.Content = result.GoalsFor;
+            country.lblGoalsAgainst.Content = result.GoalsAgainst;
+            country.lblGoalDifferential.Content = result.GoalDifferential;
+
+
+            country.ShowDialog();
+        }
+
+
 
       
     }
