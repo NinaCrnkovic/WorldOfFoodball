@@ -54,7 +54,7 @@ namespace DataLayer.Model
         public List<FootballMatch> GetMatchesList() => _matches;
 
 
-        public async void LoadSavedSettings()
+        public void LoadSavedSettings()
         {
             
             LoadInitialSettingsFromRepo();
@@ -89,6 +89,21 @@ namespace DataLayer.Model
                 throw new Exception(e.Message);
             }
         }
+
+        public async void LoadMachesByFifaCode(bool isWomen, string fifaCode)
+        {
+
+            try
+            {
+                _matches = await _repo.GetMatchesByFifaCode(isWomen, fifaCode);
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
         #region Favorite player settings
         public void SaveFavoritePlayersToRepo(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
         {
