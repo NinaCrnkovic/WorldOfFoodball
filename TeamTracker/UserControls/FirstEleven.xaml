@@ -27,9 +27,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="Domaci"  Grid.Column="0"/>
-            <Label Content="Rezultat" Grid.Column="1" />
-            <Label Content="Strani"  Grid.Column="2" />
+            <Label Content="Domaci"  Grid.Column="0" x:Name="lblFavoriteTeam"/>
+            <Label Content="Rezultat" Grid.Column="1" x:Name="lblScore"/>
+            <Label Content="Strani"  Grid.Column="2" x:Name="lblOppostieTeam"/>
 
         </Grid>
         <Grid>

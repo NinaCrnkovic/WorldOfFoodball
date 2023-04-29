@@ -37,6 +37,42 @@ namespace TeamTracker.UserControls
             InitializeComponent();
             FillFirstElevenList();
             FillFirstElelvenPositions();
+            FillLabels();
+
+        }
+
+        private void FillLabels()
+        {
+            lblScore.Content = _result;
+            string favoriteTeamName = "";
+            string oppositeTeamName = "";
+            foreach (FootballMatch match in _matches)
+            {
+                if (match.AwayTeam.Code == _favoriteTeam)
+                {
+                    favoriteTeamName = match.AwayTeam.Country;
+                }
+                else if (match.HomeTeam.Code == _favoriteTeam)
+                {
+                    favoriteTeamName = match.HomeTeam.Country;
+                }
+
+            }
+
+            lblFavoriteTeam.Content = favoriteTeamName;
+            foreach (FootballMatch match in _matches)
+            {
+                if (match.AwayTeam.Code == _oppositeTeam)
+                {
+                    oppositeTeamName = match.AwayTeam.Country;
+                }
+                else if (match.HomeTeam.Code == _oppositeTeam)
+                {
+                    oppositeTeamName = match.HomeTeam.Country;
+                }
+
+            }
+            lblOppostieTeam.Content = oppositeTeamName;
         }
 
         private void FillFirstElelvenPositions()
@@ -46,6 +82,7 @@ namespace TeamTracker.UserControls
                 if(player.Position == "Goalie")
                 {
                     PlayerControl playerControl = new ();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                    // playerControl.imgPicture.ImageSource. = player.ImagePath;
                     spGoalieFavorite.Children.Add(playerControl);
@@ -53,6 +90,7 @@ namespace TeamTracker.UserControls
                 else if (player.Position == "Defender")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spDefenderFavorite.Children.Add(playerControl);
@@ -60,6 +98,7 @@ namespace TeamTracker.UserControls
                 else if (player.Position == "Midfield")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spMidfieldFavorite.Children.Add(playerControl);
@@ -67,6 +106,7 @@ namespace TeamTracker.UserControls
                 else if (player.Position == "Forward")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spFowardFavorite.Children.Add(playerControl);
@@ -79,6 +119,7 @@ namespace TeamTracker.UserControls
                 if (player.Position == "Goalie")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spGoalieOpposite.Children.Add(playerControl);
@@ -86,6 +127,7 @@ namespace TeamTracker.UserControls
                 else if (player.Position == "Defender")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spDefenderOpposite.Children.Add(playerControl);
@@ -93,6 +135,7 @@ namespace TeamTracker.UserControls
                 else if (player.Position == "Midfield")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spMidfieldOpposite.Children.Add(playerControl);
@@ -100,6 +143,7 @@ namespace TeamTracker.UserControls
                 else if (player.Position == "Forward")
                 {
                     PlayerControl playerControl = new();
+                    playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
                     //playerControl.imgPicture.ImageSource = player.ImagePath;
                     spFowardOpposite.Children.Add(playerControl);
@@ -107,6 +151,31 @@ namespace TeamTracker.UserControls
 
 
             }
+        }
+
+        private void PlayerControl_PlayerControlData(object sender, EventsArgsTT.PlayerControlEventArgs e)
+        {
+            string name = e.Name;
+            PlayerInfo playerInfo = new();
+            Player player = new();
+            if (name != null)
+            {
+                player = _favoriteFirstEleven.Where(t => t.Name == name).FirstOrDefault();
+                if (player == null)
+                {
+                    player = _oppositeFirstEleven.Where(t => t.Name == name).FirstOrDefault();
+                }
+            }
+
+      
+            playerInfo.lblName.Content = player.Name;
+            playerInfo.lblGoals.Content = player.GoalsCount.ToString();
+            playerInfo.lblShirtNum.Content = player.ShirtNumber.ToString();
+            playerInfo.lblCartons.Content = player.YellowCartonCount.ToString();
+            playerInfo.lblRole.Content = player.Position;
+            playerInfo.lblCapitan.Content = player.Captain ? "yes" : "no";
+            playerInfo.ShowDialog();
+
         }
 
         private void FillFirstElevenList()
