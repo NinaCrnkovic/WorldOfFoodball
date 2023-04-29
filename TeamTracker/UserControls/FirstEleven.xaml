@@ -65,13 +65,13 @@
                 <!-- Elementi četvrtog stupca -->
        
             </StackPanel>
-            <StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="5"  x:Name="spfowardOpposite">
+            <StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="5"  x:Name="spFowardOpposite">
                 <!-- Elementi petog stupca -->
             </StackPanel>
             <StackPanel Grid.Column="5" VerticalAlignment="Center" Margin="5" x:Name="spMidfieldOpposite">
                 <!-- Elementi šestog stupca -->
             </StackPanel>
-            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="5" x:Name="spDegenderOpposite">
+            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="5" x:Name="spDefenderOpposite">
                 <!-- Elementi sedmog stupca -->
             </StackPanel>
             <StackPanel Grid.Column="7" VerticalAlignment="Center" Margin="5" x:Name="spGoalieOpposite">

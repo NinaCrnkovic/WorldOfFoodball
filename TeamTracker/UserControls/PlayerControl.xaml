@@ -14,12 +14,12 @@
 
         <Ellipse Grid.Row="0" Width="60" Height="60">
             <Ellipse.Fill>
-                <ImageBrush ImageSource="/Resources/Maradona.jpeg"/>
+                <ImageBrush ImageSource="/Resources/Maradona.jpeg" x:Name="imgPicture"/>
             </Ellipse.Fill>
         </Ellipse>
         <Image  />
 
-        <Label Content="Ime i prezime" Grid.Row="1" Foreground="White" Background="#1B262C" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center" />
+        <Label Content="Ime i prezime" Grid.Row="1" Foreground="White" Background="#1B262C" FontSize="10" FontWeight="Bold" HorizontalAlignment="Center" x:Name="lblName"/>
 
     </Grid>
 

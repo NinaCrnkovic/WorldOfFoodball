@@ -41,11 +41,77 @@ namespace TeamTracker.UserControls
 
         private void FillFirstElelvenPositions()
         {
-            throw new NotImplementedException();
+            foreach (Player player in _favoriteFirstEleven)
+            {
+                if(player.Position == "Goalie")
+                {
+                    PlayerControl playerControl = new ();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spGoalieFavorite.Children.Add(playerControl);
+                }
+                else if (player.Position == "Defender")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spDefenderFavorite.Children.Add(playerControl);
+                }
+                else if (player.Position == "Midfield")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spMidfieldFavorite.Children.Add(playerControl);
+                }
+                else if (player.Position == "Forward")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spFowardFavorite.Children.Add(playerControl);
+                }
+
+
+            }
+            foreach (Player player in _oppositeFirstEleven)
+            {
+                if (player.Position == "Goalie")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spGoalieOpposite.Children.Add(playerControl);
+                }
+                else if (player.Position == "Defender")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spDefenderOpposite.Children.Add(playerControl);
+                }
+                else if (player.Position == "Midfield")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spMidfieldOpposite.Children.Add(playerControl);
+                }
+                else if (player.Position == "Forward")
+                {
+                    PlayerControl playerControl = new();
+                    playerControl.lblName.Content = player.Name;
+                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                    spFowardOpposite.Children.Add(playerControl);
+                }
+
+
+            }
         }
 
         private void FillFirstElevenList()
         {
+            //test
             foreach (var match in _matches)
             {
                 if(match.HomeTeam.Code == _favoriteTeam && match.AwayTeam.Code == _oppositeTeam)
