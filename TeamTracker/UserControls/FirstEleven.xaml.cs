@@ -47,7 +47,7 @@ namespace TeamTracker.UserControls
                 {
                     PlayerControl playerControl = new ();
                     playerControl.lblName.Content = player.Name;
-                    //playerControl.imgPicture.ImageSource = player.ImagePath;
+                   // playerControl.imgPicture.ImageSource. = player.ImagePath;
                     spGoalieFavorite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Defender")

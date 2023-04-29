@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataLayer.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace TeamTracker.UserControls
         public PlayerControl()
         {
             InitializeComponent();
+        }
+
+        private void grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Player player = e.OriginalSource as Player;
+            PlayerInfo playerInfo = new PlayerInfo();
+            playerInfo.lblName.Content = player.Name;
+            playerInfo.lblGoals.Content = player.GoalsCount.ToString();
+            playerInfo.lblShirtNum.Content = player.ShirtNumber.ToString();
+            playerInfo.lblCartons.Content = player.YellowCartonCount.ToString();
+            playerInfo.lblRole.Content = player.Position;
+            playerInfo.lblCapitan.Content = player.Captain ? "yes" : "no";  
+            playerInfo.ShowDialog();
         }
     }
 }
