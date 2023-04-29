@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "K9RpnJoXDcmhaFIMCnQrTg6pBjypPTz1ovB1wC/JIODl3vUZQ653uPHgdCcWoNC2e8T2S5yuHSiL234mWIi5Hw==",
+  "dgSpecHash": "Nj3pMSZI97mQOOyY8PO1+gJV9oonMvIhtE00uSoI8I4UY1mhfllXfUon7Q2ohfnrJSfAIQWS1RGeXFawlY3OUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WorldOfFootbal\\TeamTracker\\TeamTracker.csproj",
+  "projectFilePath": "C:\\Users\\programer10\\Desktop\\WOF\\TeamTracker\\TeamTracker.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\38598\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
-    "C:\\Users\\38598\\.nuget\\packages\\restsharp\\110.1.0\\restsharp.110.1.0.nupkg.sha512",
-    "C:\\Users\\38598\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\38598\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
-    "C:\\Users\\38598\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+    "C:\\Users\\programer10\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
+    "C:\\Users\\programer10\\.nuget\\packages\\restsharp\\110.1.0\\restsharp.110.1.0.nupkg.sha512",
+    "C:\\Users\\programer10\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\programer10\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\programer10\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
   ],
   "logs": []
 }

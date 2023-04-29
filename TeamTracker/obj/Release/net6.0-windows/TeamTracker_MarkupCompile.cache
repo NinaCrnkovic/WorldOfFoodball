@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\obj\Release\net6.0-windows\
+C:\Users\programer10\Desktop\WOF\TeamTracker\obj\Release\net6.0-windows\
 TeamTracker
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WorldOfFootbal\TeamTracker\App.xaml
+C:\Users\programer10\Desktop\WOF\TeamTracker\App.xaml
 7-1070290370
 
 122084593769
-206565522172
+2061893594422
 CountryInfo.xaml;MainWindow.xaml;PlayerInfo.xaml;UserControls\FirstEleven.xaml;UserControls\InitialSettings.xaml;UserControls\OverviewOfTheTeam.xaml;UserControls\PlayerControl.xaml;
 
 True
