@@ -11,9 +11,15 @@
     <DockPanel>       
         <!-- Header panel -->
         <DockPanel DockPanel.Dock="Top"  Background="#0F4C75" Height="100">
-            <Image Source="Resources\logo.png"  Height="50" HorizontalAlignment="Left" Margin="5"/>
+            <Image Source="Resources\logo.png"  HorizontalAlignment="Left" Margin="5"/>
+            <Button HorizontalAlignment="Right"  Background="#0F4C75" Click="Button_Click">
+                <Button.Content>
+                    <Image Source="Resources\settings.png"   Margin="25" />
+                </Button.Content>
+            </Button>
+         
 
-          
+
 
         </DockPanel>
 

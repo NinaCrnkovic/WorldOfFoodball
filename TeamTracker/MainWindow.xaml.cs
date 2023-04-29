@@ -109,5 +109,10 @@ namespace TeamTracker
                 this.Height = 800;
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CallInitialSettings();
+        }
     }
 }

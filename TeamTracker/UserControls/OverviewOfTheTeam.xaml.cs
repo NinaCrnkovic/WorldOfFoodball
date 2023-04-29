@@ -41,9 +41,6 @@ namespace TeamTracker.UserControls
             FillResultLabel();
             GetResults();
       
-        
-          
-
         }
 
         private void GetResults()
