@@ -14,10 +14,7 @@ using System.Windows.Shapes;
 
 namespace TeamTracker
 {
-    /// <summary>
-    /// Interaction logic for CountryInfo.xaml
-    /// </summary>
-    public partial class CountryInfo : Window
+      public partial class CountryInfo : Window
     {
         public string TeamName
         {

@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace TeamTracker
 {
-    /// <summary>
-    /// Interaction logic for PlayerInfo.xaml
-    /// </summary>
+ 
     public partial class PlayerInfo : Window
     {
 

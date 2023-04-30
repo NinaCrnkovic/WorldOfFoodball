@@ -24,35 +24,78 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            
-            <Label Grid.Column="0" Grid.Row="0" Content="Name:" />
-        <Label Grid.Column="1" Grid.Row="0" Content="" x:Name="lblName"/>
-        <Label Grid.Column="0" Grid.Row="1" Content="Fifa Code:" />
-        <Label Grid.Column="1" Grid.Row="1" Content="" x:Name="lblFifaCode"/>
-        <Label Grid.Column="0" Grid.Row="2" Content="Games played" />
-            <Label Grid.Column="1" Grid.Row="2" Content="" x:Name="lblGamesPlayed"/>
-            <Label Grid.Column="0" Grid.Row="3" Content="Wins" />
-        <Label Grid.Column="1" Grid.Row="3" Content="" x:Name="lblWins"/>
-            <Label Grid.Column="0" Grid.Row="4" Content="Losses" />
-        <Label Grid.Column="1" Grid.Row="4" Content="" x:Name="lblLoses"/>
-            <Label Grid.Column="0" Grid.Row="5" Content="Draws" />
-        <Label Grid.Column="1" Grid.Row="5" Content="" x:Name="lblDraws"/>
-            <Label Grid.Column="0" Grid.Row="6" Content="Goals for" />
-        <Label Grid.Column="1" Grid.Row="6" Content="" x:Name="lblGoalsFor"/>
-            <Label Grid.Column="0" Grid.Row="7" Content="Goals against" />
-        <Label Grid.Column="1" Grid.Row="7" Content="" x:Name="lblGoalsAgainst"/>
-            <Label Grid.Column="0" Grid.Row="8" Content="Goal differential" />
-        <Label Grid.Column="1" Grid.Row="8" Content="" x:Name="lblGoalDifferential"/>
-        </Grid>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" 
+               Grid.Row="0"
+               Content="Name:" />
+        <Label Grid.Column="1" 
+               Grid.Row="0"
+               Content="" 
+               x:Name="lblName"/>
+        <Label Grid.Column="0"
+               Grid.Row="1" 
+               Content="Fifa Code:" />
+        <Label Grid.Column="1" 
+               Grid.Row="1" 
+               Content="" 
+               x:Name="lblFifaCode"/>
+        <Label Grid.Column="0" 
+               Grid.Row="2" 
+               Content="Games played" />
+        <Label Grid.Column="1" 
+               Grid.Row="2" Content="" 
+               x:Name="lblGamesPlayed"/>
+        <Label Grid.Column="0" 
+               Grid.Row="3" 
+               Content="Wins" />
+        <Label Grid.Column="1" 
+               Grid.Row="3" Content="" 
+               x:Name="lblWins"/>
+        <Label Grid.Column="0" 
+               Grid.Row="4" 
+               Content="Losses" />
+        <Label Grid.Column="1" 
+               Grid.Row="4" 
+               Content="" 
+               x:Name="lblLoses"/>
+        <Label Grid.Column="0" 
+               Grid.Row="5" 
+               Content="Draws" />
+        <Label Grid.Column="1" 
+               Grid.Row="5" 
+               Content="" 
+               x:Name="lblDraws"/>
+        <Label Grid.Column="0" 
+               Grid.Row="6" 
+               Content="Goals for" />
+        <Label Grid.Column="1" 
+               Grid.Row="6" 
+               Content="" 
+               x:Name="lblGoalsFor"/>
+        <Label Grid.Column="0" 
+               Grid.Row="7" 
+               Content="Goals against" />
+        <Label Grid.Column="1" 
+               Grid.Row="7" 
+               Content="" 
+               x:Name="lblGoalsAgainst"/>
+        <Label Grid.Column="0" 
+               Grid.Row="8" 
+               Content="Goal differential" />
+        <Label Grid.Column="1" 
+               Grid.Row="8" 
+               Content="" 
+               x:Name="lblGoalDifferential"/>
+    </Grid>
 
 </Window>

@@ -19,17 +19,23 @@
         </Style>
     </UserControl.Resources>
 
-            <DockPanel>
-        <!-- Header panel -->
+    <DockPanel>
+    
         <Grid DockPanel.Dock="Top" Background="#1B262C" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="Domaci"  Grid.Column="0" x:Name="lblFavoriteTeam"/>
-            <Label Content="Rezultat" Grid.Column="1" x:Name="lblScore"/>
-            <Label Content="Strani"  Grid.Column="2" x:Name="lblOppostieTeam"/>
+            <Label Content="Domaci"  
+                   Grid.Column="0" 
+                   x:Name="lblFavoriteTeam"/>
+            <Label Content="Rezultat" 
+                   Grid.Column="1" 
+                   x:Name="lblScore"/>
+            <Label Content="Strani"  
+                   Grid.Column="2" 
+                   x:Name="lblOppostieTeam"/>
 
         </Grid>
         <Grid>
@@ -47,38 +53,56 @@
                 <ImageBrush ImageSource="/Resources/Teren.png"/>
             </Grid.Background>
 
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="5" x:Name="spGoalieFavorite">
-          
+            <StackPanel Grid.Column="0" 
+                        VerticalAlignment="Center" 
+                        Margin="5" 
+                        x:Name="spGoalieFavorite">
+
             </StackPanel>
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="5" x:Name="spDefenderFavorite">
-                <!-- Elementi drugog stupca -->
-       
-             
+            <StackPanel Grid.Column="1" 
+                        VerticalAlignment="Center" 
+                        Margin="5" x:Name="spDefenderFavorite">
+
             </StackPanel>
-            <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="5" x:Name="spMidfieldFavorite">
-                <!-- Elementi trećeg stupca -->
-           
-                
+            <StackPanel Grid.Column="2" 
+                        VerticalAlignment="Center"
+                        Margin="5" 
+                        x:Name="spMidfieldFavorite">
+
             </StackPanel>
-            <StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="5"
+            <StackPanel Grid.Column="3" 
+                        VerticalAlignment="Center" 
+                        Margin="5"
                         x:Name="spFowardFavorite">
-                <!-- Elementi četvrtog stupca -->
-       
+
+
             </StackPanel>
-            <StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="5"  x:Name="spFowardOpposite">
-                <!-- Elementi petog stupca -->
+            <StackPanel Grid.Column="4"
+                        VerticalAlignment="Center" 
+                        Margin="5"  
+                        x:Name="spFowardOpposite">
+
             </StackPanel>
-            <StackPanel Grid.Column="5" VerticalAlignment="Center" Margin="5" x:Name="spMidfieldOpposite">
-                <!-- Elementi šestog stupca -->
+            <StackPanel Grid.Column="5" 
+                        VerticalAlignment="Center" 
+                        Margin="5" 
+                        x:Name="spMidfieldOpposite">
+
             </StackPanel>
-            <StackPanel Grid.Column="6" VerticalAlignment="Center" Margin="5" x:Name="spDefenderOpposite">
-                <!-- Elementi sedmog stupca -->
+            <StackPanel Grid.Column="6" 
+                        VerticalAlignment="Center" 
+                        Margin="5" 
+                        x:Name="spDefenderOpposite">
+
             </StackPanel>
-            <StackPanel Grid.Column="7" VerticalAlignment="Center" Margin="5" x:Name="spGoalieOpposite">
-                <!-- Elementi osmog stupca -->
+            <StackPanel Grid.Column="7" 
+                        VerticalAlignment="Center" 
+                        Margin="5" 
+                        x:Name="spGoalieOpposite">
+
             </StackPanel>
         </Grid>
-        <!-- Main content panel -->
+
 
 
     </DockPanel>

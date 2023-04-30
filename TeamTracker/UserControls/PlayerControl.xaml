@@ -6,19 +6,24 @@
              xmlns:local="clr-namespace:TeamTracker.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="80" d:DesignWidth="60"  >
-    <Grid x:Name="grid" MouseDown="grid_MouseDown">
+    <Grid x:Name="grid" 
+          MouseDown="grid_MouseDown">
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition 
+                Height="3*"/>
+            <RowDefinition 
+                Height="Auto"/>
         </Grid.RowDefinitions>
-   
-           
-        <Ellipse Grid.Row="0" Width="60" Height="60" >
+
+
+        <Ellipse Grid.Row="0" 
+                 Width="60" 
+                 Height="60" >
             <Ellipse.Fill>
                 <ImageBrush ImageSource="/Resources/Maradona.jpeg" x:Name="imgPicture" />
             </Ellipse.Fill>
         </Ellipse>
- 
+
 
         <Label Grid.Row="1" 
                    Foreground="White" 
@@ -27,8 +32,8 @@
                    FontWeight="Bold" 
                    HorizontalAlignment="Center" 
                    x:Name="lblName"/>
-        
-      
+
+
     </Grid>
 
 

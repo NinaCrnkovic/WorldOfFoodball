@@ -17,9 +17,7 @@ using TeamTracker.EventsArgsTT;
 
 namespace TeamTracker.UserControls
 {
-    /// <summary>
-    /// Interaction logic for Player.xaml
-    /// </summary>
+    
     public partial class PlayerControl : UserControl
     {
         public PlayerControl()
