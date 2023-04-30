@@ -328,33 +328,69 @@ namespace TeamTracker.UserControls
             country.lblGoalsAgainst.Content = result.GoalsAgainst;
             country.lblGoalDifferential.Content = result.GoalDifferential;
 
-            //// Postavi početne vrijednosti za animaciju
-            //country.Opacity = 0;
-            //country.RenderTransform = new ScaleTransform(0.5, 0.5);
+            //// Stvaranje animacije
+            //DoubleAnimation animation = new DoubleAnimation();
+            //animation.From = 0;
+            //animation.To = 1;
+            //animation.Duration = TimeSpan.FromSeconds(5);
 
-            //// Stvaranje animacije za pomicanje dijaloga s lijeve strane na sredinu
-            //ThicknessAnimation moveAnimation = new ThicknessAnimation();
-            //moveAnimation.From = new Thickness(-500, 0, 0, 0);
-            //moveAnimation.To = new Thickness(0, 0, 0, 0);
-            //moveAnimation.Duration = TimeSpan.FromSeconds(2);
+            //// Pokretanje animacije
+            //country.BeginAnimation(UIElement., animation);
+            //Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
 
-            //// Stvaranje animacije za postupno povećavanje prozirnosti dijaloga
-            //DoubleAnimation opacityAnimation = new DoubleAnimation();
-            //opacityAnimation.From = 0;
-            //opacityAnimation.To = 1;
-            //opacityAnimation.Duration = TimeSpan.FromSeconds(3);
-
-            //// Pokretanje animacija
-            //country.BeginAnimation(FrameworkElement.MarginProperty, moveAnimation);
-            //country.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
-            //Storyboard.SetTargetProperty(moveAnimation, new PropertyPath(FrameworkElement.MarginProperty));
-            //Storyboard.SetTargetProperty(opacityAnimation, new PropertyPath(UIElement.OpacityProperty));
-
-            //// Stvaranje storyboarda i dodavanje animacija
+            //// Create the storyboard and add the animation
             //Storyboard storyboard = new Storyboard();
-            //storyboard.Children.Add(moveAnimation);
-            //storyboard.Children.Add(opacityAnimation);
+            //storyboard.Children.Add(animation);
             //storyboard.Begin(country);
+            // Stvaranje animacije
+            // Stvaranje animacije
+            // Stvaranje animacije
+
+            // Stvaranje animacije
+            // Stvaranje animacije
+            // Stvaranje animacije
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = 0;
+            animation.To = 1;
+            animation.Duration = TimeSpan.FromSeconds(2);
+
+            // Stvaranje druge animacije
+            DoubleAnimation rotateAnimation = new DoubleAnimation();
+            rotateAnimation.From = 0;
+            rotateAnimation.To = 360;
+            rotateAnimation.Duration = TimeSpan.FromSeconds(3);
+
+            // Pokretanje animacija
+            country.BeginAnimation(UIElement.OpacityProperty, animation);
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
+
+            country.RenderTransformOrigin = new Point(0.5, 0.5);
+
+            TransformGroup transformGroup = new TransformGroup();
+            RotateTransform rotateTransform = new RotateTransform();
+
+            transformGroup.Children.Add(rotateTransform);
+
+            country.RenderTransform = transformGroup;
+
+            country.RenderTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
+            Storyboard.SetTargetProperty(rotateAnimation, new PropertyPath("RenderTransform.Children[0].Angle"));
+
+            // Create the storyboard and add the animation
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(animation);
+            storyboard.Children.Add(rotateAnimation);
+            storyboard.Begin(country);
+
+            country.Loaded += (s, ea) =>
+            {
+                // Start the storyboard when the dialog is loaded
+                storyboard.Begin(country);
+            };
+
+
+
+
 
 
 
