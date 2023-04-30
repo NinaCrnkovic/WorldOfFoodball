@@ -16,13 +16,13 @@
         </Grid.RowDefinitions>
 
 
-        <Ellipse Grid.Row="0" 
-                 Width="60" 
-                 Height="60" >
-            <Ellipse.Fill>
-                <ImageBrush ImageSource="/Resources/Maradona.jpeg" x:Name="imgPicture" />
-            </Ellipse.Fill>
-        </Ellipse>
+        <Grid Grid.Row="0">
+            <Image Width="60" Height="60" Source="/Resources/football-shirt.png" x:Name="imgPicture" />
+            <Label Content="12" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="20" x:Name="lblShirtNumb"/>
+        </Grid>
+
+
+
 
 
         <Label Grid.Row="1" 

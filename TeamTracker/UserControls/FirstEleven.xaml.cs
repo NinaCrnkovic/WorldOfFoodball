@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -68,12 +69,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new ();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
-
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spGoalieFavorite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Defender")
@@ -81,11 +77,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spDefenderFavorite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Midfield")
@@ -93,11 +85,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spMidfieldFavorite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Forward")
@@ -105,11 +93,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spFowardFavorite.Children.Add(playerControl);
                 }
 
@@ -122,11 +106,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spGoalieOpposite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Defender")
@@ -134,11 +114,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spDefenderOpposite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Midfield")
@@ -146,11 +122,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spMidfieldOpposite.Children.Add(playerControl);
                 }
                 else if (player.Position == "Forward")
@@ -158,11 +130,7 @@ namespace TeamTracker.UserControls
                     PlayerControl playerControl = new();
                     playerControl.PlayerControlData += PlayerControl_PlayerControlData;
                     playerControl.lblName.Content = player.Name;
-                    BitmapImage bitmap = new BitmapImage();
-                    bitmap.BeginInit();
-                    bitmap.UriSource = new Uri(player.ImagePath, UriKind.Relative);
-                    bitmap.EndInit();
-                    playerControl.imgPicture.ImageSource = bitmap;
+                    playerControl.lblShirtNumb.Content = player.ShirtNumber;
                     spFowardOpposite.Children.Add(playerControl);
                 }
 
@@ -178,6 +146,8 @@ namespace TeamTracker.UserControls
 
             PlayerInfo playerInfo = new()
             {
+                //imgPicture = {Source = new BitmapImage(new Uri("C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\Resources;component/caleta.jpg", UriKind.Relative)),},
+                imgPicture = { Source = new BitmapImage(new Uri("/Resources/caleta.jpg", UriKind.RelativeOrAbsolute))},
                 lblName = { Content = player.Name },
                 lblGoals = { Content = player.GoalsCount.ToString() },
                 lblShirtNum = { Content = player.ShirtNumber.ToString() },
@@ -185,6 +155,30 @@ namespace TeamTracker.UserControls
                 lblRole = { Content = player.Position },
                 lblCapitan = { Content = player.Captain ? "yes" : "no" }
             };
+
+            
+
+            // Stvaranje animacije
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = 0;
+            animation.To = 1;
+            animation.Duration = TimeSpan.FromSeconds(3);
+
+            // Pokretanje animacije
+            playerInfo.BeginAnimation(UIElement.OpacityProperty, animation);
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
+
+            // Create the storyboard and add the animation
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(animation);
+            storyboard.Begin(playerInfo);
+
+            playerInfo.Loaded += (s, ea) =>
+            {
+                // Start the storyboard when the dialog is loaded
+                storyboard.Begin(playerInfo);
+            };
+
 
             playerInfo.ShowDialog();
         }

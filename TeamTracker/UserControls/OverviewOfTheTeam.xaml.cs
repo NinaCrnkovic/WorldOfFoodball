@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -326,6 +327,36 @@ namespace TeamTracker.UserControls
             country.lblGoalsFor.Content = result.GoalsFor;
             country.lblGoalsAgainst.Content = result.GoalsAgainst;
             country.lblGoalDifferential.Content = result.GoalDifferential;
+
+            //// Postavi početne vrijednosti za animaciju
+            //country.Opacity = 0;
+            //country.RenderTransform = new ScaleTransform(0.5, 0.5);
+
+            //// Stvaranje animacije za pomicanje dijaloga s lijeve strane na sredinu
+            //ThicknessAnimation moveAnimation = new ThicknessAnimation();
+            //moveAnimation.From = new Thickness(-500, 0, 0, 0);
+            //moveAnimation.To = new Thickness(0, 0, 0, 0);
+            //moveAnimation.Duration = TimeSpan.FromSeconds(2);
+
+            //// Stvaranje animacije za postupno povećavanje prozirnosti dijaloga
+            //DoubleAnimation opacityAnimation = new DoubleAnimation();
+            //opacityAnimation.From = 0;
+            //opacityAnimation.To = 1;
+            //opacityAnimation.Duration = TimeSpan.FromSeconds(3);
+
+            //// Pokretanje animacija
+            //country.BeginAnimation(FrameworkElement.MarginProperty, moveAnimation);
+            //country.BeginAnimation(UIElement.OpacityProperty, opacityAnimation);
+            //Storyboard.SetTargetProperty(moveAnimation, new PropertyPath(FrameworkElement.MarginProperty));
+            //Storyboard.SetTargetProperty(opacityAnimation, new PropertyPath(UIElement.OpacityProperty));
+
+            //// Stvaranje storyboarda i dodavanje animacija
+            //Storyboard storyboard = new Storyboard();
+            //storyboard.Children.Add(moveAnimation);
+            //storyboard.Children.Add(opacityAnimation);
+            //storyboard.Begin(country);
+
+
 
 
             country.ShowDialog();

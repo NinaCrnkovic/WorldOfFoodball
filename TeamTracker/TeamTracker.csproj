@@ -10,8 +10,10 @@
   <ItemGroup>
     <None Remove="Resources\background1.jpg" />
     <None Remove="Resources\background2.jpg" />
+    <None Remove="Resources\caleta.jpg" />
     <None Remove="Resources\captain-band.png" />
     <None Remove="Resources\favicon.ico" />
+    <None Remove="Resources\football-shirt.png" />
     <None Remove="Resources\goal.png" />
     <None Remove="Resources\logo.png" />
     <None Remove="Resources\Maradona.jpeg" />
@@ -31,7 +33,9 @@
   <ItemGroup>
     <Resource Include="Resources\background1.jpg" />
     <Resource Include="Resources\background2.jpg" />
+    <Resource Include="Resources\caleta.jpg" />
     <Resource Include="Resources\captain-band.png" />
+    <Resource Include="Resources\football-shirt.png" />
     <Resource Include="Resources\goal.png" />
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\favicon.ico" />
