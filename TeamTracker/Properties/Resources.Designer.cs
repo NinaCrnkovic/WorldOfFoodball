@@ -61,6 +61,15 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Back.
+        /// </summary>
+        public static string back {
+            get {
+                return ResourceManager.GetString("back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] background1 {
@@ -91,12 +100,93 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Championship.
+        /// </summary>
+        public static string championship {
+            get {
+                return ResourceManager.GetString("championship", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Country name.
+        /// </summary>
+        public static string countryName {
+            get {
+                return ResourceManager.GetString("countryName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Croatian.
+        /// </summary>
+        public static string croatian {
+            get {
+                return ResourceManager.GetString("croatian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draws.
+        /// </summary>
+        public static string draws {
+            get {
+                return ResourceManager.GetString("draws", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string english {
+            get {
+                return ResourceManager.GetString("english", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Favorite Team.
+        /// </summary>
+        public static string favoriteTeam {
+            get {
+                return ResourceManager.GetString("favoriteTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fifa Code.
+        /// </summary>
+        public static string fifaCode {
+            get {
+                return ResourceManager.GetString("fifaCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap football_shirt {
             get {
                 object obj = ResourceManager.GetObject("football_shirt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Full screen.
+        /// </summary>
+        public static string full {
+            get {
+                return ResourceManager.GetString("full", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Games played.
+        /// </summary>
+        public static string gamesPlayed {
+            get {
+                return ResourceManager.GetString("gamesPlayed", resourceCulture);
             }
         }
         
@@ -111,6 +201,51 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goals against.
+        /// </summary>
+        public static string goalsAgainst {
+            get {
+                return ResourceManager.GetString("goalsAgainst", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goals differential.
+        /// </summary>
+        public static string goalsDifferential {
+            get {
+                return ResourceManager.GetString("goalsDifferential", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goals for.
+        /// </summary>
+        public static string goalsFor {
+            get {
+                return ResourceManager.GetString("goalsFor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Initial settings.
+        /// </summary>
+        public static string initialSettings {
+            get {
+                return ResourceManager.GetString("initialSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string language {
+            get {
+                return ResourceManager.GetString("language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] logo {
@@ -121,12 +256,57 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Losses.
+        /// </summary>
+        public static string losses {
+            get {
+                return ResourceManager.GetString("losses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] Maradona {
             get {
                 object obj = ResourceManager.GetObject("Maradona", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mens.
+        /// </summary>
+        public static string mens {
+            get {
+                return ResourceManager.GetString("mens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        public static string next {
+            get {
+                return ResourceManager.GetString("next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opposite Team.
+        /// </summary>
+        public static string oppositeTeam {
+            get {
+                return ResourceManager.GetString("oppositeTeam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Original.
+        /// </summary>
+        public static string original {
+            get {
+                return ResourceManager.GetString("original", resourceCulture);
             }
         }
         
@@ -151,12 +331,39 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        public static string score {
+            get {
+                return ResourceManager.GetString("score", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scree size.
+        /// </summary>
+        public static string screenSize {
+            get {
+                return ResourceManager.GetString("screenSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] settings {
             get {
                 object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Small.
+        /// </summary>
+        public static string small {
+            get {
+                return ResourceManager.GetString("small", resourceCulture);
             }
         }
         
@@ -187,6 +394,33 @@ namespace TeamTracker.Properties {
             get {
                 object obj = ResourceManager.GetObject("tshirt3", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Team Info.
+        /// </summary>
+        public static string viewInfo {
+            get {
+                return ResourceManager.GetString("viewInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wins.
+        /// </summary>
+        public static string wins {
+            get {
+                return ResourceManager.GetString("wins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Womens.
+        /// </summary>
+        public static string womens {
+            get {
+                return ResourceManager.GetString("womens", resourceCulture);
             }
         }
         

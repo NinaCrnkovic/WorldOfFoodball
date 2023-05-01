@@ -212,3 +212,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.pdb
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.genruntimeconfig.cache
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\ref\TeamTracker.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\bin\Debug\net6.0-windows\hr\TeamTracker.resources.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.Properties.Resources.hr.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\hr\TeamTracker.resources.dll

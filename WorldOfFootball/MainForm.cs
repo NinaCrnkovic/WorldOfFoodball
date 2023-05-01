@@ -29,7 +29,7 @@ namespace WorldOfFootball
         {
 
             InitializeComponent();
-            
+       
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -119,7 +119,7 @@ namespace WorldOfFootball
         private void CallFavoritePlayersForm()
         {
             _dataManager.LoadMaches(_isWomens);
-            var matches = _dataManager.GetMatchesList();
+            var matches =  _dataManager.GetMatchesList();
             _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode, _language, _favoriteplayers, _notFavoriteplayers);
             _favoritePlayersForm.Dock = DockStyle.Fill;
             _favoritePlayersForm.FavoritePlayersList += BtnNextFavoritePlayers_Click;

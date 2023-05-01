@@ -94,7 +94,7 @@ namespace WorldOfFootball.UserControls
                         {
                             int index = cbTeams.Items.IndexOf(item);
                             cbTeams.SelectedIndex = index;
-                            break; // prekida petlju nakon što pronađe odgovarajuću stavku
+                            break; 
                         }
                     }
                 }

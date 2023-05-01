@@ -4,28 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:TeamTracker.UserControls"
+               xmlns:props="clr-namespace:TeamTracker.Properties"
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="1500"
              Foreground="WhiteSmoke">
     <Grid Style="{StaticResource BackgroundGridStyle}">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="5*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
 
         <TextBlock Grid.Row="0" Grid.Column="1" 
-               Text="Početne postavke" 
+               Text="{x:Static props:Resources.initialSettings}"
                Foreground="WhiteSmoke" 
                Margin="10,50,10,10"
                FontSize="20"
@@ -34,31 +35,32 @@
                HorizontalAlignment="Stretch"
                TextAlignment="Center"></TextBlock>
         <GroupBox Grid.Row="1" Grid.Column="1" 
-                  Header="Jezik" 
+                  Header="{x:Static props:Resources.language}"
                   Style="{StaticResource MyGorupBoxStyle}">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center" >
-           
-                    <RadioButton Content="Hrvatski" 
+
+                <RadioButton Content="{x:Static props:Resources.croatian}"
                                  x:Name="rbCro"
                                  Style="{StaticResource MyRadioButtonStyle}"/>
-                    <RadioButton Content="Engleski" 
-                                     x:Name="rbEn"
+                <RadioButton Content="{x:Static props:Resources.english}"
+                                x:Name="rbEn"
                                 Style="{StaticResource MyRadioButtonStyle}"
-                                 IsChecked="True"/>
+                                IsChecked="True"/>
              
             </StackPanel>
         </GroupBox>
 
         <GroupBox Grid.Row="2" Grid.Column="1" 
-                  Header="Prvenstvo" Style="{StaticResource MyGorupBoxStyle}">
+                  Header="{x:Static props:Resources.championship}"
+                  Style="{StaticResource MyGorupBoxStyle}">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
-              
-                    <RadioButton Content="Žensko"  
+
+                <RadioButton Content="{x:Static props:Resources.womens}"  
                                  x:Name="rbF"
                                  Style="{StaticResource MyRadioButtonStyle}"/>
-                     <RadioButton Content="Muško" 
+                <RadioButton Content="{x:Static props:Resources.mens}"
                                   x:Name="rbM"
                                   Style="{StaticResource MyRadioButtonStyle}"
                                   IsChecked="True"/>
@@ -67,19 +69,19 @@
         </GroupBox>
 
         <GroupBox Grid.Row="3" Grid.Column="1" 
-                  Header="Veličina ekrana" 
+                  Header="{x:Static props:Resources.screenSize}"
                   Style="{StaticResource MyGorupBoxStyle}">
             <StackPanel Orientation="Horizontal" 
                         HorizontalAlignment="Center">
-               
-                <RadioButton Content="FullScreen" 
+
+                <RadioButton Content="{x:Static props:Resources.full}"
                              x:Name="rbFull"
                              Style="{StaticResource MyRadioButtonStyle}"/>
-                <RadioButton Content="Original (1500x800)"
+                <RadioButton Content="{x:Static props:Resources.original}"
                              x:Name="rbOriginal"
                              Style="{StaticResource MyRadioButtonStyle}"
                              IsChecked="True"/>
-                <RadioButton Content="Small (800x600)" 
+                <RadioButton Content="{x:Static props:Resources.small}" 
                              x:Name="rbSmall"
                              Style="{StaticResource MyRadioButtonStyle}"/>
                  
