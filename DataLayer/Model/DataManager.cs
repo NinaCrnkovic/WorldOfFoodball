@@ -23,6 +23,7 @@ namespace DataLayer.Model
         private string _fifaCodeFavCountry;
         private string _language;
         private string _champinonship;
+        private string _screenSize;
         private List<FootballMatch> _matches;
         private List<FootballMatch> _matchesOppositeTeam;
  
@@ -124,9 +125,9 @@ namespace DataLayer.Model
         }
 
         #region Favorite player settings
-        public void SaveFavoritePlayersToRepo(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
+        public void SaveFavoritePlayersToRepo(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup)
         {
-            _configRepo.SaveFavoritePlayersSettings(favoritePlayers, allPlayers, fifaCode);
+            _configRepo.SaveFavoritePlayersSettings(favoriteCountryandPlayersSetup);
         }
 
         private async void LoadFavoritePlayersSettingsFromRepo()
@@ -137,7 +138,7 @@ namespace DataLayer.Model
                 return;
             }
             _favoriteplayers = _favoriteCountryandPlayersSettings.FavoritePlayersList;
-            _notFavoriteplayers = _favoriteCountryandPlayersSettings.AllPlayersList;
+            _notFavoriteplayers = _favoriteCountryandPlayersSettings.NotFavoritePlayersList;
             _fifaCodeFavCountry = _favoriteCountryandPlayersSettings.FifaCodeFavCountry;
         }
 
@@ -164,9 +165,11 @@ namespace DataLayer.Model
             }
             _language = _initialWoFSettings.Language;
             _champinonship = _initialWoFSettings.Championship;
+            _screenSize = _initialWoFSettings.ScreenSize;
+
 
         }
-
+        public string GetScreenSize () => _screenSize;
         public string GetLanguage() => _language;
         public bool GetChampionship()
         {

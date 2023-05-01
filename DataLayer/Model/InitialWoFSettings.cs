@@ -18,5 +18,8 @@ namespace DataLayer.Model
         [JsonProperty("ScreenSize")]
 
         public string ScreenSize { get; set; }
+
+      
     }
 }
+

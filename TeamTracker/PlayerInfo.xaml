@@ -34,6 +34,7 @@
         </Grid.RowDefinitions>
 
         <Image Grid.Column="0" Grid.Row="0" Source="/Resources/Maradona.jpeg" x:Name="imgPicture"/>
+
         <Label Grid.Column="1" Grid.Row="0" Content="Ime prezime"  x:Name="lblName"/>
       
         <Image Grid.Column="0" Grid.Row="1" Source="/Resources/tshirt3.png"/>

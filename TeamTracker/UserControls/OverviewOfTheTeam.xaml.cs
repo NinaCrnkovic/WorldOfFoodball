@@ -327,28 +327,7 @@ namespace TeamTracker.UserControls
             country.lblGoalsFor.Content = result.GoalsFor;
             country.lblGoalsAgainst.Content = result.GoalsAgainst;
             country.lblGoalDifferential.Content = result.GoalDifferential;
-
-            //// Stvaranje animacije
-            //DoubleAnimation animation = new DoubleAnimation();
-            //animation.From = 0;
-            //animation.To = 1;
-            //animation.Duration = TimeSpan.FromSeconds(5);
-
-            //// Pokretanje animacije
-            //country.BeginAnimation(UIElement., animation);
-            //Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
-
-            //// Create the storyboard and add the animation
-            //Storyboard storyboard = new Storyboard();
-            //storyboard.Children.Add(animation);
-            //storyboard.Begin(country);
-            // Stvaranje animacije
-            // Stvaranje animacije
-            // Stvaranje animacije
-
-            // Stvaranje animacije
-            // Stvaranje animacije
-            // Stvaranje animacije
+               
             DoubleAnimation animation = new DoubleAnimation();
             animation.From = 0;
             animation.To = 1;
@@ -387,12 +366,6 @@ namespace TeamTracker.UserControls
                 // Start the storyboard when the dialog is loaded
                 storyboard.Begin(country);
             };
-
-
-
-
-
-
 
 
             country.ShowDialog();

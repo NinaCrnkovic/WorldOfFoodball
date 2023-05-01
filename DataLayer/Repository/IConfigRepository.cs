@@ -12,7 +12,7 @@ namespace DataLayer.Repository
         Task<Configuration> GetConfigurationFile();
         void SaveInitialSettings(InitialWoFSettings settings);
         Task<InitialWoFSettings> GetInitialSettings();
-        void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode);
+        void SaveFavoritePlayersSettings(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup);
 
         Task<FavoriteCountryandPlayersSetup> GetFavoritePlayersSettings();
 

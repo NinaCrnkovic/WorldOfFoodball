@@ -1,6 +1,7 @@
 ﻿using DataLayer.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -147,7 +148,7 @@ namespace TeamTracker.UserControls
             PlayerInfo playerInfo = new()
             {
                 //imgPicture = {Source = new BitmapImage(new Uri("C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\Resources;component/caleta.jpg", UriKind.Relative)),},
-                imgPicture = { Source = new BitmapImage(new Uri("/Resources/caleta.jpg", UriKind.RelativeOrAbsolute))},
+                //imgPicture = { Source = new BitmapImage( new Uri(@"../vida.jpg"))},
                 lblName = { Content = player.Name },
                 lblGoals = { Content = player.GoalsCount.ToString() },
                 lblShirtNum = { Content = player.ShirtNumber.ToString() },
@@ -179,8 +180,11 @@ namespace TeamTracker.UserControls
                 storyboard.Begin(playerInfo);
             };
 
-
-            playerInfo.ShowDialog();
+           
+                playerInfo.ShowDialog();
+            
+          
+         
         }
 
 

@@ -17,11 +17,13 @@ namespace WorldOfFootball.UserControls
     {
         private List<Team> _teams;
         private string _language;
-        public FavoriteTeam(List<Team>teams, string language)
+        private string _fifaCode;
+        public FavoriteTeam(List<Team>teams, string language, string fifaCode)
         {
             InitializeComponent();
             _teams = teams;
             _language = language;   
+            _fifaCode = fifaCode;   
             FillComboBox();
             btnNextFavTeam.Click += btnNextFavTeam_Click;
         }
@@ -62,6 +64,7 @@ namespace WorldOfFootball.UserControls
         private void FillComboBox()
         {
             cbTeams.Items.Clear();
+      
             var sortedTeams = _teams.OrderBy(t => t.Country).ToList();
             if (_language == "hr")
             {
@@ -78,7 +81,23 @@ namespace WorldOfFootball.UserControls
                 {
                     cbTeams.Items.Add(team);
                 }
-                cbTeams.SelectedIndex = 0;
+                if (_fifaCode == null)
+                {
+                    cbTeams.SelectedIndex = 0;
+                }
+                else
+                {
+                    foreach (var item in cbTeams.Items)
+                    {
+                        var code = item.ToString().Substring(item.ToString().IndexOf("(") + 1, 3);
+                        if (code == _fifaCode)
+                        {
+                            int index = cbTeams.Items.IndexOf(item);
+                            cbTeams.SelectedIndex = index;
+                            break; // prekida petlju nakon što pronađe odgovarajuću stavku
+                        }
+                    }
+                }
             }
          
         }

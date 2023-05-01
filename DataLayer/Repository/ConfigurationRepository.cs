@@ -59,18 +59,10 @@ namespace DataLayer.Repository
             return Task.FromResult(config);
         }
 
-        public void SaveFavoritePlayersSettings(List<Player> favoritePlayers, List<Player> allPlayers, string fifaCode)
+        public void SaveFavoritePlayersSettings(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup)
         {
-           
-            var args = new FavoriteCountryandPlayersSetup
-            {
-                FavoritePlayersList = favoritePlayers,
-                AllPlayersList = allPlayers,
-                FifaCodeFavCountry = fifaCode
-            };
-
-         
-            var json = JsonConvert.SerializeObject(args);
+                    
+            var json = JsonConvert.SerializeObject(favoriteCountryandPlayersSetup);
 
             // Spremi JSON u datoteku na disku
             File.WriteAllText(FAVORITES_SETTINGS_FILE, json);

@@ -16,7 +16,7 @@ namespace WorldOfFootball.UserControls
 
         private string _teamName;
         private string _language;
-        private const string PATH = "..//..//..//..//DataLayer//Resources//";
+        //private const string PATH = "..//..//..//..//DataLayer//Resources//";
         private const string FILTER = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
         public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language, List<Player> favoritePlayers, List<Player> notFavoriePlayer)
         {
@@ -93,7 +93,8 @@ namespace WorldOfFootball.UserControls
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string fileName = Path.GetFileName(openFileDialog.FileName);
-                string newPath = Path.Combine(PATH, fileName);
+                //string newPath = Path.Combine(PATH, fileName);
+                string newPath = fileName;
                 File.Copy(openFileDialog.FileName, newPath, true);
 
                 // Pronalazimo kontrolu koja je pokrenula događaj

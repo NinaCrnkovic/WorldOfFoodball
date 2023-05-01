@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\TeamTracker",
+    "\\TeamTracker\\Properties",
     "\\TeamTracker\\UserControls",
     "\\WorldOfFootball",
     "\\WorldOfFootball\\UserControls"
   ],
-  "SelectedNode": "\\TeamTracker\\UserControls\\FirstEleven.xaml.cs",
+  "SelectedNode": "\\TeamTracker\\UserControls\\OverviewOfTheTeam.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

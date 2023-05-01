@@ -12,10 +12,15 @@ namespace DataLayer.Model
         [JsonProperty("FavoritePlayersList")]
         public List<Player> FavoritePlayersList { get; set; }
 
-        [JsonProperty("AllPlayersList")]
-        public List<Player> AllPlayersList { get; set; }
+        [JsonProperty("NotFavoritePlayersList")]
+        public List<Player> NotFavoritePlayersList { get; set; }
 
         [JsonProperty("FifaCodeFavCountry")]
         public string FifaCodeFavCountry { get; set; }
+
+    
+        [JsonProperty("FifaCodeOppositeCountry")]
+
+        public string OppositeTeam { get; set; }
     }
 }
