@@ -20,14 +20,7 @@ namespace DataLayer.Model
         public string ScreenSize { get; set; }
 
 
-        [JsonProperty("FifaCodeFavCountry")]
-        public string FifaCodeFavCountry { get; set; }
-
-
-        [JsonProperty("FifaCodeOppositeCountry")]
-
-        public string OppositeTeam { get; set; }
-
+   
     }
 }
 

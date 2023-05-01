@@ -46,7 +46,7 @@
                 <RadioButton Content="{x:Static props:Resources.english}"
                                 x:Name="rbEn"
                                 Style="{StaticResource MyRadioButtonStyle}"
-                                IsChecked="True"/>
+                               />
              
             </StackPanel>
         </GroupBox>
@@ -63,7 +63,7 @@
                 <RadioButton Content="{x:Static props:Resources.mens}"
                                   x:Name="rbM"
                                   Style="{StaticResource MyRadioButtonStyle}"
-                                  IsChecked="True"/>
+                                 />
                    
             </StackPanel>
         </GroupBox>
@@ -80,7 +80,7 @@
                 <RadioButton Content="{x:Static props:Resources.original}"
                              x:Name="rbOriginal"
                              Style="{StaticResource MyRadioButtonStyle}"
-                             IsChecked="True"/>
+                            />
                 <RadioButton Content="{x:Static props:Resources.small}" 
                              x:Name="rbSmall"
                              Style="{StaticResource MyRadioButtonStyle}"/>

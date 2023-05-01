@@ -1,12 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\TeamTracker",
-    "\\TeamTracker\\Properties",
-    "\\TeamTracker\\UserControls",
-    "\\WorldOfFootball",
-    "\\WorldOfFootball\\UserControls"
+    ""
   ],
-  "SelectedNode": "\\TeamTracker\\UserControls\\OverviewOfTheTeam.xaml.cs",
+  "SelectedNode": "\\WorldOfFootball.sln",
   "PreviewInSolutionExplorer": false
 }

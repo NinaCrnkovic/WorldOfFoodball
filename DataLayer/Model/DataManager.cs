@@ -131,7 +131,7 @@ namespace DataLayer.Model
             _configRepo.SaveFavoritePlayersSettings(favoriteCountryandPlayersSetup);
         }
 
-        public async void LoadFavoritePlayersSettingsFromRepo()
+        private async void LoadFavoritePlayersSettingsFromRepo()
         {
             _favoriteCountryandPlayersSettings = await _configRepo.GetFavoritePlayersSettings();
             if(_favoriteCountryandPlayersSettings == null)
@@ -141,7 +141,7 @@ namespace DataLayer.Model
             _favoriteplayers = _favoriteCountryandPlayersSettings.FavoritePlayersList;
             _notFavoriteplayers = _favoriteCountryandPlayersSettings.NotFavoritePlayersList;
             _fifaCodeFavCountry = _favoriteCountryandPlayersSettings.FifaCodeFavCountry;
-          
+            _fifaCodeOppositeFCountry = _favoriteCountryandPlayersSettings.OppositeTeam;
         }
 
         public List<Player> GetFavoritePlayers() => _favoriteplayers;
@@ -169,8 +169,7 @@ namespace DataLayer.Model
             _language = _initialWoFSettings.Language;
             _champinonship = _initialWoFSettings.Championship;
             _screenSize = _initialWoFSettings.ScreenSize;
-            _fifaCodeFavCountry = _initialWoFSettings.FifaCodeFavCountry;
-            _fifaCodeOppositeFCountry = _initialWoFSettings.OppositeTeam;
+       
 
 
         }
@@ -178,7 +177,7 @@ namespace DataLayer.Model
         public string GetLanguage() => _language;
         public bool GetChampionship()
         {
-            if (_champinonship != "Mens")
+            if (_champinonship == "Mens")
             {
                 return true;
             }

@@ -39,9 +39,10 @@ namespace TeamTracker.UserControls
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
-            FillResultLabel();
+            //FillResultLabel();
             GetResults();
-      
+          
+
         }
 
         private void GetResults()
@@ -247,7 +248,7 @@ namespace TeamTracker.UserControls
         {
 
             cbOppositeTeam.Items.Clear();
-         
+
             var team = GetOppositeTeams();
             var sortedTeams = team.OrderBy(t => t.Country).ToList();
             if (cbOppositeTeam != null)
@@ -260,8 +261,13 @@ namespace TeamTracker.UserControls
                 cbOppositeTeam.SelectedIndex = 0;
             }
 
-           
+
         }
+
+
+
+
+
 
 
         #endregion

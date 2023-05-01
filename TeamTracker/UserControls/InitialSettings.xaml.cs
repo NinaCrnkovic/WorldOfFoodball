@@ -22,9 +22,58 @@ namespace TeamTracker.UserControls
     /// </summary>
     public partial class InitialSettings : UserControl
     {
-        public InitialSettings()
+        string _language;
+        string _championship;
+        string _screenSize;
+        public InitialSettings(string language, string championship, string screenSize)
         {
+            _language = language;
+            _championship = championship;
+            _screenSize = screenSize;
+       
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            if (_language != null)
+            {
+                if(_language == "hr")
+                {
+                    rbCro.IsChecked = true;
+                }
+                else 
+                { 
+                    rbEn.IsChecked = true; 
+                }
+            }
+            if (_championship != null)
+            {
+                if (_championship == "Womens")
+                {
+                    rbF.IsChecked = true;
+                }
+                else
+                {
+                    rbM.IsChecked = true;
+                }
+            }
+            if (_screenSize != null)
+            {
+                if(_screenSize == "Small")
+                {
+                    rbSmall.IsChecked = true;
+                }
+                else if(_screenSize == "Fullscreen")
+                {
+                    rbFull.IsChecked = true;
+                }
+                else
+                {
+                    rbOriginal.IsChecked = true;
+                }
+            }
         }
 
         public event EventHandler<InitialSettingsEventArgs> InitSett;

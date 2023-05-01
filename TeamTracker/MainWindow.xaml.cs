@@ -24,11 +24,13 @@ namespace TeamTracker
     public partial class MainWindow : Window
     {
         private DataManager _dataManager = new();
-        private InitialWoFSettings _settings = new();
-        //private string _language;
+       
         private bool _isWomens;
-     
-    
+        private string _language;
+        private string _championship;
+        private string _screenSize;
+        private string _favTeamCode;
+        private string _oppTeamCode;
         private string _result;
         private List<FootballMatch> _footballMatchList;
         
@@ -37,6 +39,7 @@ namespace TeamTracker
             LoadInitialSettings();
             SetLanguage();
             SetScreenSize();
+        
             InitializeComponent();
 
             LoadFirstScreen();
@@ -44,15 +47,15 @@ namespace TeamTracker
 
         private void LoadFirstScreen()
         {
-            if (_settings.Language == null)
+            if (_language != null || _screenSize==null)
             {
-                CallInitialSettings();
+
+                CallOverviewOfTheTeam();
 
             }
             else 
             {
-                SetScreenSize();
-                CallOverviewOfTheTeam();
+                CallInitialSettings();
             }
           
         }
@@ -62,43 +65,44 @@ namespace TeamTracker
             try
             {
                 _dataManager.LoadSavedSettings();
-                _dataManager.LoadFavoritePlayersSettingsFromRepo();
-                _settings.Language = _dataManager.GetLanguage();
+                _language = _dataManager.GetLanguage();
                 _isWomens = _dataManager.GetChampionship();
-                _settings.ScreenSize = _dataManager.GetScreenSize();
-                _settings.FifaCodeFavCountry = _dataManager.GetFavFifaCode();
-                _settings.OppositeTeam = _dataManager.GetOppositeFifaCode();
+                _screenSize = _dataManager.GetScreenSize();
+                _favTeamCode= _dataManager.GetFavFifaCode();
+                _oppTeamCode= _dataManager.GetOppositeFifaCode();
         
             }
             catch (Exception ex)
             {
-                CustomMessageBox.Show(ex.Message, "Warning", System.Windows.Forms.MessageBoxButtons.OK, _settings.Language);
+                CustomMessageBox.Show(ex.Message, "Warning", System.Windows.Forms.MessageBoxButtons.OK, _language);
 
             }
         }
 
         private void SetLanguage()
         {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(_settings.Language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(_language);
         }
 
         private void CallInitialSettings()
         {
-            UserControls.InitialSettings initialSettings = new();
+            UserControls.InitialSettings initialSettings = new(_language, _championship, _screenSize);
             initialSettings.InitSett += InitialSettingsFormBtn_Click;
             Container.Content = initialSettings;
         }
 
         private void CallOverviewOfTheTeam()
         {
-            UserControls.OverviewOfTheTeam overview = new(_isWomens, _settings.FifaCodeFavCountry, _settings.OppositeTeam);
+
+            SetScreenSize();
+            UserControls.OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode);
             overview.TeamOverview += OverviewBtn_Click;
             Container.Content = overview;
         }
 
         private void CallFirstEleven()
         {
-            UserControls.FirstEleven firstEleven = new(_settings.FifaCodeFavCountry, _settings.OppositeTeam, _result, _footballMatchList);
+            UserControls.FirstEleven firstEleven = new(_favTeamCode, _oppTeamCode, _result, _footballMatchList);
             Container.Content = firstEleven;
         }
 
@@ -106,9 +110,15 @@ namespace TeamTracker
         {
             _result = e.Result;
             _footballMatchList = e.FootballMatches;
-            _settings.OppositeTeam = e.FavoriteTeam;
-            _settings.FifaCodeFavCountry = e.OppositeTeam;
-            _dataManager.SaveInitialSettingsToRepo(_settings);
+            _favTeamCode = e.FavoriteTeam;
+            _oppTeamCode = e.OppositeTeam;
+            FavoriteCountryandPlayersSetup settings = new()
+            {
+                FifaCodeFavCountry = _favTeamCode,
+                OppositeTeam = _oppTeamCode
+            };
+                     
+            _dataManager.SaveFavoritePlayersToRepo(settings);
 
             CallFirstEleven();
         }
@@ -117,14 +127,19 @@ namespace TeamTracker
 
         private void InitialSettingsFormBtn_Click(object sender, InitialSettingsEventArgs e) 
         {
-            _settings.Language = e.Language;
-            _settings.Championship = e.Championship;
-            _settings.ScreenSize = e.ScreenSize;
-        
-            _dataManager.SaveInitialSettingsToRepo(_settings);
-            _settings.Language = _settings.Language;
-            var championship = _settings.Championship;
-            _isWomens = championship == "Mens" ? false : true;
+            _language = e.Language;
+            _championship = e.Championship;
+            _screenSize = e.ScreenSize;
+            _isWomens = _championship == "Mens" ? false : true;
+            InitialWoFSettings settings = new()
+            {
+                Language = _language,
+                Championship = _championship,
+                ScreenSize = _screenSize
+            };
+            _dataManager.SaveInitialSettingsToRepo(settings);
+           
+          
         
             SetLanguage();
             SetScreenSize();
@@ -135,12 +150,12 @@ namespace TeamTracker
 
         private void SetScreenSize()
         {
-            if (_settings.ScreenSize is null || _settings.ScreenSize == "Original")
+            if (_screenSize is null || _screenSize == "Original")
             {
                 this.Width = 1500;
                 this.Height = 800;
             }
-            else if (_settings.ScreenSize == "Fullscreen")
+            else if (_screenSize == "Fullscreen")
             {
                 // Dobivanje referene na prozor
                 Window window = Application.Current.MainWindow;
@@ -148,7 +163,7 @@ namespace TeamTracker
                 // Postavljanje prozora u puni zaslon
                 window.WindowState = WindowState.Maximized;
             }
-            else if (_settings.ScreenSize == "Small")
+            else if (_screenSize == "Small")
             {
                 this.Width = 800;
                 this.Height = 800;
@@ -157,8 +172,7 @@ namespace TeamTracker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            _settings.FifaCodeFavCountry = null;
-            _settings.OppositeTeam = null;
+        
             CallInitialSettings();
            
         }
