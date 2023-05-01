@@ -160,10 +160,10 @@ namespace WorldOfFootball
             SetLanguage();
             _languageAndChampionshipForm.Dispose();
             
-            _loadingForm.StartLoader();
+            //_loadingForm.StartLoader();
          
             CallFavoriteTeamForm();
-            _loadingForm.StopLoader();
+            //_loadingForm.StopLoader();
        
            
 
@@ -176,10 +176,10 @@ namespace WorldOfFootball
             _favoriteCountryandPlayersSetup.FavoritePlayersList = null;
             _favoriteCountryandPlayersSetup.NotFavoritePlayersList = null;
             _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
-            _loadingForm.StartLoader();
+            //_loadingForm.StartLoader();
             _favoriteTeamForm.Dispose();
             CallFavoritePlayersForm();
-            _loadingForm.StopLoader();
+            //_loadingForm.StopLoader();
            
 
         }
@@ -196,10 +196,10 @@ namespace WorldOfFootball
             _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
             pnlContainer.Controls.Clear();
            
-            _loadingForm.StartLoader();
+            //_loadingForm.StartLoader();
             _favoritePlayersForm.Dispose();
             CallRankingListForm(allPlayersForCountry, _fifaCode);
-            _loadingForm.StopLoader();
+            //_loadingForm.StopLoader();
            
         }
 
@@ -212,9 +212,9 @@ namespace WorldOfFootball
             pnlContainer.Controls.Clear();
             _favoriteplayers = null;
             _notFavoriteplayers = null;
-            _loadingForm.StartLoader();
+            //_loadingForm.StartLoader();
             CallLanguageAndChampionshipForm();
-            _loadingForm.StopLoader();
+            //_loadingForm.StopLoader();
          
         }
 
@@ -252,7 +252,7 @@ namespace WorldOfFootball
         private void LoadSettings()
         {
 
-            _loadingForm.StartLoader();
+            //_loadingForm.StartLoader();
             try
             {
                 _language = _dataManager.GetLanguage();
@@ -267,7 +267,7 @@ namespace WorldOfFootball
                 
             }
    
-            _loadingForm.StopLoader();
+            //_loadingForm.StopLoader();
         }
 
         private void Timer_Tick(object sender, EventArgs e)

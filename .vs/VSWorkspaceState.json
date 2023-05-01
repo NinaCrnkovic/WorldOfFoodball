@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\DataLayer",
+    "\\DataLayer\\ConfigurationFiles",
+    "\\DataLayer\\Model",
+    "\\DataLayer\\Repository",
+    "\\TeamTracker",
+    "\\TeamTracker\\UserControls",
+    "\\WorldOfFootball"
   ],
-  "SelectedNode": "\\WorldOfFootball.sln",
+  "SelectedNode": "\\DataLayer\\ConfigurationFiles\\initial_wof_settings.json",
   "PreviewInSolutionExplorer": false
 }

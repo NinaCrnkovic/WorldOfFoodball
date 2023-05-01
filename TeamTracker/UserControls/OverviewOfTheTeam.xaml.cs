@@ -282,6 +282,13 @@ namespace TeamTracker.UserControls
             TeamOverview?.Invoke(this, new OverviewEventArgs { FavoriteTeam= favoriteTeam, OppositeTeam= oppositeTeam, Result =result, FootballMatches = _matches});
         }
 
+        public event EventHandler BackClick;
+        private void Btn_Back_Click(object sender, RoutedEventArgs e)
+        {
+
+            BackClick?.Invoke(this, EventArgs.Empty);
+        }
+
         private void cbFavoriteTeam_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -393,8 +400,6 @@ namespace TeamTracker.UserControls
             country.ShowDialog();
         }
 
-
-
-      
+       
     }
 }

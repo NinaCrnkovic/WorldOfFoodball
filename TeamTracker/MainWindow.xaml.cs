@@ -47,7 +47,7 @@ namespace TeamTracker
 
         private void LoadFirstScreen()
         {
-            if (_language != null || _screenSize==null)
+            if (_language != null || _screenSize != null)
             {
 
                 CallOverviewOfTheTeam();
@@ -85,8 +85,8 @@ namespace TeamTracker
         }
 
         private void CallInitialSettings()
-        {
-            UserControls.InitialSettings initialSettings = new(_language, _championship, _screenSize);
+        {   SetScreenSize();
+            UserControls.InitialSettings initialSettings = new(_language, _isWomens, _screenSize);
             initialSettings.InitSett += InitialSettingsFormBtn_Click;
             Container.Content = initialSettings;
         }
@@ -97,7 +97,13 @@ namespace TeamTracker
             SetScreenSize();
             UserControls.OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode);
             overview.TeamOverview += OverviewBtn_Click;
+            overview.BackClick += OverwievBack_Click;
             Container.Content = overview;
+        }
+
+        private void OverwievBack_Click(object sender, EventArgs e)
+        {
+            CallInitialSettings();
         }
 
         private void CallFirstEleven()
