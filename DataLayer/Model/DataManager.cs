@@ -21,6 +21,7 @@ namespace DataLayer.Model
         private List<Player> _favoriteplayers;
         private List<Player> _notFavoriteplayers;
         private string _fifaCodeFavCountry;
+        private string _fifaCodeOppositeFCountry;
         private string _language;
         private string _champinonship;
         private string _screenSize;
@@ -130,7 +131,7 @@ namespace DataLayer.Model
             _configRepo.SaveFavoritePlayersSettings(favoriteCountryandPlayersSetup);
         }
 
-        private async void LoadFavoritePlayersSettingsFromRepo()
+        public async void LoadFavoritePlayersSettingsFromRepo()
         {
             _favoriteCountryandPlayersSettings = await _configRepo.GetFavoritePlayersSettings();
             if(_favoriteCountryandPlayersSettings == null)
@@ -140,11 +141,13 @@ namespace DataLayer.Model
             _favoriteplayers = _favoriteCountryandPlayersSettings.FavoritePlayersList;
             _notFavoriteplayers = _favoriteCountryandPlayersSettings.NotFavoritePlayersList;
             _fifaCodeFavCountry = _favoriteCountryandPlayersSettings.FifaCodeFavCountry;
+          
         }
 
         public List<Player> GetFavoritePlayers() => _favoriteplayers;
         public List<Player> GetNotFavoritePlayers() => _notFavoriteplayers;
         public string GetFavFifaCode()=> _fifaCodeFavCountry;
+        public string GetOppositeFifaCode()=> _fifaCodeOppositeFCountry;
         
 
         #endregion
@@ -166,6 +169,8 @@ namespace DataLayer.Model
             _language = _initialWoFSettings.Language;
             _champinonship = _initialWoFSettings.Championship;
             _screenSize = _initialWoFSettings.ScreenSize;
+            _fifaCodeFavCountry = _initialWoFSettings.FifaCodeFavCountry;
+            _fifaCodeOppositeFCountry = _initialWoFSettings.OppositeTeam;
 
 
         }

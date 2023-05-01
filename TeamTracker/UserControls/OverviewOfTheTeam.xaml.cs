@@ -21,21 +21,21 @@ namespace TeamTracker.UserControls
     
     public partial class OverviewOfTheTeam : UserControl
     {
-        private string _championshpip;
+        private bool _isWomens;
         private DataManager _dataManager = new();
     
         private List<FootballMatch> _matches;
         private List<Result> _results;
-    
-        private bool _isWomens;
         private string _favoriteFifaCode;
         private string _oppositeFifaCode;
 
-        public OverviewOfTheTeam(string championship)
+        public OverviewOfTheTeam(bool isWomens, string favoriteTeamCode, string oppositeTemCode)
         {
             InitializeComponent();
-            _championshpip = championship;
-            _isWomens = _championshpip == "Mens" ? false : true;
+
+            _isWomens = isWomens;
+            _favoriteFifaCode = favoriteTeamCode;
+            _oppositeFifaCode = oppositeTemCode;
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
@@ -215,16 +215,32 @@ namespace TeamTracker.UserControls
             cbFavoriteTeam.Items.Clear();
             var teams = GetTeams();
             var sortedTeams = teams.OrderBy(t => t.Country).ToList();
+    
             if (cbFavoriteTeam != null)
             {
-                foreach (var item in sortedTeams)
+                foreach (var team in sortedTeams)
                 {
-                    
-                    cbFavoriteTeam.Items.Add(item);
+                    cbFavoriteTeam.Items.Add(team);
                 }
-                cbFavoriteTeam.SelectedIndex = 0;
+                if (_favoriteFifaCode == null)
+                {
+                    cbFavoriteTeam.SelectedIndex = 0;
+                }
+                else
+                {
+                    foreach (var item in cbFavoriteTeam.Items)
+                    {
+                        var code = item.ToString().Substring(item.ToString().IndexOf("(") + 1, 3);
+                        if (code == _favoriteFifaCode)
+                        {
+                            int index = cbFavoriteTeam.Items.IndexOf(item);
+                            cbFavoriteTeam.SelectedIndex = index;
+                            break;
+                        }
+                    }
+                }
             }
-           
+
         }
 
         private void FillOppositeComboBox()
