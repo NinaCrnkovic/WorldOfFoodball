@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json;
 
-
 namespace DataLayer.Model
 {
     
@@ -36,6 +35,24 @@ namespace DataLayer.Model
         {
             ImagePath = IMG_PATH;
             
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Player player &&
+                   Name == player.Name &&
+                   Captain == player.Captain &&
+                   ShirtNumber == player.ShirtNumber &&
+                   Position == player.Position &&
+                   ImagePath == player.ImagePath &&
+                   ImageTTPath == player.ImageTTPath &&
+                   GoalsCount == player.GoalsCount &&
+                   YellowCartonCount == player.YellowCartonCount;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Name, Captain, ShirtNumber, Position, ImagePath, ImageTTPath, GoalsCount, YellowCartonCount);
         }
     }
 }

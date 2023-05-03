@@ -10,12 +10,12 @@
   <ItemGroup>
     <None Remove="Resources\background1.jpg" />
     <None Remove="Resources\background2.jpg" />
-    <None Remove="Resources\caleta.jpg" />
     <None Remove="Resources\captain-band.png" />
     <None Remove="Resources\corluka.jpg" />
     <None Remove="Resources\favicon.ico" />
     <None Remove="Resources\football-shirt.png" />
     <None Remove="Resources\goal.png" />
+    <None Remove="Resources\jedvaj.jpg" />
     <None Remove="Resources\logo.png" />
     <None Remove="Resources\Maradona.jpeg" />
     <None Remove="Resources\Position-removebg-preview.png" />
@@ -37,6 +37,7 @@
     <Resource Include="Resources\captain-band.png" />
     <Resource Include="Resources\football-shirt.png" />
     <Resource Include="Resources\goal.png" />
+    <Resource Include="Resources\jedvaj.jpg" />
     <Resource Include="Resources\logo.png" />
     <Resource Include="Resources\favicon.ico" />
     <Resource Include="Resources\Maradona.jpeg" />

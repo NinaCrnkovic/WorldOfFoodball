@@ -6,6 +6,7 @@ using System.Threading;
 using System.Windows;
 using TeamTracker.EventsArgsTT;
 using TeamTracker.UserControls;
+using System.Linq;
 
 
 namespace TeamTracker
@@ -21,6 +22,9 @@ namespace TeamTracker
         private string _favTeamCode;
         private string _oppTeamCode;
         private string _result;
+        private List<Player> _favPlayers = new();
+        private List<Player> _notfavPlayers = new();
+        private List<Player> _allPlayers = new();
         private List<FootballMatch> _footballMatchList;
         private InitialWoFSettings _initialSettings = new();
         private FavoriteCountryandPlayersSetup _favoriteSettings = new();
@@ -28,9 +32,9 @@ namespace TeamTracker
 
         public MainWindow()
         {
-         
-            InitializeComponent();
             LoadInitialSettings();
+            InitializeComponent();
+           
             SetLanguage();
             SetScreenSize();
             LoadFirstScreen();
@@ -62,6 +66,9 @@ namespace TeamTracker
                 _screenSize = _dataManager.GetScreenSize();
                 _favTeamCode = _dataManager.GetFavFifaCode();
                 _oppTeamCode = _dataManager.GetOppositeFifaCode();
+                _favPlayers = _dataManager.GetFavoritePlayers();
+                _notfavPlayers = _dataManager.GetNotFavoritePlayers();
+                _allPlayers = _favPlayers.Concat(_notfavPlayers).ToList();
 
             }
             catch (Exception)
@@ -139,7 +146,7 @@ namespace TeamTracker
         #region Call user forms
         private void CallInitialSettings()
         {
-                       TTSettings initSettings = new(_language, _isWomens, _screenSize);
+            TTSettings initSettings = new(_language, _isWomens, _screenSize);
             initSettings.InitSett += InitialSettingsFormBtn_Click;
             Container.Content = initSettings;
         }
@@ -155,7 +162,7 @@ namespace TeamTracker
 
         private void CallFirstEleven()
         {
-            FirstEleven firstEleven = new(_favTeamCode, _oppTeamCode, _result, _footballMatchList);
+            FirstEleven firstEleven = new(_favTeamCode, _oppTeamCode, _result, _footballMatchList, _allPlayers);
             Container.Content = firstEleven;
         }
         #endregion
@@ -173,12 +180,25 @@ namespace TeamTracker
 
             _result = e.Result;
             _footballMatchList = e.FootballMatches;
-            _favTeamCode = e.FavoriteTeam;
+            string teamCode = e.FavoriteTeam;
             _oppTeamCode = e.OppositeTeam;
 
-
-            _favoriteSettings.FifaCodeFavCountry = _favTeamCode;
-            _favoriteSettings.OppositeTeam = _oppTeamCode;
+            if (_favTeamCode != teamCode)
+            {
+                _favoriteSettings.FifaCodeFavCountry = teamCode;
+                _favoriteSettings.OppositeTeam = _oppTeamCode;
+                _favoriteSettings.FavoritePlayersList = null;
+                _favoriteSettings.NotFavoritePlayersList = null;
+                _favTeamCode = teamCode;
+            }
+            else
+            {
+                _favoriteSettings.FifaCodeFavCountry = _favTeamCode;
+                _favoriteSettings.OppositeTeam = _oppTeamCode;
+                _favoriteSettings.FavoritePlayersList = _favPlayers;
+                _favoriteSettings.NotFavoritePlayersList = _notfavPlayers;
+            }
+           
 
             await _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
             SetScreenSize();

@@ -179,10 +179,10 @@ namespace DataLayer.Model
         {
             if (_champinonship == "Mens")
             {
-                return true;
+                return false;
             }
            
-            return false;
+            return true;
         } 
 
         #endregion

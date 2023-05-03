@@ -5,10 +5,12 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Resources;
 
 namespace TeamTracker.UserControls
 {
@@ -22,10 +24,12 @@ namespace TeamTracker.UserControls
         private List<FootballMatch> _matches;
         private List<Player> _favoriteFirstEleven= new();
         private List<Player> _oppositeFirstEleven = new();
-        public FirstEleven(string favoriteTeam, string oppositeTeam, string result, List<FootballMatch> matches)
+        private List<Player> _favoriteAllPlayers = new();
+        public FirstEleven(string favoriteTeam, string oppositeTeam, string result, List<FootballMatch> matches, List<Player> favoriteAllPlayers)
         {
             _favoriteTeam = favoriteTeam;
             _oppositeTeam = oppositeTeam;
+            _favoriteAllPlayers = favoriteAllPlayers;
             _result = result;
             _matches = matches;
             InitializeComponent();
@@ -145,15 +149,16 @@ namespace TeamTracker.UserControls
             PlayerInfo playerInfo = new();
             if (!string.IsNullOrEmpty(player.ImageTTPath))
             {
-                string path = $"/DataLayer;component/Resources/{player.ImageTTPath}";
-               // playerInfo.imgPicture.Source = new BitmapImage(new Uri($"@{player.ImagePath}", UriKind.RelativeOrAbsolute));
+                string path = $"/TeamTracker;component/Resources/{player.ImagePath}";
+
                 playerInfo.imgPicture.Source = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+
             }
             else
             {
                 playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
             }
-     
+
 
 
             playerInfo.lblName.Content = player.Name;
@@ -199,10 +204,10 @@ namespace TeamTracker.UserControls
 
         private void FillFirstElevenList()
         {
-          
+
             foreach (var match in _matches)
             {
-                if(match.HomeTeam.Code == _favoriteTeam && match.AwayTeam.Code == _oppositeTeam)
+                if (match.HomeTeam.Code == _favoriteTeam && match.AwayTeam.Code == _oppositeTeam)
                 {
                     foreach (var startingPlayer in match.HomeTeamStatistics.StartingEleven)
                     {
@@ -212,7 +217,8 @@ namespace TeamTracker.UserControls
                     {
                         _oppositeFirstEleven.Add(startingPlayer);
                     }
-                }else if (match.HomeTeam.Code == _oppositeTeam && match.AwayTeam.Code == _favoriteTeam)
+                }
+                else if (match.HomeTeam.Code == _oppositeTeam && match.AwayTeam.Code == _favoriteTeam)
                 {
                     foreach (var startingPlayer in match.HomeTeamStatistics.StartingEleven)
                     {
@@ -224,7 +230,24 @@ namespace TeamTracker.UserControls
                     }
                 }
             }
+          
 
+            if(_favoriteAllPlayers.Count > 0)
+            {
+
+                foreach (var player in _favoriteAllPlayers)
+                {
+                    foreach (var first in _favoriteFirstEleven)
+                    {
+                        if (player.ShirtNumber == first.ShirtNumber)
+                        {
+                            player.ImageTTPath = first.ImageTTPath;
+                        }
+                    }
+                }
+              
+
+            }
 
 
         }
