@@ -10,9 +10,9 @@ namespace DataLayer.Repository
     public interface IConfigRepository
     {
         Task<Configuration> GetConfigurationFile();
-        void SaveInitialSettings(InitialWoFSettings settings);
+        Task SaveInitialSettings(InitialWoFSettings settings);
         Task<InitialWoFSettings> GetInitialSettings();
-        void SaveFavoritePlayersSettings(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup);
+        Task SaveFavoritePlayersSettings(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup);
 
         Task<FavoriteCountryandPlayersSetup> GetFavoritePlayersSettings();
 

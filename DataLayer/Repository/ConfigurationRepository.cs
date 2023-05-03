@@ -21,6 +21,10 @@ namespace DataLayer.Repository
 
         public ConfigurationRepository()
         {
+            if (!File.Exists(CONFIG_FILE))
+            {
+                throw new Exception("Configuration file does not exists!");
+            }
             CreateFileIfNotExist();
         }
 
@@ -43,14 +47,16 @@ namespace DataLayer.Repository
             return Task.FromResult(config);
         }
 
-     
-        public void SaveInitialSettings(InitialWoFSettings settings)
+
+        public async Task SaveInitialSettings(InitialWoFSettings settings)
         {
             // Serijaliziraj RepositoryConfig objekt u JSON format
-            var configJson = JsonConvert.SerializeObject(settings);
+            var configJson = await Task.Run(() => JsonConvert.SerializeObject(settings));
+
             // Spremi JSON u datoteku na disku
-            File.WriteAllText(INITIAL_SETTINGS_FILE, configJson);
+            await Task.Run(() => File.WriteAllText(INITIAL_SETTINGS_FILE, configJson));
         }
+
 
         public Task<InitialWoFSettings> GetInitialSettings()
         {
@@ -59,13 +65,13 @@ namespace DataLayer.Repository
             return Task.FromResult(config);
         }
 
-        public void SaveFavoritePlayersSettings(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup)
+        public async Task SaveFavoritePlayersSettings(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup)
         {
                     
-            var json = JsonConvert.SerializeObject(favoriteCountryandPlayersSetup);
+            var json = await Task.Run(() => JsonConvert.SerializeObject(favoriteCountryandPlayersSetup));
 
             // Spremi JSON u datoteku na disku
-            File.WriteAllText(FAVORITES_SETTINGS_FILE, json);
+            await Task.Run(() => File.WriteAllText(FAVORITES_SETTINGS_FILE, json));
         }
 
         public Task<FavoriteCountryandPlayersSetup> GetFavoritePlayersSettings()

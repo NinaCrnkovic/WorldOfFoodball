@@ -1,10 +1,5 @@
 ﻿using DataLayer.Repository;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DataLayer.Model
 {
@@ -52,14 +47,8 @@ namespace DataLayer.Model
            _repo = RepoFactory.GetRepo(_config);
         }
 
-        
 
-        public List<Team> GetTeamsList() => _teams;
-        public List<Result> GetResutlsList() => _results;
      
-        public List<FootballMatch> GetMatchesList() => _matches;
-        public List<FootballMatch> GetMatchesOppositeTeamList() => _matchesOppositeTeam;
-
 
         public async Task LoadSavedSettings()
         {
@@ -68,6 +57,16 @@ namespace DataLayer.Model
             await  LoadFavoritePlayersSettingsFromRepo();
     
         }
+
+        #region Get Fifa lists
+        public List<Team> GetTeamsList() => _teams;
+        public List<Result> GetResutlsList() => _results;
+
+        public List<FootballMatch> GetMatchesList() => _matches;
+        public List<FootballMatch> GetMatchesOppositeTeamList() => _matchesOppositeTeam;
+        #endregion
+
+        #region Load fifa content
         public async Task LoadTeams(bool isWomen)
         {
           
@@ -124,11 +123,12 @@ namespace DataLayer.Model
                 throw new Exception(e.Message);
             }
         }
+        #endregion
 
         #region Favorite player settings
-        public void SaveFavoritePlayersToRepo(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup)
+        public async Task SaveFavoritePlayersToRepo(FavoriteCountryandPlayersSetup favoriteCountryandPlayersSetup)
         {
-            _configRepo.SaveFavoritePlayersSettings(favoriteCountryandPlayersSetup);
+             await _configRepo.SaveFavoritePlayersSettings(favoriteCountryandPlayersSetup);
         }
 
         private async Task LoadFavoritePlayersSettingsFromRepo()
@@ -154,9 +154,9 @@ namespace DataLayer.Model
 
         #region Initial settings language and championship
 
-        public void SaveInitialSettingsToRepo(InitialWoFSettings settings)
+        public async Task SaveInitialSettingsToRepo(InitialWoFSettings settings)
         {
-            _configRepo.SaveInitialSettings(settings);
+            await _configRepo.SaveInitialSettings(settings);
         }
 
         private async Task LoadInitialSettingsFromRepo()

@@ -17,8 +17,6 @@ namespace DataLayer.Repository
         private static readonly string RESULTS_FILE_PATH_WOMEN = Path.Combine(JSON_FILES_PATH, "women", "results.json");
 
 
-
-
         public FileRepository()
         {
 
@@ -27,45 +25,45 @@ namespace DataLayer.Repository
 
         public void CheckIfFileExists()
         {
-           
+            //Ako nema fajle neme je smisla raditi, nemamo podatke
             if (!File.Exists(TEAMS_FILE_PATH_MEN))
             {
-                File.Create(TEAMS_FILE_PATH_MEN).Close();
+                throw new Exception($"The file {TEAMS_FILE_PATH_MEN} does not exist!");
             }
 
             if (!File.Exists(MATCHES_FILE_PATH_MEN))
             {
-                File.Create(MATCHES_FILE_PATH_MEN).Close();
+                throw new Exception($"The file {MATCHES_FILE_PATH_MEN} does not exist!");
             }
 
             if (!File.Exists(GROUP_RESULT_FILE_PATH_MEN))
             {
-                File.Create(GROUP_RESULT_FILE_PATH_MEN).Close();
+                throw new Exception($"The file {GROUP_RESULT_FILE_PATH_MEN} does not exist!");
             }
 
             if (!File.Exists(RESULTS_FILE_PATH_MEN))
             {
-                File.Create(RESULTS_FILE_PATH_MEN).Close();
+                throw new Exception($"The file {RESULTS_FILE_PATH_MEN} does not exist!");
             }
 
             if (!File.Exists(TEAMS_FILE_PATH_WOMEN))
             {
-                File.Create(TEAMS_FILE_PATH_WOMEN).Close();
+                throw new Exception($"The file {TEAMS_FILE_PATH_MEN} does not exist!");
             }
 
             if (!File.Exists(MATCHES_FILE_PATH_WOMEN))
             {
-                File.Create(MATCHES_FILE_PATH_WOMEN).Close();
+                throw new Exception($"The file {MATCHES_FILE_PATH_WOMEN} does not exist!");
             }
 
             if (!File.Exists(GROUP_RESULT_FILE_PATH_WOMEN))
             {
-                File.Create(GROUP_RESULT_FILE_PATH_WOMEN).Close();
+                throw new Exception($"The file {GROUP_RESULT_FILE_PATH_WOMEN} does not exist!");
             }
 
             if (!File.Exists(RESULTS_FILE_PATH_WOMEN))
             {
-                File.Create(RESULTS_FILE_PATH_WOMEN).Close();
+                throw new Exception($"The file {RESULTS_FILE_PATH_WOMEN} does not exist!");
             }
 
         }

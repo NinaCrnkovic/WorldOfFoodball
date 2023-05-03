@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DataLayer.Model
 {
@@ -16,7 +12,6 @@ namespace DataLayer.Model
         public string Championship { get; set; }
 
         [JsonProperty("ScreenSize")]
-
         public string ScreenSize { get; set; }
 
 

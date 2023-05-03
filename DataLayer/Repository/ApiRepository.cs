@@ -20,9 +20,7 @@ namespace DataLayer.Repository
         private string womenTeamsResultEndpoint = "/women/teams/results";
         private string menMatchesEndpoint = "/men/matches";
         private string womenMatchesEndpoint = "/women/matches";
-        private string menMatchesCountryEndpoint = "/men/matches/country";
-        private string womenMatchesCountryEndpoint = "/women/matches/country";
-
+      
         public Task<List<FootballMatch>> GetMatches(bool isWomen)
         {
             return Task.Run(async () =>

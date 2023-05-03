@@ -1,9 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DataLayer.Model
 {
@@ -25,9 +21,7 @@ namespace DataLayer.Model
         [JsonConverter(typeof(ParseStringConverter))]
         public long FifaId { get; set; }
 
-        //[JsonProperty("weather")]
-        //public Weather Weather { get; set; }
-
+    
         [JsonProperty("attendance")]
         [JsonConverter(typeof(ParseStringConverter))]
         public long Attendance { get; set; }
@@ -71,13 +65,7 @@ namespace DataLayer.Model
         [JsonProperty("away_team_statistics")]
         public TeamStatistics AwayTeamStatistics { get; set; }
 
-        //[JsonProperty("last_event_update_at")]
-        //public DateTimeOffset LastEventUpdateAt { get; set; }
-
-        //[JsonProperty("last_score_update_at")]
-        //public DateTimeOffset? LastScoreUpdateAt { get; set; }
-
-     
+       
 
     }
 }

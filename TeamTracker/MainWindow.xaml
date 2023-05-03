@@ -7,25 +7,28 @@
         mc:Ignorable="d"
         Title="Team Tracker" Height="800" Width="1500"
         Icon="Resources/favicon.ico"
-        WindowStartupLocation="CenterScreen" Foreground="WhiteSmoke"
+        WindowStartupLocation="CenterScreen" 
+        Foreground="WhiteSmoke"
         Closing="Window_Closing">
     <DockPanel>       
         <!-- Header panel -->
-        <DockPanel DockPanel.Dock="Top"  Background="#0F4C75" Height="100">
+        <DockPanel DockPanel.Dock="Top"  
+                   Background="#0F4C75" 
+                   Height="100">
           
-            <Image Source="Resources\logo.png"  HorizontalAlignment="Right" Margin="5" Width="250"/>
+            <Image Source="Resources\logo.png"  
+                   HorizontalAlignment="Right" 
+                   Margin="5" Width="250"/>
           
-            <Button HorizontalAlignment="Right"  Background="#0F4C75" Click="Button_Click">
+            <Button HorizontalAlignment="Right"  
+                    Background="#0F4C75" 
+                    Click="Button_Click">
                 <Button.Content>
-                    <Image Source="Resources\settings.png"   Margin="25" />
+                    <Image Source="Resources\settings.png"  
+                           Margin="25" />
                 </Button.Content>
             </Button>
       
-
-
-
-
-
         </DockPanel>
 
         <!-- Main content panel -->
