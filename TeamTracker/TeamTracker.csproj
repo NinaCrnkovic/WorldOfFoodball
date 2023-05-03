@@ -12,6 +12,7 @@
     <None Remove="Resources\background2.jpg" />
     <None Remove="Resources\caleta.jpg" />
     <None Remove="Resources\captain-band.png" />
+    <None Remove="Resources\corluka.jpg" />
     <None Remove="Resources\favicon.ico" />
     <None Remove="Resources\football-shirt.png" />
     <None Remove="Resources\goal.png" />
@@ -22,6 +23,7 @@
     <None Remove="Resources\settings.png" />
     <None Remove="Resources\Teren.png" />
     <None Remove="Resources\tshirt3.png" />
+    <None Remove="Resources\vida.jpg" />
     <None Remove="Resources\yellow-card.png" />
   </ItemGroup>
 
@@ -32,8 +34,6 @@
 
   <ItemGroup>
     <Resource Include="Resources\background1.jpg" />
-    <Resource Include="Resources\background2.jpg" />
-    <Resource Include="Resources\caleta.jpg" />
     <Resource Include="Resources\captain-band.png" />
     <Resource Include="Resources\football-shirt.png" />
     <Resource Include="Resources\goal.png" />
@@ -41,7 +41,6 @@
     <Resource Include="Resources\favicon.ico" />
     <Resource Include="Resources\Maradona.jpeg" />
     <Resource Include="Resources\Position-removebg-preview.png" />
-    <Resource Include="Resources\Positions.png" />
     <Resource Include="Resources\settings.png" />
     <Resource Include="Resources\Teren.png" />
     <Resource Include="Resources\tshirt3.png" />

@@ -145,19 +145,27 @@ namespace TeamTracker.UserControls
             //I used the null-coalescing operator ??, which checks the first expression and if it is null, uses the second expression. This allows you to get a player from both teams in a single line of code.
             Player player = _favoriteFirstEleven.FirstOrDefault(t => t.Name == name) ?? _oppositeFirstEleven.FirstOrDefault(t => t.Name == name);
 
-            PlayerInfo playerInfo = new()
-            {
-                //imgPicture = {Source = new BitmapImage(new Uri("C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\Resources;component/caleta.jpg", UriKind.Relative)),},
-                //imgPicture = { Source = new BitmapImage( new Uri(@"../vida.jpg"))},
-                lblName = { Content = player.Name },
-                lblGoals = { Content = player.GoalsCount.ToString() },
-                lblShirtNum = { Content = player.ShirtNumber.ToString() },
-                lblCartons = { Content = player.YellowCartonCount.ToString() },
-                lblRole = { Content = player.Position },
-                lblCapitan = { Content = player.Captain ? "yes" : "no" }
-            };
+            PlayerInfo playerInfo = new();
+            //if (!string.IsNullOrEmpty(player.ImagePath))
+            //{
+             
+            //    playerInfo.imgPicture.Source = new BitmapImage(new Uri($"@{player.ImagePath}", UriKind.RelativeOrAbsolute));
+            //    // = "pack://application:,,,/Resources/RibbonImages/CloseButton.png";
+            //}
+            //else
+            //{
+            //    playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
+            //}
 
+
+            playerInfo.lblName.Content = player.Name;
+            playerInfo.lblGoals.Content = player.GoalsCount;
+            playerInfo.lblShirtNum.Content = player.ShirtNumber;
+            playerInfo.lblCartons.Content = player.YellowCartonCount;
+            playerInfo.lblRole.Content = player.Position;
+            playerInfo.lblCapitan.Content = player.Captain ? "yes" : "no";
             
+
 
             // Stvaranje animacije
             DoubleAnimation animation = new DoubleAnimation();

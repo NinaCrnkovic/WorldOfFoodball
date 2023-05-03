@@ -82,16 +82,6 @@ namespace TeamTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] background2 {
-            get {
-                object obj = ResourceManager.GetObject("background2", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] captain_band {
             get {
                 object obj = ResourceManager.GetObject("captain_band", resourceCulture);
@@ -316,16 +306,6 @@ namespace TeamTracker.Properties {
         public static byte[] Position_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("Position_removebg_preview", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] Positions {
-            get {
-                object obj = ResourceManager.GetObject("Positions", resourceCulture);
                 return ((byte[])(obj));
             }
         }

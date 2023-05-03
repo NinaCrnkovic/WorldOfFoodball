@@ -6,9 +6,11 @@
     "\\DataLayer\\Model",
     "\\DataLayer\\Repository",
     "\\TeamTracker",
+    "\\TeamTracker\\Properties",
     "\\TeamTracker\\UserControls",
-    "\\WorldOfFootball"
+    "\\WorldOfFootball",
+    "\\WorldOfFootball\\UserControls"
   ],
-  "SelectedNode": "\\DataLayer\\ConfigurationFiles\\initial_wof_settings.json",
+  "SelectedNode": "\\TeamTracker\\MainWindow.xaml.cs",
   "PreviewInSolutionExplorer": false
 }

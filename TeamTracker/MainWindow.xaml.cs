@@ -60,11 +60,11 @@ namespace TeamTracker
           
         }
 
-        private void LoadInitialSettings()
+        private async void LoadInitialSettings()
         {
             try
             {
-                _dataManager.LoadSavedSettings();
+                await _dataManager.LoadSavedSettings();
                 _language = _dataManager.GetLanguage();
                 _isWomens = _dataManager.GetChampionship();
                 _screenSize = _dataManager.GetScreenSize();

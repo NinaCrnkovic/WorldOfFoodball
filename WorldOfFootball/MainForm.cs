@@ -32,11 +32,13 @@ namespace WorldOfFootball
        
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
 
             CallTitleForm();
-            _dataManager.LoadSavedSettings();
+            _loadingForm.StartLoader();
+            await _dataManager.LoadSavedSettings();
+            _loadingForm.StopLoader();
             LoadSettings();
             LoadNextForm();
 
@@ -96,17 +98,19 @@ namespace WorldOfFootball
             pnlContainer.Controls.Add(_languageAndChampionshipForm);
         
         }
-        private  void CallFavoriteTeamForm()
+        private async void CallFavoriteTeamForm()
         {
             try
             {
-                _dataManager.LoadTeams(_isWomens);
+                _loadingForm.StartLoader();
+                await _dataManager.LoadTeams(_isWomens);
+                _loadingForm.StopLoader();
                 var teams = _dataManager.GetTeamsList();
                 _favoriteTeamForm = new FavoriteTeam(teams, _language, _fifaCode);
             }
             catch (Exception)
             {
-
+            
                 
             }
       
@@ -116,9 +120,11 @@ namespace WorldOfFootball
 
         }
 
-        private void CallFavoritePlayersForm()
+        private async void CallFavoritePlayersForm()
         {
-            _dataManager.LoadMaches(_isWomens);
+            _loadingForm.StartLoader();
+            await _dataManager.LoadMaches(_isWomens);
+            _loadingForm.StopLoader();
             var matches =  _dataManager.GetMatchesList();
             _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode, _language, _favoriteplayers, _notFavoriteplayers);
             _favoritePlayersForm.Dock = DockStyle.Fill;
@@ -160,10 +166,10 @@ namespace WorldOfFootball
             SetLanguage();
             _languageAndChampionshipForm.Dispose();
             
-            //_loadingForm.StartLoader();
+        
          
             CallFavoriteTeamForm();
-            //_loadingForm.StopLoader();
+           
        
            
 
@@ -176,10 +182,10 @@ namespace WorldOfFootball
             _favoriteCountryandPlayersSetup.FavoritePlayersList = null;
             _favoriteCountryandPlayersSetup.NotFavoritePlayersList = null;
             _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
-            //_loadingForm.StartLoader();
+         
             _favoriteTeamForm.Dispose();
             CallFavoritePlayersForm();
-            //_loadingForm.StopLoader();
+        
            
 
         }
@@ -196,10 +202,10 @@ namespace WorldOfFootball
             _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
             pnlContainer.Controls.Clear();
            
-            //_loadingForm.StartLoader();
+         
             _favoritePlayersForm.Dispose();
             CallRankingListForm(allPlayersForCountry, _fifaCode);
-            //_loadingForm.StopLoader();
+  
            
         }
 
@@ -212,9 +218,9 @@ namespace WorldOfFootball
             pnlContainer.Controls.Clear();
             _favoriteplayers = null;
             _notFavoriteplayers = null;
-            //_loadingForm.StartLoader();
+ 
             CallLanguageAndChampionshipForm();
-            //_loadingForm.StopLoader();
+        
          
         }
 
@@ -224,8 +230,8 @@ namespace WorldOfFootball
         {
             string message;
             string warning;
-          
-                     
+
+
             if (_language == "hr")
             {
                 message = Properties.Resources.messageLeavingHr;
@@ -237,12 +243,13 @@ namespace WorldOfFootball
                 warning = Properties.Resources.messageWarningEn;
 
             }
-               
+
             var result = CustomMessageBox.Show(message, warning, MessageBoxButtons.OKCancel, _language);
             if (result == DialogResult.No)
             {
                 e.Cancel = true; // ovdje sprijeèavamo zatvaranje aplikacije
             }
+
 
         }
         #endregion

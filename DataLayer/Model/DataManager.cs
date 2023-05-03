@@ -41,7 +41,7 @@ namespace DataLayer.Model
                 throw new Exception("Error reading configuration file");
             }
 
-            //_teams = new List<Team>();
+           
         }
 
         private async void SetConfigForRepo()
@@ -61,14 +61,14 @@ namespace DataLayer.Model
         public List<FootballMatch> GetMatchesOppositeTeamList() => _matchesOppositeTeam;
 
 
-        public void LoadSavedSettings()
+        public async Task LoadSavedSettings()
         {
             
-            LoadInitialSettingsFromRepo();
-            LoadFavoritePlayersSettingsFromRepo();
+            await LoadInitialSettingsFromRepo();
+            await  LoadFavoritePlayersSettingsFromRepo();
     
         }
-        public async void LoadTeams(bool isWomen)
+        public async Task LoadTeams(bool isWomen)
         {
           
             try
@@ -82,7 +82,7 @@ namespace DataLayer.Model
             }
         }
 
-        public async void LoadResults(bool isWomen)
+        public async Task LoadResults(bool isWomen)
         {
 
             try
@@ -97,7 +97,7 @@ namespace DataLayer.Model
         }
 
 
-        public async void LoadMaches(bool isWomen)
+        public async Task LoadMaches(bool isWomen)
         {
 
             try
@@ -111,7 +111,7 @@ namespace DataLayer.Model
             }
         }
 
-        public async void LoadMachesByFifaCode(bool isWomen, string fifaCode)
+        public async Task LoadMachesByFifaCode(bool isWomen, string fifaCode)
         {
 
             try
@@ -131,7 +131,7 @@ namespace DataLayer.Model
             _configRepo.SaveFavoritePlayersSettings(favoriteCountryandPlayersSetup);
         }
 
-        private async void LoadFavoritePlayersSettingsFromRepo()
+        private async Task LoadFavoritePlayersSettingsFromRepo()
         {
             _favoriteCountryandPlayersSettings = await _configRepo.GetFavoritePlayersSettings();
             if(_favoriteCountryandPlayersSettings == null)
@@ -159,7 +159,7 @@ namespace DataLayer.Model
             _configRepo.SaveInitialSettings(settings);
         }
 
-        private async void LoadInitialSettingsFromRepo()
+        private async Task LoadInitialSettingsFromRepo()
         {
             _initialWoFSettings = await _configRepo.GetInitialSettings();
             if(_initialWoFSettings == null)

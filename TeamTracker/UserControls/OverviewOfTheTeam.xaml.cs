@@ -45,9 +45,9 @@ namespace TeamTracker.UserControls
 
         }
 
-        private void GetResults()
+        private async void GetResults()
         {
-            _dataManager.LoadResults(_isWomens);
+            await _dataManager.LoadResults(_isWomens);
             _results = _dataManager.GetResutlsList();
         }
 
@@ -77,20 +77,20 @@ namespace TeamTracker.UserControls
 
         }
         #region Get methods
-        private void GetMatches()
+        private async void GetMatches()
         {
-            _dataManager.LoadMaches(_isWomens);
+            await _dataManager.LoadMaches(_isWomens);
             _matches = _dataManager.GetMatchesList();
         }
-        private List<FootballMatch> GetMatchesOppositeTeam()
+        private  List<FootballMatch> GetMatchesOppositeTeam()
         {
 
-            _dataManager.LoadMachesByFifaCode(_isWomens, _favoriteFifaCode);
+             _dataManager.LoadMachesByFifaCode(_isWomens, _favoriteFifaCode);
             var matchesOppositeTeam = _dataManager.GetMatchesOppositeTeamList();
             return matchesOppositeTeam;
         }
 
-        private List<Team> GetTeams()
+        private  List<Team> GetTeams()
         {
 
             _dataManager.LoadTeams(_isWomens);

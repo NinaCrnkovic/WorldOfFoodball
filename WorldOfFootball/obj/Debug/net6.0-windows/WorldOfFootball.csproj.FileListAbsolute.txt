@@ -219,7 +219,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFoot
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.csproj.AssemblyReference.cache
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.LoadingForm.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.formMainForm.resources
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.Properties.Resources.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoritePlayers.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.FavoriteTeam.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.UserControls.GoalOrCardUserControl.resources
@@ -253,3 +252,5 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFoot
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.pdb
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.genruntimeconfig.cache
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\ref\WorldOfFootball.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.Properties.Resources.en.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.Properties.Resources.hr.resources
