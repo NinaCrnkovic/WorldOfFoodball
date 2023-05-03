@@ -28,10 +28,11 @@ namespace TeamTracker
 
         public MainWindow()
         {
+         
+            InitializeComponent();
             LoadInitialSettings();
             SetLanguage();
             SetScreenSize();
-            InitializeComponent();
             LoadFirstScreen();
         }
 
@@ -89,8 +90,23 @@ namespace TeamTracker
         {
             if (_screenSize is null || _screenSize == "Original")
             {
-                this.Width = 1500;
-                this.Height = 800;
+                // Get reference to the window
+                Window window = System.Windows.Application.Current.MainWindow;
+
+                // Exit fullscreen mode
+                if (window.WindowState == WindowState.Maximized)
+                {
+                    window.WindowState = WindowState.Normal;
+                }
+
+                // Set window size and position
+                window.Width = 1500;
+                window.Height = 800;
+                window.Left = (SystemParameters.PrimaryScreenWidth / 2) - (window.Width / 2);
+                window.Top = (SystemParameters.PrimaryScreenHeight / 2) - (window.Height / 2);
+
+                //this.Width = 1500;
+                //this.Height = 800;
             }
             else if (_screenSize == "Fullscreen")
             {
@@ -102,16 +118,29 @@ namespace TeamTracker
             }
             else if (_screenSize == "Small")
             {
-                this.Width = 800;
-                this.Height = 800;
+                // Get reference to the window
+                Window window = System.Windows.Application.Current.MainWindow;
+
+                // Exit fullscreen mode
+                if (window.WindowState == WindowState.Maximized)
+                {
+                    window.WindowState = WindowState.Normal;
+                }
+
+                window.Width = 800;
+                window.Height = 800;
+                window.Left = (SystemParameters.PrimaryScreenWidth / 2) - (window.Width / 2);
+                window.Top = (SystemParameters.PrimaryScreenHeight / 2) - (window.Height / 2);
+
             }
         }
+
         #endregion
 
         #region Call user forms
         private void CallInitialSettings()
         {
-            SetScreenSize();
+           
             TTSettings initSettings = new(_language, _isWomens, _screenSize);
             initSettings.InitSett += InitialSettingsFormBtn_Click;
             Container.Content = initSettings;
@@ -120,8 +149,8 @@ namespace TeamTracker
         private void CallOverviewOfTheTeam()
         {
 
-            SetScreenSize();
-            UserControls.OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode);
+     
+            OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode);
             overview.TeamOverview += OverviewBtn_Click;
             overview.BackClick += OverwievBack_Click;
             Container.Content = overview;
@@ -129,7 +158,7 @@ namespace TeamTracker
 
         private void CallFirstEleven()
         {
-            UserControls.FirstEleven firstEleven = new(_favTeamCode, _oppTeamCode, _result, _footballMatchList);
+            FirstEleven firstEleven = new(_favTeamCode, _oppTeamCode, _result, _footballMatchList);
             Container.Content = firstEleven;
         }
         #endregion
@@ -142,7 +171,7 @@ namespace TeamTracker
 
 
 
-        private void OverviewBtn_Click(object sender, OverviewEventArgs e)
+        private async void OverviewBtn_Click(object sender, OverviewEventArgs e)
         {
 
             _result = e.Result;
@@ -154,14 +183,14 @@ namespace TeamTracker
             _favoriteSettings.FifaCodeFavCountry = _favTeamCode;
             _favoriteSettings.OppositeTeam = _oppTeamCode;
 
-            _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
-
+            await _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
+            SetScreenSize();
             CallFirstEleven();
         }
 
 
 
-        private void InitialSettingsFormBtn_Click(object sender, InitialSettingsEventArgs e)
+        private async void InitialSettingsFormBtn_Click(object sender, InitialSettingsEventArgs e)
         {
             _language = e.Language;
             _championship = e.Championship;
@@ -171,7 +200,7 @@ namespace TeamTracker
             _initialSettings.Language = _language;
             _initialSettings.Championship = _championship;
             _initialSettings.ScreenSize = _screenSize;
-            _dataManager.SaveInitialSettingsToRepo(_initialSettings);
+            await _dataManager.SaveInitialSettingsToRepo(_initialSettings);
 
 
 
@@ -195,7 +224,7 @@ namespace TeamTracker
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            SetScreenSize();
             CallInitialSettings();
 
         }
