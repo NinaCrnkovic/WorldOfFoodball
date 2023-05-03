@@ -1,27 +1,21 @@
 ﻿using DataLayer.Model;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TeamTracker.UserControls
 {
 
     public partial class FirstEleven : UserControl
     {
-        private DataManager _dataManager = new();
+        //private DataManager _dataManager = new();
         private string _favoriteTeam;
         private string _oppositeTeam;
         private string _result;
@@ -145,17 +139,21 @@ namespace TeamTracker.UserControls
             //I used the null-coalescing operator ??, which checks the first expression and if it is null, uses the second expression. This allows you to get a player from both teams in a single line of code.
             Player player = _favoriteFirstEleven.FirstOrDefault(t => t.Name == name) ?? _oppositeFirstEleven.FirstOrDefault(t => t.Name == name);
 
+           
+
+
             PlayerInfo playerInfo = new();
-            //if (!string.IsNullOrEmpty(player.ImagePath))
-            //{
-             
-            //    playerInfo.imgPicture.Source = new BitmapImage(new Uri($"@{player.ImagePath}", UriKind.RelativeOrAbsolute));
-            //    // = "pack://application:,,,/Resources/RibbonImages/CloseButton.png";
-            //}
-            //else
-            //{
-            //    playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
-            //}
+            if (!string.IsNullOrEmpty(player.ImageTTPath))
+            {
+                string path = $"/DataLayer;component/Resources/{player.ImageTTPath}";
+               // playerInfo.imgPicture.Source = new BitmapImage(new Uri($"@{player.ImagePath}", UriKind.RelativeOrAbsolute));
+                playerInfo.imgPicture.Source = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
+            }
+            else
+            {
+                playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
+            }
+     
 
 
             playerInfo.lblName.Content = player.Name;
@@ -164,7 +162,17 @@ namespace TeamTracker.UserControls
             playerInfo.lblCartons.Content = player.YellowCartonCount;
             playerInfo.lblRole.Content = player.Position;
             playerInfo.lblCapitan.Content = player.Captain ? "yes" : "no";
-            
+
+            StartAnimation(playerInfo);
+
+            playerInfo.ShowDialog();
+
+
+
+        }
+
+        private static void StartAnimation(PlayerInfo playerInfo)
+        {
 
 
             // Stvaranje animacije
@@ -187,18 +195,11 @@ namespace TeamTracker.UserControls
                 // Start the storyboard when the dialog is loaded
                 storyboard.Begin(playerInfo);
             };
-
-           
-                playerInfo.ShowDialog();
-            
-          
-         
         }
-
 
         private void FillFirstElevenList()
         {
-            //test
+          
             foreach (var match in _matches)
             {
                 if(match.HomeTeam.Code == _favoriteTeam && match.AwayTeam.Code == _oppositeTeam)

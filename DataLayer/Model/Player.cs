@@ -20,10 +20,16 @@ namespace DataLayer.Model
         [JsonProperty("position")]
         public string Position { get; set; }
 
+        [JsonProperty("imagePath")]
         public string ImagePath { get; set; }
 
+        [JsonProperty("imageTTPath")]
+        public string ImageTTPath { get; set; }
+
+        [JsonProperty("goalsCount")]
         public int GoalsCount { get; set; } = 0;
 
+        [JsonProperty("yellowCartonCount")]
         public int YellowCartonCount { get; set; } = 0;
 
         public Player()

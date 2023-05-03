@@ -16,7 +16,7 @@ namespace WorldOfFootball.UserControls
 
         private string _teamName;
         private string _language;
-        private const string PATH = "..//..//..//..//DataLayer//Resources//";
+        private const string PATH = "..//..//..//..//TeamTracker//Resources//";
         private const string FILTER = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
         public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language, List<Player> favoritePlayers, List<Player> notFavoriePlayer)
         {
@@ -94,7 +94,7 @@ namespace WorldOfFootball.UserControls
             {
                 string fileName = Path.GetFileName(openFileDialog.FileName);
                 string newPath = Path.Combine(PATH, fileName);
-                //string newPath = fileName;
+                string newTTPath = fileName;
                 File.Copy(openFileDialog.FileName, newPath, true);
 
                 // Pronalazimo kontrolu koja je pokrenula događaj
@@ -114,6 +114,7 @@ namespace WorldOfFootball.UserControls
                     return;
                 }
                 player.ImagePath = newPath;
+                player.ImageTTPath = newTTPath;
             }
 
 

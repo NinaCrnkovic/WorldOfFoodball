@@ -105,8 +105,7 @@ namespace TeamTracker
                 window.Left = (SystemParameters.PrimaryScreenWidth / 2) - (window.Width / 2);
                 window.Top = (SystemParameters.PrimaryScreenHeight / 2) - (window.Height / 2);
 
-                //this.Width = 1500;
-                //this.Height = 800;
+             
             }
             else if (_screenSize == "Fullscreen")
             {
@@ -140,8 +139,7 @@ namespace TeamTracker
         #region Call user forms
         private void CallInitialSettings()
         {
-           
-            TTSettings initSettings = new(_language, _isWomens, _screenSize);
+                       TTSettings initSettings = new(_language, _isWomens, _screenSize);
             initSettings.InitSett += InitialSettingsFormBtn_Click;
             Container.Content = initSettings;
         }
@@ -149,7 +147,6 @@ namespace TeamTracker
         private void CallOverviewOfTheTeam()
         {
 
-     
             OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode);
             overview.TeamOverview += OverviewBtn_Click;
             overview.BackClick += OverwievBack_Click;

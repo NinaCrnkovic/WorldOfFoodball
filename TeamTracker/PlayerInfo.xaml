@@ -33,20 +33,45 @@
       
         </Grid.RowDefinitions>
 
-        <Image Grid.Column="0" Grid.Row="0" Source="/Resources/Maradona.jpeg" x:Name="imgPicture"/>
+        <Image Grid.Column="0"
+               Grid.Row="0" 
+               Source="/Resources/Maradona.jpeg" 
+               x:Name="imgPicture"/>
 
-        <Label Grid.Column="1" Grid.Row="0" Content="Ime prezime"  x:Name="lblName"/>
+        <Label Grid.Column="1" 
+               Grid.Row="0" 
+               x:Name="lblName"/>
       
-        <Image Grid.Column="0" Grid.Row="1" Source="/Resources/tshirt3.png"/>
-        <Label Grid.Column="1" Grid.Row="1" Content="17"  x:Name="lblShirtNum"/>
-        <Image Grid.Column="0" Grid.Row="2" Source="/Resources/goal.png"/>
-        <Label Grid.Column="1" Grid.Row="2" Content="2"  x:Name="lblGoals"/>
-        <Image Grid.Column="0" Grid.Row="3" Source="/Resources/yellow-card.png" />
-        <Label Grid.Column="1" Grid.Row="3" Content="0"  x:Name="lblCartons"/>
-        <Image Grid.Column="0" Grid.Row="4" Source="/Resources/Position-removebg-preview.png" />
-        <Label Grid.Column="1" Grid.Row="4" Content="Defender"  x:Name="lblRole"/>
-        <Image Grid.Column="0" Grid.Row="5" Source="/Resources/captain-band.png"/>
-        <Label Grid.Column="1" Grid.Row="5" Content="no"  x:Name="lblCapitan"/>
+        <Image Grid.Column="0" 
+               Grid.Row="1" 
+               Source="/Resources/tshirt3.png"/>
+        <Label Grid.Column="1" 
+               Grid.Row="1"  
+               x:Name="lblShirtNum"/>
+        <Image Grid.Column="0" 
+               Grid.Row="2" 
+               Source="/Resources/goal.png"/>
+        <Label Grid.Column="1" 
+               Grid.Row="2" 
+               x:Name="lblGoals"/>
+        <Image Grid.Column="0"
+               Grid.Row="3" 
+               Source="/Resources/yellow-card.png" />
+        <Label Grid.Column="1" 
+               Grid.Row="3" 
+               x:Name="lblCartons"/>
+        <Image Grid.Column="0" 
+               Grid.Row="4"
+               Source="/Resources/Position-removebg-preview.png" />
+        <Label Grid.Column="1" 
+               Grid.Row="4" 
+               x:Name="lblRole"/>
+        <Image Grid.Column="0" 
+               Grid.Row="5" 
+               Source="/Resources/captain-band.png"/>
+        <Label Grid.Column="1" 
+               Grid.Row="5" 
+               x:Name="lblCapitan"/>
   
     </Grid>
 </Window>

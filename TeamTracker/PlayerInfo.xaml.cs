@@ -17,8 +17,6 @@ namespace TeamTracker
  
     public partial class PlayerInfo : Window
     {
-
-
         public PlayerInfo()
         {
             InitializeComponent();
