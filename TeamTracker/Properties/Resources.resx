@@ -187,6 +187,15 @@
   <data name="mens" xml:space="preserve">
     <value>Mens</value>
   </data>
+  <data name="messageCantGetData" xml:space="preserve">
+    <value>The required data could not be loaded</value>
+  </data>
+  <data name="messageClosingApp" xml:space="preserve">
+    <value>Are you sure you want to close the app?</value>
+  </data>
+  <data name="messageInitialSettings" xml:space="preserve">
+    <value>You have to choose language, championship and screen size</value>
+  </data>
   <data name="next" xml:space="preserve">
     <value>Next</value>
   </data>
@@ -222,6 +231,9 @@
   </data>
   <data name="viewInfo" xml:space="preserve">
     <value>View Team Info</value>
+  </data>
+  <data name="warning" xml:space="preserve">
+    <value>Warning</value>
   </data>
   <data name="wins" xml:space="preserve">
     <value>Wins</value>

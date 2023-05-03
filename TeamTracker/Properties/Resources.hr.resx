@@ -187,6 +187,15 @@
   <data name="mens" xml:space="preserve">
     <value>Muško</value>
   </data>
+  <data name="messageCantGetData" xml:space="preserve">
+    <value>Nije moguće učitati potrebne podatke</value>
+  </data>
+  <data name="messageClosingApp" xml:space="preserve">
+    <value>Jeste li sigurni da želite zatvoriti aplikaciju?</value>
+  </data>
+  <data name="messageInitialSettings" xml:space="preserve">
+    <value>Morate izabrati jezik, prvenstvo i veličinu ekrana</value>
+  </data>
   <data name="next" xml:space="preserve">
     <value>Slijedeće</value>
   </data>
@@ -222,6 +231,9 @@
   </data>
   <data name="viewInfo" xml:space="preserve">
     <value>Informacije o timu</value>
+  </data>
+  <data name="warning" xml:space="preserve">
+    <value>Upozorenje</value>
   </data>
   <data name="wins" xml:space="preserve">
     <value>Pobjeda</value>

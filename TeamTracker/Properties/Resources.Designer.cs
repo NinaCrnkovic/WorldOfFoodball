@@ -274,6 +274,33 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The required data could not be loaded.
+        /// </summary>
+        public static string messageCantGetData {
+            get {
+                return ResourceManager.GetString("messageCantGetData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to close the app?.
+        /// </summary>
+        public static string messageClosingApp {
+            get {
+                return ResourceManager.GetString("messageClosingApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have to choose language, championship and screen size.
+        /// </summary>
+        public static string messageInitialSettings {
+            get {
+                return ResourceManager.GetString("messageInitialSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Next.
         /// </summary>
         public static string next {
@@ -383,6 +410,15 @@ namespace TeamTracker.Properties {
         public static string viewInfo {
             get {
                 return ResourceManager.GetString("viewInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string warning {
+            get {
+                return ResourceManager.GetString("warning", resourceCulture);
             }
         }
         

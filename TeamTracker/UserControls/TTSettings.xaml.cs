@@ -1,36 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TeamTracker.EventsArgsTT;
-using WorldOfFootball.CustomDesign;
+
 
 namespace TeamTracker.UserControls
 {
-    /// <summary>
-    /// Interaction logic for InitialSettings.xaml
-    /// </summary>
-    public partial class InitialSettings : UserControl
+     public partial class TTSettings : UserControl
     {
         string _language;
         bool _isWomens;
         string _screenSize;
-        public InitialSettings(string language, bool isWomens, string screenSize)
+        public TTSettings(string language, bool isWomens, string screenSize)
         {
             _language = language;
             _isWomens = isWomens;
             _screenSize = screenSize;
-       
+
             InitializeComponent();
             LoadData();
         }
@@ -39,33 +25,38 @@ namespace TeamTracker.UserControls
         {
             if (_language != null)
             {
-                if(_language == "hr")
+                if (_language == "hr")
                 {
                     rbCro.IsChecked = true;
                 }
-                else 
-                { 
-                    rbEn.IsChecked = true; 
-                }
-            }
-           
-           
-                if (_isWomens == true)
-                {
-                    rbF.IsChecked = true;
-                }
                 else
                 {
-                    rbM.IsChecked = true;
+                    rbEn.IsChecked = true;
                 }
-            
+            }
+            else
+            {
+                rbEn.IsChecked = true;
+            }
+
+
+            if (_isWomens == true)
+            {
+                rbF.IsChecked = true;
+            }
+            else
+            {
+                rbM.IsChecked = true;
+            }
+
+
             if (_screenSize != null)
             {
-                if(_screenSize == "Small")
+                if (_screenSize == "Small")
                 {
                     rbSmall.IsChecked = true;
                 }
-                else if(_screenSize == "Fullscreen")
+                else if (_screenSize == "Fullscreen")
                 {
                     rbFull.IsChecked = true;
                 }
@@ -73,6 +64,10 @@ namespace TeamTracker.UserControls
                 {
                     rbOriginal.IsChecked = true;
                 }
+            }
+            else
+            {
+                rbOriginal.IsChecked = true;
             }
         }
 
@@ -114,14 +109,15 @@ namespace TeamTracker.UserControls
             }
 
 
-            if(language == string.Empty || championship == string.Empty || screenSize == string.Empty)
+            if (language == string.Empty || championship == string.Empty || screenSize == string.Empty)
             {
-                CustomMessageBox.Show("You have to choose a language, championship and screen size", "Warning", System.Windows.Forms.MessageBoxButtons.OK, "en");
+                MessageBox.Show(Properties.Resources.messageInitialSettings, Properties.Resources.warning,MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
             else
             {
 
-            InitSett?.Invoke(this, new InitialSettingsEventArgs { Language = language, Championship = championship, ScreenSize = screenSize });
+                InitSett?.Invoke(this, new InitialSettingsEventArgs { Language = language, Championship = championship, ScreenSize = screenSize });
             }
 
 

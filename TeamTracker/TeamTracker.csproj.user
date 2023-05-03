@@ -16,7 +16,7 @@
     <Compile Update="UserControls\FirstEleven.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserControls\InitialSettings.xaml.cs">
+    <Compile Update="UserControls\TTSettings.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="UserControls\OverviewOfTheTeam.xaml.cs">
@@ -44,7 +44,7 @@
     <Page Update="UserControls\FirstEleven.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserControls\InitialSettings.xaml">
+    <Page Update="UserControls\TTSettings.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UserControls\OverviewOfTheTeam.xaml">
