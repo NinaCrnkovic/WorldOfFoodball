@@ -193,6 +193,9 @@
   <data name="messageClosingApp" xml:space="preserve">
     <value>Jeste li sigurni da želite zatvoriti aplikaciju?</value>
   </data>
+  <data name="messageConfirmSettings" xml:space="preserve">
+    <value>Jesteli sigurni da želite primijeniti izabrane postavke?</value>
+  </data>
   <data name="messageInitialSettings" xml:space="preserve">
     <value>Morate izabrati jezik, prvenstvo i veličinu ekrana</value>
   </data>

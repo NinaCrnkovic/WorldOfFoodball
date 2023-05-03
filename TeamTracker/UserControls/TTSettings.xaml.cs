@@ -116,8 +116,12 @@ namespace TeamTracker.UserControls
             }
             else
             {
-
-                InitSett?.Invoke(this, new InitialSettingsEventArgs { Language = language, Championship = championship, ScreenSize = screenSize });
+                var result = MessageBox.Show(Properties.Resources.messageConfirmSettings, Properties.Resources.warning, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+                if (result == MessageBoxResult.OK)
+                {
+                    InitSett?.Invoke(this, new InitialSettingsEventArgs { Language = language, Championship = championship, ScreenSize = screenSize });
+                }
+                return;
             }
 
 

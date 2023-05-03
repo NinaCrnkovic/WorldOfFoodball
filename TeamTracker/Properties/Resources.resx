@@ -193,6 +193,9 @@
   <data name="messageClosingApp" xml:space="preserve">
     <value>Are you sure you want to close the app?</value>
   </data>
+  <data name="messageConfirmSettings" xml:space="preserve">
+    <value>Are you sure you want to apply the selected settings?</value>
+  </data>
   <data name="messageInitialSettings" xml:space="preserve">
     <value>You have to choose language, championship and screen size</value>
   </data>

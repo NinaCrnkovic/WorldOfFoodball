@@ -292,6 +292,15 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to apply the selected settings?.
+        /// </summary>
+        public static string messageConfirmSettings {
+            get {
+                return ResourceManager.GetString("messageConfirmSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You have to choose language, championship and screen size.
         /// </summary>
         public static string messageInitialSettings {
