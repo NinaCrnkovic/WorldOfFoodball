@@ -1,23 +1,19 @@
 ﻿using DataLayer.Model;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
-using System.Windows.Resources;
+
 
 namespace TeamTracker.UserControls
 {
 
     public partial class FirstEleven : UserControl
     {
-        //private DataManager _dataManager = new();
+     
         private string _favoriteTeam;
         private string _oppositeTeam;
         private string _result;
@@ -38,6 +34,7 @@ namespace TeamTracker.UserControls
             FillLabels();
 
         }
+        #region Fill methods
 
         private void FillLabels()
         {
@@ -137,71 +134,6 @@ namespace TeamTracker.UserControls
             }
         }
 
-        private void PlayerControl_PlayerControlData(object sender, EventsArgsTT.PlayerControlEventArgs e)
-        {
-            string name = e.Name;
-            //I used the null-coalescing operator ??, which checks the first expression and if it is null, uses the second expression. This allows you to get a player from both teams in a single line of code.
-            Player player = _favoriteFirstEleven.FirstOrDefault(t => t.Name == name) ?? _oppositeFirstEleven.FirstOrDefault(t => t.Name == name);
-
-           
-
-
-            PlayerInfo playerInfo = new();
-            if (!string.IsNullOrEmpty(player.ImageTTPath))
-            {
-                string path = $"/TeamTracker;component/Resources/{player.ImagePath}";
-
-                playerInfo.imgPicture.Source = new BitmapImage(new Uri(path, UriKind.RelativeOrAbsolute));
-
-            }
-            else
-            {
-                playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
-            }
-
-
-
-            playerInfo.lblName.Content = player.Name;
-            playerInfo.lblGoals.Content = player.GoalsCount;
-            playerInfo.lblShirtNum.Content = player.ShirtNumber;
-            playerInfo.lblCartons.Content = player.YellowCartonCount;
-            playerInfo.lblRole.Content = player.Position;
-            playerInfo.lblCapitan.Content = player.Captain ? "yes" : "no";
-
-            StartAnimation(playerInfo);
-
-            playerInfo.ShowDialog();
-
-
-
-        }
-
-        private static void StartAnimation(PlayerInfo playerInfo)
-        {
-
-
-            // Stvaranje animacije
-            DoubleAnimation animation = new DoubleAnimation();
-            animation.From = 0;
-            animation.To = 1;
-            animation.Duration = TimeSpan.FromSeconds(3);
-
-            // Pokretanje animacije
-            playerInfo.BeginAnimation(UIElement.OpacityProperty, animation);
-            Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
-
-            // Create the storyboard and add the animation
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(animation);
-            storyboard.Begin(playerInfo);
-
-            playerInfo.Loaded += (s, ea) =>
-            {
-                // Start the storyboard when the dialog is loaded
-                storyboard.Begin(playerInfo);
-            };
-        }
-
         private void FillFirstElevenList()
         {
 
@@ -230,9 +162,9 @@ namespace TeamTracker.UserControls
                     }
                 }
             }
-          
 
-            if(_favoriteAllPlayers.Count > 0)
+
+            if (_favoriteAllPlayers.Count > 0)
             {
 
                 foreach (var player in _favoriteAllPlayers)
@@ -241,15 +173,90 @@ namespace TeamTracker.UserControls
                     {
                         if (player.ShirtNumber == first.ShirtNumber)
                         {
-                            player.ImageTTPath = first.ImageTTPath;
+                            player.ImagePath = first.ImagePath;
                         }
                     }
                 }
-              
+
 
             }
 
 
         }
+
+        #endregion
+
+        #region Player info
+
+        private void PlayerControl_PlayerControlData(object sender, EventsArgsTT.PlayerControlEventArgs e)
+        {
+            string name = e.Name;
+            //I used the null-coalescing operator ??, which checks the first expression and if it is null, uses the second expression. This allows you to get a player from both teams in a single line of code.
+            Player player = _favoriteFirstEleven.FirstOrDefault(t => t.Name == name) ?? _oppositeFirstEleven.FirstOrDefault(t => t.Name == name);
+
+
+
+
+            PlayerInfo playerInfo = new();
+            if (!string.IsNullOrEmpty(player.ImagePath))
+            {
+                // Stvaranje instance BitmapImage klase
+                BitmapImage bitmap = new BitmapImage();
+
+                //Postavljanje putanje slike
+                Uri resourceUri = new Uri(player.ImagePath, UriKind.Relative);
+                playerInfo.imgPicture.Source = new BitmapImage(resourceUri);
+                //nisam uspjela postaviti sliku ako se ne nalazi u Resource fajli i postavljen Built action na resource 
+
+
+            }
+            else
+            {
+                //ovdje je built action postavljen na resource
+                playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
+            }
+
+
+            playerInfo.lblName.Content = player.Name;
+            playerInfo.lblGoals.Content = player.GoalsCount;
+            playerInfo.lblShirtNum.Content = player.ShirtNumber;
+            playerInfo.lblCartons.Content = player.YellowCartonCount;
+            playerInfo.lblRole.Content = player.Position;
+            playerInfo.lblCapitan.Content = player.Captain ? "yes" : "no";
+
+            StartAnimation(playerInfo);
+
+            playerInfo.ShowDialog();
+
+
+
+        }
+        private static void StartAnimation(PlayerInfo playerInfo)
+        {
+
+
+            // Stvaranje animacije
+            DoubleAnimation animation = new DoubleAnimation();
+            animation.From = 0;
+            animation.To = 1;
+            animation.Duration = TimeSpan.FromSeconds(3);
+
+            // Pokretanje animacije
+            playerInfo.BeginAnimation(UIElement.OpacityProperty, animation);
+            Storyboard.SetTargetProperty(animation, new PropertyPath("Opacity"));
+
+            // Create the storyboard and add the animation
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(animation);
+            storyboard.Begin(playerInfo);
+
+            playerInfo.Loaded += (s, ea) =>
+            {
+                // Start the storyboard when the dialog is loaded
+                storyboard.Begin(playerInfo);
+            };
+        }
+
+        #endregion
     }
 }

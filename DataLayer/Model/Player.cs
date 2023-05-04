@@ -22,8 +22,6 @@ namespace DataLayer.Model
         [JsonProperty("imagePath")]
         public string ImagePath { get; set; }
 
-        [JsonProperty("imageTTPath")]
-        public string ImageTTPath { get; set; }
 
         [JsonProperty("goalsCount")]
         public int GoalsCount { get; set; } = 0;
@@ -45,14 +43,13 @@ namespace DataLayer.Model
                    ShirtNumber == player.ShirtNumber &&
                    Position == player.Position &&
                    ImagePath == player.ImagePath &&
-                   ImageTTPath == player.ImageTTPath &&
                    GoalsCount == player.GoalsCount &&
                    YellowCartonCount == player.YellowCartonCount;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(Name, Captain, ShirtNumber, Position, ImagePath, ImageTTPath, GoalsCount, YellowCartonCount);
+            return HashCode.Combine(Name, Captain, ShirtNumber, Position, ImagePath, GoalsCount, YellowCartonCount);
         }
     }
 }

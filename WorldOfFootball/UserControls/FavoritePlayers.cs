@@ -16,7 +16,7 @@ namespace WorldOfFootball.UserControls
 
         private string _teamName;
         private string _language;
-        private const string PATH = "..//..//..//..//TeamTracker//Resources//";
+ 
         private const string FILTER = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
         public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language, List<Player> favoritePlayers, List<Player> notFavoriePlayer)
         {
@@ -88,37 +88,38 @@ namespace WorldOfFootball.UserControls
 
         private void BtnChangeImage_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = FILTER;
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                string fileName = Path.GetFileName(openFileDialog.FileName);
-                string newPath = Path.Combine(PATH, fileName);
-                string newTTPath = fileName;
-                File.Copy(openFileDialog.FileName, newPath, true);
 
-                // Pronalazimo kontrolu koja je pokrenula događaj
-                Button clickedBtn = (Button)sender;
-                PlayerForm clickedPlayerForm = (PlayerForm)clickedBtn.Parent;
-                if (clickedPlayerForm == null)
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = FILTER;
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    return;
+                    string fileName = Path.GetFileName(openFileDialog.FileName);
+                    string imagePath = openFileDialog.FileName;
+
+                    // Pronalazimo kontrolu koja je pokrenula događaj
+                    Button clickedBtn = (Button)sender;
+                    PlayerForm clickedPlayerForm = (PlayerForm)clickedBtn.Parent;
+                    if (clickedPlayerForm == null)
+                    {
+                        return;
+                    }
+                    OvalPictureBox pbImage = clickedPlayerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
+                    pbImage.Image = new Bitmap(imagePath);
+
+                    // Get the shirt number of the player from the player form's Name property
+                    var shirtNumber = int.Parse(clickedPlayerForm.Name);
+                    var player = _players.FirstOrDefault(p => p.ShirtNumber == shirtNumber);
+                    if (player == null)
+                    {
+                        return;
+                    }
+                    player.ImagePath = imagePath;
                 }
-                OvalPictureBox pbImage = clickedPlayerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
-                pbImage.Image = new Bitmap(openFileDialog.FileName);
-                // Get the shirt number of the player from the player form's Name property
-                var shirtNumber = int.Parse(clickedPlayerForm.Name);
-                var player = _players.FirstOrDefault(p => p.ShirtNumber == shirtNumber);
-                if (player == null)
-                {
-                    return;
-                }
-                player.ImagePath = newPath;
-                player.ImageTTPath = newTTPath;
             }
 
 
-        }
+
+        
 
         private void PbMoveToAllPlayers_Click(object sender, EventArgs e)
         {

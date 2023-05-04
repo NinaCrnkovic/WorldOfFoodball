@@ -33,8 +33,9 @@
 
         <!-- Main content panel -->
         <ContentControl x:Name="Container">
-           
-            
+  
+
+
         </ContentControl>
 
     </DockPanel>

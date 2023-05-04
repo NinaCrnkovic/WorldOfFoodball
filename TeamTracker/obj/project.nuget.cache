@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "N7lqoxJcZErC+80ltAdiFHR60kMLIuMlaBqEL1JB1dv4GaV8QDjO5O+98CR6YyiVevp3CqzbA/5URymcGuPhxg==",
+  "dgSpecHash": "Sjtb1TkY9IRdnF05PpeSbPau46rKxSdmID4pgx+w1OnRKTrefDn4cpGzNRIRLh4LQyJd94OGuvsDpKlAR9yUMw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\Zanji wof\\TeamTracker\\TeamTracker.csproj",
+  "projectFilePath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\TeamTracker\\TeamTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\38598\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\38598\\.nuget\\packages\\restsharp\\110.1.0\\restsharp.110.1.0.nupkg.sha512",

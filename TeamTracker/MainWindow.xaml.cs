@@ -28,6 +28,7 @@ namespace TeamTracker
         private List<FootballMatch> _footballMatchList;
         private InitialWoFSettings _initialSettings = new();
         private FavoriteCountryandPlayersSetup _favoriteSettings = new();
+     
 
 
         public MainWindow()
@@ -68,7 +69,11 @@ namespace TeamTracker
                 _oppTeamCode = _dataManager.GetOppositeFifaCode();
                 _favPlayers = _dataManager.GetFavoritePlayers();
                 _notfavPlayers = _dataManager.GetNotFavoritePlayers();
-                _allPlayers = _favPlayers.Concat(_notfavPlayers).ToList();
+                if (_favPlayers != null)
+                {
+                    _allPlayers = _favPlayers.Concat(_notfavPlayers).ToList();
+                }
+            
 
             }
             catch (Exception)
@@ -76,6 +81,10 @@ namespace TeamTracker
                 MessageBox.Show(Properties.Resources.messageCantGetData, Properties.Resources.warning, MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
             }
+       
+                 
+         
+          
         }
 
         #endregion
