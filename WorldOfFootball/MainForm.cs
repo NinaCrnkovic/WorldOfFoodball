@@ -126,9 +126,9 @@ namespace WorldOfFootball
             try
             {
 
-            _loadingForm.StartLoader();
-            await _dataManager.LoadMaches(_isWomens);
-            _loadingForm.StopLoader();
+                _loadingForm.StartLoader();
+                 await _dataManager.LoadMaches(_isWomens);
+                _loadingForm.StopLoader();
             }
             catch (Exception ex)
             {
@@ -167,6 +167,7 @@ namespace WorldOfFootball
             try
             {
                 _loadingForm.StartLoader();
+                await Task.Delay(1000);
                 await _dataManager.SaveInitialSettingsToRepo(_initialWoFSettings);
                 _loadingForm.StopLoader();
             }

@@ -91,7 +91,7 @@ namespace TeamTracker {
             case 2:
             
             #line 25 "..\..\..\MainWindow.xaml"
-            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.Button_Click);
+            ((System.Windows.Controls.Button)(target)).Click += new System.Windows.RoutedEventHandler(this.BtnSettings_Click);
             
             #line default
             #line hidden

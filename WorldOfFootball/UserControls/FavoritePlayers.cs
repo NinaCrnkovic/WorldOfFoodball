@@ -166,6 +166,7 @@ namespace WorldOfFootball.UserControls
                     else
                     {
                         CallMessageOnly3Players();
+                        break;
 
                     }
                 }
@@ -412,6 +413,7 @@ namespace WorldOfFootball.UserControls
                         else
                         {
                             CallMessageOnly3Players();
+                            break;
 
                         }
                     }

@@ -22,7 +22,7 @@
           
             <Button HorizontalAlignment="Right"  
                     Background="#0F4C75" 
-                    Click="Button_Click">
+                    Click="BtnSettings_Click">
                 <Button.Content>
                     <Image Source="Resources\settings.png"  
                            Margin="25" />

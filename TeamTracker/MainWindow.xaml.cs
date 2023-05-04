@@ -201,6 +201,7 @@ namespace TeamTracker
            
 
             await _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
+            await _dataManager.SaveInitialSettingsToRepo(_initialSettings);
             SetScreenSize();
             CallFirstEleven();
         }
@@ -226,7 +227,7 @@ namespace TeamTracker
             CallOverviewOfTheTeam();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private async void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
 
             var result = MessageBox.Show(Properties.Resources.messageClosingApp, Properties.Resources.warning, MessageBoxButton.OKCancel, MessageBoxImage.Question);
@@ -235,11 +236,12 @@ namespace TeamTracker
             {
                 e.Cancel = true;
             }
-
+            await _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
+            await _dataManager.SaveInitialSettingsToRepo(_initialSettings);
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
             SetScreenSize();
             CallInitialSettings();
