@@ -125,7 +125,7 @@
     <value>1064, 440</value>
   </data>
   <data name="btnNextFavTeam.Text" xml:space="preserve">
-    <value>Next</value>
+    <value>Save and Continue</value>
   </data>
   <data name="pnlFavoritePlayers.Location" type="System.Drawing.Point, System.Drawing">
     <value>1066, 44</value>

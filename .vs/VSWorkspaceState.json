@@ -1,16 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\DataLayer",
-    "\\DataLayer\\ConfigurationFiles",
-    "\\DataLayer\\Model",
-    "\\DataLayer\\Repository",
-    "\\TeamTracker",
-    "\\TeamTracker\\Properties",
-    "\\TeamTracker\\UserControls",
-    "\\WorldOfFootball",
-    "\\WorldOfFootball\\UserControls"
+    ""
   ],
-  "SelectedNode": "\\TeamTracker\\MainWindow.xaml.cs",
+  "SelectedNode": "\\WorldOfFootball.sln",
   "PreviewInSolutionExplorer": false
 }

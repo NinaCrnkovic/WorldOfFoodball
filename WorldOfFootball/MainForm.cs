@@ -53,21 +53,18 @@ namespace WorldOfFootball
             if (_language == null)
             {
                 _language = "en";
-
                 CallLanguageAndChampionshipForm();
 
             }
             else if (_fifaCode == null)
             {
-                SetLanguage();
-
+               
                 CallFavoriteTeamForm();
 
             }
             else
             {
-                SetLanguage();
-
+             
                 CallFavoritePlayersForm();
 
             }
@@ -92,7 +89,7 @@ namespace WorldOfFootball
 
         private void CallLanguageAndChampionshipForm()
         {
-
+            SetLanguage();
             _languageAndChampionshipForm = new LanguageAndChampionship(_language);
             _languageAndChampionshipForm.LangAndChamp += BtnNextLangAndChamp_Click;
             _languageAndChampionshipForm.Dock = DockStyle.Fill;
@@ -104,17 +101,20 @@ namespace WorldOfFootball
             try
             {
                 _loadingForm.StartLoader();
+             
                 await _dataManager.LoadTeams(_isWomens);
+              
                 _loadingForm.StopLoader();
-                var teams = _dataManager.GetTeamsList();
-                _favoriteTeamForm = new FavoriteTeam(teams, _language, _fifaCode);
+          
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                CustomMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, "");
 
             }
-
+            SetLanguage();
+            var teams = _dataManager.GetTeamsList();
+            _favoriteTeamForm = new FavoriteTeam(teams, _language, _fifaCode);
             _favoriteTeamForm.Dock = DockStyle.Fill;
             _favoriteTeamForm.FavoriteTeamSelected += BtnNextFavoiriteTeam_Click;
             pnlContainer.Controls.Add(_favoriteTeamForm);
@@ -123,22 +123,34 @@ namespace WorldOfFootball
 
         private async void CallFavoritePlayersForm()
         {
+            try
+            {
+
             _loadingForm.StartLoader();
             await _dataManager.LoadMaches(_isWomens);
             _loadingForm.StopLoader();
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, "");
+            }
+            SetLanguage();
             var matches = _dataManager.GetMatchesList();
             _favoritePlayersForm = new FavoritePlayers(matches, _fifaCode, _language, _favoriteplayers, _notFavoriteplayers);
             _favoritePlayersForm.Dock = DockStyle.Fill;
             _favoritePlayersForm.FavoritePlayersList += BtnNextFavoritePlayers_Click;
             pnlContainer.Controls.Add(_favoritePlayersForm);
         }
-        private void CallRankingListForm(List<Player> allPlayersForCountry, string fifaCode)
+        private async void CallRankingListForm(List<Player> allPlayersForCountry, string fifaCode)
         {
             SetLanguage();
+            _loadingForm.StartLoader();
+            await Task.Delay(1000);
             var matches = _dataManager.GetMatchesList();
             _rankingListsForm = new RankingLists(matches, allPlayersForCountry, fifaCode);
             _rankingListsForm.Dock = DockStyle.Fill;
             pnlContainer.Controls.Add(_rankingListsForm);
+            _loadingForm.StopLoader();
 
         }
 
@@ -146,14 +158,23 @@ namespace WorldOfFootball
         #endregion
 
         #region Events on Buttons in Forms
-        private void BtnNextLangAndChamp_Click(object sender, LanguageAndChampionshipEventArgs e)
+        private async void BtnNextLangAndChamp_Click(object sender, LanguageAndChampionshipEventArgs e)
         {
             // Spremi odabrani jezik i prvenstvo u RepositoryConfig objekt
 
             _initialWoFSettings.Language = e.Language;
             _initialWoFSettings.Championship = e.Championship;
+            try
+            {
+                _loadingForm.StartLoader();
+                await _dataManager.SaveInitialSettingsToRepo(_initialWoFSettings);
+                _loadingForm.StopLoader();
+            }
+            catch (Exception ex)
+            {
+                CustomMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, "");
+            }
 
-            _dataManager.SaveInitialSettingsToRepo(_initialWoFSettings);
             _language = _initialWoFSettings.Language;
             if (_initialWoFSettings.Championship == "Mens")
             {
@@ -163,63 +184,51 @@ namespace WorldOfFootball
             {
                 _isWomens = true;
             }
-            SetLanguage();
-            _languageAndChampionshipForm.Dispose();
 
+            _languageAndChampionshipForm.Dispose();
 
 
             CallFavoriteTeamForm();
 
-
-
-
         }
-        private void BtnNextFavoiriteTeam_Click(object sender, FavoriteTeamEventArgs e)
+        private async void BtnNextFavoiriteTeam_Click(object sender, FavoriteTeamEventArgs e)
         {
             var favoriteTeam = e.favoriteTeam;
             _fifaCode = favoriteTeam.FifaCode;
             _favoriteCountryandPlayersSetup.FifaCodeFavCountry = _fifaCode;
             _favoriteCountryandPlayersSetup.FavoritePlayersList = null;
             _favoriteCountryandPlayersSetup.NotFavoritePlayersList = null;
-            _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
-
+            await SaveAllSettingsToFile();  
             _favoriteTeamForm.Dispose();
             CallFavoritePlayersForm();
 
-
-
         }
 
-        private void BtnNextFavoritePlayers_Click(object sender, FavoritePlayersTeamEventArgs e)
+        private async void BtnNextFavoritePlayers_Click(object sender, FavoritePlayersTeamEventArgs e)
         {
             _favoriteCountryandPlayersSetup.FavoritePlayersList = e.FavoritePlayersList;
             _favoriteCountryandPlayersSetup.NotFavoritePlayersList = e.NotFavoritePlayersList;
             _favoriteCountryandPlayersSetup.FifaCodeFavCountry = e.FifaCodeFavCountry;
             _fifaCode = e.FifaCodeFavCountry;
             var allPlayersForCountry = e.AllPlayers;
-
-
-            _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
-            _dataManager.SaveInitialSettingsToRepo(_initialWoFSettings);
+            await SaveAllSettingsToFile();
             pnlContainer.Controls.Clear();
-
-
             _favoritePlayersForm.Dispose();
             CallRankingListForm(allPlayersForCountry, _fifaCode);
 
 
         }
 
+        
+
 
         #endregion
 
         #region Events on Buttons in Main Form
-        private void PbSettings_Click(object sender, EventArgs e)
+        private async void PbSettings_Click(object sender, EventArgs e)
         {
             pnlContainer.Controls.Clear();
-            _favoriteplayers = null;
-            _notFavoriteplayers = null;
-
+            await SaveAllSettingsToFile();
             CallLanguageAndChampionshipForm();
 
 
@@ -227,7 +236,7 @@ namespace WorldOfFootball
 
 
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        private async void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             string message;
             string warning;
@@ -251,6 +260,7 @@ namespace WorldOfFootball
                 e.Cancel = true; // ovdje sprijeèavamo zatvaranje aplikacije
             }
 
+            await SaveAllSettingsToFile();
 
 
         }
@@ -258,10 +268,28 @@ namespace WorldOfFootball
 
         #region Methods
 
+        private async Task SaveAllSettingsToFile()
+        {
+            try
+            {
+                _loadingForm.StartLoader();
+                //da bi se pokazala loading forma
+                await Task.Delay(1000);
+                await _dataManager.SaveFavoritePlayersToRepo(_favoriteCountryandPlayersSetup);
+                await _dataManager.SaveInitialSettingsToRepo(_initialWoFSettings);
+             
+                _loadingForm.StopLoader();
+            }
+            catch (Exception ex)
+            {
+
+                CustomMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, "");
+            }
+        }
+
         private void LoadSettings()
         {
-
-            //_loadingForm.StartLoader();
+                      
             try
             {
                 _language = _dataManager.GetLanguage();
@@ -275,8 +303,7 @@ namespace WorldOfFootball
                 CustomMessageBox.Show(ex.Message, "Warning", MessageBoxButtons.OK, _language);
 
             }
-
-            //_loadingForm.StopLoader();
+                       
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -293,10 +320,7 @@ namespace WorldOfFootball
 
         private void SetLanguage()
         {
-
-            Thread.CurrentThread.CurrentCulture = new CultureInfo(_language);
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(_language);
-
         }
 
 
