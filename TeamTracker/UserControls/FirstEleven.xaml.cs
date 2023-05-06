@@ -201,18 +201,22 @@ namespace TeamTracker.UserControls
             if (!string.IsNullOrEmpty(player.ImagePath))
             {
                 // Stvaranje instance BitmapImage klase
-                BitmapImage bitmap = new BitmapImage();
+                //BitmapImage bitmap = new BitmapImage();
 
+                Image image = new();
+                image.Source = new BitmapImage(new Uri(player.ImagePath, UriKind.RelativeOrAbsolute)); ;
                 //Postavljanje putanje slike
-                Uri resourceUri = new Uri(player.ImagePath, UriKind.Relative);
-                playerInfo.imgPicture.Source = new BitmapImage(resourceUri);
+                //Uri resourceUri = new Uri(player.ImagePath, UriKind.RelativeOrAbsolute);
+                playerInfo.imgPicture = image;
+
+                //playerInfo.imgPicture.Source = new BitmapImage(resourceUri);
                 //nisam uspjela postaviti sliku ako se ne nalazi u Resource fajli i postavljen Built action na resource 
 
 
             }
             else
             {
-                //ovdje je built action postavljen na resource
+                //    //ovdje je built action postavljen na resource
                 playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
             }
 

@@ -181,9 +181,11 @@ namespace DataLayer.Model
             {
                 return false;
             }
-           
+
             return true;
-        } 
+        }
+
+        public string GetChampionshipString() => _champinonship;
 
         #endregion
     }

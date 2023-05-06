@@ -44,7 +44,7 @@ namespace TeamTracker.UserControls
             {
                 rbF.IsChecked = true;
             }
-            else
+            else if (_isWomens == false)
             {
                 rbM.IsChecked = true;
             }

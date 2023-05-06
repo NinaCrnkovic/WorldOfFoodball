@@ -44,14 +44,15 @@ namespace TeamTracker
         #region Load methods
         private void LoadFirstScreen()
         {
-            if (_language != null || _screenSize != null)
+            if (_language != null || _screenSize != null || _championship == null)
             {
 
                 CallOverviewOfTheTeam();
 
             }
-            else
+             else
             {
+
                 CallInitialSettings();
             }
 
@@ -63,7 +64,14 @@ namespace TeamTracker
             {
                 await _dataManager.LoadSavedSettings();
                 _language = _dataManager.GetLanguage();
-                _isWomens = _dataManager.GetChampionship();
+                _championship = _dataManager.GetChampionshipString();
+                if (_championship == "Mens")
+                {
+                    _isWomens = false;
+                }else if(_championship == "Womens"){
+                    _isWomens=true;
+                }
+                //_isWomens = _dataManager.GetChampionship();
                 _screenSize = _dataManager.GetScreenSize();
                 _favTeamCode = _dataManager.GetFavFifaCode();
                 _oppTeamCode = _dataManager.GetOppositeFifaCode();
@@ -207,11 +215,13 @@ namespace TeamTracker
                 _favoriteSettings.FavoritePlayersList = _favPlayers;
                 _favoriteSettings.NotFavoritePlayersList = _notfavPlayers;
             }
-           
+            _initialSettings.Language = _language;
+            _initialSettings.Championship = _championship;
 
             await _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
             await _dataManager.SaveInitialSettingsToRepo(_initialSettings);
             SetScreenSize();
+            LoadInitialSettings();
             CallFirstEleven();
         }
 
@@ -245,6 +255,13 @@ namespace TeamTracker
             {
                 e.Cancel = true;
             }
+            _initialSettings.Language = _language;
+            _initialSettings.Championship = _championship;
+            _initialSettings.ScreenSize = _screenSize;
+            _favoriteSettings.FifaCodeFavCountry = _favTeamCode;
+            _favoriteSettings.OppositeTeam = _oppTeamCode;
+            _favoriteSettings.FavoritePlayersList = _favPlayers;
+            _favoriteSettings.NotFavoritePlayersList = _notfavPlayers;
             await _dataManager.SaveFavoritePlayersToRepo(_favoriteSettings);
             await _dataManager.SaveInitialSettingsToRepo(_initialSettings);
 

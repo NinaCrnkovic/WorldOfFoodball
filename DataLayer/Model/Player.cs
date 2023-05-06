@@ -30,8 +30,10 @@ namespace DataLayer.Model
 
         public Player()
         {
-      
-            ImagePath = IMG_PATH;
+           
+                ImagePath = IMG_PATH;
+           
+         
         }
 
         public override bool Equals(object obj)
