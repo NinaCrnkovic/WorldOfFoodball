@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\programer10\\Desktop\\WOF\\WorldOfFootball\\WorldOfFootball.csproj": {}
+    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj": {}
   },
   "projects": {
-    "C:\\Users\\programer10\\Desktop\\WOF\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\programer10\\Desktop\\WOF\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\programer10\\Desktop\\WOF\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\programer10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\programer10\\Desktop\\WOF\\DataLayer\\obj\\",
+        "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\38598\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\programer10\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\38598\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -55,7 +61,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -64,22 +71,28 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\programer10\\Desktop\\WOF\\WorldOfFootball\\WorldOfFootball.csproj": {
+    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\programer10\\Desktop\\WOF\\WorldOfFootball\\WorldOfFootball.csproj",
+        "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj",
         "projectName": "WorldOfFootball",
-        "projectPath": "C:\\Users\\programer10\\Desktop\\WOF\\WorldOfFootball\\WorldOfFootball.csproj",
-        "packagesPath": "C:\\Users\\programer10\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\programer10\\Desktop\\WOF\\WorldOfFootball\\obj\\",
+        "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj",
+        "packagesPath": "C:\\Users\\38598\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\programer10\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\38598\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0-windows7.0"
@@ -92,8 +105,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\programer10\\Desktop\\WOF\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\programer10\\Desktop\\WOF\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj"
               }
             }
           }
@@ -119,7 +132,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -131,7 +145,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.113\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -168,13 +168,13 @@ namespace TeamTracker.UserControls
             if (_favoriteAllPlayers.Count > 0)
             {
 
-                foreach (var player in _favoriteAllPlayers)
+                foreach (var first in _favoriteFirstEleven)
                 {
-                    foreach (var first in _favoriteFirstEleven)
+                    foreach (var player in _favoriteAllPlayers)
                     {
                         if (player.ShirtNumber == first.ShirtNumber)
                         {
-                            player.ImagePath = first.ImagePath;
+                            first.ImagePath = player.ImagePath;
                         }
                     }
                 }
@@ -198,21 +198,26 @@ namespace TeamTracker.UserControls
 
 
             PlayerInfo playerInfo = new();
-            if (!string.IsNullOrEmpty(player.ImagePath))
+          
+            if (player.ImagePath == "..//..//..//..//DataLayer//Resources//Maradona.jpeg")
+            {
+                Image image = new();
+                BitmapImage bitmap = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
+                image.Source = bitmap;
+                playerInfo.spImage.Children.Add(image);
+              
+            }
+            else if (!string.IsNullOrEmpty(player.ImagePath))
             {
                 // Stvaranje instance BitmapImage klase
-      
+
                 Image image = new();
-                image.Source = new BitmapImage(new Uri(player.ImagePath, UriKind.RelativeOrAbsolute)); ;
-                playerInfo.imgPicture = image;
+                BitmapImage bitmap = new BitmapImage(new Uri(player.ImagePath, UriKind.RelativeOrAbsolute));
+                image.Source = bitmap;
+                playerInfo.spImage.Children.Add(image);
 
-         
 
-            }
-            else
-            {
-                //    //ovdje je built action postavljen na resource
-                playerInfo.imgPicture.Source = new BitmapImage(new Uri("/Resources/Maradona.jpeg", UriKind.RelativeOrAbsolute));
+
             }
 
 

@@ -71,7 +71,7 @@ namespace TeamTracker
                 }else if(_championship == "Womens"){
                     _isWomens=true;
                 }
-                //_isWomens = _dataManager.GetChampionship();
+     
                 _screenSize = _dataManager.GetScreenSize();
                 _favTeamCode = _dataManager.GetFavFifaCode();
                 _oppTeamCode = _dataManager.GetOppositeFifaCode();

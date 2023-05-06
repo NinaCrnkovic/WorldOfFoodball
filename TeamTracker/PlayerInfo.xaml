@@ -32,11 +32,14 @@
             <RowDefinition />
       
         </Grid.RowDefinitions>
+        <StackPanel x:Name="spImage">
+            
+        </StackPanel>
 
-        <Image Grid.Column="0"
+        <!--<Image Grid.Column="0"
                Grid.Row="0" 
                Source="/Resources/Maradona.jpeg" 
-               x:Name="imgPicture"/>
+               x:Name="imgPicture"/>-->
 
         <Label Grid.Column="1" 
                Grid.Row="0" 
