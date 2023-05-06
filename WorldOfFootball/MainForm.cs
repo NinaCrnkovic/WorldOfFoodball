@@ -220,6 +220,8 @@ namespace WorldOfFootball
             _favoriteCountryandPlayersSetup.NotFavoritePlayersList = e.NotFavoritePlayersList;
             _favoriteCountryandPlayersSetup.FifaCodeFavCountry = e.FifaCodeFavCountry;
             _fifaCode = e.FifaCodeFavCountry;
+            _initialWoFSettings.Language = _language;
+            _initialWoFSettings.Championship = _fifaCode;
             var allPlayersForCountry = e.AllPlayers;
             await SaveAllSettingsToFile();
             pnlContainer.Controls.Clear();
