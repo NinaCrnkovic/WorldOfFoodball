@@ -192,26 +192,20 @@ namespace TeamTracker.UserControls
         {
             string name = e.Name;
             //I used the null-coalescing operator ??, which checks the first expression and if it is null, uses the second expression. This allows you to get a player from both teams in a single line of code.
+            
             Player player = _favoriteFirstEleven.FirstOrDefault(t => t.Name == name) ?? _oppositeFirstEleven.FirstOrDefault(t => t.Name == name);
-
-
 
 
             PlayerInfo playerInfo = new();
             if (!string.IsNullOrEmpty(player.ImagePath))
             {
                 // Stvaranje instance BitmapImage klase
-                //BitmapImage bitmap = new BitmapImage();
-
+      
                 Image image = new();
                 image.Source = new BitmapImage(new Uri(player.ImagePath, UriKind.RelativeOrAbsolute)); ;
-                //Postavljanje putanje slike
-                //Uri resourceUri = new Uri(player.ImagePath, UriKind.RelativeOrAbsolute);
                 playerInfo.imgPicture = image;
 
-                //playerInfo.imgPicture.Source = new BitmapImage(resourceUri);
-                //nisam uspjela postaviti sliku ako se ne nalazi u Resource fajli i postavljen Built action na resource 
-
+         
 
             }
             else
