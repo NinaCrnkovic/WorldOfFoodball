@@ -143,6 +143,7 @@ namespace TeamTracker.UserControls
                 {
                     foreach (var startingPlayer in match.HomeTeamStatistics.StartingEleven)
                     {
+                        
                         _favoriteFirstEleven.Add(startingPlayer);
                     }
                     foreach (var startingPlayer in match.AwayTeamStatistics.StartingEleven)
