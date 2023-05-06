@@ -198,7 +198,7 @@ namespace TeamTracker.UserControls
 
 
             PlayerInfo playerInfo = new();
-            if (!string.IsNullOrEmpty(player.ImagePath))
+            if (!string.IsNullOrEmpty(player.ImagePath) || player.ImagePath == "..//..//..//..//DataLayer//Resources//Maradona.jpeg")
             {
                 // Stvaranje instance BitmapImage klase
                 BitmapImage bitmap = new BitmapImage();
