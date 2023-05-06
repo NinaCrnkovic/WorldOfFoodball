@@ -18,7 +18,7 @@ namespace WorldOfFootball.UserControls
         private string _language;
  
         private const string FILTER = "Slike|*.jpg;*.jpeg;*.png;*.bmp|Sve datoteke|*.*";
-        private const string IMG_PATH = "..//..//..//..//DataLayer//Resources//Maradona.jpeg";
+     
         public FavoritePlayers(List<FootballMatch> matches, string fifaCode, string language, List<Player> favoritePlayers, List<Player> notFavoriePlayer)
         {
             InitializeComponent();
@@ -283,14 +283,9 @@ namespace WorldOfFootball.UserControls
                 }
                
                 OvalPictureBox pbImage = _playerForm.Controls.Find("pbImage", true).FirstOrDefault() as OvalPictureBox;
-                if(player.ImagePath != null)
-                {
-                    pbImage.Image = Image.FromFile(player.ImagePath);
-                }
-                else
-                {
-                    pbImage.Image = Image.FromFile(IMG_PATH);
-                }
+              
+                pbImage.Image = Image.FromFile(player.ImagePath);
+             
             
               
                 Button btnPicture = _playerForm.Controls.Find("btnPicture", true).FirstOrDefault() as Button;

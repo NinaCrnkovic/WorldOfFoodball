@@ -128,6 +128,7 @@ namespace WorldOfFootball
 
                 _loadingForm.StartLoader();
                  await _dataManager.LoadMaches(_isWomens);
+                
                 _loadingForm.StopLoader();
             }
             catch (Exception ex)
@@ -195,11 +196,19 @@ namespace WorldOfFootball
         private async void BtnNextFavoiriteTeam_Click(object sender, FavoriteTeamEventArgs e)
         {
             var favoriteTeam = e.favoriteTeam;
-            _fifaCode = favoriteTeam.FifaCode;
+            if(favoriteTeam.FifaCode != _fifaCode)
+            {
+                _fifaCode = favoriteTeam.FifaCode;
+                _favoriteCountryandPlayersSetup.FavoritePlayersList = null;
+                _favoriteCountryandPlayersSetup.NotFavoritePlayersList = null;
+            }
+         
             _favoriteCountryandPlayersSetup.FifaCodeFavCountry = _fifaCode;
-            _favoriteCountryandPlayersSetup.FavoritePlayersList = null;
-            _favoriteCountryandPlayersSetup.NotFavoritePlayersList = null;
-            await SaveAllSettingsToFile();  
+        
+           
+            await SaveAllSettingsToFile();
+            await _dataManager.LoadSavedSettings();
+            LoadSettings();
             _favoriteTeamForm.Dispose();
             CallFavoritePlayersForm();
 

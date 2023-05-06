@@ -5,8 +5,7 @@ namespace DataLayer.Model
     
     public class Player
     {
-        //private const string IMG_PATH = "..//..//..//..//DataLayer//Resources//Maradona.jpeg";
-
+        private const string IMG_PATH = "..//..//..//..//DataLayer//Resources//Maradona.jpeg";
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -31,8 +30,8 @@ namespace DataLayer.Model
 
         public Player()
         {
-            //ImagePath = IMG_PATH;
-            
+      
+            ImagePath = IMG_PATH;
         }
 
         public override bool Equals(object obj)
