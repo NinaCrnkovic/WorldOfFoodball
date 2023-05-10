@@ -35,25 +35,26 @@ namespace TeamTracker
         {
             LoadInitialSettings();
             InitializeComponent();
-           
+            LoadFirstScreen();
             SetLanguage();
             SetScreenSize();
-            LoadFirstScreen();
+         
         }
 
         #region Load methods
         private void LoadFirstScreen()
         {
-            if (_language != null || _screenSize != null || _championship == null)
+            if (_language == null || _screenSize == null || _championship == null)
             {
+                CallInitialSettings();
 
-                CallOverviewOfTheTeam();
 
             }
              else
             {
+                CallOverviewOfTheTeam();
 
-                CallInitialSettings();
+              
             }
 
         }
@@ -112,7 +113,7 @@ namespace TeamTracker
         }
         private void SetScreenSize()
         {
-            if (_screenSize is null || _screenSize == "Original")
+            if (_screenSize == "Original")
             {
                 // Get reference to the window
                 Window window = System.Windows.Application.Current.MainWindow;

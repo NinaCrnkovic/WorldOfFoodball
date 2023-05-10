@@ -183,7 +183,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\PlayerInfo.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.g.cs
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\InitialSettings.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\PlayerControl.g.cs
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\App.g.cs
@@ -194,7 +193,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\PlayerInfo.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\FirstEleven.baml
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\InitialSettings.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\OverviewOfTheTeam.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\PlayerControl.baml
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.g.resources
@@ -326,3 +324,5 @@ C:\Users\programer10\Desktop\WOF\TeamTracker\obj\Debug\net6.0-windows\UserContro
 C:\Users\programer10\Desktop\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\TTSettings.baml
 C:\Users\programer10\Desktop\WOF\TeamTracker\obj\Debug\net6.0-windows\TeamTracker.Properties.Resources.hr.resources
 C:\Users\programer10\Desktop\WOF\TeamTracker\obj\Debug\net6.0-windows\hr\TeamTracker.resources.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\TTSettings.g.cs
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\TeamTracker\obj\Debug\net6.0-windows\UserControls\TTSettings.baml

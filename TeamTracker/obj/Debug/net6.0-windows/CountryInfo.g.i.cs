@@ -126,7 +126,7 @@ namespace TeamTracker {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TeamTracker;V1.0.0.0;component/countryinfo.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TeamTracker;component/countryinfo.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CountryInfo.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
