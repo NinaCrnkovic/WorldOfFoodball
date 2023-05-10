@@ -130,6 +130,9 @@
   <data name="championship" xml:space="preserve">
     <value>Prvenstvo</value>
   </data>
+  <data name="countryInfo" xml:space="preserve">
+    <value>Infromacije o državi</value>
+  </data>
   <data name="countryName" xml:space="preserve">
     <value>Naziv države</value>
   </data>
@@ -155,7 +158,7 @@
     <value>Puni zaslon</value>
   </data>
   <data name="gamesPlayed" xml:space="preserve">
-    <value>Odigranih utakmica</value>
+    <value>Odigranih</value>
   </data>
   <data name="goal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\goal.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

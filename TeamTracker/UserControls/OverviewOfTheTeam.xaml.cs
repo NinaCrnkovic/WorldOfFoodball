@@ -20,14 +20,16 @@ namespace TeamTracker.UserControls
         private List<Result> _results;
         private string _favoriteFifaCode;
         private string _oppositeFifaCode;
+        private static string _language;
 
-        public OverviewOfTheTeam(bool isWomens, string favoriteTeamCode, string oppositeTemCode)
+        public OverviewOfTheTeam(bool isWomens, string favoriteTeamCode, string oppositeTemCode, string language)
         {
             InitializeComponent();
 
             _isWomens = isWomens;
             _favoriteFifaCode = favoriteTeamCode;
             _oppositeFifaCode = oppositeTemCode;
+            _language = language;
             GetMatches();
             GetTeams();
             FillFavoriteComboBox();
@@ -338,7 +340,8 @@ namespace TeamTracker.UserControls
         #region Country info window
         private static void OpenCountryInfoWindow(Result result)
         {
-            CountryInfo country = new();
+        
+            CountryInfo country = new CountryInfo(_language);
             FillCountriInfoWindow(result, country);
 
             DoubleAnimation animation = new DoubleAnimation();

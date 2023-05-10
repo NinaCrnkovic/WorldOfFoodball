@@ -99,6 +99,15 @@ namespace TeamTracker.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Country Info.
+        /// </summary>
+        public static string countryInfo {
+            get {
+                return ResourceManager.GetString("countryInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Country name.
         /// </summary>
         public static string countryName {

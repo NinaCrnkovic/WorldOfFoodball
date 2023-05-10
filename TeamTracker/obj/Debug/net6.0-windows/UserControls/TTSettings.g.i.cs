@@ -110,7 +110,7 @@ namespace TeamTracker.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/TeamTracker;component/usercontrols/ttsettings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/TeamTracker;V1.0.0.0;component/usercontrols/ttsettings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\TTSettings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

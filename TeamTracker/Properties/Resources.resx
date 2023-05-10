@@ -130,6 +130,9 @@
   <data name="championship" xml:space="preserve">
     <value>Championship</value>
   </data>
+  <data name="countryInfo" xml:space="preserve">
+    <value>Country Info</value>
+  </data>
   <data name="countryName" xml:space="preserve">
     <value>Country name</value>
   </data>

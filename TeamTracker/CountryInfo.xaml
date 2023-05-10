@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TeamTracker"
         xmlns:props="clr-namespace:TeamTracker.Properties"
         mc:Ignorable="d"
-        Title="CountryInfo" Height="400" Width="300" 
+        Title="Country Info" Height="400" Width="300" 
           Icon="Resources/favicon.ico"
         WindowStartupLocation="CenterScreen" Foreground="WhiteSmoke">
     <Window.Resources>

@@ -35,26 +35,26 @@ namespace TeamTracker
         {
             LoadInitialSettings();
             InitializeComponent();
-            LoadFirstScreen();
+     
             SetLanguage();
             SetScreenSize();
-         
+            LoadFirstScreen();
+
         }
 
         #region Load methods
         private void LoadFirstScreen()
         {
-            if (_language == null || _screenSize == null || _championship == null)
+            if (_language != null || _screenSize != null || _championship != null)
             {
-                CallInitialSettings();
 
-
-            }
-             else
-            {
                 CallOverviewOfTheTeam();
 
-              
+            }
+            else
+            {
+
+                CallInitialSettings();
             }
 
         }
@@ -113,7 +113,7 @@ namespace TeamTracker
         }
         private void SetScreenSize()
         {
-            if (_screenSize == "Original")
+            if (_screenSize is null || _screenSize == "Original")
             {
                 // Get reference to the window
                 Window window = System.Windows.Application.Current.MainWindow;
@@ -172,7 +172,7 @@ namespace TeamTracker
         private void CallOverviewOfTheTeam()
         {
 
-            OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode);
+            OverviewOfTheTeam overview = new(_isWomens, _favTeamCode, _oppTeamCode, _language);
             overview.TeamOverview += OverviewBtn_Click;
             overview.BackClick += OverwievBack_Click;
             Container.Content = overview;
