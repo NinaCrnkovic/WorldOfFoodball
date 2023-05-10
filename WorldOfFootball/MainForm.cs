@@ -202,7 +202,11 @@ namespace WorldOfFootball
                 _favoriteCountryandPlayersSetup.FavoritePlayersList = null;
                 _favoriteCountryandPlayersSetup.NotFavoritePlayersList = null;
             }
-         
+            else
+            {
+                _favoriteCountryandPlayersSetup.FavoritePlayersList = _favoriteplayers;
+                _favoriteCountryandPlayersSetup.NotFavoritePlayersList = _notFavoriteplayers;
+            }
             _favoriteCountryandPlayersSetup.FifaCodeFavCountry = _fifaCode;
         
            
@@ -221,7 +225,6 @@ namespace WorldOfFootball
             _favoriteCountryandPlayersSetup.FifaCodeFavCountry = e.FifaCodeFavCountry;
             _fifaCode = e.FifaCodeFavCountry;
             _initialWoFSettings.Language = _language;
-            _initialWoFSettings.Championship = _fifaCode;
             var allPlayersForCountry = e.AllPlayers;
             await SaveAllSettingsToFile();
             pnlContainer.Controls.Clear();

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj": {}
+    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\WorldOfFootball\\WorldOfFootball.csproj": {}
   },
   "projects": {
-    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj",
+        "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\38598\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\obj\\",
+        "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj": {
+    "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\WorldOfFootball\\WorldOfFootball.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj",
+        "projectUniqueName": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\WorldOfFootball\\WorldOfFootball.csproj",
         "projectName": "WorldOfFootball",
-        "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\WorldOfFootball.csproj",
+        "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\WorldOfFootball\\WorldOfFootball.csproj",
         "packagesPath": "C:\\Users\\38598\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\WorldOfFootball\\obj\\",
+        "outputPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\WorldOfFootball\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -105,8 +105,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\OOP_projekt_Nina_Crnkovic\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\38598\\Documents\\Faks\\4.semestar 2022-23\\OOP\\OOP projekt\\WOF\\DataLayer\\DataLayer.csproj"
               }
             }
           }

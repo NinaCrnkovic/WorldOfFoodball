@@ -86,3 +86,5 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\OOP_projekt_Nin
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\OOP_projekt_Nina_Crnkovic\DataLayer\obj\Debug\net6.0\DataLayer.csproj.GenerateResource.cache
 C:\Users\programer10\Desktop\WOF\DataLayer\obj\Debug\net6.0\DataLayer.Properties.Resources.resources
 C:\Users\programer10\Desktop\WOF\DataLayer\obj\Debug\net6.0\DataLayer.csproj.GenerateResource.cache
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\DataLayer\obj\Debug\net6.0\DataLayer.Properties.Resources.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\DataLayer\obj\Debug\net6.0\DataLayer.csproj.GenerateResource.cache

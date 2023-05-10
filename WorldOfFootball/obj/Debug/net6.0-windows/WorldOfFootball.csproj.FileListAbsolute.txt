@@ -252,8 +252,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFoot
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.pdb
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.genruntimeconfig.cache
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\ref\WorldOfFootball.dll
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.Properties.Resources.en.resources
-C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.Properties.Resources.hr.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Zanji wof\WorldOfFootball\bin\Debug\net6.0-windows\WorldOfFootball.exe
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Zanji wof\WorldOfFootball\bin\Debug\net6.0-windows\WorldOfFootball.deps.json
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\Zanji wof\WorldOfFootball\bin\Debug\net6.0-windows\WorldOfFootball.runtimeconfig.json
@@ -356,3 +354,4 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\OOP_projekt_Nin
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\OOP_projekt_Nina_Crnkovic\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.pdb
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\OOP_projekt_Nina_Crnkovic\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.genruntimeconfig.cache
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\OOP_projekt_Nina_Crnkovic\WorldOfFootball\obj\Debug\net6.0-windows\ref\WorldOfFootball.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\OOP\OOP projekt\WOF\WorldOfFootball\obj\Debug\net6.0-windows\WorldOfFootball.Properties.Resources.resources
